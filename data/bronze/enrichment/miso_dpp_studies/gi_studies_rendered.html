@@ -1,0 +1,1092 @@
+<!DOCTYPE html><html lang="en"><head>
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtm.js?id=G-4M1XDNMYMK"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-4M1XDNMYMK"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-4M1XDNMYMK');
+    </script>
+
+    
+    
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Generator Interconnection Studies</title>
+
+
+    <meta name="keywords" content="GI Studies">
+
+
+<meta property="og:title" content="Generator Interconnection Studies">
+
+
+<meta property="og:url" content="https://www.misoenergy.org/planning/resource-utilization/GI_Studies/">
+
+<link href="https://www.misoenergy.org/planning/resource-utilization/GI_Studies/" rel="canonical">
+
+    
+
+    <link rel="icon" href="/siteassets/favicons/miso-icon-only---blue-green---whitebg_rgb_16.png" sizes="16x16">
+
+    <link rel="icon" href="/siteassets/favicons/miso-icon-only---blue-green---whitebg_rgb_32.png" sizes="32x32">
+
+    <link rel="icon" href="/siteassets/favicons/miso-icon-only---blue-green---whitebg_rgb_128.png" sizes="128x128">
+
+    <link rel="icon" href="/siteassets/favicons/miso-icon-only---blue-green---whitebg_rgb_192.png" sizes="192x192">
+
+    <link rel="icon" href="/siteassets/favicons/miso-icon-only---blue-green---whitebg_rgb_196.png" sizes="196x196">
+    <link rel="apple-touch-icon" href="/siteassets/favicons/miso-icon-only---blue-green---whitebg_rgb_152.png">
+    <link rel="apple-touch-icon" href="/siteassets/favicons/miso-icon-only---blue-green---whitebg_rgb_152.png" sizes="152x152">
+
+    <link rel="apple-touch-icon" href="/siteassets/favicons/miso-icon-only---blue-green---whitebg_rgb_167.png" sizes="167x167">
+
+    <link rel="apple-touch-icon" href="/siteassets/favicons/miso-icon-only---blue-green---whitebg_rgb_180.png" sizes="180x180">
+
+
+    <link rel="icon" href="/siteassets/favicons/favicon.ico">
+
+
+    <link rel="manifest" href="/contentassets/9d01bda5cf224047a5020e2ce1ffa81e/pwamanifest.webmanifest">
+
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+
+    <meta name="theme-color" content="#FFFFFF">
+
+    
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'G-4M1XDNMYMK');</script>
+    <!-- End Google Tag Manager -->
+
+
+
+    <script src="/vendor/jquery/dist/jquery.js"></script>
+    <script src="/vendor/popperjs/core/dist/umd/popper.min.js"></script>
+    <script src="/vendor/bootstrap/dist/js/bootstrap.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet">
+    <link href="/vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/bundles/v-639241256762170059/app.css" rel="stylesheet">
+
+    <script src="/bundles/v-639241256762170059/bundle.common.js"></script>
+    <script src="/bundles/v-639241256762170059/bundle.react.js"></script>
+    <script src="/bundles/v-639241256762170059/bundle.app.js"></script><style>@media (max-width: 767px) {
+	.mobilehidden {
+		display: none;
+	}
+}
+
+.ValidateCssUpdateV1_2 {
+	display: none;
+}
+
+.contentbreakerblock {
+	width: 100%;
+	float: none;
+	clear: both;
+}
+
+.block {
+	word-wrap:break-word;
+    float:left;
+    width:100%;
+}
+.block.pull-right {
+	float:right;
+}
+@media screen and (min-width: 768px){
+    .block.col-sm-4 { width: 33.33333% !important; }
+    .block.col-sm-6 { width: 50% !important;}
+    .block.col-sm-8 { width: 66.66667% !important; }    
+}
+
+.epi-editContainer {
+    float:left;
+    width: 100%;
+}
+
+.section-header-fix {
+    /*margin-top: -7px;*/
+}
+
+/*.sectionblock-border { border: 1px solid #7f8f90;}*/
+    /*.sectionblock-background {background: #ccc;}*/
+    .globalalert-container {
+	position: absolute;
+}
+
+.globalalert-container > .alert {
+	margin-bottom: 0;
+	text-align: left;
+}
+
+.temper-temper {
+	margin-top: 35px;
+}
+
+table thead>tr>th.colheader-sortable { 
+	cursor: pointer;
+	position: relative;
+	padding-right: 30px;
+}
+
+table .colheader-sortable.colheader-unsorted:after {
+	opacity: .2;
+	content: "\E150";
+}
+
+table .colheader-sortable.colheader-sorted-asc:after {
+	content: "\E155";
+} 
+
+table .colheader-sortable.colheader-sorted-desc:after {
+	content: "\E156";
+}
+
+.selected-sort {
+	font-weight: bold;
+}
+
+table .colheader-sortable:after {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    display: block;
+    font-family: Glyphicons Halflings;
+    opacity: .5;
+}
+
+a.searchsort {
+	text-decoration: none;
+}
+
+.sort-orderable:after {
+	opacity: .2;
+	content: "\E150";
+}
+
+.sort-orderable {
+	padding-right: 25px;
+}
+
+.selected-sort.sort-orderable.sorted-ASC:after {
+	content: "\E155";
+} 
+
+.selected-sort.sort-orderable.sorted-DESC:after {
+	content: "\E156";
+}
+
+.sort-orderable:after {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    display: block;
+    font-family: Glyphicons Halflings;
+    opacity: .5;
+}
+
+.disabledElement {
+    pointer-events: none;
+    opacity: 0.4;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL2Nzcy9pbnRlZ3JhdGUuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0NBQ0M7RUFDQyxhQUFhO0NBQ2Q7QUFDRDs7QUFFQTtDQUNDLGFBQWE7QUFDZDs7QUFFQTtDQUNDLFdBQVc7Q0FDWCxXQUFXO0NBQ1gsV0FBVztBQUNaOztBQUVBO0NBQ0Msb0JBQW9CO0lBQ2pCLFVBQVU7SUFDVixVQUFVO0FBQ2Q7QUFDQTtDQUNDLFdBQVc7QUFDWjtBQUNBO0lBQ0ksa0JBQWtCLDJCQUEyQixFQUFFO0lBQy9DLGtCQUFrQixxQkFBcUIsQ0FBQztJQUN4QyxrQkFBa0IsMkJBQTJCLEVBQUU7QUFDbkQ7O0FBRUE7SUFDSSxVQUFVO0lBQ1YsV0FBVztBQUNmOztBQUVBO0lBQ0ksb0JBQW9CO0FBQ3hCOztBQUVBLHFEQUFxRDtJQUNqRCwrQ0FBK0M7SUFDL0M7Q0FDSCxrQkFBa0I7QUFDbkI7O0FBRUE7Q0FDQyxnQkFBZ0I7Q0FDaEIsZ0JBQWdCO0FBQ2pCOztBQUVBO0NBQ0MsZ0JBQWdCO0FBQ2pCOztBQUVBO0NBQ0MsZUFBZTtDQUNmLGtCQUFrQjtDQUNsQixtQkFBbUI7QUFDcEI7O0FBRUE7Q0FDQyxXQUFXO0NBQ1gsZ0JBQWdCO0FBQ2pCOztBQUVBO0NBQ0MsZ0JBQWdCO0FBQ2pCOztBQUVBO0NBQ0MsZ0JBQWdCO0FBQ2pCOztBQUVBO0NBQ0MsaUJBQWlCO0FBQ2xCOztBQUVBO0lBQ0ksa0JBQWtCO0lBQ2xCLFdBQVc7SUFDWCxVQUFVO0lBQ1YsY0FBYztJQUNkLGlDQUFpQztJQUNqQyxXQUFXO0FBQ2Y7O0FBRUE7Q0FDQyxxQkFBcUI7QUFDdEI7O0FBRUE7Q0FDQyxXQUFXO0NBQ1gsZ0JBQWdCO0FBQ2pCOztBQUVBO0NBQ0MsbUJBQW1CO0FBQ3BCOztBQUVBO0NBQ0MsZ0JBQWdCO0FBQ2pCOztBQUVBO0NBQ0MsZ0JBQWdCO0FBQ2pCOztBQUVBO0lBQ0ksa0JBQWtCO0lBQ2xCLFNBQVM7SUFDVCxXQUFXO0lBQ1gsY0FBYztJQUNkLGlDQUFpQztJQUNqQyxXQUFXO0FBQ2Y7O0FBRUE7SUFDSSxvQkFBb0I7SUFDcEIsWUFBWTtBQUNoQiIsInNvdXJjZXNDb250ZW50IjpbIkBtZWRpYSAobWF4LXdpZHRoOiA3NjdweCkge1xuXHQubW9iaWxlaGlkZGVuIHtcblx0XHRkaXNwbGF5OiBub25lO1xuXHR9XG59XG5cbi5WYWxpZGF0ZUNzc1VwZGF0ZVYxXzIge1xuXHRkaXNwbGF5OiBub25lO1xufVxuXG4uY29udGVudGJyZWFrZXJibG9jayB7XG5cdHdpZHRoOiAxMDAlO1xuXHRmbG9hdDogbm9uZTtcblx0Y2xlYXI6IGJvdGg7XG59XG5cbi5ibG9jayB7XG5cdHdvcmQtd3JhcDpicmVhay13b3JkO1xuICAgIGZsb2F0OmxlZnQ7XG4gICAgd2lkdGg6MTAwJTtcbn1cbi5ibG9jay5wdWxsLXJpZ2h0IHtcblx0ZmxvYXQ6cmlnaHQ7XG59XG5AbWVkaWEgc2NyZWVuIGFuZCAobWluLXdpZHRoOiA3NjhweCl7XG4gICAgLmJsb2NrLmNvbC1zbS00IHsgd2lkdGg6IDMzLjMzMzMzJSAhaW1wb3J0YW50OyB9XG4gICAgLmJsb2NrLmNvbC1zbS02IHsgd2lkdGg6IDUwJSAhaW1wb3J0YW50O31cbiAgICAuYmxvY2suY29sLXNtLTggeyB3aWR0aDogNjYuNjY2NjclICFpbXBvcnRhbnQ7IH0gICAgXG59XG5cbi5lcGktZWRpdENvbnRhaW5lciB7XG4gICAgZmxvYXQ6bGVmdDtcbiAgICB3aWR0aDogMTAwJTtcbn1cblxuLnNlY3Rpb24taGVhZGVyLWZpeCB7XG4gICAgLyptYXJnaW4tdG9wOiAtN3B4OyovXG59XG5cbi8qLnNlY3Rpb25ibG9jay1ib3JkZXIgeyBib3JkZXI6IDFweCBzb2xpZCAjN2Y4ZjkwO30qL1xuICAgIC8qLnNlY3Rpb25ibG9jay1iYWNrZ3JvdW5kIHtiYWNrZ3JvdW5kOiAjY2NjO30qL1xuICAgIC5nbG9iYWxhbGVydC1jb250YWluZXIge1xuXHRwb3NpdGlvbjogYWJzb2x1dGU7XG59XG5cbi5nbG9iYWxhbGVydC1jb250YWluZXIgPiAuYWxlcnQge1xuXHRtYXJnaW4tYm90dG9tOiAwO1xuXHR0ZXh0LWFsaWduOiBsZWZ0O1xufVxuXG4udGVtcGVyLXRlbXBlciB7XG5cdG1hcmdpbi10b3A6IDM1cHg7XG59XG5cbnRhYmxlIHRoZWFkPnRyPnRoLmNvbGhlYWRlci1zb3J0YWJsZSB7IFxuXHRjdXJzb3I6IHBvaW50ZXI7XG5cdHBvc2l0aW9uOiByZWxhdGl2ZTtcblx0cGFkZGluZy1yaWdodDogMzBweDtcbn1cblxudGFibGUgLmNvbGhlYWRlci1zb3J0YWJsZS5jb2xoZWFkZXItdW5zb3J0ZWQ6YWZ0ZXIge1xuXHRvcGFjaXR5OiAuMjtcblx0Y29udGVudDogXCJcXEUxNTBcIjtcbn1cblxudGFibGUgLmNvbGhlYWRlci1zb3J0YWJsZS5jb2xoZWFkZXItc29ydGVkLWFzYzphZnRlciB7XG5cdGNvbnRlbnQ6IFwiXFxFMTU1XCI7XG59IFxuXG50YWJsZSAuY29saGVhZGVyLXNvcnRhYmxlLmNvbGhlYWRlci1zb3J0ZWQtZGVzYzphZnRlciB7XG5cdGNvbnRlbnQ6IFwiXFxFMTU2XCI7XG59XG5cbi5zZWxlY3RlZC1zb3J0IHtcblx0Zm9udC13ZWlnaHQ6IGJvbGQ7XG59XG5cbnRhYmxlIC5jb2xoZWFkZXItc29ydGFibGU6YWZ0ZXIge1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICBib3R0b206IDhweDtcbiAgICByaWdodDogOHB4O1xuICAgIGRpc3BsYXk6IGJsb2NrO1xuICAgIGZvbnQtZmFtaWx5OiBHbHlwaGljb25zIEhhbGZsaW5ncztcbiAgICBvcGFjaXR5OiAuNTtcbn1cblxuYS5zZWFyY2hzb3J0IHtcblx0dGV4dC1kZWNvcmF0aW9uOiBub25lO1xufVxuXG4uc29ydC1vcmRlcmFibGU6YWZ0ZXIge1xuXHRvcGFjaXR5OiAuMjtcblx0Y29udGVudDogXCJcXEUxNTBcIjtcbn1cblxuLnNvcnQtb3JkZXJhYmxlIHtcblx0cGFkZGluZy1yaWdodDogMjVweDtcbn1cblxuLnNlbGVjdGVkLXNvcnQuc29ydC1vcmRlcmFibGUuc29ydGVkLUFTQzphZnRlciB7XG5cdGNvbnRlbnQ6IFwiXFxFMTU1XCI7XG59IFxuXG4uc2VsZWN0ZWQtc29ydC5zb3J0LW9yZGVyYWJsZS5zb3J0ZWQtREVTQzphZnRlciB7XG5cdGNvbnRlbnQ6IFwiXFxFMTU2XCI7XG59XG5cbi5zb3J0LW9yZGVyYWJsZTphZnRlciB7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHRvcDogMjVweDtcbiAgICByaWdodDogMjBweDtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICBmb250LWZhbWlseTogR2x5cGhpY29ucyBIYWxmbGluZ3M7XG4gICAgb3BhY2l0eTogLjU7XG59XG5cbi5kaXNhYmxlZEVsZW1lbnQge1xuICAgIHBvaW50ZXItZXZlbnRzOiBub25lO1xuICAgIG9wYWNpdHk6IDAuNDtcbn0iXSwic291cmNlUm9vdCI6IiJ9 */</style>
+    <script src="/bundles/v-639241256762170059/bundle.components.js"></script>
+
+
+
+    
+    
+    
+    
+
+
+    
+
+    <script>
+!function(T,l,y){var S=T.location,k="script",D="instrumentationKey",C="ingestionendpoint",I="disableExceptionTracking",E="ai.device.",b="toLowerCase",w="crossOrigin",N="POST",e="appInsightsSDK",t=y.name||"appInsights";(y.name||T[e])&&(T[e]=t);var n=T[t]||function(d){var g=!1,f=!1,m={initialize:!0,queue:[],sv:"5",version:2,config:d};function v(e,t){var n={},a="Browser";return n[E+"id"]=a[b](),n[E+"type"]=a,n["ai.operation.name"]=S&&S.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(m.sv||m.version),{time:function(){var e=new Date;function t(e){var t=""+e;return 1===t.length&&(t="0"+t),t}return e.getUTCFullYear()+"-"+t(1+e.getUTCMonth())+"-"+t(e.getUTCDate())+"T"+t(e.getUTCHours())+":"+t(e.getUTCMinutes())+":"+t(e.getUTCSeconds())+"."+((e.getUTCMilliseconds()/1e3).toFixed(3)+"").slice(2,5)+"Z"}(),iKey:e,name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}}}}var h=d.url||y.src;if(h){function a(e){var t,n,a,i,r,o,s,c,u,p,l;g=!0,m.queue=[],f||(f=!0,t=h,s=function(){var e={},t=d.connectionString;if(t)for(var n=t.split(";"),a=0;a<n.length;a++){var i=n[a].split("=");2===i.length&&(e[i[0][b]()]=i[1])}if(!e[C]){var r=e.endpointsuffix,o=r?e.location:null;e[C]="https://"+(o?o+".":"")+"dc."+(r||"services.visualstudio.com")}return e}(),c=s[D]||d[D]||"",u=s[C],p=u?u+"/v2/track":d.endpointUrl,(l=[]).push((n="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",a=t,i=p,(o=(r=v(c,"Exception")).data).baseType="ExceptionData",o.baseData.exceptions=[{typeName:"SDKLoadFailed",message:n.replace(/\./g,"-"),hasFullStack:!1,stack:n+"\nSnippet failed to load ["+a+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(S&&S.pathname||"_unknown_")+"\nEndpoint: "+i,parsedStack:[]}],r)),l.push(function(e,t,n,a){var i=v(c,"Message"),r=i.data;r.baseType="MessageData";var o=r.baseData;return o.message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+n+")").replace(/\"/g,"")+'"',o.properties={endpoint:a},i}(0,0,t,p)),function(e,t){if(JSON){var n=T.fetch;if(n&&!y.useXhr)n(t,{method:N,body:JSON.stringify(e),mode:"cors"});else if(XMLHttpRequest){var a=new XMLHttpRequest;a.open(N,t),a.setRequestHeader("Content-type","application/json"),a.send(JSON.stringify(e))}}}(l,p))}function i(e,t){f||setTimeout(function(){!t&&m.core||a()},500)}var e=function(){var n=l.createElement(k);n.src=h;var e=y[w];return!e&&""!==e||"undefined"==n[w]||(n[w]=e),n.onload=i,n.onerror=a,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||i(0,t)},n}();y.ld<0?l.getElementsByTagName("head")[0].appendChild(e):setTimeout(function(){l.getElementsByTagName(k)[0].parentNode.appendChild(e)},y.ld||0)}try{m.cookie=l.cookie}catch(p){}function t(e){for(;e.length;)!function(t){m[t]=function(){var e=arguments;g||m.queue.push(function(){m[t].apply(m,e)})}}(e.pop())}var n="track",r="TrackPage",o="TrackEvent";t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+r,"stop"+r,"start"+o,"stop"+o,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),m.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4};var s=(d.extensionConfig||{}).ApplicationInsightsAnalytics||{};if(!0!==d[I]&&!0!==s[I]){var c="onerror";t(["_"+c]);var u=T[c];T[c]=function(e,t,n,a,i){var r=u&&u(e,t,n,a,i);return!0!==r&&m["_"+c]({message:e,url:t,lineNumber:n,columnNumber:a,error:i}),r},d.autoExceptionInstrumented=!0}return m}(y.cfg);function a(){y.onInit&&y.onInit(n)}(T[t]=n).queue&&0===n.queue.length?(n.queue.push(a),n.trackPageView({})):a()}(window,document,{src: "https://js.monitor.azure.com/scripts/b/ai.2.gbl.min.js", crossOrigin: "anonymous", cfg: {connectionString: 'InstrumentationKey=7742d41e-724a-4d62-a661-130ac964377d;IngestionEndpoint=https://westus-0.in.applicationinsights.azure.com/;LiveEndpoint=https://westus.livediagnostics.monitor.azure.com/;ApplicationId=949d71e8-1163-44e1-91e9-e33f84ecff74', disableCookiesUsage: false }});
+</script>
+
+
+    
+
+
+
+<script src="https://js.monitor.azure.com/scripts/b/ai.2.gbl.min.js" crossorigin="anonymous"></script></head>
+<body>
+
+    
+    
+
+
+    
+    <div id="skipToLinks">
+        <a class="visually-hidden-focusable" href="#content">Skip to main content</a>
+        <a class="visually-hidden-focusable" href="#footer">Skip to footer</a>
+    </div>
+
+
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+<header class="header-fixed">
+    <div class="navbar-secondary">
+        <div class="container-fluid">
+            <div class="navbar-secondary-row">
+                <div class="navbar-secondary-container">
+                    <div class="navbar-secondary-section">
+                                    <a class="navbar-secondary-link" href="/link/a0a40720aeba416d848d1cf5fd450630.aspx" aria-hidden="true">Careers</a>
+                                    <a class="navbar-secondary-link" href="/link/cf12c10b5a34451c8a685cebe51e393b.aspx" aria-hidden="true">Library</a>
+                                    <a class="navbar-secondary-link" href="https://help.misoenergy.org/" aria-hidden="true">Help Center</a>
+
+                                <a class="navbar-secondary-link" href="/account/login/?ReturnUrl=/planning/resource-utilization/GI_Studies/" title="Login">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<header class="header-scrolling">
+    <nav class="navbar navbar-expand-lg navbar-primary bg-white">
+        <div class="container-fluid nav-container">
+            <a class="navbar-brand" href="/"><img class="navbar-brand-img" src="/bundles/img/logo.png" alt="MISO logo" height="58" width="auto"></a>
+            <div class="d-flex">
+                <button class="btn-search-mobile input-group-text bg-white border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContentSearch" aria-controls="navbarSupportedContentSearch" aria-expanded="false" aria-label="Toggle navigation" onclick="jQuery('.navbar-primary-search').toggleClass('d-none');">
+                    <i class="fa fa-lg fa-search"></i>
+                </button>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-lg fa-bars navbar-toggler-bars" onclick="jQuery('.navbar-nav').removeClass('d-none'); jQuery('.navbar-toggler-bars').toggleClass('d-none'); jQuery('.navbar-toggler-close').toggleClass('d-none')"></i>
+
+                    <i class="fa fa-lg fa-close navbar-toggler-close d-none" onclick="jQuery('.navbar-nav').removeClass('d-none');jQuery('.navbar-toggler-bars').toggleClass('d-none'); jQuery('.navbar-toggler-close').toggleClass('d-none')"></i>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse row order-1 order-lg-2" id="navbarSupportedContentSearch">
+                <script>
+                    function search() {
+                        window.location.href = '/search/' + '#q=' + jQuery('.form-control-search').val();
+                        return false;
+                    }
+                </script>
+                    <form class="d-none d-lg-flex navbar-primary-search padding-btm-20 padding-top-20" role="search" onsubmit="return search(this);">
+                        <div class="input-group">
+                            <input class="form-control border border-end-0 rounded-start form-control-search" type="search" placeholder="" aria-label="Search">
+                            <button class="btn-search input-group-text bg-white rounded-end" type="submit" value="Search"><i class="fa fa-search"></i></button>
+                        </div>
+                    </form>
+            </div>
+            <div class="collapse navbar-collapse row order-2 order-lg-1 me-lg-4" id="navbarSupportedContent">
+
+                <ul class="navbar-nav col-12 padding-left-15 me-auto">
+                                <li class="nav-item nav-item-primary dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Meet MISO
+                </a>
+                        <div class="dropdown-menu ">
+                            <ul class="dropdown-menu-list" style="columns: 2; max-height: 700px; ">
+
+                                <li><a href="#" class="nav-link--alt"> &lt; Go Back</a></li>
+
+
+                                            <li class="secondary-level"><a class="nav-link" href="/meet-miso/about-miso/">About MISO</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/meet-miso/culture/">Culture and Values</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/meet-miso/leadership/">MISO Leadership</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/meet-miso/contact-us/">Contact MISO</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/meet-miso/MISOFinancials/">Financial Statements</a></li>
+            <li class="dropdown-submenu">
+                <div class="dropdown-submenu-title">News Center</div>
+
+            </li><li class="secondary-level"><a class="nav-link" href="/meet-miso/media-center/">News Center</a></li>
+
+                            <li class="secondary-level"><a class="nav-link" href="/meet-miso/media-center/miso-matters/">MISO Matters - Blog</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/meet-miso/media-center/corporate-fact-sheet/">MISO Fact Sheet</a></li>
+
+            
+            <li class="dropdown-submenu">
+                <div class="dropdown-submenu-title">Careers</div>
+
+            </li><li class="secondary-level"><a class="nav-link" href="/meet-miso/careers/">Careers</a></li>
+
+                            <li class="secondary-level"><a class="nav-link" href="/meet-miso/careers/internships/">Internships &amp; Co-ops</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/meet-miso/careers/benefits/">Benefits</a></li>
+
+            
+            <li class="dropdown-submenu">
+                <div class="dropdown-submenu-title">Corporate Strategy</div>
+
+            </li><li class="secondary-level"><a class="nav-link" href="/meet-miso/MISO_Strategy/">Corporate Strategy</a></li>
+
+                            <li class="secondary-level"><a class="nav-link" href="/meet-miso/MISO_Strategy/reliability-imperative/">Reliability Imperative</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/meet-miso/MISO_Strategy/miso-value-proposition/">Value Proposition</a></li>
+
+            
+
+
+                            </ul>
+
+                        </div>
+            </li>
+            <li class="nav-item nav-item-primary dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Engage
+                </a>
+                        <div class="dropdown-menu ">
+                            <ul class="dropdown-menu-list" style="columns: 1; max-height: 700px; ">
+
+                                <li><a href="#" class="nav-link--alt"> &lt; Go Back</a></li>
+
+
+                                            <li class="secondary-level"><a class="nav-link" href="/engage/Stakeholder-Engagement/">Stakeholder Engagement</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/engage/client-services/">Client Services and Readiness</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/engage/compliance-corner/">Compliance Corner</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/engage/committees/">Stakeholder Entities and Workshops</a></li>
+            <li class="dropdown-submenu">
+                <div class="dropdown-submenu-title">Tools</div>
+
+
+                            </li><li class="secondary-level"><a class="nav-link" href="/engage/tools/calendar/">Calendar</a></li>
+
+            
+            <li class="secondary-level"><a class="nav-link" href="/engage/MISO-Dashboard/">MISO Dashboard</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/engage/stakeholder-feedback/">Stakeholder Feedback</a></li>
+            <li class="dropdown-submenu">
+                <div class="dropdown-submenu-title">Training</div>
+
+
+                            </li><li class="secondary-level"><a class="nav-link" href="/engage/training2/customer-training/">Customer and System Operator Training</a></li>
+
+            
+
+
+                            </ul>
+
+                        </div>
+            </li>
+            <li class="nav-item nav-item-primary dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Markets and Operations
+                </a>
+                        <div class="dropdown-menu ">
+                            <ul class="dropdown-menu-list" style="columns: 2; max-height: 700px; ">
+
+                                <li><a href="#" class="nav-link--alt"> &lt; Go Back</a></li>
+
+
+                                            <li class="secondary-level"><a class="nav-link" href="/markets-and-operations/markets-and-operations/">Markets and Operations</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/markets-and-operations/arr-ftr-market/">ARR and FTR Market</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/markets-and-operations/independent-market-monitor2/">Independent Market Monitor</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/markets-and-operations/MSE/">Market System Enhancement</a></li>
+            <li class="dropdown-submenu">
+                <div class="dropdown-submenu-title">RT and Market Data</div>
+
+
+                            </li><li class="secondary-level"><a class="nav-link" href="/markets-and-operations/real-time--market-data/markets-displays/">Markets Displays</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/markets-and-operations/real-time--market-data/operations-displays/">Operations Displays</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/markets-and-operations/real-time--market-data/market-reports/">Market Reports</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/markets-and-operations/real-time--market-data/market-report-archives/">Market Report Archives</a></li>
+
+            
+            <li class="dropdown-submenu">
+                <div class="dropdown-submenu-title">Registration</div>
+
+
+                            </li><li class="secondary-level"><a class="nav-link" href="/markets-and-operations/mp-registration/credit/">Credit Requirements</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/markets-and-operations/mp-registration/market-participation/">Market Participant Registration</a></li>
+
+            
+            <li class="dropdown-submenu">
+                <div class="dropdown-submenu-title">Reliability Information</div>
+
+
+                            </li><li class="secondary-level"><a class="nav-link" href="/markets-and-operations/reliability-information/fuel-consumables-reports/">Fuel and Consumables Reports</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/markets-and-operations/reliability-information/reliability-operating-procedures/">Reliability Operating Procedures</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/markets-and-operations/reliability-information/winterization/">Winterization</a></li>
+
+            
+            <li class="dropdown-submenu">
+                <div class="dropdown-submenu-title">Settlements</div>
+
+
+                            </li><li class="secondary-level"><a class="nav-link" href="/markets-and-operations/settlements/market-settlements/">Market Settlements</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/markets-and-operations/settlements/to-rate-data/">Transmission Owner Rate Data</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/markets-and-operations/settlements/ts-pricing/">Transmission Settlements and Pricing</a></li>
+
+            
+            <li class="dropdown-submenu">
+                <div class="dropdown-submenu-title">Notifications</div>
+
+            </li><li class="secondary-level"><a class="nav-link" href="/markets-and-operations/notifications/">Notifications</a></li>
+
+                            <li class="secondary-level"><a class="nav-link" href="/markets-and-operations/notifications/gas-pipeline/">Gas Pipeline</a></li>
+
+            
+
+
+                            </ul>
+
+                        </div>
+            </li>
+            <li class="nav-item nav-item-primary dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Planning
+                </a>
+                        <div class="dropdown-menu ">
+                            <ul class="dropdown-menu-list" style="columns: 2; max-height: 700px; ">
+
+                                <li><a href="#" class="nav-link--alt"> &lt; Go Back</a></li>
+
+
+                                            <li class="dropdown-submenu">
+                <div class="dropdown-submenu-title">Transmission Planning</div>
+
+
+                            </li><li class="secondary-level"><a class="nav-link" href="/planning/transmission-planning/mtep/">MTEP</a></li>
+
+            
+            <li class="secondary-level"><a class="nav-link" href="/planning/long-range-transmission-planning/">Long Range Transmission Planning</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/planning/multi-value-projects-mvps/">Multi-Value Projects</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/planning/futures-development/">Future Planning Scenarios</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/planning/interregional-coordination/">Interregional Coordination</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/planning/planning-modeling/">Planning Modeling</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/planning/competitive-transmission-administration/">Competitive Transmission Administration</a></li>
+            <li class="dropdown-submenu active">
+                <div class="dropdown-submenu-title">Resource Utilization</div>
+
+
+                            </li><li class="secondary-level"><a class="nav-link" href="/planning/resource-utilization/generator-interconnection/">Generator Interconnection</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/planning/resource-utilization/GI_Studies/">Generator Interconnection Studies and Procedures</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/planning/resource-utilization/GI_Queue/">Generator Interconnection Queue</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/planning/resource-utilization/distribution/">Distribution Interconnection Coordination</a></li>
+
+            
+            <li class="dropdown-submenu">
+                <div class="dropdown-submenu-title">Resource Adequacy</div>
+
+
+                            </li><li class="secondary-level"><a class="nav-link" href="/planning/resource-adequacy2/resource-adequacy/">Resource Adequacy</a></li>
+
+            
+            <li class="dropdown-submenu">
+                <div class="dropdown-submenu-title">Large Loads</div>
+
+
+                            </li><li class="secondary-level"><a class="nav-link" href="/planning/large-loads---container-page/large-load-additions/">Large Load Additions</a></li>
+
+            
+
+
+                            </ul>
+
+                        </div>
+            </li>
+            <li class="nav-item nav-item-primary dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Legal
+                </a>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <ul class="dropdown-menu-list" style="columns: 2; max-height: 700px; ">
+
+                                <li><a href="#" class="nav-link--alt"> &lt; Go Back</a></li>
+
+
+                                            <li class="secondary-level"><a class="nav-link" href="/legal/overview/">Legal</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/legal/transferred-transmission-facilities/">Transferred Transmission Facilities</a></li>
+            <li class="dropdown-submenu">
+                <div class="dropdown-submenu-title">Rules, Manuals and Agreements</div>
+
+
+                            </li><li class="secondary-level"><a class="nav-link" href="/legal/rules-manuals-and-agreements/business-practice-manuals/">Business Practices Manuals</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/legal/rules-manuals-and-agreements/service-agreements/">Service Agreements</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/legal/rules-manuals-and-agreements/tariff/">Tariff</a></li>
+
+            
+            <li class="dropdown-submenu">
+                <div class="dropdown-submenu-title">Filings and Orders</div>
+
+
+                            </li><li class="secondary-level"><a class="nav-link" href="/legal/filings-and-orders/regulatory-orders/">Regulatory Orders</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/legal/filings-and-orders/regulatory-filings/">Regulatory Filings</a></li>
+            <li class="secondary-level"><a class="nav-link" href="/legal/filings-and-orders/state-filings/">State Filings</a></li>
+
+            
+
+
+                            </ul>
+
+                        </div>
+            </li>
+        <li class="nav-item nav-item-primary dropdown"><a class="nav-link" href="/extranet/">Extranet</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+
+
+</header>
+    
+    <!--BEGIN QUALTRICS WEBSITE FEEDBACK SNIPPET-->
+ 
+    <script type="text/javascript">
+ 
+(function(){var g=function(e,h,f,g){
+ 
+this.get=function(a){for(var a=a+"=",c=document.cookie.split(";"),b=0,e=c.length;b<e;b++){for(var d=c[b];" "==d.charAt(0);)d=d.substring(1,d.length);if(0==d.indexOf(a))return d.substring(a.length,d.length)}return null};
+ 
+this.set=function(a,c){var b="",b=new Date;b.setTime(b.getTime()+6048E5);b="; expires="+b.toGMTString();document.cookie=a+"="+c+b+"; path=/; "};
+ 
+this.check=function(){var a=this.get(f);if(a)a=a.split(":");else if(100!=e)"v"==h&&(e=Math.random()>=e/100?0:100),a=[h,e,0],this.set(f,a.join(":"));else return!0;var c=a[1];if(100==c)return!0;switch(a[0]){case "v":return!1;case "r":return c=a[2]%Math.floor(100/c),a[2]++,this.set(f,a.join(":")),!c}return!0};
+ 
+this.go=function(){if(this.check()){var a=document.createElement("script");a.type="text/javascript";a.src=g;document.body&&document.body.appendChild(a)}};
+ 
+this.start=function(){var t=this;"complete"!==document.readyState?window.addEventListener?window.addEventListener("load",function(){t.go()},!1):window.attachEvent&&window.attachEvent("onload",function(){t.go()}):t.go()};};
+ 
+try{(new g(100,"r","QSI_S_ZN_0vR9g3KnrPgPsQ6","https://zn0vr9g3knrpgpsq6-misocx.siteintercept.qualtrics.com/SIE/?Q_ZID=ZN_0vR9g3KnrPgPsQ6")).start()}catch(i){}})();
+ 
+</script><div id="ZN_0vR9g3KnrPgPsQ6"><!--DO NOT REMOVE-CONTENTS PLACED HERE--></div>
+ 
+    <!--END WEBSITE FEEDBACK SNIPPET-->
+
+
+
+
+
+
+
+    <div class="extendedHeader">
+        
+
+<div id="react_0HNOAH51C8SMN" class="container-fluid"><div class="alloyBreadcrumb miso-breadcrumbs"><div class="top-bar-row"><div class="crumbs"><a class="breadCrumbLink" href="/"><i class="fa fa-home"></i></a><span class="divider"><i class="fa fa-chevron-right"></i></span><span class="breadCrumbItem">Planning</span><span class="divider"><i class="fa fa-chevron-right"></i></span><span class="breadCrumbItem">Resource Utilization</span><span class="divider"><i class="fa fa-chevron-right"></i></span><a class="breadCrumbLink" href="/planning/resource-utilization/GI_Studies/">Generator Interconnection Studies and Procedures</a></div><div id="FollowFlag"><button id="Follow70c7bbaa-f3c4-4675-8ea6-21e21ea44bd4" class="btn btn-small follow-btn btn-primary logged-out secured-link" onclick="Miso.Follow.Follow.Follow('70c7bbaa-f3c4-4675-8ea6-21e21ea44bd4',true)" data-following="false"><i class="fa fa-plus margin-right-5" aria-hidden="true"></i> Follow</button></div></div></div></div>
+    </div>
+
+
+
+
+<div class="container-fluid body-container">
+    <div id="editBar"></div>
+    
+
+
+<div class="row clearfix display-block equal-height"><div class="block headerblock">
+<div class="headerBlock hero page blue">
+    <div class="leftSide">
+        <div class="primaryText">
+            Generator Interconnection Studies and Procedures
+        </div>
+
+    </div>
+</div></div><div class="block editorialblock col-12">
+<div class="withoutBorder">
+    <div class="blockBody">
+        <div class="clearfix">
+            
+<div class="OutlineElement Ltr SCXW1759178 BCX9">
+<p class="Paragraph SCXW1759178 BCX9" paraid="374172069" paraeid="{9cf0ff85-005f-47f2-aecb-eb4f0c82844a}{52}"><span data-contrast="none" xml:lang="EN-US" lang="EN-US" class="TextRun SCXW1759178 BCX9"><span class="NormalTextRun SCXW1759178 BCX9">MISO provides safe, reliable, equal and non-discriminatory access to the electric transmission system for generator interconnection (GI) projects.</span><span class="NormalTextRun SCXW1759178 BCX9"> </span><span class="NormalTextRun SCXW1759178 BCX9">MISO commits</span><span class="NormalTextRun SCXW1759178 BCX9"> to help current and future interconnection customers navigate the interconnection study process.</span></span><span class="EOP SCXW1759178 BCX9" data-ccp-props="{&quot;201341983&quot;:0,&quot;335559685&quot;:0,&quot;335559731&quot;:0,&quot;335559739&quot;:60,&quot;335559740&quot;:276,&quot;335559991&quot;:360}">&nbsp;</span></p>
+</div>
+        </div>
+    </div>
+
+</div>
+</div><div class="block editorialblock col-12 col-sm-8">
+<div class="withoutBorder">
+    <div class="blockBody">
+        <div class="clearfix">
+            
+<h3 class="hero blue">Studies and Analyses</h3>
+<p><span data-contrast="none" xml:lang="EN-US" lang="EN-US" class="TextRun SCXW147315219 BCX9"><span class="NormalTextRun SCXW147315219 BCX9">Once completed and submitted, generator interconnection requests enter MISO’s Generator Interconnection Queue. Requests </span><span class="NormalTextRun SCXW147315219 BCX9">within the queue go through the following steps. Contact a GI expert if you have further questions.</span></span></p>
+        </div>
+    </div>
+
+</div>
+</div><div class="block imageblock col-12 col-sm-4 pull-right">
+<div class="withoutBorder">
+    <div class="blockBody">
+        <div id="react_0HNOAH51C8SML"><div class="clickableImageContainer" data-reactroot=""><a class="d-block imageLink" href="/link/fed81c1453c040fe8e8b01bca052ab95.aspx"><img class="clickableImage" src="/globalassets/25_01_32-giq-challenges_social.png"><button class="btn btn-primary text-center imageButton">Learn More on MISO Matters</button></a></div></div>
+    </div>
+</div></div><div class="block accordionblock col-12 col-sm-8">
+
+    <div class="withoutBorder">
+        <div class="blockBody">
+                <div class="hocblockbase">
+                    <div class="accordion-content ">
+                        <div id="accordion1267" class="panel-group" role="tablist" aria-multiselectable="true">
+                                    <!-- Accordion View -->
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="accordion1267Header0">                       
+                                                <div class="leftside">
+                                                    <h4 class="panel-title margin-btm-0">
+                                                    <a data-toggle="collapse" href="#accordion1267Collapse0" data-parent="#accordion1267" role="button" aria-expanded="aria-expanded" data-bs-toggle="collapse" data-bs-target="#accordion1267Collapse0" aria-controls="accordion1267Collapse0" class="accordion-link blue collapsed">
+                                                            Definitive Planning Phase (DPP)
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div class="rightside">
+                                                <a data-toggle="collapse" href="#accordion1267Collapse0" data-parent="#accordion1267" role="button" aria-expanded="aria-expanded" data-bs-toggle="collapse" data-bs-target="#accordion1267Collapse0" aria-controls="accordion1267Collapse0" class="accordion-link blue collapsed">
+                                                    <i class="fa pull-right"></i>
+                                                    </a>
+                                                </div>
+                                        </div>
+                                        <div id="accordion1267Collapse0" class="panel-collapse collapse " role="tabpanel" aria-labelledby="accordion1267Heading0" aria-expanded="aria-expanded">
+                                            <div class="panel-body">
+
+<div class="OutlineElement Ltr SCXW149640747 BCX9">
+<p class="Paragraph SCXW149640747 BCX9" paraid="1409473692" paraeid="{9cf0ff85-005f-47f2-aecb-eb4f0c82844a}{164}"><span data-contrast="none" xml:lang="EN-US" lang="EN-US" class="TextRun SCXW149640747 BCX9"><span class="NormalTextRun SCXW149640747 BCX9">The</span><span class="NormalTextRun SCXW149640747 BCX9"> DPP</span><span class="NormalTextRun SCXW149640747 BCX9"> includes</span><span class="NormalTextRun SCXW149640747 BCX9"> three phases and two </span><span class="NormalTextRun SCXW149640747 BCX9">d</span><span class="NormalTextRun SCXW149640747 BCX9">ecision </span><span class="NormalTextRun SCXW149640747 BCX9">p</span><span class="NormalTextRun SCXW149640747 BCX9">oints; however, customers must provide M1 and M2 milestones and D1 and D2 study deposits no later than the application deadline published on the Transmission Provider website. MISO will utilize reasonable efforts to complete the DPP System Impact studies and the Facility study in </span><span class="NormalTextRun SCXW149640747 BCX9">approximately</span><span class="NormalTextRun SCXW149640747 BCX9"> </span><span class="NormalTextRun SCXW149640747 BCX9">355 calendar days.</span></span><span class="EOP SCXW149640747 BCX9" data-ccp-props="{&quot;201341983&quot;:0,&quot;335559685&quot;:0,&quot;335559731&quot;:0,&quot;335559739&quot;:60,&quot;335559740&quot;:276,&quot;335559991&quot;:360}">&nbsp;</span></p>
+</div>
+<div class="SCXW149640747 BCX9">
+<div class="ListContainerWrapper SCXW149640747 BCX9">
+<ul class="BulletListStyle1 SCXW149640747 BCX9" role="list">
+<li data-leveltext="" data-font="Symbol" data-listid="10" data-list-defn-props="{&quot;335552541&quot;:1,&quot;335559684&quot;:-2,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}" aria-setsize="-1" data-aria-posinset="1" data-aria-level="1" role="listitem" class="OutlineElement Ltr SCXW149640747 BCX9">
+<p class="Paragraph SCXW149640747 BCX9" paraid="215359544" paraeid="{9cf0ff85-005f-47f2-aecb-eb4f0c82844a}{190}"><strong><span data-contrast="none" xml:lang="EN-US" lang="EN-US" class="TextRun SCXW149640747 BCX9"><span class="NormalTextRun SCXW149640747 BCX9">Phase 1</span></span></strong><span class="LineBreakBlob BlobObject DragDrop SCXW149640747 BCX9"><strong><span class="SCXW149640747 BCX9">&nbsp;</span></strong><br class="SCXW149640747 BCX9"></span><span data-contrast="none" xml:lang="EN-US" lang="EN-US" class="TextRun SCXW149640747 BCX9"><span class="NormalTextRun SCXW149640747 BCX9">Preliminary SIS, Decision Point 1. Estimated time of completion for these studies is 140 days.</span></span><span class="EOP SCXW149640747 BCX9" data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:60,&quot;335559740&quot;:276}">&nbsp;</span></p>
+</li>
+<li data-leveltext="" data-font="Symbol" data-listid="10" data-list-defn-props="{&quot;335552541&quot;:1,&quot;335559684&quot;:-2,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}" aria-setsize="-1" data-aria-posinset="2" data-aria-level="1" role="listitem" class="OutlineElement Ltr SCXW149640747 BCX9">
+<p class="Paragraph SCXW149640747 BCX9" paraid="228510753" paraeid="{9cf0ff85-005f-47f2-aecb-eb4f0c82844a}{199}"><strong><span data-contrast="none" xml:lang="EN-US" lang="EN-US" class="TextRun SCXW149640747 BCX9"><span class="NormalTextRun SCXW149640747 BCX9">Phase 2</span></span></strong><span class="LineBreakBlob BlobObject DragDrop SCXW149640747 BCX9"><strong><span class="SCXW149640747 BCX9">&nbsp;</span></strong><br class="SCXW149640747 BCX9"></span><span data-contrast="none" xml:lang="EN-US" lang="EN-US" class="TextRun SCXW149640747 BCX9"><span class="NormalTextRun SCXW149640747 BCX9">Revised DPP SIS and Interconnection Facilities FS, Decision Point 2. Estimated time of completion for these studies is</span><span class="NormalTextRun SCXW149640747 BCX9"> </span><span class="NormalTextRun SCXW149640747 BCX9">80 days.</span></span><span class="EOP SCXW149640747 BCX9" data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:60,&quot;335559740&quot;:276}">&nbsp;</span></p>
+</li>
+<li data-leveltext="" data-font="Symbol" data-listid="10" data-list-defn-props="{&quot;335552541&quot;:1,&quot;335559684&quot;:-2,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}" aria-setsize="-1" data-aria-posinset="3" data-aria-level="1" role="listitem" class="OutlineElement Ltr SCXW149640747 BCX9">
+<p class="Paragraph SCXW149640747 BCX9" paraid="537510378" paraeid="{9cf0ff85-005f-47f2-aecb-eb4f0c82844a}{212}"><strong><span data-contrast="none" xml:lang="EN-US" lang="EN-US" class="TextRun SCXW149640747 BCX9"><span class="NormalTextRun SCXW149640747 BCX9">Phase 3</span></span></strong><span class="LineBreakBlob BlobObject DragDrop SCXW149640747 BCX9"><strong><span class="SCXW149640747 BCX9">&nbsp;</span></strong><br class="SCXW149640747 BCX9"></span><span data-contrast="none" xml:lang="EN-US" lang="EN-US" class="TextRun SCXW149640747 BCX9"><span class="NormalTextRun SCXW149640747 BCX9">Final DPP SIS and Network Upgrade Facilities Study. Estimated time of completion for these studies is 135 days.</span></span><span class="EOP SCXW149640747 BCX9" data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:60,&quot;335559740&quot;:276}">&nbsp;</span></p>
+</li>
+<li data-leveltext="" data-font="Symbol" data-listid="10" data-list-defn-props="{&quot;335552541&quot;:1,&quot;335559684&quot;:-2,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}" aria-setsize="-1" data-aria-posinset="4" data-aria-level="1" role="listitem" class="OutlineElement Ltr SCXW149640747 BCX9">
+<p class="Paragraph SCXW149640747 BCX9" paraid="828441377" paraeid="{9cf0ff85-005f-47f2-aecb-eb4f0c82844a}{221}"><strong><span data-contrast="none" xml:lang="EN-US" lang="EN-US" class="TextRun SCXW149640747 BCX9"><span class="NormalTextRun SCXW149640747 BCX9">Generator Interconnection Agreement (GIA)</span></span><span data-contrast="none" xml:lang="EN-US" lang="EN-US" class="TextRun SCXW149640747 BCX9"><span class="NormalTextRun SCXW149640747 BCX9"> </span></span><span class="LineBreakBlob BlobObject DragDrop SCXW149640747 BCX9"><span class="SCXW149640747 BCX9">&nbsp;</span><br class="SCXW149640747 BCX9"></span><span data-contrast="none" xml:lang="EN-US" lang="EN-US" class="TextRun SCXW149640747 BCX9"><span class="NormalTextRun SCXW149640747 BCX9">Facilities Study review</span></span><span data-contrast="none" xml:lang="EN-US" lang="EN-US" class="TextRun SCXW149640747 BCX9"><span class="NormalTextRun SCXW149640747 BCX9">.  </span></span><span class="LineBreakBlob BlobObject DragDrop SCXW149640747 BCX9"><span class="SCXW149640747 BCX9">&nbsp;</span><br class="SCXW149640747 BCX9"></span><span data-contrast="none" xml:lang="EN-US" lang="EN-US" class="TextRun SCXW149640747 BCX9"><span class="NormalTextRun SCXW149640747 BCX9">Tender Draft GIA, IC/TO Execute GIA. Estimated time of completion is 150 days.</span><span class="NormalTextRun SCXW149640747 BCX9"> </span><span class="NormalTextRun SCXW149640747 BCX9">Upon receiving the final GIA, customers must provide the following milestones:</span></span><span class="EOP SCXW149640747 BCX9" data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:60,&quot;335559740&quot;:276}">&nbsp;</span></strong></p>
+</li>
+</ul>
+</div>
+<div class="ListContainerWrapper SCXW149640747 BCX9">
+<ul>
+<li style="list-style-type: none;">
+<ul class="BulletListStyle2 SCXW149640747 BCX9" role="list">
+<li data-leveltext="o" data-font="Courier New" data-listid="10" data-list-defn-props="{&quot;335552541&quot;:1,&quot;335559684&quot;:-2,&quot;335559685&quot;:1440,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Courier New&quot;,&quot;469769242&quot;:[9675],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;o&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}" aria-setsize="-1" data-aria-posinset="1" data-aria-level="2" role="listitem" class="OutlineElement Ltr SCXW149640747 BCX9">
+<p class="Paragraph SCXW149640747 BCX9" paraid="1908525478" paraeid="{9cf0ff85-005f-47f2-aecb-eb4f0c82844a}{240}"><span data-contrast="none" xml:lang="EN-US" lang="EN-US" class="TextRun SCXW149640747 BCX9"><span class="NormalTextRun SCXW149640747 BCX9">Evidence of achieving one or more pro forma</span></span><span class="EOP SCXW149640747 BCX9" data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:60,&quot;335559740&quot;:276}">&nbsp;</span></p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="SCXW149640747 BCX9">
+<div class="ListContainerWrapper SCXW149640747 BCX9">
+<ul>
+<li style="list-style-type: none;">
+<ul class="BulletListStyle2 SCXW149640747 BCX9" role="list">
+<li data-leveltext="o" data-font="Courier New" data-listid="10" data-list-defn-props="{&quot;335552541&quot;:1,&quot;335559684&quot;:-2,&quot;335559685&quot;:1440,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Courier New&quot;,&quot;469769242&quot;:[9675],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;o&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}" aria-setsize="-1" data-aria-posinset="1" data-aria-level="2" role="listitem" class="OutlineElement Ltr SCXW149640747 BCX9">
+<p class="Paragraph SCXW149640747 BCX9" paraid="845274148" paraeid="{9cf0ff85-005f-47f2-aecb-eb4f0c82844a}{247}"><span data-contrast="none" xml:lang="EN-US" lang="EN-US" class="TextRun SCXW149640747 BCX9"><span class="NormalTextRun SCXW149640747 BCX9">Appendix B milestones in</span><span class="NormalTextRun SCXW149640747 BCX9"> </span></span><a class="Hyperlink SCXW149640747 BCX9" href="~/link/c268c897f9034799849c90089ef0f7fe.aspx" rel="noreferrer noopener"><span data-contrast="none" xml:lang="EN-US" lang="EN-US" class="TextRun Underlined SCXW149640747 BCX9"><span class="NormalTextRun SCXW149640747 BCX9" data-ccp-charstyle="Hyperlink">Attachment X of the Tariff</span></span></a><span class="EOP SCXW149640747 BCX9" data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:60,&quot;335559740&quot;:276}">&nbsp;</span></p>
+</li>
+<li data-leveltext="o" data-font="Courier New" data-listid="10" data-list-defn-props="{&quot;335552541&quot;:1,&quot;335559684&quot;:-2,&quot;335559685&quot;:1440,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Courier New&quot;,&quot;469769242&quot;:[9675],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;o&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}" aria-setsize="-1" data-aria-posinset="2" data-aria-level="2" role="listitem" class="OutlineElement Ltr SCXW149640747 BCX9">
+<p class="Paragraph SCXW149640747 BCX9" paraid="1866935862" paraeid="{b33ee584-411c-4fe4-aada-60a8f349054d}{4}"><span data-contrast="none" xml:lang="EN-US" lang="EN-US" class="TextRun SCXW149640747 BCX9"><span class="NormalTextRun SCXW149640747 BCX9">Initial GIA milestone payment to the transmission owner within </span><span class="NormalTextRun SCXW149640747 BCX9">30</span><span class="NormalTextRun SCXW149640747 BCX9"> calendar days</span></span><span class="EOP SCXW149640747 BCX9" data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:60,&quot;335559740&quot;:276}">&nbsp;</span></p>
+</li>
+<li data-leveltext="o" data-font="Courier New" data-listid="10" data-list-defn-props="{&quot;335552541&quot;:1,&quot;335559684&quot;:-2,&quot;335559685&quot;:1440,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Courier New&quot;,&quot;469769242&quot;:[9675],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;o&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}" aria-setsize="-1" data-aria-posinset="3" data-aria-level="2" role="listitem" class="OutlineElement Ltr SCXW149640747 BCX9">
+<p class="Paragraph SCXW149640747 BCX9" paraid="415548763" paraeid="{b33ee584-411c-4fe4-aada-60a8f349054d}{15}"><span data-contrast="none" xml:lang="EN-US" lang="EN-US" class="TextRun SCXW149640747 BCX9"><span class="NormalTextRun SCXW149640747 BCX9">Reasonable evidence of continued site control</span></span><span class="EOP SCXW149640747 BCX9" data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:60,&quot;335559740&quot;:276}">&nbsp;</span></p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Accordion View -->
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="accordion1267Header1">                       
+                                                <div class="leftside">
+                                                    <h4 class="panel-title margin-btm-0">
+                                                    <a data-toggle="collapse" href="#accordion1267Collapse1" data-parent="#accordion1267" role="button" data-bs-toggle="collapse" data-bs-target="#accordion1267Collapse1" aria-controls="accordion1267Collapse1" class="accordion-link blue collapsed">
+                                                            DPP Mitigation
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div class="rightside">
+                                                <a data-toggle="collapse" href="#accordion1267Collapse1" data-parent="#accordion1267" role="button" data-bs-toggle="collapse" data-bs-target="#accordion1267Collapse1" aria-controls="accordion1267Collapse1" class="accordion-link blue collapsed">
+                                                    <i class="fa pull-right"></i>
+                                                    </a>
+                                                </div>
+                                        </div>
+                                        <div id="accordion1267Collapse1" class="panel-collapse collapse " role="tabpanel" aria-labelledby="accordion1267Heading1">
+                                            <div class="panel-body">
+
+<p>These documents outline the collaborative effort between MISO and Pearl Street Technologies to develop a robust and transparent framework for addressing transmission system overloads and voltage violations, as identified by the SUGAR software in DPP-Phase 1 studies</p>
+<ul>
+<li><a href="https://cdn.misoenergy.org/MISO%20Benchmarking%20of%20Pearl%20Street%20SUGAR697461.pdf" target="_blank" class="open-in-new" rel="noopener">MISO’s Benchmarking of Pearl Street SUGAR</a></li>
+<li><a href="https://cdn.misoenergy.org/MISO%20Transmission%20Mitigation%20Selection%20and%20Cost%20Estimation%20Approach%20Whitepaper697460.pdf" target="_blank" class="open-in-new" rel="noopener">MISO Transmission Mitigation Selection and Cost Estimation Approach Whitepaper</a></li>
+</ul>                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Accordion View -->
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="accordion1267Header2">                       
+                                                <div class="leftside">
+                                                    <h4 class="panel-title margin-btm-0">
+                                                    <a data-toggle="collapse" href="#accordion1267Collapse2" data-parent="#accordion1267" role="button" data-bs-toggle="collapse" data-bs-target="#accordion1267Collapse2" aria-controls="accordion1267Collapse2" class="accordion-link blue collapsed">
+                                                            Optional Studies
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div class="rightside">
+                                                <a data-toggle="collapse" href="#accordion1267Collapse2" data-parent="#accordion1267" role="button" data-bs-toggle="collapse" data-bs-target="#accordion1267Collapse2" aria-controls="accordion1267Collapse2" class="accordion-link blue collapsed">
+                                                    <i class="fa pull-right"></i>
+                                                    </a>
+                                                </div>
+                                        </div>
+                                        <div id="accordion1267Collapse2" class="panel-collapse collapse " role="tabpanel" aria-labelledby="accordion1267Heading2">
+                                            <div class="panel-body">
+
+<div class="OutlineElement Ltr SCXW244139788 BCX9">
+<p class="Paragraph SCXW244139788 BCX9" paraid="1321362657" paraeid="{b33ee584-411c-4fe4-aada-60a8f349054d}{38}"><span data-contrast="none" xml:lang="EN-US" lang="EN-US" class="TextRun SCXW244139788 BCX9"><span class="NormalTextRun SCXW244139788 BCX9">R</span><span class="NormalTextRun SCXW244139788 BCX9">equest an optional study to get sensitivity analysis and cost estimates for providing transmission service or interconnection service. The study will identify all of a transmission owner’s interconnection facilities, system protection facilities, distribution upgrades, generator upgrades, common-use upgrades and network upgrades.</span></span><span class="EOP SCXW244139788 BCX9" data-ccp-props="{&quot;201341983&quot;:0,&quot;335559685&quot;:0,&quot;335559731&quot;:0,&quot;335559739&quot;:60,&quot;335559740&quot;:276,&quot;335559991&quot;:360}">&nbsp;</span></p>
+</div>
+<div class="OutlineElement Ltr SCXW244139788 BCX9">
+<p class="Paragraph SCXW244139788 BCX9" paraid="312793477" paraeid="{b33ee584-411c-4fe4-aada-60a8f349054d}{46}"><span data-contrast="none" xml:lang="EN-US" lang="EN-US" class="TextRun SCXW244139788 BCX9"><span class="NormalTextRun SCXW244139788 BCX9">MISO conducts optional studies in parallel with interconnection requests or on a stand-alone basis. To initiate an optional study, please provide MISO with:</span></span><span class="EOP SCXW244139788 BCX9" data-ccp-props="{&quot;201341983&quot;:0,&quot;335559685&quot;:0,&quot;335559731&quot;:0,&quot;335559739&quot;:60,&quot;335559740&quot;:276,&quot;335559991&quot;:360}">&nbsp;</span></p>
+</div>
+<div class="ListContainerWrapper SCXW244139788 BCX9">
+<ul class="BulletListStyle1 SCXW244139788 BCX9" role="list">
+<li data-leveltext="" data-font="Symbol" data-listid="12" data-list-defn-props="{&quot;335552541&quot;:1,&quot;335559684&quot;:-2,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}" aria-setsize="-1" data-aria-posinset="1" data-aria-level="1" role="listitem" class="OutlineElement Ltr SCXW244139788 BCX9">
+<p class="Paragraph SCXW244139788 BCX9" paraid="1496939587" paraeid="{b33ee584-411c-4fe4-aada-60a8f349054d}{52}"><a class="Hyperlink SCXW244139788 BCX9" href="~/link/cb28a991e13c4420965909514c29f63a.aspx" rel="noreferrer noopener"><span data-contrast="none" xml:lang="EN-US" lang="EN-US" class="TextRun Underlined SCXW244139788 BCX9"><span class="NormalTextRun SCXW244139788 BCX9" data-ccp-charstyle="Hyperlink">The Optional Interconnection Study Agreement</span></span></a><span data-contrast="none" xml:lang="EN-US" lang="EN-US" class="TextRun SCXW244139788 BCX9"><span class="NormalTextRun SCXW244139788 BCX9">.  See Appendix 5</span></span><span class="EOP SCXW244139788 BCX9" data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:60,&quot;335559740&quot;:276}">&nbsp;</span></p>
+</li>
+<li data-leveltext="" data-font="Symbol" data-listid="12" data-list-defn-props="{&quot;335552541&quot;:1,&quot;335559684&quot;:-2,&quot;335559685&quot;:720,&quot;335559991&quot;:360,&quot;469769226&quot;:&quot;Symbol&quot;,&quot;469769242&quot;:[8226],&quot;469777803&quot;:&quot;left&quot;,&quot;469777804&quot;:&quot;&quot;,&quot;469777815&quot;:&quot;hybridMultilevel&quot;}" aria-setsize="-1" data-aria-posinset="2" data-aria-level="1" role="listitem" class="OutlineElement Ltr SCXW244139788 BCX9">
+<p class="Paragraph SCXW244139788 BCX9" paraid="224457211" paraeid="{b33ee584-411c-4fe4-aada-60a8f349054d}{62}"><span data-contrast="none" xml:lang="EN-US" lang="EN-US" class="TextRun SCXW244139788 BCX9"><span class="NormalTextRun SCXW244139788 BCX9">A deposit of $60,000 made out to MISO</span></span><span class="EOP SCXW244139788 BCX9" data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:60,&quot;335559740&quot;:276}">&nbsp;</span></p>
+</li>
+</ul>
+</div>                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Accordion View -->
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="accordion1267Header3">                       
+                                                <div class="leftside">
+                                                    <h4 class="panel-title margin-btm-0">
+                                                    <a data-toggle="collapse" href="#accordion1267Collapse3" data-parent="#accordion1267" role="button" data-bs-toggle="collapse" data-bs-target="#accordion1267Collapse3" aria-controls="accordion1267Collapse3" class="accordion-link blue collapsed">
+                                                            Provisional Studies
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div class="rightside">
+                                                <a data-toggle="collapse" href="#accordion1267Collapse3" data-parent="#accordion1267" role="button" data-bs-toggle="collapse" data-bs-target="#accordion1267Collapse3" aria-controls="accordion1267Collapse3" class="accordion-link blue collapsed">
+                                                    <i class="fa pull-right"></i>
+                                                    </a>
+                                                </div>
+                                        </div>
+                                        <div id="accordion1267Collapse3" class="panel-collapse collapse " role="tabpanel" aria-labelledby="accordion1267Heading3">
+                                            <div class="panel-body">
+
+<div class="OutlineElement Ltr SCXW78491653 BCX9">
+<p class="Paragraph SCXW78491653 BCX9" paraid="1042364949" paraeid="{b33ee584-411c-4fe4-aada-60a8f349054d}{85}"><span data-contrast="none" xml:lang="EN-US" lang="EN-US" class="TextRun SCXW78491653 BCX9"><span class="NormalTextRun SCXW78491653 BCX9">R</span><span class="NormalTextRun SCXW78491653 BCX9">equest a Provisional Study for Interconnection Request submission</span><span class="NormalTextRun SCXW78491653 BCX9">s</span><span class="NormalTextRun SCXW78491653 BCX9"> through Interconnection Customer Decision Point II or at any time the Interconnection Facility Study for Network Upgrades becomes delayed by more than 60 calendar days.</span><span class="NormalTextRun SCXW78491653 BCX9"> </span><span class="NormalTextRun SCXW78491653 BCX9">(see</span><span class="NormalTextRun SCXW78491653 BCX9"> </span></span><a class="Hyperlink SCXW78491653 BCX9" href="~/link/f34395c5e4ad4434b52bd0afa41445af.aspx#q=PGIA study application&amp;t=10&amp;p=0&amp;s=&amp;sd=&amp;f=" rel="noreferrer noopener"><span data-contrast="none" xml:lang="EN-US" lang="EN-US" class="TextRun Underlined SCXW78491653 BCX9"><span class="NormalTextRun SCXW78491653 BCX9" data-ccp-charstyle="Hyperlink">PGIA study application form</span></span></a><span data-contrast="none" xml:lang="EN-US" lang="EN-US" class="TextRun SCXW78491653 BCX9"><span class="NormalTextRun SCXW78491653 BCX9">)</span></span><span class="EOP SCXW78491653 BCX9" data-ccp-props="{&quot;201341983&quot;:0,&quot;335559685&quot;:0,&quot;335559731&quot;:0,&quot;335559739&quot;:60,&quot;335559740&quot;:276,&quot;335559991&quot;:360}">&nbsp;</span></p>
+</div>
+<div class="OutlineElement Ltr SCXW78491653 BCX9">
+<p class="Paragraph SCXW78491653 BCX9" paraid="465440243" paraeid="{b33ee584-411c-4fe4-aada-60a8f349054d}{108}"><span data-contrast="none" xml:lang="EN-US" lang="EN-US" class="TextRun SCXW78491653 BCX9"><span class="NormalTextRun SCXW78491653 BCX9">MISO conducts Provisional Studies to offer conditional ERIS to the customer prior to the completion on the Network Upgrades.</span></span><span class="EOP SCXW78491653 BCX9" data-ccp-props="{&quot;201341983&quot;:0,&quot;335559685&quot;:0,&quot;335559731&quot;:0,&quot;335559739&quot;:60,&quot;335559740&quot;:276,&quot;335559991&quot;:360}">&nbsp;</span></p>
+</div>
+<div class="OutlineElement Ltr SCXW78491653 BCX9">
+<p class="Paragraph SCXW78491653 BCX9" paraid="1697243224" paraeid="{b33ee584-411c-4fe4-aada-60a8f349054d}{114}"><span data-contrast="none" xml:lang="EN-US" lang="EN-US" class="TextRun SCXW78491653 BCX9"><span class="NormalTextRun SCXW78491653 BCX9">MISO requires a</span><span class="NormalTextRun SCXW78491653 BCX9"> deposit of $8,000 per MW studied for M3 and M4</span><span class="NormalTextRun SCXW78491653 BCX9">.</span></span><span class="EOP SCXW78491653 BCX9" data-ccp-props="{&quot;201341983&quot;:0,&quot;335559685&quot;:0,&quot;335559731&quot;:0,&quot;335559739&quot;:60,&quot;335559740&quot;:276,&quot;335559991&quot;:360}">&nbsp;</span></p>
+</div>                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Accordion View -->
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="accordion1267Header4">                       
+                                                <div class="leftside">
+                                                    <h4 class="panel-title margin-btm-0">
+                                                    <a data-toggle="collapse" href="#accordion1267Collapse4" data-parent="#accordion1267" role="button" data-bs-toggle="collapse" data-bs-target="#accordion1267Collapse4" aria-controls="accordion1267Collapse4" class="accordion-link blue collapsed">
+                                                            Contact Us
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div class="rightside">
+                                                <a data-toggle="collapse" href="#accordion1267Collapse4" data-parent="#accordion1267" role="button" data-bs-toggle="collapse" data-bs-target="#accordion1267Collapse4" aria-controls="accordion1267Collapse4" class="accordion-link blue collapsed">
+                                                    <i class="fa pull-right"></i>
+                                                    </a>
+                                                </div>
+                                        </div>
+                                        <div id="accordion1267Collapse4" class="panel-collapse collapse " role="tabpanel" aria-labelledby="accordion1267Heading4">
+                                            <div class="panel-body">
+
+<p><a href="mailto:ginterconnection@misoenergy.org">Interconnection Request Application; pre-queue meetings</a></p>
+<p><a href="mailto:TSpecht@misoenergy.org">Ongoing DPP studies - Central</a></p>
+<p><a href="mailto:JDuhn@misoenergy.org">Ongoing DPP studies - East (ITC) and South</a></p>
+<p><a href="mailto:KGuthmueller@misoenergy.org">Ongoing DPP studies - East (ACT) and West</a></p>
+<p><a href="mailto:misoipwg@lists.misoenergy.org">GI Process/Policy, Tariff/BPM, IPWG</a></p>
+<p><a href="mailto:ginterconnection@misoenergy.org">Optional and Provisional Interconnection Study Requests</a></p>
+<p><a href="mailto:gianegotiation@misoenergy.org">Interconnection Agreements</a></p>                                            </div>
+                                        </div>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div><div class="block documentnavigatorblock col-12 col-sm-8">
+<div class="withBorder">
+
+
+<div class="headerBlock blue-bg">
+    <div class="leftSide">
+        <div class="primaryText">
+            Documents
+        </div>
+
+    </div>
+</div>    <div class="blockBody">
+        <div id="react_0HNOAH51C8SMM"><div data-reactroot="" class="document-navigator"><div class="row"><div class="col-12 col-lg-4 col-xl-3 docnav-menu"><div><div class="docnav-menuitems"><div class="docnav-menuitem active slideOut"><a href="#nt=/processstage:DPP Mitigation"><i class="fa fa-folder-o margin-right-5"></i>DPP Mitigation</a></div><div class="docnav-menuitem active slideOut"><a href="#nt=/processstage:Feasibility Study (FeS)"><i class="fa fa-folder-o margin-right-5"></i>Feasibility Study (FeS)</a></div><div class="docnav-menuitem active slideOut"><a href="#nt=/processstage:Definitive Planning Phase (DPP)"><i class="fa fa-folder-o margin-right-5"></i>Definitive Planning Phase (DPP)</a></div></div></div></div><div class="col-12 col-lg-8 col-xl-9"><div class="row"><div class="col-12"><div class="miso-breadcrumbs docnav-breadcrumbs mb-4 mt-0"><div class="crumbs"></div></div></div><div class="col-12"><div class="docnav-navitem"><h3 class="margin-top-0">Generator Interconnection Studies</h3><div class="docnav-documents"><div>In order to view documents related to Generator Interconnection Studies, continue using the navigation on the left</div></div></div></div></div></div></div><input type="hidden" id="openDocumentsInNewTarget" value="true"></div></div>
+    </div>
+</div></div></div>
+</div>
+
+    
+<footer>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 col-12 logoAndMediaContainer">
+                <div class="row">
+                    <div class="logoAndMediaLinks col-6 col-md-12">
+                        <div class="misoLogoDiv">
+                            <img src="/bundles/img/MISOIcon.png" class="misoLogo" alt="MISO">
+                        </div>
+                    </div>
+
+                    <div class="socialMediaDiv col-6 col-md-12">
+                        <!-- Social Media Font Awesome Icons -->
+                        <a class="socialMediaLink" href="https://www.youtube.com/user/MISOenergy" target="_blank" aria-label="YouTube">
+                            <i class="socialIcon fa-brands fa-youtube"></i>
+                        </a>
+                        <a class="socialMediaLink" href="https://vimeo.com/user129523689" target="_blank" aria-label="Vimeo">
+                            <i class="socialIcon fa-brands fa-vimeo-v"></i>
+                        </a>
+                        <a class="socialMediaLink" href="https://www.x.com/miso_energy" target="_blank" aria-label="X">
+                            <i class="socialIcon fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a class="socialMediaLink" href="https://www.linkedin.com/company/midcontinent-iso/" target="_blank" aria-label="LinkedIn">
+                            <i class="socialIcon fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <div class="mobileFooter"></div>
+                    </div>
+                </div>
+            </div>
+
+                        <div class="col-md-2 col-6 offset-md-2 col-sm-6">
+                            <h3 class="text-nowrap">GET STARTED </h3>
+
+<a href="/manage/profile/" target="" title="">Login/Profile</a>
+<a href="https://help.misoenergy.org/" target="" title="Help Center">Help Center</a>
+<a href="/meet-miso/contact-us/" target="" title="">Contact Us</a>
+<a href="/meet-miso/Code-of-Conduct/" target="" title="">Code of Conduct</a>
+<a href="/engage/compliance-corner/" target="" title="">Compliance</a>                        </div>
+                        <div class="col-md-2 col-6">
+                            <h3 class="text-nowrap">DISCOVER</h3>
+
+<a href="/engage/tools/calendar/" target="" title="">Calendar</a>
+<a href="/meet-miso/careers/" target="" title="">Careers</a>
+<a href="/meet-miso/media-center/miso-matters/" target="" title="">MISO Matters - Blog</a>
+<a href="/markets-and-operations/notifications/" target="" title="">Notifications</a>
+<a href="/meet-miso/legal-and-privacy/" target="" title="">Legal and Privacy</a>                        </div>
+                        <div class="col-md-2 col-6">
+                            <h3 class="text-nowrap">POPULAR LINKS</h3>
+
+<a href="/markets-and-operations/real-time--market-data/markets-displays/" target="" title="">Market Displays</a>
+<a href="/markets-and-operations/real-time--market-data/operations-displays/" target="" title="">Operation Displays</a>
+<a href="/markets-and-operations/real-time--market-data/market-reports/" target="" title="">Market Reports</a>
+<a href="/markets-and-operations/markets-and-operations/" target="" title="">Markets and Operations</a>
+<a href="/extranet/" target="" title="">Extranet</a>                        </div>
+
+            <div class="copyright col-12">
+                Copyright © 2010-2026 Midcontinent Independent System Operator, Inc. All rights reserved.
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script>
+    $(document).ready(function () {
+
+        $('[data-toggle="tooltip"]').tooltip();
+
+        $('#loginPopover').popover({
+            template: '<div class="popover  popoverLogin" role="tooltip"><div class="arrow"></div><div class="popover-content"></div></div>',
+            html: true,
+            content: function () {
+                return $('#popover-content').html();
+            }
+        });
+
+        $('#loginPopover').click(function (e) {
+            e.stopPropagation();
+        });
+
+        $(document).click(function (e) {
+            if (($('.popover').has(e.target).length == 0) || $(e.target).is('.close')) {
+                $('#loginPopover').popover('hide');
+            }
+        });
+
+        $('#statusDefinitionPopover, .legend-popover').popover({
+            fallbackPlacements: [$('#statusDefinitionPopover, .legend-popover').data("bsPlacement")],
+            html: true,
+            sanitize: false,
+            content: function () {
+                return $(this.parentElement).find('#popover-content').html();
+            }
+        });
+
+        $('#statusDefinitionPopover, .legend-popover').click(function (e) {
+            e.stopPropagation();
+        });
+
+        $(document).click(function (e) {
+            if (($('.popover').has(e.target).length == 0) || $(e.target).is('.close')) {
+                $('#statusDefinitionPopover, .legend-popover').each(function () {
+                    var popover = $(this).popover('hide').data('bs.popover');
+                    //TODO ?
+                    //popover.inState.click = false;
+                    $(this).data('bs.popover', popover);
+                });
+            }
+        });
+
+        $('.dropdown-submenu a.submenu-toggle').on("click", function (e) {
+
+            // Close all other submenus
+            $(".dropdown-submenu .dropdown-menu").not($(this).next('.dropdown-menu')).hide();
+            $(".submenu-toggle").not(this).children('.glyphicon').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+
+            // Show Menu
+            $(this).children('.glyphicon').toggleClass("glyphicon-chevron-up glyphicon-chevron-down");
+            e.stopPropagation();
+            e.preventDefault();
+        });
+
+        $(".dropdown-toggle").on("click", function () {
+            // Close all submenus
+            $(".dropdown-submenu .dropdown-menu").hide();
+            $(".submenu-toggle .glyphicon").removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+        });
+
+        if ("ontouchstart" in document.documentElement) {
+            $('html').addClass('touch');
+        }
+
+        // Init Resize
+        var repeat = new Miso.Repeat(500);
+
+        // Ensure any secure links after created after initial page load are secured
+        var secureLinks = {
+            name: "secureLinks", onEvent: function () {
+                Miso.Secured.SecureLinks();
+            }
+        }
+
+        repeat.RegisterEvent(secureLinks, false);
+
+        // Add message handler for modals
+        window.addEventListener("message", receiveMessage, false);
+
+        function receiveMessage(event) {
+            var name = event.data.name;
+
+            if (name) {
+                var height = event.data.data;
+                var frame = $(".embed-responsive-item[name='" + name + "']");
+
+                if (event.data.type === "height") {
+                    frame.height(height);
+                    frame.parent().css("padding-bottom", (height + 20) + "px");
+                } else if (event.data.type === "scroll") {
+                    document.documentElement.scrollTop = frame[0].offsetTop + event.data.data + 10;
+                }
+            }
+        }
+
+        //function placeFooter() {
+        //    var minHeight = window.innerHeight - ($("header:eq(0)").height() + $("header:eq(1)").height() + $("footer").height() + 85);
+        //    $("body > .body-container").css("min-height", minHeight);
+        //}
+
+        //placeFooter();
+
+        //if (Model.CurrentMode != ExtendedContextMode.Edit)
+        //{
+        //    :$(window).resize(function () { placeFooter() });
+        //}
+
+        var loggedIn = false;
+
+        if (loggedIn) {
+
+            Miso.SessionTimeout.loggedIn = loggedIn;
+            Miso.SessionTimeout.timeout = 60;
+            Miso.SessionTimeout.startSession();
+
+            (function (open) {
+
+                XMLHttpRequest.prototype.open = function (method, url, async, user, pass) {
+
+                    this.addEventListener("readystatechange", function () {
+                        if (this.readyState === "complete") {
+                            Miso.SessionTimeout.updateSession();
+                        }
+                    }, false);
+
+                    open.call(this, method, url, async, user, pass);
+                };
+
+            })(XMLHttpRequest.prototype.open);
+        }
+
+    });
+
+    // Init Miso Secured
+    Miso.PageGuid.SetPageGuid("70c7bbaa-f3c4-4675-8ea6-21e21ea44bd4");
+    Miso.Secured();
+    Miso.Secured.SetLoginStatus(false, "/account/login/?ReturnUrl=/planning/resource-utilization/GI_Studies/");
+</script>
+
+    
+    
+    
+    
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=G-4M1XDNMYMK"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+
+
+    <script defer="defer" src="/Util/Find/epi-util/find.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){if(typeof FindApi === 'function'){var api = new FindApi();api.setApplicationUrl('/');api.setServiceApiBaseUrl('/find_v2/');api.processEventFromCurrentUri();api.bindWindowEvents();api.bindAClickEvent();api.sendBufferedEvents();}})
+</script>
+
+
+    <script>ReactDOM.hydrate(React.createElement(components.ClickableImageBlocks.ClickableImageBlocks, {"showCompressedDownload":null,"image":"17328","linkUrl":{"originalString":"/link/fed81c1453c040fe8e8b01bca052ab95.aspx","path":"/link/fed81c1453c040fe8e8b01bca052ab95.aspx","authority":"","dnsSafeHost":"","fragment":"","host":"","isAbsoluteUri":false,"localPath":"","pathAndQuery":"/link/fed81c1453c040fe8e8b01bca052ab95.aspx","port":-1,"query":"","queryCollection":[],"scheme":"","segments":["/","link/","fed81c1453c040fe8e8b01bca052ab95.aspx"],"userEscaped":false,"userInfo":"","uri":"/link/fed81c1453c040fe8e8b01bca052ab95.aspx","encoding":{"bodyName":"utf-8","encodingName":"Unicode (UTF-8)","headerName":"utf-8","webName":"utf-8","windowsCodePage":1200,"isBrowserDisplay":true,"isBrowserSave":true,"isMailNewsDisplay":true,"isMailNewsSave":true,"isSingleByte":false,"encoderFallback":{"defaultString":"�","maxCharCount":1},"decoderFallback":{"defaultString":"�","maxCharCount":1},"isReadOnly":true,"codePage":65001}},"buttonText":"Learn More on MISO Matters","imageString":"/globalassets/25_01_32-giq-challenges_social.png"}), document.getElementById("react_0HNOAH51C8SML"));
+ReactDOM.hydrate(React.createElement(components.SearchNavigation.SearchDocumentNavigator, {"showCompressedDownload":null,"disableFollowing":null,"enableFollowDocuments":false,"openDocumentsInNewTarget":true,"initialFilters":[{"propertyName":"processstage","value":""}],"documentNavigation":{"parentPropertyValue":null,"childPropertySystemName":"processstage","displayResultInGrid":false,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[],"resultSortField":null,"resultSortDirection":null,"useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":[{"parentPropertyValue":"DPP Mitigation","childPropertySystemName":null,"displayResultInGrid":false,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[],"resultSortField":null,"resultSortDirection":null,"useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"Feasibility Study (FeS)","childPropertySystemName":"studycycle","displayResultInGrid":false,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[],"resultSortField":null,"resultSortDirection":null,"useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":[{"parentPropertyValue":"FeS-2016-DEC","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"},{"propertyName":"Updated","title":"Last Updated"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"December 2016","summary":null}],"title":"","summary":null},{"parentPropertyValue":"Definitive Planning Phase (DPP)","childPropertySystemName":"studycycle","displayResultInGrid":false,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[],"resultSortField":null,"resultSortDirection":null,"useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":[{"parentPropertyValue":"2025 Cycle","childPropertySystemName":"studygroup","displayResultInGrid":false,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[],"resultSortField":null,"resultSortDirection":null,"useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":[{"parentPropertyValue":"General Documents","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":null,"resultSortDirection":null,"useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null}],"title":"","summary":null},{"parentPropertyValue":"2023 Cycle","childPropertySystemName":"studygroup","displayResultInGrid":false,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[],"resultSortField":null,"resultSortDirection":null,"useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":[{"parentPropertyValue":"General Documents","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":null,"resultSortDirection":null,"useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null}],"title":"","summary":null},{"parentPropertyValue":"2022 Cycle","childPropertySystemName":"studygroup","displayResultInGrid":false,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":null,"resultSortField":null,"resultSortDirection":null,"useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":[{"parentPropertyValue":"General Documents","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"ATC","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"Central","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"Michigan","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"South","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"West","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null}],"title":"","summary":null},{"parentPropertyValue":"2021 Cycle","childPropertySystemName":"studygroup","displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"studygroup","resultSortDirection":"asc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":[{"parentPropertyValue":"General Documents","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"ATC","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"Updated","resultSortDirection":null,"useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"Central","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"Michigan","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"Updated","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"South","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"West","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null}],"title":"","summary":null},{"parentPropertyValue":"2020 Cycle","childPropertySystemName":"studygroup","displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":[{"parentPropertyValue":"ATC","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"Updated","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"Central","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"Michigan","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"South","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"West","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null}],"title":"","summary":null},{"parentPropertyValue":"2019 Cycle 1","childPropertySystemName":"studygroup","displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"studygroup","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":[{"parentPropertyValue":"ATC","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"Central","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"Michigan","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"South","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"West","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null}],"title":"","summary":null},{"parentPropertyValue":"DPP-2018-APR","childPropertySystemName":"studygroup","displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"studygroup","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":[{"parentPropertyValue":"ATC","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"Central","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"Michigan","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"South","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"West","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null}],"title":"April 2018","summary":null},{"parentPropertyValue":"DPP-2017-AUG","childPropertySystemName":"studygroup","displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"studygroup","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":[{"parentPropertyValue":"ATC","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"Central","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"Michigan","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"South","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"West","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null}],"title":"August 2017","summary":null},{"parentPropertyValue":"DPP-2017-FEB","childPropertySystemName":"studygroup","displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"studygroup","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":[{"parentPropertyValue":"ATC","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"Central","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"Michigan","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"asc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"South","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"West","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null}],"title":"February 2017","summary":null},{"parentPropertyValue":"DPP-2016-AUG","childPropertySystemName":"studygroup","displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"studygroup","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":[{"parentPropertyValue":"ATC","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"Central","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"Michigan","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"South","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"West","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null}],"title":"August 2016","summary":null},{"parentPropertyValue":"DPP-2016-FEB","childPropertySystemName":"studygroup","displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"studygroup","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":[{"parentPropertyValue":"ATC","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"Central","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"Michigan","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"South","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[{"propertyName":"FileName","title":"Document Name"}],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null},{"parentPropertyValue":"West","childPropertySystemName":null,"displayResultInGrid":true,"tableStyle":null,"useDisplayTitle":false,"gridMetadataColumns":[],"resultSortField":"FileName","resultSortDirection":"desc","useDynamicChoiceMode":"","dynamicChoiceSortDirection":null,"useDynamicDateNavigation":false,"useDynamicYearNavigation":false,"useDynamicQuarterNavigation":false,"useDynamicMonthNavigation":false,"useDynamicDayNavigation":false,"childDocumentNavigationItems":null,"title":"","summary":null}],"title":"February 2016","summary":null}],"title":"","summary":null}],"title":"Generator Interconnection Studies","summary":null},"findServiceUrl":"/api/find/Optics_Models_Find_RemoteHostedContentItem"}), document.getElementById("react_0HNOAH51C8SMM"));
+ReactDOM.render(React.createElement(components.BreadCrumbs.BreadCrumbs, {"showBreadCrumbs":true,"breadCrumbID":1146,"showFollowFlag":true,"followGuid":"70c7bbaa-f3c4-4675-8ea6-21e21ea44bd4"}), document.getElementById("react_0HNOAH51C8SMN"));
+</script>
+
+    
+
+    
+
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a362dcb51cf81054',t:'MTc4ODU4NjQzNw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; visibility: hidden;"></iframe>
+<script type="text/javascript" src="https://zn0vr9g3knrpgpsq6-misocx.siteintercept.qualtrics.com/SIE/?Q_ZID=ZN_0vR9g3KnrPgPsQ6"></script></body></html>

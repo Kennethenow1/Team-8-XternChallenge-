@@ -1,0 +1,208 @@
+source,field,missing_count,missing_pct,distinct_values,invalid_count,minimum,maximum
+berkeley_2020,q_id,406,2.851,12220,0,,
+berkeley_2020,q_status,0,0.0,3,0,,
+berkeley_2020,q_date_clean,9182,64.476,1081,0,2002-06-24 00:00:00,2020-12-30 00:00:00
+berkeley_2020,q_year,9,0.063,50,1,1970-01-01 00:00:00.000001997,2020-01-01 00:00:00
+berkeley_2020,entity,0,0.0,42,0,,
+berkeley_2020,project_name,9187,64.511,4468,0,,
+berkeley_2020,developer,13277,93.231,644,0,,
+berkeley_2020,utility,2060,14.465,190,0,,
+berkeley_2020,county_1,8736,61.344,1128,0,,
+berkeley_2020,county_2,14217,99.831,19,0,,
+berkeley_2020,county_3,14238,99.979,3,0,,
+berkeley_2020,state,164,1.152,51,0,,
+berkeley_2020,region,8602,60.403,9,0,,
+berkeley_2020,poi_name,118,0.829,10888,0,,
+berkeley_2020,type_clean,29,0.204,23,0,,
+berkeley_2020,proposed_on_date,2507,17.604,2426,0,,
+berkeley_2020,proposed_on_year,9130,64.111,25,0,1899.0,2033.0
+berkeley_2020,ia_status_raw,9254,64.981,174,0,,
+berkeley_2020,ia_status_clean,8602,60.403,4,0,,
+berkeley_2020,type1,237,1.664,91,0,,
+berkeley_2020,type2,13178,92.536,7,0,,
+berkeley_2020,type3,14231,99.93,2,0,,
+berkeley_2020,mw1,59,0.414,1752,0,-50.0,3576.0
+berkeley_2020,mw2,13609,95.562,253,0,0.0,1920.0
+berkeley_2020,mw3,14237,99.972,4,0,40.0,375.0
+berkeley_2020,_sheet,0,0.0,3,0,,
+berkeley_2020,q_date,5648,39.66,3123,649,1900-01-01 00:00:00,2020-12-08 00:00:00
+berkeley_2020,county,5796,40.699,1018,0,,
+berkeley_2020,wd_date,7629,53.571,2604,0,14421.0,22280.0
+berkeley_2020,wd_year,7629,53.571,22,0,1999.0,2020.0
+berkeley_2020,wd_reason,12159,85.38,8,0,,
+berkeley_2020,days_in_q,6365,44.695,2203,0,-958.0,7005.0
+berkeley_2020,ia_status,14180,99.572,3,0,,
+berkeley_2020,on_date,12968,91.061,850,0,2000-01-08 00:00:00,2020-12-23 00:00:00
+berkeley_2020,on_year,12968,91.061,21,0,2000.0,2020.0
+berkeley_2021,q_id,1,0.004,19011,0,,
+berkeley_2021,q_status,0,0.0,4,0,,
+berkeley_2021,q_date,78,0.32,5979,3384,1995-11-08 00:00:00,2021-12-30 00:00:00
+berkeley_2021,q_year,85,0.349,27,0,1995.0,2021.0
+berkeley_2021,ia_date,21855,89.639,1609,0,,
+berkeley_2021,wd_date,18058,74.066,3103,3792,2005-11-01 00:00:00,2021-12-08 00:00:00
+berkeley_2021,on_date,22810,93.556,1081,1257,2002-03-31 00:00:00,2021-12-08 00:00:00
+berkeley_2021,entity,0,0.0,42,0,,
+berkeley_2021,project_name,15772,64.69,7582,0,,
+berkeley_2021,developer,20814,85.37,1948,0,,
+berkeley_2021,utility,3382,13.871,228,0,,
+berkeley_2021,county_1,418,1.714,1723,0,,
+berkeley_2021,county_2,24310,99.709,50,0,,
+berkeley_2021,county_3,24362,99.922,15,0,,
+berkeley_2021,state,408,1.673,50,0,,
+berkeley_2021,region,0,0.0,9,0,,
+berkeley_2021,service,5461,22.399,83,0,,
+berkeley_2021,poi_name,1130,4.635,17006,0,,
+berkeley_2021,prop_date,2361,9.684,3945,0,,
+berkeley_2021,prop_year,2985,12.243,45,0,1962.0,2033.0
+berkeley_2021,ia_status_raw,3998,16.398,861,0,,
+berkeley_2021,ia_status_clean,0,0.0,11,0,,
+berkeley_2021,type_clean,785,3.22,34,0,,
+berkeley_2021,type1,785,3.22,14,0,,
+berkeley_2021,type2,22290,91.424,6,0,,
+berkeley_2021,type3,24366,99.938,2,0,,
+berkeley_2021,mw1,209,0.857,1071,0,-99.0,16875.0
+berkeley_2021,mw2,23374,95.87,271,0,0.0,2090.0
+berkeley_2021,mw3,24302,99.676,4,0,0.0,375.0
+berkeley_2022,q_id,0,0.0,23042,0,,
+berkeley_2022,q_status,51,0.176,4,0,,
+berkeley_2022,q_date,176,0.606,5819,1282,1995-11-08 00:00:00,2022-12-30 00:00:00
+berkeley_2022,q_year,162,0.558,28,0,1995.0,2022.0
+berkeley_2022,ia_date,26934,92.77,1402,571,1999-08-25 00:00:00,2022-12-09 00:00:00
+berkeley_2022,wd_date,20099,69.228,4171,0,1999-06-26 00:00:00,2023-02-06 00:00:00
+berkeley_2022,on_date,26705,91.982,1592,1697,1941-06-01 00:00:00,2026-04-01 00:00:00
+berkeley_2022,entity,0,0.0,42,0,,
+berkeley_2022,project_name,19480,67.096,8472,0,,
+berkeley_2022,developer,24655,84.921,2325,0,,
+berkeley_2022,utility,4063,13.994,393,0,,
+berkeley_2022,county_1,914,3.148,1818,0,,
+berkeley_2022,county_2,28955,99.731,57,0,,
+berkeley_2022,county_3,29020,99.955,12,0,,
+berkeley_2022,state,954,3.286,77,0,,
+berkeley_2022,region,1,0.003,9,0,,
+berkeley_2022,service,6154,21.197,91,0,,
+berkeley_2022,poi_name,1267,4.364,19985,0,,
+berkeley_2022,prop_date,3283,11.308,4118,0,,
+berkeley_2022,prop_year,3959,13.636,47,0,1962.0,2034.0
+berkeley_2022,ia_status_raw,4099,14.118,690,0,,
+berkeley_2022,ia_status_clean,56,0.193,22,0,,
+berkeley_2022,type_clean,0,0.0,31,0,,
+berkeley_2022,type1,19,0.065,34,0,,
+berkeley_2022,type2,25774,88.775,5,0,,
+berkeley_2022,type3,28967,99.773,2,0,,
+berkeley_2022,mw1,516,1.777,1125,0,-53.0,16875.0
+berkeley_2022,mw2,27872,96.001,283,0,0.52,2090.0
+berkeley_2022,mw3,29001,99.89,19,0,28.0,1650.0
+berkeley_2023,q_id,1,0.003,25925,0,,
+berkeley_2023,q_status,8,0.025,4,0,,
+berkeley_2023,q_date,199,0.612,6288,4282,1996-06-07 00:00:00,2023-12-31 00:00:00
+berkeley_2023,q_year,200,0.615,29,0,1995.0,2023.0
+berkeley_2023,ia_date,28428,87.436,2871,2938,1999-10-21 00:00:00,2023-12-22 00:00:00
+berkeley_2023,wd_date,22149,68.124,4722,0,,
+berkeley_2023,on_date,29347,90.262,1739,1700,1999-07-24 00:00:00,2030-08-30 00:00:00
+berkeley_2023,entity,0,0.0,51,0,,
+berkeley_2023,project_name,21661,66.623,9660,0,,
+berkeley_2023,developer,27063,83.237,2880,0,,
+berkeley_2023,utility,4292,13.201,295,0,,
+berkeley_2023,county_1,838,2.577,1887,0,,
+berkeley_2023,county_2,32415,99.699,69,0,,
+berkeley_2023,county_3,32499,99.957,13,0,,
+berkeley_2023,state,811,2.494,52,0,,
+berkeley_2023,region,0,0.0,9,0,,
+berkeley_2023,service,5751,17.688,95,0,,
+berkeley_2023,poi_name,1122,3.451,22012,0,,
+berkeley_2023,prop_date,4405,13.548,4483,17978,1900-01-12 00:00:00,2034-11-01 00:00:00
+berkeley_2023,prop_year,9489,29.185,45,0,1962.0,2034.0
+berkeley_2023,IA_status_raw,6483,19.94,830,0,,
+berkeley_2023,IA_status_clean,5,0.015,22,0,,
+berkeley_2023,type_clean,0,0.0,31,0,,
+berkeley_2023,type1,265,0.815,31,0,,
+berkeley_2023,type2,28612,88.002,5,0,,
+berkeley_2023,type3,32425,99.729,2,0,,
+berkeley_2023,mw1,398,1.224,1247,0,-69.0,16875.0
+berkeley_2023,mw2,31024,95.42,360,0,0.5,2373.0
+berkeley_2023,mw3,32468,99.862,25,0,28.0,1650.0
+berkeley_thru2024,q_id,1,0.003,28946,0,,
+berkeley_thru2024,q_status,0,0.0,5,0,,
+berkeley_thru2024,q_date,607,1.666,5709,0,25569.0,45657.0
+berkeley_thru2024,prop_date,7412,20.34,3245,0,2001.0,55153.0
+berkeley_thru2024,on_date,33484,91.886,1549,0,8825.0,45656.0
+berkeley_thru2024,wd_date,26303,72.18,3325,0,36337.0,45707.0
+berkeley_thru2024,ia_date,34001,93.304,1449,0,25569.0,45656.0
+berkeley_thru2024,IA_status_raw,12132,33.292,1016,0,,
+berkeley_thru2024,IA_status_clean,5457,14.975,13,0,,
+berkeley_thru2024,county,2455,6.737,1654,0,,
+berkeley_thru2024,state,107,0.294,50,0,,
+berkeley_thru2024,county_state_pairs,2960,8.123,3249,0,,
+berkeley_thru2024,fips_codes,3184,8.737,2749,0,1001.0,2.30212301923025e+24
+berkeley_thru2024,poi_name,2830,7.766,23634,0,,
+berkeley_thru2024,region,0,0.0,9,0,,
+berkeley_thru2024,project_name,24257,66.565,10781,0,,
+berkeley_thru2024,utility,6215,17.055,236,0,,
+berkeley_thru2024,entity,0,0.0,56,0,,
+berkeley_thru2024,developer,29712,81.535,3526,0,,
+berkeley_thru2024,cluster,26936,73.917,282,0,,
+berkeley_thru2024,service,9074,24.901,4,0,,
+berkeley_thru2024,project_type,2779,7.626,4,0,,
+berkeley_thru2024,type1,0,0.0,19,0,,
+berkeley_thru2024,type2,32208,88.384,11,0,,
+berkeley_thru2024,type3,36342,99.728,4,0,,
+berkeley_thru2024,mw1,0,0.0,4963,0,-671.0,16875.0
+berkeley_thru2024,mw2,35285,96.828,491,0,1.0,2090.2
+berkeley_thru2024,mw3,36396,99.877,26,0,2.284490952,1650.0
+berkeley_thru2024,type_clean,0,0.0,46,0,,
+berkeley_thru2024,q_year,607,1.666,30,0,1970.0,2024.0
+berkeley_thru2024,prop_year,7412,20.34,47,0,1905.0,2050.0
+berkeley_thru2025,q_id,0,0.0,30299,0,,
+berkeley_thru2025,q_status,0,0.0,5,0,,
+berkeley_thru2025,q_date,665,1.741,6066,0,1995-11-08 00:00:00,2025-12-24 00:00:00
+berkeley_thru2025,prop_date,5265,13.782,3723,0,1980-12-31 00:00:00,2057-09-01 00:00:00
+berkeley_thru2025,on_date,34492,90.291,1891,0,1982-06-30 00:00:00,2025-12-31 00:00:00
+berkeley_thru2025,wd_date,22578,59.103,4119,0,1999-06-26 00:00:00,2026-01-16 00:00:00
+berkeley_thru2025,ia_date,33368,87.348,2741,0,1999-08-25 00:00:00,2025-12-31 00:00:00
+berkeley_thru2025,IA_phase_raw,14738,38.58,1184,0,,
+berkeley_thru2025,IA_phase_clean,7167,18.761,11,0,,
+berkeley_thru2025,county,2063,5.4,1673,0,,
+berkeley_thru2025,state,1235,3.233,52,0,,
+berkeley_thru2025,fips_code,1770,4.633,2637,0,1001.0,3610136003.0
+berkeley_thru2025,poi_name,2813,7.364,24751,0,,
+berkeley_thru2025,region,0,0.0,9,0,,
+berkeley_thru2025,project_name,25113,65.739,11555,0,,
+berkeley_thru2025,utility,7855,20.562,386,0,,
+berkeley_thru2025,entity,0,0.0,57,0,,
+berkeley_thru2025,developer,29714,77.783,4518,0,,
+berkeley_thru2025,cluster,25806,67.553,644,0,,
+berkeley_thru2025,service,10797,28.264,4,0,,
+berkeley_thru2025,project_type,1224,3.204,4,0,,
+berkeley_thru2025,type_1,0,0.0,14,0,,
+berkeley_thru2025,type_2,33144,86.762,10,0,,
+berkeley_thru2025,type_3,38091,99.712,4,0,,
+berkeley_thru2025,type_clean,0,0.0,49,0,,
+berkeley_thru2025,mw_1,0,0.0,5299,0,-75.0,16875.0
+berkeley_thru2025,mw_2,37105,97.131,431,0,1.0,2107.4
+berkeley_thru2025,mw_3,38156,99.882,25,0,1.0,1650.0
+berkeley_thru2025,q_year,665,1.741,30,0,1995.0,2025.0
+berkeley_thru2025,prop_year,5265,13.782,50,0,1980.0,2057.0
+miso_current_2026,Project #,0,0.0,3832,0,,
+miso_current_2026,Request Status,0,0.0,6,0,,
+miso_current_2026,Queue Date,6,0.157,655,0,2015-04-15 04:00:00+00:00,2026-08-25 21:10:25+00:00
+miso_current_2026,Withdrawn Date,1705,44.482,428,0,2017-02-17 05:00:00+00:00,2026-09-01 04:00:00+00:00
+miso_current_2026,Done Date,3564,92.982,135,0,2018-01-24 05:00:00+00:00,2023-03-07 05:00:00+00:00
+miso_current_2026,Appl In Service Date,32,0.835,605,0,1990-03-01 05:00:00+00:00,2032-10-31 04:00:00+00:00
+miso_current_2026,Transmission Owner,128,3.339,93,0,,
+miso_current_2026,County,138,3.6,776,0,,
+miso_current_2026,State,165,4.305,16,0,,
+miso_current_2026,Study Cycle,237,6.183,14,0,,
+miso_current_2026,Study Group,243,6.34,6,0,,
+miso_current_2026,Study Phase,434,11.323,5,0,,
+miso_current_2026,Service Type,20,0.522,5,0,,
+miso_current_2026,POI Name,119,3.105,2915,0,,
+miso_current_2026,Summer MW,0,0.0,525,0,0.0,2220.0
+miso_current_2026,Winter MW,0,0.0,520,0,0.0,2220.0
+miso_current_2026,Fuel,279,7.279,14,0,,
+miso_current_2026,Generating Facility,280,7.305,15,0,,
+miso_current_2026,Post GIA Status,1338,34.907,5,0,,
+miso_current_2026,Negotiated In Service Date,3225,84.138,327,0,1990-12-03 05:00:00+00:00,2030-06-01 04:00:00+00:00
+miso_current_2026,Decision Point 1 ERIS MW,0,0.0,310,0,0.0,2200.0
+miso_current_2026,Decision Point 1 NRIS MW,0,0.0,297,0,0.0,2200.0
+miso_current_2026,Decision Point 2 ERIS MW,0,0.0,180,0,0.0,1209.0
+miso_current_2026,Decision Point 2 NRIS MW,0,0.0,168,0,0.0,1175.0

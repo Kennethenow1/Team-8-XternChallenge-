@@ -1,0 +1,18 @@
+{
+  "dataset": "electricity_demand",
+  "grain": "MISO region/zone \u00d7 hour/day",
+  "geographic_key": "miso_zone",
+  "columns": [
+    "miso_zone",
+    "timestamp",
+    "effective_at",
+    "published_at",
+    "available_at",
+    "source",
+    "load_mw"
+  ],
+  "pit_join_rule": "Point-in-time join: external.available_at <= project.observation_date; then select most recent eligible record or compute trailing windows. Never join on calendar year alone if that leaks future months into earlier predictions.",
+  "example_features": [
+    "mean_load_prior_90d"
+  ]
+}

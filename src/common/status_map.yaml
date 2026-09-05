@@ -1,0 +1,47 @@
+# Map raw status strings (lowercased, stripped) -> status_clean
+# status_clean values: active | withdrawn | completed | operational | suspended | unknown
+berkeley:
+  active: active
+  withdrawn: withdrawn
+  operational: operational
+  suspended: suspended
+  completed: completed
+  done: completed
+  "in service": operational
+  unknown: unknown
+
+miso:
+  active: active
+  withdrawn: withdrawn
+  done: completed          # Do NOT treat Done as operational without confirmation
+  "in service": operational
+  suspended: suspended
+  "under study": active
+  "gia": active
+  "ia executed": active
+  "facility study": active
+  "system impact study": active
+  "feasibility study": active
+  "cluster study": active
+  "not started": active
+  completed: completed
+  operational: operational
+  unknown: unknown
+
+# Logical consistency rule codes applied after mapping
+consistency_rules:
+  - id: confirmed_withdrawal
+    when: "status_clean == withdrawn and withdrawal_date not null"
+    note: Confirmed withdrawal
+  - id: withdrawal_uncertain_timing
+    when: "status_clean == withdrawn and withdrawal_date is null"
+    note: Withdrawal with uncertain timing
+  - id: active_withdrawal_conflict
+    when: "status_clean == active and withdrawal_date not null"
+    note: Conflict
+  - id: operational_outcome
+    when: "operational_date not null"
+    note: Operational outcome signal present
+  - id: right_censored
+    when: "status_clean == active at final observation"
+    note: Right-censored

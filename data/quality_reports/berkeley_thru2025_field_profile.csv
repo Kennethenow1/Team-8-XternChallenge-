@@ -1,0 +1,31 @@
+source,field,missing_count,missing_pct,distinct_values,invalid_count,minimum,maximum
+berkeley_thru2025,q_id,0,0.0,30299,0,,
+berkeley_thru2025,q_status,0,0.0,5,0,,
+berkeley_thru2025,q_date,665,1.741,6066,0,1995-11-08 00:00:00,2025-12-24 00:00:00
+berkeley_thru2025,prop_date,5265,13.782,3723,0,1980-12-31 00:00:00,2057-09-01 00:00:00
+berkeley_thru2025,on_date,34492,90.291,1891,0,1982-06-30 00:00:00,2025-12-31 00:00:00
+berkeley_thru2025,wd_date,22578,59.103,4119,0,1999-06-26 00:00:00,2026-01-16 00:00:00
+berkeley_thru2025,ia_date,33368,87.348,2741,0,1999-08-25 00:00:00,2025-12-31 00:00:00
+berkeley_thru2025,IA_phase_raw,14738,38.58,1184,0,,
+berkeley_thru2025,IA_phase_clean,7167,18.761,11,0,,
+berkeley_thru2025,county,2063,5.4,1673,0,,
+berkeley_thru2025,state,1235,3.233,52,0,,
+berkeley_thru2025,fips_code,1770,4.633,2637,0,1001.0,3610136003.0
+berkeley_thru2025,poi_name,2813,7.364,24751,0,,
+berkeley_thru2025,region,0,0.0,9,0,,
+berkeley_thru2025,project_name,25113,65.739,11555,0,,
+berkeley_thru2025,utility,7855,20.562,386,0,,
+berkeley_thru2025,entity,0,0.0,57,0,,
+berkeley_thru2025,developer,29714,77.783,4518,0,,
+berkeley_thru2025,cluster,25806,67.553,644,0,,
+berkeley_thru2025,service,10797,28.264,4,0,,
+berkeley_thru2025,project_type,1224,3.204,4,0,,
+berkeley_thru2025,type_1,0,0.0,14,0,,
+berkeley_thru2025,type_2,33144,86.762,10,0,,
+berkeley_thru2025,type_3,38091,99.712,4,0,,
+berkeley_thru2025,type_clean,0,0.0,49,0,,
+berkeley_thru2025,mw_1,0,0.0,5299,0,-75.0,16875.0
+berkeley_thru2025,mw_2,37105,97.131,431,0,1.0,2107.4
+berkeley_thru2025,mw_3,38156,99.882,25,0,1.0,1650.0
+berkeley_thru2025,q_year,665,1.741,30,0,1995.0,2025.0
+berkeley_thru2025,prop_year,5265,13.782,50,0,1980.0,2057.0

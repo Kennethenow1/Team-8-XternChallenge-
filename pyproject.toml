@@ -1,0 +1,22 @@
+[project]
+name = "team8-miso-queue"
+version = "0.1.0"
+description = "Point-in-time Bronze–Silver–Gold MISO interconnection queue database"
+requires-python = ">=3.12"
+dependencies = [
+  "pandas>=2.2",
+  "pyarrow>=17",
+  "openpyxl>=3.1",
+  "pyyaml>=6.0",
+  "python-dotenv>=1.0",
+  "playwright>=1.62.0",
+  "pdfplumber>=0.11.10",
+  "pymupdf>=1.28.2",
+]
+
+[project.scripts]
+run-pipeline = "scripts.run_pipeline:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]

@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+*.egg-info/
+.DS_Store
+.env
+.env.*
+!.env.example
+# Large derived parquet/csv under data/ may be regenerated; keep quality reports optional
+# Uncomment to ignore derived layers in git:
+# data/bronze/
+# data/silver/
+# data/gold/
+# data/quality_reports/
+# data/source_registry.parquet

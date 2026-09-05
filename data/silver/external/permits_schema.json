@@ -1,0 +1,19 @@
+{
+  "dataset": "permits",
+  "grain": "project/facility \u00d7 event date",
+  "geographic_key": "project_key",
+  "columns": [
+    "project_key",
+    "event_date",
+    "effective_at",
+    "published_at",
+    "available_at",
+    "source",
+    "permit_type",
+    "event_type"
+  ],
+  "pit_join_rule": "Point-in-time join: external.available_at <= project.observation_date; then select most recent eligible record or compute trailing windows. Never join on calendar year alone if that leaks future months into earlier predictions.",
+  "example_features": [
+    "permit_events_prior_12m"
+  ]
+}

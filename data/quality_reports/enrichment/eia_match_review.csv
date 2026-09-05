@@ -1,0 +1,7 @@
+queue_project_id,candidate_eia_plant_id,facility_name,match_score,match_method,manual_review_status,notes
+E0023,56164.0,Faribault Energy Park,90.0,exact_name_ambiguous,needs_review,multiple EIA plants same state+name
+E0023,56164.0,Faribault Energy Park,90.0,exact_name_ambiguous,needs_review,multiple EIA plants same state+name
+S1135,56307.0,Adams Wind Farm,90.0,exact_name_ambiguous,needs_review,multiple EIA plants same state+name
+S1135,56307.0,Adams Wind Farm,90.0,exact_name_ambiguous,needs_review,multiple EIA plants same state+name
+R5081,56307.0,Adams Wind Farm,90.0,exact_name_ambiguous,needs_review,multiple EIA plants same state+name
+R5081,56307.0,Adams Wind Farm,90.0,exact_name_ambiguous,needs_review,multiple EIA plants same state+name

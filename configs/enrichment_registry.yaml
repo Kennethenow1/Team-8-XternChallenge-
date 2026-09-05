@@ -1,0 +1,219 @@
+schema_version: "1.0"
+mandatory_silver_columns:
+  - effective_date
+  - available_date
+  - source_name
+  - source_url
+  - retrieved_at
+  - entity_key
+  - geographic_key
+  - match_method
+  - match_confidence
+
+sources:
+  - source_id: census_county_fips
+    source_name: Census County FIPS Gazetteer
+    category: crosswalk
+    grain: county
+    status: populate
+    source_url: "https://www2.census.gov/geo/docs/reference/codes2020/national_county2020.txt"
+    bronze_subdir: census_county_fips
+    notes: County name to FIPS mapping
+
+  - source_id: eia930
+    source_name: EIA-930 Balancing Authority
+    category: market
+    grain: balancing_authority x hour/day
+    status: populate
+    source_url: "https://www.eia.gov/electricity/gridmonitor/dashboard/electric_overview/US48/US48"
+    bronze_subdir: eia930
+    notes: MISO demand via EIA open data API / bulk
+
+  - source_id: fred_rates
+    source_name: FRED Interest Rates and PPI
+    category: macro
+    grain: month
+    status: populate
+    source_url: "https://fred.stlouisfed.org/"
+    bronze_subdir: fred_rates
+    notes: DGS10 and construction/steel PPI series via FRED CSV
+
+  - source_id: noaa_storm_events
+    source_name: NOAA Storm Events
+    category: weather
+    grain: county x month
+    status: populate
+    source_url: "https://www.ncei.noaa.gov/pub/data/swdi/stormevents/csvfiles/"
+    bronze_subdir: noaa_storm_events
+    notes: Annual StormEvents details CSVs
+
+  - source_id: fema_nri
+    source_name: FEMA National Risk Index
+    category: weather
+    grain: county
+    status: populate
+    source_url: "https://hazards.fema.gov/nri/data-resources"
+    bronze_subdir: fema_nri
+    notes: County-level risk scores CSV
+
+  - source_id: census_acs
+    source_name: Census ACS
+    category: economic
+    grain: county x year
+    status: populate
+    source_url: "https://api.census.gov/data"
+    bronze_subdir: census_acs
+    notes: Population/income/rurality proxies
+
+  - source_id: bls_qcew
+    source_name: BLS QCEW
+    category: economic
+    grain: county x quarter
+    status: populate
+    source_url: "https://www.bls.gov/cew/downloadable-data-files.htm"
+    bronze_subdir: bls_qcew
+    notes: Construction employment where downloadable; else skeleton
+
+  - source_id: treasury_energy_communities
+    source_name: Treasury Energy Communities
+    category: policy
+    grain: county/tract x effective date
+    status: populate
+    source_url: "https://home.treasury.gov/policy-issues/inflation-reduction-act/energy-communities"
+    bronze_subdir: treasury_energy_communities
+    notes: Bonus credit eligibility
+
+  - source_id: queue_derived_study
+    source_name: Queue-derived study and POI pressure
+    category: grid
+    grain: project x observation
+    status: populate
+    source_url: null
+    bronze_subdir: queue_derived_study
+    notes: Built from existing Silver MISO/Berkeley snapshots — no external download
+
+  - source_id: developer_history
+    source_name: Developer history from queue
+    category: developer
+    grain: developer x quarter
+    status: populate
+    source_url: null
+    bronze_subdir: developer_history
+    notes: Computed from Berkeley/MISO snapshots
+
+  - source_id: miso_dpp_studies
+    source_name: MISO DPP GI Studies
+    category: grid
+    grain: project x report date
+    status: registered_empty
+    source_url: "https://www.misoenergy.org/planning/generator-interconnection/"
+    bronze_subdir: miso_dpp_studies
+    notes: PDF/HTML harvest TODO — upgrade cost, restudy
+
+  - source_id: miso_mtep
+    source_name: MISO MTEP Transmission Projects
+    category: grid
+    grain: upgrade x year
+    status: registered_empty
+    source_url: "https://www.misoenergy.org/planning/transmission-planning/mtep/"
+    bronze_subdir: miso_mtep
+    notes: Needs geospatial join to POI
+
+  - source_id: hifld_transmission
+    source_name: HIFLD Transmission Lines
+    category: grid
+    grain: line geometry
+    status: registered_empty
+    source_url: "https://hifld-geoplatform.opendata.arcgis.com/"
+    bronze_subdir: hifld_transmission
+    notes: Distance to line / voltage density
+
+  - source_id: miso_lmp
+    source_name: MISO Market LMP Congestion
+    category: market
+    grain: node x month
+    status: registered_empty
+    source_url: "https://www.misoenergy.org/markets-and-operations/market-reports/"
+    bronze_subdir: miso_lmp
+    notes: Large node-month extract
+
+  - source_id: eia860
+    source_name: EIA-860 / 860M / 923
+    category: generators
+    grain: plant x month/year
+    status: registered_empty
+    source_url: "https://www.eia.gov/electricity/data/eia860/"
+    bronze_subdir: eia860
+    notes: Workbook ingest + fuzzy match review only
+
+  - source_id: permitting_dashboard
+    source_name: Federal Permitting Dashboard
+    category: permits
+    grain: facility x event
+    status: registered_empty
+    source_url: "https://www.permits.performance.gov/"
+    bronze_subdir: permitting_dashboard
+    notes: Permit milestones
+
+  - source_id: epa_echo
+    source_name: EPA ECHO
+    category: permits
+    grain: facility
+    status: registered_empty
+    source_url: "https://echo.epa.gov/tools/data-downloads"
+    bronze_subdir: epa_echo
+    notes: Environmental permits / violations
+
+  - source_id: sec_edgar
+    source_name: SEC EDGAR
+    category: developer
+    grain: developer x filing date
+    status: registered_empty
+    source_url: "https://www.sec.gov/edgar"
+    bronze_subdir: sec_edgar
+    notes: Financing / distress events via CIK
+
+  - source_id: gdelt_news
+    source_name: GDELT News
+    category: news
+    grain: article x published_at
+    status: registered_empty
+    source_url: "https://www.gdeltproject.org/"
+    bronze_subdir: gdelt_news
+    notes: Event-type taxonomy extraction
+
+  - source_id: nrel_resource
+    source_name: NREL Solar and Wind Resource
+    category: site
+    grain: coordinates
+    status: registered_empty
+    source_url: "https://nsrdb.nrel.gov/"
+    bronze_subdir: nrel_resource
+    notes: NSRDB / WIND Toolkit percentiles
+
+  - source_id: wetlands_water
+    source_name: NWI Wetlands and USGS Water
+    category: site
+    grain: coordinates / buffer
+    status: registered_empty
+    source_url: "https://www.fws.gov/program/national-wetlands-inventory"
+    bronze_subdir: wetlands_water
+    notes: Wetland overlap and drought proxies
+
+  - source_id: bea_gdp
+    source_name: BEA GDP by County
+    category: economic
+    grain: county x year
+    status: registered_empty
+    source_url: "https://www.bea.gov/data/gdp/gdp-county"
+    bronze_subdir: bea_gdp
+    notes: County GDP growth
+
+  - source_id: miso_large_load
+    source_name: MISO Large Load Additions
+    category: demand
+    grain: zone/state x forecast year
+    status: registered_empty
+    source_url: "https://www.misoenergy.org/"
+    bronze_subdir: miso_large_load
+    notes: Expected incremental demand

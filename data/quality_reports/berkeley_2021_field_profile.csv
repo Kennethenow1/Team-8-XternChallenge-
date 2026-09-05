@@ -1,0 +1,30 @@
+source,field,missing_count,missing_pct,distinct_values,invalid_count,minimum,maximum
+berkeley_2021,q_id,1,0.004,19011,0,,
+berkeley_2021,q_status,0,0.0,4,0,,
+berkeley_2021,q_date,78,0.32,5979,3384,1995-11-08 00:00:00,2021-12-30 00:00:00
+berkeley_2021,q_year,85,0.349,27,0,1995.0,2021.0
+berkeley_2021,ia_date,21855,89.639,1609,0,,
+berkeley_2021,wd_date,18058,74.066,3103,3792,2005-11-01 00:00:00,2021-12-08 00:00:00
+berkeley_2021,on_date,22810,93.556,1081,1257,2002-03-31 00:00:00,2021-12-08 00:00:00
+berkeley_2021,entity,0,0.0,42,0,,
+berkeley_2021,project_name,15772,64.69,7582,0,,
+berkeley_2021,developer,20814,85.37,1948,0,,
+berkeley_2021,utility,3382,13.871,228,0,,
+berkeley_2021,county_1,418,1.714,1723,0,,
+berkeley_2021,county_2,24310,99.709,50,0,,
+berkeley_2021,county_3,24362,99.922,15,0,,
+berkeley_2021,state,408,1.673,50,0,,
+berkeley_2021,region,0,0.0,9,0,,
+berkeley_2021,service,5461,22.399,83,0,,
+berkeley_2021,poi_name,1130,4.635,17006,0,,
+berkeley_2021,prop_date,2361,9.684,3945,0,,
+berkeley_2021,prop_year,2985,12.243,45,0,1962.0,2033.0
+berkeley_2021,ia_status_raw,3998,16.398,861,0,,
+berkeley_2021,ia_status_clean,0,0.0,11,0,,
+berkeley_2021,type_clean,785,3.22,34,0,,
+berkeley_2021,type1,785,3.22,14,0,,
+berkeley_2021,type2,22290,91.424,6,0,,
+berkeley_2021,type3,24366,99.938,2,0,,
+berkeley_2021,mw1,209,0.857,1071,0,-99.0,16875.0
+berkeley_2021,mw2,23374,95.87,271,0,0.0,2090.0
+berkeley_2021,mw3,24302,99.676,4,0,0.0,375.0

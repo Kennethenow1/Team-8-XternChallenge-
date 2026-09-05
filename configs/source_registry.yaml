@@ -1,0 +1,107 @@
+schema_version: "1.0"
+sources:
+  - source_id: berkeley_2020
+    source_name: Berkeley
+    source_file: queues_2020_clean_data.xlsx
+    intake_relative_path: Data/queues_2020_clean_data.xlsx
+    bronze_subdir: berkeley
+    edition_year: 2020
+    data_as_of_date: "2020-12-31"
+    published_at: "2021-04-01"  # approximate; refine from intro if known
+    retrieved_at: null
+    source_url: null
+    sheet_mode: berkeley_2020_split
+    project_id_col: q_id
+    region_filter_col: entity
+    region_filter_value: MISO
+
+  - source_id: berkeley_2021
+    source_name: Berkeley
+    source_file: queues_2021_clean_data.xlsx
+    intake_relative_path: Data/queues_2021_clean_data.xlsx
+    bronze_subdir: berkeley
+    edition_year: 2021
+    data_as_of_date: "2021-12-31"
+    published_at: "2022-04-01"
+    retrieved_at: null
+    source_url: null
+    sheet_mode: berkeley_data
+    project_id_col: q_id
+    region_filter_col: entity
+    region_filter_value: MISO
+
+  - source_id: berkeley_2022
+    source_name: Berkeley
+    source_file: queues_2022_clean_data_0.xlsx
+    intake_relative_path: Data/queues_2022_clean_data_0.xlsx
+    bronze_subdir: berkeley
+    edition_year: 2022
+    data_as_of_date: "2022-12-31"
+    published_at: "2023-04-01"
+    retrieved_at: null
+    source_url: null
+    sheet_mode: berkeley_data
+    project_id_col: q_id
+    region_filter_col: entity
+    region_filter_value: MISO
+
+  - source_id: berkeley_2023
+    source_name: Berkeley
+    source_file: queues_2023_clean_data_r1.xlsx
+    intake_relative_path: Data/queues_2023_clean_data_r1.xlsx
+    bronze_subdir: berkeley
+    edition_year: 2023
+    data_as_of_date: "2023-12-31"
+    published_at: "2024-04-01"
+    retrieved_at: null
+    source_url: null
+    sheet_mode: berkeley_data
+    project_id_col: q_id
+    region_filter_col: entity
+    region_filter_value: MISO
+
+  - source_id: berkeley_thru2024
+    source_name: Berkeley
+    source_file: lbnl_ix_queue_data_file_thru2024_v2.xlsx
+    intake_relative_path: Data/lbnl_ix_queue_data_file_thru2024_v2.xlsx
+    bronze_subdir: berkeley
+    edition_year: 2024
+    data_as_of_date: "2024-12-31"
+    published_at: "2025-04-01"
+    retrieved_at: null
+    source_url: null
+    sheet_mode: berkeley_lbnl_complete
+    project_id_col: q_id
+    region_filter_col: entity
+    region_filter_value: MISO
+
+  - source_id: berkeley_thru2025
+    source_name: Berkeley
+    source_file: lbnl_ix_queue_data_file_thru2025.xlsx
+    intake_relative_path: Data/lbnl_ix_queue_data_file_thru2025.xlsx
+    bronze_subdir: berkeley
+    edition_year: 2025
+    data_as_of_date: "2025-12-31"
+    published_at: "2026-04-01"
+    retrieved_at: null
+    source_url: null
+    sheet_mode: berkeley_lbnl_complete
+    project_id_col: q_id
+    region_filter_col: entity
+    region_filter_value: MISO
+
+  - source_id: miso_current_2026
+    source_name: MISO
+    source_file: Miso Queue Current 2026.csv
+    intake_relative_path: Data/Miso Queue Current 2026.csv
+    bronze_subdir: miso
+    edition_year: 2026
+    # Verified as-of: treat file retrieve/as-of as 2026-03-01 until a formal MISO publish date is confirmed.
+    data_as_of_date: "2026-03-01"
+    published_at: "2026-03-01"
+    retrieved_at: null
+    source_url: null
+    sheet_mode: miso_csv
+    project_id_col: "Project #"
+    region_filter_col: null
+    region_filter_value: null

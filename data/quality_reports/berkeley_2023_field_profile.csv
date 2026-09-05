@@ -1,0 +1,30 @@
+source,field,missing_count,missing_pct,distinct_values,invalid_count,minimum,maximum
+berkeley_2023,q_id,1,0.003,25925,0,,
+berkeley_2023,q_status,8,0.025,4,0,,
+berkeley_2023,q_date,199,0.612,6288,4282,1996-06-07 00:00:00,2023-12-31 00:00:00
+berkeley_2023,q_year,200,0.615,29,0,1995.0,2023.0
+berkeley_2023,ia_date,28428,87.436,2871,2938,1999-10-21 00:00:00,2023-12-22 00:00:00
+berkeley_2023,wd_date,22149,68.124,4722,0,,
+berkeley_2023,on_date,29347,90.262,1739,1700,1999-07-24 00:00:00,2030-08-30 00:00:00
+berkeley_2023,entity,0,0.0,51,0,,
+berkeley_2023,project_name,21661,66.623,9660,0,,
+berkeley_2023,developer,27063,83.237,2880,0,,
+berkeley_2023,utility,4292,13.201,295,0,,
+berkeley_2023,county_1,838,2.577,1887,0,,
+berkeley_2023,county_2,32415,99.699,69,0,,
+berkeley_2023,county_3,32499,99.957,13,0,,
+berkeley_2023,state,811,2.494,52,0,,
+berkeley_2023,region,0,0.0,9,0,,
+berkeley_2023,service,5751,17.688,95,0,,
+berkeley_2023,poi_name,1122,3.451,22012,0,,
+berkeley_2023,prop_date,4405,13.548,4483,17978,1900-01-12 00:00:00,2034-11-01 00:00:00
+berkeley_2023,prop_year,9489,29.185,45,0,1962.0,2034.0
+berkeley_2023,IA_status_raw,6483,19.94,830,0,,
+berkeley_2023,IA_status_clean,5,0.015,22,0,,
+berkeley_2023,type_clean,0,0.0,31,0,,
+berkeley_2023,type1,265,0.815,31,0,,
+berkeley_2023,type2,28612,88.002,5,0,,
+berkeley_2023,type3,32425,99.729,2,0,,
+berkeley_2023,mw1,398,1.224,1247,0,-69.0,16875.0
+berkeley_2023,mw2,31024,95.42,360,0,0.5,2373.0
+berkeley_2023,mw3,32468,99.862,25,0,28.0,1650.0

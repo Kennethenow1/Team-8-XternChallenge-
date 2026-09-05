@@ -1,0 +1,32 @@
+# Controlled ontology: solar | wind_onshore | wind_offshore | battery | natural_gas |
+# nuclear | hydro | other | unknown
+aliases:
+  solar: solar
+  photovoltaic: solar
+  pv: solar
+  wind: wind_onshore
+  wind_onshore: wind_onshore
+  "onshore wind": wind_onshore
+  "offshore wind": wind_offshore
+  wind_offshore: wind_offshore
+  battery: battery
+  storage: battery
+  "energy storage": battery
+  bess: battery
+  gas: natural_gas
+  "natural gas": natural_gas
+  natural_gas: natural_gas
+  ng: natural_gas
+  nuclear: nuclear
+  hydro: hydro
+  hydropower: hydro
+  coal: other
+  oil: other
+  diesel: other
+  biomass: other
+  geothermal: other
+  other: other
+  unknown: unknown
+  hybrid: other  # hybrids handled via components, not this alone
+
+hybrid_delimiters: ["+", "/", "&", " and ", ","]

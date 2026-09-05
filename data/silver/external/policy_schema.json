@@ -1,0 +1,18 @@
+{
+  "dataset": "policy",
+  "grain": "jurisdiction \u00d7 effective date",
+  "geographic_key": "state_code",
+  "columns": [
+    "state_code",
+    "policy_id",
+    "effective_at",
+    "published_at",
+    "available_at",
+    "source",
+    "policy_type"
+  ],
+  "pit_join_rule": "Point-in-time join: external.available_at <= project.observation_date; then select most recent eligible record or compute trailing windows. Never join on calendar year alone if that leaks future months into earlier predictions.",
+  "example_features": [
+    "policy_changes_prior_12m"
+  ]
+}

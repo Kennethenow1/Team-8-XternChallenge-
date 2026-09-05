@@ -1,0 +1,27 @@
+{
+  "rows_annual": 9827,
+  "geo_fips_on_panel": 0.9805637529256132,
+  "storm_events_12m": 0.9763915742342526,
+  "population": 0.47827414266815915,
+  "interest_rate_at_entry": 0.9991859163529052,
+  "same_poi_project_count": 1.0,
+  "dpp_event_count_to_date": 0.29469828024829553,
+  "study_delay_days": 0.11580339879922662,
+  "restudy_count": 0.11580339879922662,
+  "network_upgrade_cost": 0.04884501882568434,
+  "miso_mean_demand_mw": 1.0,
+  "study_honesty": {
+    "queue_study_status_rows": 3832,
+    "queue_unique_report_dates": 1,
+    "queue_max_events_per_project": 1,
+    "historical_study_events_rows": 3046,
+    "historical_unique_event_dates": 42,
+    "harvest_pdf_links": 12
+  },
+  "eia": {
+    "generators": 8183,
+    "accepted": 0,
+    "review": 6
+  },
+  "gold_merged_dpp": true
+}

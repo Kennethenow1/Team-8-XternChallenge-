@@ -1,0 +1,19 @@
+{
+  "dataset": "economic",
+  "grain": "county \u00d7 quarter/year",
+  "geographic_key": "county_fips",
+  "columns": [
+    "county_fips",
+    "period_start",
+    "effective_at",
+    "published_at",
+    "available_at",
+    "source",
+    "employment_level",
+    "employment_growth_yoy"
+  ],
+  "pit_join_rule": "Point-in-time join: external.available_at <= project.observation_date; then select most recent eligible record or compute trailing windows. Never join on calendar year alone if that leaks future months into earlier predictions.",
+  "example_features": [
+    "county_employment_growth_prior_year"
+  ]
+}

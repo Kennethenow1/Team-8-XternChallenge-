@@ -1,0 +1,23 @@
+{
+  "population": 0.9802584715579525,
+  "population_by_observation_year": {
+    "2020": 1.0,
+    "2021": 0.9968847352024922,
+    "2022": 0.9965397923875432,
+    "2023": 0.9976033553025764,
+    "2024": 0.9863945578231292,
+    "2025": 0.9841269841269841,
+    "2026": 0.8795761078998073
+  },
+  "fema_risk_score": 0.9802584715579525,
+  "energy_community_eligible": 0.4181337132390353,
+  "n_silver_dpp_events": 3046,
+  "n_silver_dpp_events_before": 3046,
+  "dpp_row_count_unchanged": true,
+  "n_gold_eligible_dpp_events": 1004,
+  "dpp_event_count_to_date": 0.13981886638852142,
+  "study_delay_days": 0.07113055866490282,
+  "restudy_count": 0.07113055866490282,
+  "network_upgrade_cost": 0.06105627353210542,
+  "population_gate_pass": true
+}

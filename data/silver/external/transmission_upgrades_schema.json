@@ -1,0 +1,18 @@
+{
+  "dataset": "transmission_upgrades",
+  "grain": "upgrade/POI \u00d7 observation date",
+  "geographic_key": "poi_key",
+  "columns": [
+    "poi_key",
+    "upgrade_id",
+    "effective_at",
+    "published_at",
+    "available_at",
+    "source",
+    "status"
+  ],
+  "pit_join_rule": "Point-in-time join: external.available_at <= project.observation_date; then select most recent eligible record or compute trailing windows. Never join on calendar year alone if that leaks future months into earlier predictions.",
+  "example_features": [
+    "upgrades_available_prior_obs"
+  ]
+}

@@ -1,0 +1,154 @@
+=== 1. Geo gate (FIPS >= 90%) ===
+geo_crosswalk rows=5608 fips_coverage=0.965 cross_state_rejected=5 methods={'existing_fips': 2830, 'exact_state_county': 2582, 'unmatched': 189, 'rejected_cross_state': 5, 'fuzzy_same_state': 2}
+developer_crosswalk rows=5608 coverage=0.993 review_rows=5523
+entity_crosswalk_eia rows=5608
+
+=== 2. Study tables (preserve DPP history) ===
+Preserving miso_dpp_events rows=3046
+DPP harvest_index rows=14
+Preserving existing miso_dpp_events rows=3046
+study honesty: {'queue_study_status_rows': 3832, 'queue_unique_report_dates': 1, 'queue_max_events_per_project': 1, 'historical_study_events_rows': 3046, 'historical_unique_event_dates': 42, 'harvest_pdf_links': 12}
+DPP events ready for Gold: 3046
+
+=== 3. EIA-860 / 860M ===
+Downloaded EIA-860 eia8602023.zip (21237983 bytes)
+EIA generators parsed (MISO states filter): 8183
+generator_status_events rows=8183
+EIA crosswalk accepted=0 review=6 total=5608
+eia: {'generators': 8183, 'accepted': 0, 'review': 6}
+
+=== 4. Grid pressure ===
+Fetching EIA-930 hourly region-data (MISO D/NG/TI from 2020-01-01)...
+  EIA type=D page=1 rows=5000 total=5000
+  EIA type=D page=2 rows=5000 total=10000
+  EIA type=D page=3 rows=5000 total=15000
+  EIA type=D page=4 rows=5000 total=20000
+  EIA type=D page=5 rows=5000 total=25000
+  EIA type=D page=6 rows=5000 total=30000
+  EIA type=D page=7 rows=5000 total=35000
+  EIA type=D page=8 rows=5000 total=40000
+  EIA type=D page=9 rows=5000 total=45000
+  EIA type=D page=10 rows=5000 total=50000
+  EIA type=D page=11 rows=5000 total=55000
+  EIA type=D page=12 rows=3542 total=58542
+  EIA type=NG page=1 rows=5000 total=5000
+  EIA type=NG page=2 rows=5000 total=10000
+  EIA type=NG page=3 rows=5000 total=15000
+  EIA type=NG page=4 rows=5000 total=20000
+  EIA type=NG page=5 rows=5000 total=25000
+  EIA type=NG page=6 rows=5000 total=30000
+  EIA type=NG page=7 rows=5000 total=35000
+  EIA type=NG page=8 rows=5000 total=40000
+  EIA type=NG page=9 rows=5000 total=45000
+  EIA type=NG page=10 rows=5000 total=50000
+  EIA type=NG page=11 rows=5000 total=55000
+  EIA type=NG page=12 rows=3517 total=58517
+  EIA type=TI page=1 rows=5000 total=5000
+  EIA type=TI page=2 rows=5000 total=10000
+  EIA type=TI page=3 rows=5000 total=15000
+  EIA type=TI page=4 rows=5000 total=20000
+  EIA type=TI page=5 rows=5000 total=25000
+  EIA type=TI page=6 rows=5000 total=30000
+  EIA type=TI page=7 rows=5000 total=35000
+  EIA type=TI page=8 rows=5000 total=40000
+  EIA type=TI page=9 rows=5000 total=45000
+  EIA type=TI page=10 rows=5000 total=50000
+  EIA type=TI page=11 rows=5000 total=55000
+  EIA type=TI page=12 rows=3393 total=58393
+market_zone_month rows=17305 miso_mean_demand_nonnull=0.101
+poi_grid_context rows=5608
+mtep_project_events empty typed written
+
+=== 5. Populate open sources + county joins ===
+=== Populate FRED ===
+market_zone_month (FRED) rows=17305
+=== Populate EIA-930 ===
+Fetching EIA-930 hourly region-data (MISO D/NG/TI from 2020-01-01)...
+  EIA type=D page=1 rows=5000 total=5000
+  EIA type=D page=2 rows=5000 total=10000
+  EIA type=D page=3 rows=5000 total=15000
+  EIA type=D page=4 rows=5000 total=20000
+  EIA type=D page=5 rows=5000 total=25000
+  EIA type=D page=6 rows=5000 total=30000
+  EIA type=D page=7 rows=5000 total=35000
+  EIA type=D page=8 rows=5000 total=40000
+  EIA type=D page=9 rows=5000 total=45000
+  EIA type=D page=10 rows=5000 total=50000
+  EIA type=D page=11 rows=5000 total=55000
+  EIA type=D page=12 rows=3542 total=58542
+  EIA type=NG page=1 rows=5000 total=5000
+  EIA type=NG page=2 rows=5000 total=10000
+  EIA type=NG page=3 rows=5000 total=15000
+  EIA type=NG page=4 rows=5000 total=20000
+  EIA type=NG page=5 rows=5000 total=25000
+  EIA type=NG page=6 rows=5000 total=30000
+  EIA type=NG page=7 rows=5000 total=35000
+  EIA type=NG page=8 rows=5000 total=40000
+  EIA type=NG page=9 rows=5000 total=45000
+  EIA type=NG page=10 rows=5000 total=50000
+  EIA type=NG page=11 rows=5000 total=55000
+  EIA type=NG page=12 rows=3517 total=58517
+  EIA type=TI page=1 rows=5000 total=5000
+  EIA type=TI page=2 rows=5000 total=10000
+  EIA type=TI page=3 rows=5000 total=15000
+  EIA type=TI page=4 rows=5000 total=20000
+  EIA type=TI page=5 rows=5000 total=25000
+  EIA type=TI page=6 rows=5000 total=30000
+  EIA type=TI page=7 rows=5000 total=35000
+  EIA type=TI page=8 rows=5000 total=40000
+  EIA type=TI page=9 rows=5000 total=45000
+  EIA type=TI page=10 rows=5000 total=50000
+  EIA type=TI page=11 rows=5000 total=55000
+  EIA type=TI page=12 rows=3393 total=58393
+market_zone_month rows=17305 miso_mean_demand_nonnull=0.101
+=== Populate NOAA Storm Events ===
+weather_county_month rows=22933 years=['2020', '2021', '2022', '2023', '2024']
+=== Populate FEMA/ACS county_year ===
+  download failed https://www.fema.gov/sites/default/files/documents/fema_national-risk-index_counties.zip: HTTP Error 404: Not Found
+county_year rows=3144
+=== Populate Energy Communities ===
+  download failed https://raw.githubusercontent.com/TheUpshot/Energy-Communities/main/data/energy_communities.csv: HTTP Error 404: Not Found
+  download failed https://data.commerce.gov/sites/default/files/2024-04/IRA_Energy_Communities.xlsx: HTTP Error 403: Forbidden
+  download failed https://home.treasury.gov/system/files/136/energy-communities-coal-closure-and-ffe-ces-april-2024.csv: HTTP Error 404: Not Found
+Energy communities: download failed — empty policy_state_date
+=== Populate study_events from queue ===
+Preserving miso_dpp_events rows=3046
+=== Populate developer_quarter ===
+developer_quarter rows=591
+
+=== 6. Enriched Gold + coverage ===
+  study/DPP events for Gold join: 3046
+Enriching annual panel...
+Enriching current scoring...
+enriched annual=9827 current=1038 leakage_candidate_pairs=73091
+Wrote /home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/quality_reports/enrichment/enrichment_coverage_report.html
+
+Dataset refresh summary: {
+  "rows_annual": 9827,
+  "geo_fips_on_panel": 0.9805637529256132,
+  "storm_events_12m": 0.9763915742342526,
+  "population": 0.47827414266815915,
+  "interest_rate_at_entry": 0.9991859163529052,
+  "same_poi_project_count": 1.0,
+  "dpp_event_count_to_date": 0.29469828024829553,
+  "study_delay_days": 0.11580339879922662,
+  "restudy_count": 0.11580339879922662,
+  "network_upgrade_cost": 0.04884501882568434,
+  "miso_mean_demand_mw": 1.0,
+  "study_honesty": {
+    "queue_study_status_rows": 3832,
+    "queue_unique_report_dates": 1,
+    "queue_max_events_per_project": 1,
+    "historical_study_events_rows": 3046,
+    "historical_unique_event_dates": 42,
+    "harvest_pdf_links": 12
+  },
+  "eia": {
+    "generators": 8183,
+    "accepted": 0,
+    "review": 6
+  },
+  "gold_merged_dpp": true
+}
+
+Enrichment populate + Gold refresh complete.

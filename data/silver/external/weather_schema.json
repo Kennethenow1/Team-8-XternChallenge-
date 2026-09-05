@@ -1,0 +1,19 @@
+{
+  "dataset": "weather",
+  "grain": "county \u00d7 day/month",
+  "geographic_key": "county_fips",
+  "columns": [
+    "county_fips",
+    "event_date",
+    "effective_at",
+    "published_at",
+    "available_at",
+    "source",
+    "event_type",
+    "severity_flag"
+  ],
+  "pit_join_rule": "Point-in-time join: external.available_at <= project.observation_date; then select most recent eligible record or compute trailing windows. Never join on calendar year alone if that leaks future months into earlier predictions.",
+  "example_features": [
+    "weather_events_prior_12m"
+  ]
+}

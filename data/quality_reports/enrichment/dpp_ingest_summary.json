@@ -1,0 +1,13 @@
+{
+  "discovered_at": "2026-09-05T05:53:28Z",
+  "optics_docs": 110,
+  "manifest_docs": 64,
+  "download_ok": 51,
+  "events": 3046,
+  "unique_projects": 1793,
+  "unique_report_dates": 42,
+  "review_rows": 2,
+  "unmatched_rows": 11,
+  "gold_merged": false,
+  "discovery_api": "https://www.misoenergy.org/api/find/Optics_Models_Find_RemoteHostedContentItem/_search"
+}

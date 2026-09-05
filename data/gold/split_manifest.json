@@ -1,0 +1,58 @@
+{
+  "train_years": [
+    2020,
+    2021,
+    2022
+  ],
+  "validation_year": 2023,
+  "test_year": 2024,
+  "score_years": [
+    2025,
+    2026
+  ],
+  "counts_by_split": {
+    "train": 3277,
+    "score": 2676,
+    "test": 2205,
+    "val": 1669
+  },
+  "complete_followup_by_split": {
+    "score": 0.17227204783258596,
+    "test": 0.999546485260771,
+    "train": 1.0,
+    "val": 0.9982025164769323
+  },
+  "feature_manifest": [
+    "queue_age_months",
+    "log1p_capacity_mw",
+    "technology_primary",
+    "is_hybrid",
+    "state_code",
+    "months_until_service",
+    "service_date_passed",
+    "capacity_change_pct",
+    "service_date_shift_months",
+    "years_since_last_change",
+    "other_active_projects_same_state",
+    "other_active_mw_same_state",
+    "other_active_projects_same_poi",
+    "other_active_mw_same_poi",
+    "other_active_mw_same_technology",
+    "prior_12m_withdrawal_count",
+    "prior_12m_withdrawn_mw",
+    "years_in_queue",
+    "study_phase",
+    "service_type",
+    "capacity_mw"
+  ],
+  "excluded_outcome_columns": [
+    "withdraw_next_12m",
+    "next_outcome",
+    "complete_followup",
+    "withdrawal_event",
+    "operation_event",
+    "outcome_type",
+    "outcome_date"
+  ],
+  "note": "Labels require complete_followup=True for supervised training rows."
+}

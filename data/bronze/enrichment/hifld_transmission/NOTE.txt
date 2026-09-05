@@ -1,0 +1,1 @@
+Probe succeeded. Full line layer too large for sprint distance join; poi_grid_context uses county centroids with null distance pending local extract.

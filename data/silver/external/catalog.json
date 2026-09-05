@@ -1,0 +1,53 @@
+{
+  "pit_join_rule": "Point-in-time join: external.available_at <= project.observation_date; then select most recent eligible record or compute trailing windows. Never join on calendar year alone if that leaks future months into earlier predictions.",
+  "datasets": {
+    "weather": {
+      "grain": "county \u00d7 day/month",
+      "geographic_key": "county_fips",
+      "parquet": "data/silver/external/weather.parquet",
+      "schema": "data/silver/external/weather_schema.json"
+    },
+    "economic": {
+      "grain": "county \u00d7 quarter/year",
+      "geographic_key": "county_fips",
+      "parquet": "data/silver/external/economic.parquet",
+      "schema": "data/silver/external/economic_schema.json"
+    },
+    "electricity_demand": {
+      "grain": "MISO region/zone \u00d7 hour/day",
+      "geographic_key": "miso_zone",
+      "parquet": "data/silver/external/electricity_demand.parquet",
+      "schema": "data/silver/external/electricity_demand_schema.json"
+    },
+    "market_prices": {
+      "grain": "pricing node \u00d7 hour",
+      "geographic_key": "pricing_node",
+      "parquet": "data/silver/external/market_prices.parquet",
+      "schema": "data/silver/external/market_prices_schema.json"
+    },
+    "transmission_upgrades": {
+      "grain": "upgrade/POI \u00d7 observation date",
+      "geographic_key": "poi_key",
+      "parquet": "data/silver/external/transmission_upgrades.parquet",
+      "schema": "data/silver/external/transmission_upgrades_schema.json"
+    },
+    "permits": {
+      "grain": "project/facility \u00d7 event date",
+      "geographic_key": "project_key",
+      "parquet": "data/silver/external/permits.parquet",
+      "schema": "data/silver/external/permits_schema.json"
+    },
+    "news": {
+      "grain": "project/developer \u00d7 publication date",
+      "geographic_key": "project_key",
+      "parquet": "data/silver/external/news.parquet",
+      "schema": "data/silver/external/news_schema.json"
+    },
+    "policy": {
+      "grain": "jurisdiction \u00d7 effective date",
+      "geographic_key": "state_code",
+      "parquet": "data/silver/external/policy.parquet",
+      "schema": "data/silver/external/policy_schema.json"
+    }
+  }
+}

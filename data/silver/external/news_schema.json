@@ -1,0 +1,19 @@
+{
+  "dataset": "news",
+  "grain": "project/developer \u00d7 publication date",
+  "geographic_key": "project_key",
+  "columns": [
+    "project_key",
+    "developer",
+    "publication_date",
+    "effective_at",
+    "published_at",
+    "available_at",
+    "source",
+    "sentiment"
+  ],
+  "pit_join_rule": "Point-in-time join: external.available_at <= project.observation_date; then select most recent eligible record or compute trailing windows. Never join on calendar year alone if that leaks future months into earlier predictions.",
+  "example_features": [
+    "negative_project_news_prior_90d"
+  ]
+}

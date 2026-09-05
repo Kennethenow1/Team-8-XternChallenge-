@@ -1,0 +1,24 @@
+{
+  "posts": [
+    {
+      "url": "https://www.misoenergy.org/api/find/Optics_Models_Find_RemoteHostedContentItem/_search",
+      "method": "POST",
+      "post_data": "{\"sort\":[{\"FileName\":{\"order\":\"asc\"}},{\"Name\":\"asc\"},\"_score\"],\"filter\":{\"and\":[{\"not\":{\"exists\":{\"field\":\"studycycle\"}}},{\"not\":{\"exists\":{\"field\":\"studygroup\"}}},{\"not\":{\"exists\":{\"field\":\"processstage\"}}}]},\"query\":{\"filtered\":{\"filter\":{\"and\":[{\"exists\":{\"field\":\"Properties.processstage\"}}]},\"query\":{\"query_string\":{\"query\":\"*\"}}}},\"from\":0,\"size\":10}",
+      "headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "https://www.misoenergy.org/planning/resource-utilization/GI_Studies/",
+        "user-agent": "Team8-MISO-DPP/1.0",
+        "sec-ch-ua": "\"Not=A?Brand\";v=\"99\", \"HeadlessChrome\";v=\"151\", \"Chromium\";v=\"151\"",
+        "content-type": "text/plain;charset=UTF-8",
+        "sec-ch-ua-mobile": "?0"
+      }
+    }
+  ],
+  "responses": [
+    {
+      "url": "https://www.misoenergy.org/api/find/Optics_Models_Find_RemoteHostedContentItem/_search",
+      "status": 200,
+      "body": "{\"took\":1,\"timed_out\":false,\"_shards\":{\"total\":4,\"successful\":4,\"failed\":0},\"hits\":{\"total\":0,\"max_score\":null,\"hits\":[]}}"
+    }
+  ]
+}

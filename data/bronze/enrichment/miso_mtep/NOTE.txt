@@ -1,0 +1,1 @@
+MTEP public project list harvest not automated in this sprint. Table mtep_project_events left empty typed.

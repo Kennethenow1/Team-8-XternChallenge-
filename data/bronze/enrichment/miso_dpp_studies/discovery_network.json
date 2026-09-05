@@ -1,0 +1,20 @@
+{
+  "page_url": "https://www.misoenergy.org/planning/resource-utilization/GI_Studies/",
+  "discovered_at": "2026-09-05T05:34:01Z",
+  "api_endpoint": "https://www.misoenergy.org/api/find/Optics_Models_Find_RemoteHostedContentItem/_search",
+  "playwright_posts": [
+    {
+      "url": "https://www.misoenergy.org/api/find/Optics_Models_Find_RemoteHostedContentItem/_search",
+      "method": "POST",
+      "post_data": "{\"sort\":[{\"FileName\":{\"order\":\"asc\"}},{\"Name\":\"asc\"},\"_score\"],\"filter\":{\"and\":[{\"not\":{\"exists\":{\"field\":\"studycycle\"}}},{\"not\":{\"exists\":{\"field\":\"studygroup\"}}},{\"not\":{\"exists\":{\"field\":\"processstage\"}}}]},\"query\":{\"filtered\":{\"filter\":{\"and\":[{\"exists\":{\"field\":\"Properties.processstage\"}}]},\"query\":{\"query_string\":{\"query\":\"*\"}}}},\"from\":0,\"size\":10}"
+    }
+  ],
+  "playwright_responses": [
+    {
+      "url": "https://www.misoenergy.org/api/find/Optics_Models_Find_RemoteHostedContentItem/_search",
+      "status": 200,
+      "body_len": 122
+    }
+  ],
+  "notes": "Document list is loaded via Optics Elasticsearch-like POST Optics_Models_Find_RemoteHostedContentItem/_search filtered on Properties.processstage (Definitive Planning Phase)."
+}

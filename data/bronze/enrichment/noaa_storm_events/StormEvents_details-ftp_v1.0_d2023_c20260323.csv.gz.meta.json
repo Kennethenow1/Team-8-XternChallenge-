@@ -1,0 +1,7 @@
+{
+  "source_id": "noaa_storm_events",
+  "filename": "StormEvents_details-ftp_v1.0_d2023_c20260323.csv.gz",
+  "file_hash": "713784bed40d9e5a95b1d6240a654f865f3ef97703713105c7b35437270da134",
+  "retrieved_at": "2026-09-05T05:15:48Z",
+  "bytes": 12888092
+}

@@ -1,0 +1,24 @@
+source_id,source_name,category,grain,status,source_url,bronze_files,notes
+census_county_fips,Census County FIPS Gazetteer,crosswalk,county,populate,https://www2.census.gov/geo/docs/reference/codes2020/national_county2020.txt,1,County name to FIPS mapping
+eia930,EIA-930 Balancing Authority,market,balancing_authority x hour/day,populate,https://www.eia.gov/electricity/gridmonitor/dashboard/electric_overview/US48/US48,37,MISO demand via EIA open data API / bulk
+fred_rates,FRED Interest Rates and PPI,macro,month,populate,https://fred.stlouisfed.org/,2,DGS10 and construction/steel PPI series via FRED CSV
+noaa_storm_events,NOAA Storm Events,weather,county x month,populate,https://www.ncei.noaa.gov/pub/data/swdi/stormevents/csvfiles/,7,Annual StormEvents details CSVs
+fema_nri,FEMA National Risk Index,weather,county,populate,https://hazards.fema.gov/nri/data-resources,3,County-level risk scores CSV
+census_acs,Census ACS,economic,county x year,populate,https://api.census.gov/data,4,Population/income/rurality proxies
+bls_qcew,BLS QCEW,economic,county x quarter,populate,https://www.bls.gov/cew/downloadable-data-files.htm,0,Construction employment where downloadable; else skeleton
+treasury_energy_communities,Treasury Energy Communities,policy,county/tract x effective date,populate,https://home.treasury.gov/policy-issues/inflation-reduction-act/energy-communities,2,Bonus credit eligibility
+queue_derived_study,Queue-derived study and POI pressure,grid,project x observation,populate,,0,Built from existing Silver MISO/Berkeley snapshots — no external download
+developer_history,Developer history from queue,developer,developer x quarter,populate,,0,Computed from Berkeley/MISO snapshots
+miso_dpp_studies,MISO DPP GI Studies,grid,project x report date,registered_empty,https://www.misoenergy.org/planning/generator-interconnection/,12,"PDF/HTML harvest TODO — upgrade cost, restudy"
+miso_mtep,MISO MTEP Transmission Projects,grid,upgrade x year,registered_empty,https://www.misoenergy.org/planning/transmission-planning/mtep/,1,Needs geospatial join to POI
+hifld_transmission,HIFLD Transmission Lines,grid,line geometry,registered_empty,https://hifld-geoplatform.opendata.arcgis.com/,2,Distance to line / voltage density
+miso_lmp,MISO Market LMP Congestion,market,node x month,registered_empty,https://www.misoenergy.org/markets-and-operations/market-reports/,0,Large node-month extract
+eia860,EIA-860 / 860M / 923,generators,plant x month/year,registered_empty,https://www.eia.gov/electricity/data/eia860/,2,Workbook ingest + fuzzy match review only
+permitting_dashboard,Federal Permitting Dashboard,permits,facility x event,registered_empty,https://www.permits.performance.gov/,0,Permit milestones
+epa_echo,EPA ECHO,permits,facility,registered_empty,https://echo.epa.gov/tools/data-downloads,0,Environmental permits / violations
+sec_edgar,SEC EDGAR,developer,developer x filing date,registered_empty,https://www.sec.gov/edgar,0,Financing / distress events via CIK
+gdelt_news,GDELT News,news,article x published_at,registered_empty,https://www.gdeltproject.org/,0,Event-type taxonomy extraction
+nrel_resource,NREL Solar and Wind Resource,site,coordinates,registered_empty,https://nsrdb.nrel.gov/,0,NSRDB / WIND Toolkit percentiles
+wetlands_water,NWI Wetlands and USGS Water,site,coordinates / buffer,registered_empty,https://www.fws.gov/program/national-wetlands-inventory,0,Wetland overlap and drought proxies
+bea_gdp,BEA GDP by County,economic,county x year,registered_empty,https://www.bea.gov/data/gdp/gdp-county,0,County GDP growth
+miso_large_load,MISO Large Load Additions,demand,zone/state x forecast year,registered_empty,https://www.misoenergy.org/,0,Expected incremental demand
