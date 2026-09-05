@@ -26,6 +26,7 @@ from src.enrichment.registry import (
     SILVER_ENRICHMENT,
     attach_metadata,
     bronze_dir,
+    empty_enrichment_frame,
     ensure_enrichment_dirs,
     utc_now_iso,
     write_bronze_bytes,
@@ -872,8 +873,36 @@ def extract_from_pdf(
                         _find_col(headers, "total network", "upgrade")
                         or _find_col(headers, "total network")
                         or _find_col(headers, "total cost")
+                        or _find_col(headers, "allocated cost")
+                        or _find_col(headers, "project cost")
+                        or _find_col(headers, "upgrade cost")
+                        or _find_col(headers, "nris", "network")
+                        or _find_col(headers, "total network upgrade cost")
                     )
-                    toif_col = _find_col(headers, "toif") or _find_col(headers, "interconnection", "facilities")
+                    toif_col = (
+                        _find_col(headers, "toif")
+                        or _find_col(headers, "interconnection", "facilities")
+                        or _find_col(headers, "to's", "interconnection")
+                    )
+                    nris_cost_col = _find_col(headers, "nris", "upgrade") or _find_col(headers, "nris network")
+                    eris_cost_col = _find_col(headers, "eris", "upgrade") or _find_col(headers, "eris network")
+                    # Per-project allocated NU columns (not group-wide "Cost" alone)
+                    allocated_cols = [
+                        i
+                        for i, h in enumerate(headers)
+                        if any(
+                            k in h
+                            for k in (
+                                "allocated",
+                                "project share",
+                                "per project",
+                                "nu ($)",
+                                "network upgrade ($)",
+                            )
+                        )
+                        and "group" not in h
+                        and "total for all" not in h
+                    ]
                     afs_cols = [i for i, h in enumerate(headers) if "afs" in h or "affected" in h]
 
                     for raw_row in data_rows:
@@ -932,6 +961,23 @@ def extract_from_pdf(
                                     afs_any = True
                         if afs_any:
                             rec["affected_system_cost"] = afs_sum
+                        # Fallback: sum clearly per-project cost components when total missing
+                        if rec.get("network_upgrade_cost") is None:
+                            parts: list[float] = []
+                            for col in (nris_cost_col, eris_cost_col, *allocated_cols):
+                                if col is not None and col < len(raw_row):
+                                    v = _parse_money(raw_row[col])
+                                    if v is not None:
+                                        parts.append(v)
+                            if rec.get("interconnection_facility_cost") is not None:
+                                parts.append(float(rec["interconnection_facility_cost"]))
+                            if rec.get("affected_system_cost") is not None:
+                                parts.append(float(rec["affected_system_cost"]))
+                            if parts:
+                                rec["network_upgrade_cost"] = float(sum(parts))
+                                rec["project_cost"] = rec["network_upgrade_cost"]
+                                rec["cost_allocation_known"] = 1
+                                rec["extraction_confidence"] = max(float(rec["extraction_confidence"]), 0.88)
     except Exception as exc:  # noqa: BLE001
         review.append({**meta, "issue": f"table_extract_failed:{exc}", "local_path": str(pdf_path)})
 
@@ -1279,6 +1325,111 @@ def run_miso_dpp_ingest(*, skip_playwright: bool = False) -> dict[str, Any]:
         "discovery_api": discovery.get("api_endpoint", OPTICS_SEARCH_URL),
     }
     (reports / "dpp_ingest_summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
+    print(json.dumps(summary, indent=2))
+    return summary
+
+
+def reextract_local_dpp_pdfs() -> dict[str, Any]:
+    """Re-extract already-downloaded dated PDFs with improved cost parsers (no Optics re-crawl)."""
+    ensure_enrichment_dirs()
+    bronze = bronze_dir(SOURCE_ID)
+    reports = ENRICHMENT_REPORTS
+    inv_path = bronze / "dpp_download_inventory.csv"
+    if not inv_path.exists():
+        print("No dpp_download_inventory.csv — run full ingest first")
+        return {"events": 0, "error": "missing_inventory"}
+
+    downloaded = pd.read_csv(inv_path)
+    extractable = downloaded[downloaded["download_status"].astype(str).str.startswith("ok")].copy()
+    whitelist = build_project_whitelist()
+    all_events: list[dict[str, Any]] = []
+    all_review: list[dict[str, Any]] = []
+    all_unmatched: list[dict[str, Any]] = []
+
+    for _, row in extractable.iterrows():
+        local = row.get("local_path")
+        if not local or not Path(str(local)).exists():
+            continue
+        if not str(local).lower().endswith(".pdf"):
+            continue
+        print(f"Re-extracting {Path(str(local)).name}…", flush=True)
+        ev, rev, un = extract_from_pdf(Path(str(local)), row.to_dict(), whitelist)
+        all_events.extend(ev)
+        all_review.extend(rev)
+        all_unmatched.extend(un)
+
+    events_df = pd.DataFrame(all_events)
+    review_df = pd.DataFrame(all_review)
+    unmatched_df = pd.DataFrame(all_unmatched)
+    if len(unmatched_df):
+        unmatched_df = unmatched_df.drop_duplicates(
+            subset=[c for c in ["project_id", "source_file", "source_page", "reason"] if c in unmatched_df.columns]
+        )
+    events_df = validate_events(events_df) if len(events_df) else events_df
+
+    if len(events_df) and "extraction_confidence" in events_df.columns:
+        low = events_df[events_df["extraction_confidence"].fillna(0) < 0.75].copy()
+        if len(low):
+            low["issue"] = "low_extraction_confidence"
+            all_review.extend(low.to_dict(orient="records"))
+            review_df = pd.DataFrame(all_review)
+
+    discovered_at = utc_now_iso()
+    if len(events_df):
+        silver = events_df.copy()
+        silver["source_project_id"] = silver["project_id"]
+        silver["event_date"] = pd.to_datetime(silver["report_date"], errors="coerce")
+        silver["effective_date"] = silver["event_date"]
+        silver["available_date"] = silver["event_date"]
+        silver["upgrade_cost_usd"] = silver.get("network_upgrade_cost")
+        silver["upgrade_cost_per_mw"] = None
+        if "capacity_mw" in silver.columns and "network_upgrade_cost" in silver.columns:
+            silver["upgrade_cost_per_mw"] = silver.apply(
+                lambda r: (r["network_upgrade_cost"] / r["capacity_mw"])
+                if pd.notna(r.get("network_upgrade_cost")) and pd.notna(r.get("capacity_mw")) and r.get("capacity_mw")
+                else None,
+                axis=1,
+            )
+        silver["phase"] = silver["study_phase"]
+        silver["source_pdf_url"] = silver["source_url"]
+        silver["source_page_ref"] = silver["source_page"].astype(str)
+        silver["geographic_key"] = silver.get("poi")
+        silver = attach_metadata(
+            silver,
+            source_name="MISO DPP GI Studies",
+            source_url=GI_STUDIES_URL,
+            retrieved_at=discovered_at,
+            match_method="project_id_whitelist",
+            match_confidence=0.9,
+            entity_key_col="project_key",
+            geographic_key_col="geographic_key",
+        )
+        if "extraction_confidence" in silver.columns:
+            silver["match_confidence"] = silver["extraction_confidence"]
+    else:
+        silver = empty_enrichment_frame([])
+
+    # Prefer non-empty re-extract; keep prior silver if re-extract somehow empty
+    if len(silver):
+        silver.to_parquet(SILVER_ENRICHMENT / "miso_dpp_events.parquet", index=False)
+        silver.to_parquet(SILVER_ENRICHMENT / "study_events.parquet", index=False)
+        events_df.to_csv(reports / "miso_dpp_events.csv", index=False)
+        review_df.to_csv(reports / "dpp_extraction_review.csv", index=False)
+        unmatched_df.to_csv(reports / "dpp_unmatched_project_mentions.csv", index=False)
+
+    summary = {
+        "mode": "reextract_local",
+        "download_ok": int(len(extractable)),
+        "events": len(events_df),
+        "unique_projects": int(events_df["project_id"].nunique()) if len(events_df) else 0,
+        "with_cost": int(
+            events_df["network_upgrade_cost"].notna().sum()
+            if len(events_df) and "network_upgrade_cost" in events_df.columns
+            else 0
+        ),
+        "retrieved_at": discovered_at,
+    }
+    (reports / "dpp_reextract_summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
     print(json.dumps(summary, indent=2))
     return summary
 

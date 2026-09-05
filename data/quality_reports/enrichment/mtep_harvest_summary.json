@@ -1,0 +1,27 @@
+{
+  "events": 8739,
+  "matched_project_keys": 0,
+  "with_county_fips": 52,
+  "asof_date": "2026-08-04",
+  "inventory": [
+    {
+      "name": "appendix_a_status_report.xlsx",
+      "url": "https://cdn.misoenergy.org/Appendix%20A%20Status%20Report575959.xlsx",
+      "status": "ok",
+      "bytes": 537983
+    },
+    {
+      "name": "appendix_a_in_service.xlsx",
+      "url": "https://cdn.misoenergy.org/MTEP%20Appendix%20A%20In%20Service%20Projects106330.xlsx",
+      "status": "ok",
+      "bytes": 706987
+    },
+    {
+      "name": "mtep_projects_under_evaluation.xlsx",
+      "url": "https://cdn.misoenergy.org/MTEP%20Projects%20Under%20Evaluation368757.xlsx",
+      "status": "ok",
+      "bytes": 127342
+    }
+  ],
+  "retrieved_at": "2026-09-05T17:42:51Z"
+}

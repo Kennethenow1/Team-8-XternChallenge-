@@ -1,136 +1,182 @@
-# Team 8 — Point-in-Time MISO Queue Database
+# Team 8 — Point-in-Time MISO Interconnection Queue Database
 
-Bronze–Silver–Gold pipeline that builds **point-in-time** project observations for MISO interconnection queue withdrawal modeling.
+Build a **point-in-time (PIT)** feature store for modeling whether a MISO generator interconnection queue project **withdraws in the next 12 months**.
 
-Each training row means:
+Each enriched training row means:
 
-> Everything legitimately known about project \(i\) on observation date \(t\). Did it withdraw during the following 12 months?
+> Everything that could legitimately be known about project \(i\) on observation date \(t\) — queue state, study costs, grid context, local risk, news — without using information published after \(t\). Did it withdraw in the following year?
 
-## Layer rules
+No model training lives in this repo yet. The product is the database and enrichment joins.
 
-| Layer | Path | Rule |
-|-------|------|------|
-| Intake | `Data/` | Original downloads (staging) |
-| **Bronze** | `data/bronze/` | **Immutable copies.** Never edit. Re-ingest only via hash-checked copy. |
-| Silver | `data/silver/` | Standardized projects, snapshots, outcomes, crosswalks |
-| Gold | `data/gold/` | Modeling tables (labels only here for supervised sets) |
-| DQ | `data/quality_reports/` | Profiles and gate results |
+---
+
+## How the database is organized
+
+```
+Data/                         # Original downloads (staging; not edited by pipeline)
+data/
+  bronze/                     # Immutable source copies (hash-checked)
+    enrichment/               # External feeds (DPP PDFs, HIFLD, MTEP, GDELT, Census, …)
+  silver/
+    projects/                 # Standardized Berkeley + MISO project tables
+    snapshots/                # Point-in-time queue observations
+    crosswalks/               # project→county FIPS, developer, EIA plant keys
+    enrichment/               # Typed PIT feature tables (join keys + available_date)
+  gold/
+    annual_withdrawal_training/   # Labels + base covariates
+    survival_training/
+    current_miso_scoring/         # Active projects, no future labels
+    withdrawal_panel_enriched.*   # ★ Main modeling table (queue + enrichment)
+    current_miso_scoring_enriched.*
+  quality_reports/enrichment/ # Coverage, leakage audit, harvest summaries
+configs/
+  source_registry.yaml        # Core queue sources
+  enrichment_registry.yaml    # External feature sources + status
+scripts/                      # run_pipeline, enrichment sprint, gaps refresh
+src/                          # Ingest, standardize, enrich, PIT joins
+```
+
+| Layer | Rule |
+|-------|------|
+| **Bronze** | Raw copies only. Never mutate in place. |
+| **Silver** | Clean schemas; enrichment rows carry `effective_date`, `available_date`, `source_*`, match metadata. |
+| **Gold** | Modeling tables. Labels only on historical training sets. External features join with `available_date ≤ observation_date`. |
+| **Missing values** | Stay null. Never invent DPP report dates or zero-fill “no data” as zero risk. |
+
+---
+
+## Current database state (snapshot)
+
+Approximate sizes after the enrichment gaps fill (see `data/quality_reports/enrichment/gaps_fill_summary.json`):
+
+### Core queue
+
+| Table | Scale | Role toward the goal |
+|-------|------:|----------------------|
+| Berkeley projects | ~24k | Historical IX queue (capacity, tech, status, developer, location) |
+| MISO projects | ~3.8k | Current MISO queue |
+| Project snapshots | ~28k | PIT status/capacity by date — basis for annual panels |
+| Annual training Gold | ~9.8k × 31 | `withdraw_next_12m` label + queue covariates |
+| Current scoring Gold | ~1.0k | Active MISO projects to score (no labels) |
+| **Enriched panel** | **~9.8k × ~124** | Training table + all usable external features |
+
+### Enrichment on the enriched Gold panel
+
+| Feature family | Gold coverage (approx.) | What it contributes |
+|----------------|------------------------:|---------------------|
+| County FIPS / centroids | ~97% | Geography for all county joins |
+| Population / FEMA risk | ~98% | Local demand / disaster exposure |
+| Energy community (IRA) | ~42% | Policy / financing incentive signal |
+| Interest rates + MISO demand | ~100% | Macro cost of capital + BA-wide load pressure |
+| Same-POI / developer history | ~100% | Queue crowding and sponsor track record |
+| Distance to transmission (HIFLD) | ~98% | Grid interconnection friction proxy |
+| Nearby MTEP upgrades | ~99% | Transmission investment context (state-level) |
+| News count / sentiment (GDELT) | ~99% | Local opposition / energy news tone |
+| DPP upgrade cost | ~10% | Study-driven cost shock (only where PDFs exist) |
+| Study delay / restudy | ~8% | Process friction (needs ≥2 dated eligible events) |
+
+Thin DPP coverage is **honest**: most projects never appear in harvested public DPP PDFs. Among Gold-eligible DPP events (~1.1k), cost is present on ~76%.
+
+---
+
+## What each dataset provides (toward withdrawal risk)
+
+### Always-on / high coverage
+
+| Source | Silver home | Brings into the model |
+|--------|-------------|------------------------|
+| **Berkeley + MISO queues** | `projects/`, `snapshots/` | Age in queue, MW, technology, hybrid flags, study phase, POI crowding |
+| **Census county FIPS + gazetteer** | `crosswalks/geo_crosswalk` | County key + lat/lon for spatial joins |
+| **Developer crosswalk** | `crosswalks/developer_crosswalk` | Stable sponsor ID |
+| **Census population / ACS proxies** | `county_year` | Market size / rurality |
+| **FEMA National Risk Index** | `county_year` | County disaster risk score |
+| **Treasury / DOE energy communities** | `policy_state_date` | Bonus-credit eligibility |
+| **FRED (DGS10, PPI)** | `market_zone_month` | Financing and construction cost environment |
+| **EIA-930 MISO BA** | `market_zone_month` | System demand, generation, interchange |
+| **NOAA Storm Events** | `weather_county_month` | Extreme weather pressure |
+| **Queue-derived developer history** | `developer_quarter` | Prior withdrawal / completion rates |
+| **HIFLD transmission lines** | `transmission_assets`, `poi_grid_context` | `distance_to_transmission_km`, nearby voltage |
+| **MISO MTEP Appendix A** | `mtep_project_events` | Nearby upgrade count and $ investment |
+| **GDELT (bounded GKG)** | `news_events` | Rolling `news_count_*`, sentiment |
+
+### Important but sparse / partial
+
+| Source | Silver home | Brings | Caveat |
+|--------|-------------|--------|--------|
+| **MISO DPP GI Studies** | `miso_dpp_events` / `study_events` | Network upgrade $, delay days, restudy counts | Only dated, high-confidence extracts; Restudy rows allowed for delay chains |
+| **EIA-860 plants** | `eia_generator_month` | Operating fleet context | Loaded (~8k) but ~0% exact queue name match |
+| **Energy communities** | policy table | IRA siting incentive | ~42% panel coverage by design of the list |
+
+### Registered empty (stubs only — not yet filled)
+
+LMP congestion, federal permits / EPA ECHO, SEC EDGAR, NREL resource, wetlands, BEA GDP, MISO large-load forecasts, BLS construction employment. Schemas exist under `data/silver/enrichment/` so joins can land later without redesign.
+
+---
 
 ## Quick start
 
 ```bash
-# From repo root — uses the project venv
-source .venv/bin/activate   # or: .venv/bin/python
+source .venv/bin/activate   # or use .venv/bin/python
+
+# 1) Core queue → Silver/Gold
 python scripts/run_pipeline.py
+
+# 2) Enrichment framework + sprint (geo, EIA, grid, county, Gold)
+python scripts/run_enrichment_sprint.py
+
+# 3) Fill DPP / HIFLD / MTEP / GDELT gaps and rewrite enriched Gold
+python scripts/refresh_enrichment_gaps.py
 ```
 
-Dependencies: see `requirements.txt` / `pyproject.toml`.
+Optional: put `EIA_API_KEY=...` in a repo-root `.env` (gitignored). Never commit secrets.
 
-## Sources
+Dependencies: `requirements.txt` / `pyproject.toml`.
 
-Registered in [`configs/source_registry.yaml`](configs/source_registry.yaml) and written to `data/source_registry.parquet` on ingest:
+Raw GDELT GKG zips are **not** stored in git (~1GB); re-run `refresh_enrichment_gaps.py` (or `ingest_gdelt`) to regenerate Bronze. Silver `news_events.parquet` **is** committed.
 
-- Berkeley / LBNL annual editions (2020–2023) and thru-2024 / thru-2025 workbooks (MISO filter applied in Silver)
-- Current MISO queue CSV (`Miso Queue Current 2026.csv`)
-
-`published_at` and `data_as_of_date` control when information was available. The Berkeley 2025 edition describes data through 2025; the MISO file is a later current snapshot.
+---
 
 ## Pipeline stages
 
 1. **Ingest** — hash + copy to Bronze; source registry  
-2. **Profile** — independent DQ reports; **do not join until gate PASSes**  
-3. **Standardize** — canonical schema (`src/common/canonical_schema.py`)  
-4. **Crosswalk** — Berkeley ↔ MISO IDs (fuzzy matches → `needs_review` only)  
-5. **Master + snapshots + deltas** — mutable fields live only on snapshots  
-6. **Outcomes** — separate table (interval-censored uncertain withdrawals)  
-7. **Gold** — annual classification, survival, current scoring (no labels)  
-8. **External stubs** — grain + `available_at` schemas for future PIT joins  
+2. **Profile** — DQ reports; do not join until gates pass  
+3. **Standardize** — canonical schema  
+4. **Crosswalk** — Berkeley ↔ MISO; project → county / developer  
+5. **Snapshots + outcomes** — mutable fields only on snapshots  
+6. **Gold base** — annual classification, survival, current scoring  
+7. **Enrichment** — populate Silver enrichment tables; PIT asof / rolling joins into enriched Gold  
 
-## Gold tables
+Provisional time split (`data/gold/split_manifest.json`): train 2020–2022 · val 2023 · test 2024 · score 2025+ current MISO.
+
+---
+
+## Gold outputs
 
 | Table | Path | Purpose |
 |-------|------|---------|
 | Annual classification | `data/gold/annual_withdrawal_training/` | `withdraw_next_12m`, `complete_followup`, `next_outcome` |
 | Survival | `data/gold/survival_training/` | `(start, stop]` with withdrawal / operation events |
-| Current scoring | `data/gold/current_miso_scoring/` | Active MISO projects, **no** future labels |
+| Current scoring | `data/gold/current_miso_scoring/` | Active MISO, **no** future labels |
+| **Enriched training** | `data/gold/withdrawal_panel_enriched.parquet` | Base annual + enrichment features |
+| **Enriched scoring** | `data/gold/current_miso_scoring_enriched.parquet` | Same joins for live queue |
 
-Provisional time split (see `data/gold/split_manifest.json`):
+Coverage HTML and feature dictionary: `data/quality_reports/enrichment/`.
 
-- Train: 2020–2022  
-- Validation: 2023  
-- Test: 2024  
-- Score: 2025 Berkeley + current MISO  
+---
 
-## Enrichment feature store
+## Design rules (non-negotiable)
 
-Point-in-time external features live under `data/silver/enrichment/` (do not merge raw enrichment into Gold).
-
-```bash
-# Full enrichment (framework + populate)
-.venv/bin/python scripts/run_enrichment_pipeline.py
-
-# Data sprint: geo gate → study rename → EIA → grid → county joins → Gold
-.venv/bin/python scripts/run_enrichment_sprint.py
-```
-
-Put `EIA_API_KEY=...` in a repo-root `.env` (gitignored). Scripts load it via `python-dotenv` and never print the key.
-
-MISO-wide monthly grid features (`miso_mean_demand_mw`, `miso_peak_demand_mw`, `miso_demand_yoy_pct`, `miso_generation_yoy_pct`, `miso_net_interchange_mw`) come from EIA-930 hourly region-data. FEMA NRI / Census PEP / Energy Communities county joins are deferred until FIPS coverage improves — see `data/quality_reports/enrichment/DEFERRED_COUNTY_JOINS.md`.
-
-Does **not** rebuild Berkeley/MISO core tables. Outputs:
-
-- `data/gold/withdrawal_panel_enriched.parquet`
-- `data/gold/current_miso_scoring_enriched.parquet`
-- `data/quality_reports/enrichment/` (manifest, dictionary, coverage HTML, leakage audit, geo/EIA/developer match review, sprint_summary.json)
-
-`queue_study_status` = current MISO phase snapshot (not historical). `study_events` / `miso_dpp_events` hold dated DPP history when available (empty until PDFs/HTML are parsed).
-
-## Phase B (not implemented yet) — modeling checklist
-
-Do **not** fit preprocessing on validation, test, or current-scoring data.
-
-### Preprocessing (training only)
-
-- Median imputation + missingness indicators  
-- `log1p` for skewed capacity/count features  
-- Robust scaling for linear models only  
-- One-hot for technology/state; rare-category grouping  
-- Frequency encoding for high-cardinality POIs  
-- Explicit `unknown` category  
-
-Tree models generally do not need standard scaling. Winsorize only in the model pipeline, never in Silver.
-
-### Baselines to compare
-
-1. Naive overall withdrawal rate  
-2. Logistic regression (queue age, MW, technology)  
-3. Gradient-boosted trees  
-4. Discrete-time survival  
-5. Competing-risk (withdrawal vs operation)  
-
-### Evaluation (not ROC-AUC alone)
-
-- Precision–recall AUC  
-- Brier score + calibration  
-- Recall in highest-risk 10% / 20%  
-- Performance by year, technology, state  
-- Time-dependent survival metrics  
-
-### Leakage and robustness tests (§24)
-
-- Remove IDs and project names from predictors  
-- Confirm current MISO values never enter historical Berkeley snapshot rows  
-- External features: `available_at <= observation_date`  
-- Ablate each feature family  
-- Sensitivity to uncertain / `needs_review` matches  
-- With vs without partially confirmed outcomes  
-- Check whether missingness alone predicts withdrawal  
-- Report performance for active, hybrid, storage, and large projects separately  
-
-## Design notes
-
+- PIT joins only: `available_date ≤ observation_date`  
+- Do not invent DPP report dates or broadcast group-total costs to every project  
+- Null ≠ zero: unavailable sources stay null until ingested  
+- `queue_study_status` = current phase; `miso_dpp_events` = historical study extracts  
 - MISO `capacity_mw = max(summer_mw, winter_mw)` (never sum)  
-- ERIS / NRIS kept separate  
-- Status `Done` maps to `completed`, **not** operational, until MISO definition is confirmed  
-- Hybrids keep component MW columns; never reduce solar+storage to solar  
-- Conflicts retain parallel `berkeley_*` / `miso_*` fields in the crosswalk  
+- Hybrids keep component MW; status `Done` → `completed` until MISO docs say otherwise  
+
+---
+
+## Modeling (Phase B — not implemented here)
+
+Do **not** fit preprocessing on validation, test, or current-scoring data. Prefer PR-AUC, Brier/calibration, and top-decile recall over ROC-AUC alone. Ablate feature families (queue / cost / grid / news / macro) and confirm no ID leakage.
+
+Suggested baselines: naive rate → logistic (age, MW, tech) → gradient boosting → discrete-time / competing-risk survival.

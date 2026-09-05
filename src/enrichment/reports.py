@@ -143,6 +143,9 @@ def build_coverage_report(enriched: pd.DataFrame | None = None) -> Path:
             "county_fips",
             "rural_flag",
             "population",
+            "population_yoy_pct",
+            "population_change_since_2020",
+            "pep_vintage",
         }
     ]
 

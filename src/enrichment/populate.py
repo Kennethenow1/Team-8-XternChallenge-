@@ -37,7 +37,8 @@ def _http_get(url: str, timeout: int = 180) -> bytes | None:
         with urllib.request.urlopen(req, timeout=timeout) as resp:
             return resp.read()
     except Exception as exc:  # noqa: BLE001
-        print(f"  download failed {url}: {exc}")
+        safe = re.sub(r"((?:api_)?key=)[^&\s]+", r"\1REDACTED", str(exc), flags=re.IGNORECASE)
+        print(f"  download failed: {safe}")
         return None
 
 
@@ -295,6 +296,16 @@ POPEST_2020_URL = (
     "https://www2.census.gov/programs-surveys/popest/datasets/2010-2020/"
     "counties/totals/co-est2020-alldata.csv"
 )
+PEP_CHARV_BASE = "https://api.census.gov/data/2023/pep/charv"
+PEP_VINTAGE = 2023
+PEP_YEARS = (2020, 2021, 2022, 2023)
+# First public release approx for each July-1 estimate year (not the later vintage revision date)
+PEP_AVAILABLE_BY_YEAR = {
+    2020: pd.Timestamp("2021-05-01"),
+    2021: pd.Timestamp("2022-03-01"),
+    2022: pd.Timestamp("2023-03-01"),
+    2023: pd.Timestamp("2024-03-14"),
+}
 
 EC_COAL_ZIP = (
     "https://edx.netl.doe.gov/storage/f/edx/2023/06/2023-06-15T18:32:19.438Z/"
@@ -321,8 +332,113 @@ def _http_get_browser(url: str, timeout: int = 180) -> bytes | None:
         with urllib.request.urlopen(req, timeout=timeout) as resp:
             return resp.read()
     except Exception as exc:  # noqa: BLE001
-        print(f"  download failed {url}: {exc}")
+        # Never echo API keys that may appear in query strings
+        safe = re.sub(r"(key=)[^&]+", r"\1REDACTED", str(exc), flags=re.IGNORECASE)
+        print(f"  download failed: {safe}")
         return None
+
+
+def _fetch_pep_charv_year(year: int, api_key: str) -> pd.DataFrame | None:
+    """Fetch county population for one YEAR from Census 2023 pep/charv API."""
+    import urllib.parse
+
+    params = {
+        "get": "NAME,POP",
+        "for": "county:*",
+        "in": "state:*",
+        "MONTH": "7",
+        "YEAR": str(year),
+        "UNIVERSE": "R",
+        "key": api_key,
+    }
+    url = PEP_CHARV_BASE + "?" + urllib.parse.urlencode(params)
+    raw = _http_get(url, timeout=180) or _http_get_browser(url, timeout=180)
+    if raw is None:
+        return None
+    try:
+        payload = json.loads(raw.decode("utf-8"))
+    except Exception as exc:  # noqa: BLE001
+        write_bronze_text("census_acs", f"pep_charv_{year}_parse_error.txt", str(exc), overwrite=True)
+        return None
+    if not isinstance(payload, list) or len(payload) < 2:
+        write_bronze_text(
+            "census_acs",
+            f"pep_charv_{year}_empty.txt",
+            "No rows returned from pep/charv.\n",
+            overwrite=True,
+        )
+        return None
+    header, *rows = payload
+    # Scrub key before bronze (Census does not echo key in body, but keep raw without query)
+    write_bronze_bytes(
+        "census_acs",
+        f"pep_charv_{year}.json",
+        json.dumps([header] + rows).encode("utf-8"),
+        overwrite=True,
+    )
+    df = pd.DataFrame(rows, columns=header)
+    df["county_fips"] = df["state"].astype(str).str.zfill(2) + df["county"].astype(str).str.zfill(3)
+    df["year"] = int(year)
+    df["population"] = pd.to_numeric(df["POP"], errors="coerce")
+    df["pep_vintage"] = PEP_VINTAGE
+    df["effective_date"] = pd.Timestamp(f"{year}-07-01")
+    df["available_date"] = PEP_AVAILABLE_BY_YEAR.get(year, pd.Timestamp(f"{year + 1}-03-01"))
+    df["median_income"] = pd.NA
+    df["rural_flag"] = (df["population"] < 50000).astype("Int64")
+    df["fema_risk_score"] = pd.NA
+    df["county_gdp"] = pd.NA
+    df["county_gdp_growth"] = pd.NA
+    df["energy_community_eligible"] = pd.NA
+    return df[
+        [
+            "county_fips",
+            "year",
+            "population",
+            "pep_vintage",
+            "median_income",
+            "rural_flag",
+            "effective_date",
+            "available_date",
+            "fema_risk_score",
+            "county_gdp",
+            "county_gdp_growth",
+            "energy_community_eligible",
+        ]
+    ].dropna(subset=["population"])
+
+
+def _fetch_pep_charv_all(api_key: str) -> pd.DataFrame | None:
+    frames: list[pd.DataFrame] = []
+    for year in PEP_YEARS:
+        print(f"  Census pep/charv YEAR={year} ...")
+        part = _fetch_pep_charv_year(year, api_key)
+        if part is None or part.empty:
+            print(f"  pep/charv YEAR={year} failed")
+            continue
+        print(f"  pep/charv YEAR={year} rows={len(part)}")
+        frames.append(part)
+    if not frames:
+        return None
+    return pd.concat(frames, ignore_index=True)
+
+
+def _add_population_derived(df: pd.DataFrame) -> pd.DataFrame:
+    """Add population_yoy_pct and population_change_since_2020 within each county."""
+    if df.empty or "population" not in df.columns:
+        return df
+    out = df.copy()
+    out["population"] = pd.to_numeric(out["population"], errors="coerce")
+    out = out.sort_values(["county_fips", "year"])
+    out["population_yoy_pct"] = out.groupby("county_fips")["population"].pct_change() * 100.0
+    base = out.loc[out["year"] == 2020, ["county_fips", "population"]].rename(
+        columns={"population": "_pop_2020"}
+    )
+    out = out.merge(base, on="county_fips", how="left")
+    out["population_change_since_2020"] = out["population"] - out["_pop_2020"]
+    out = out.drop(columns=["_pop_2020"])
+    if "pep_vintage" not in out.columns:
+        out["pep_vintage"] = pd.NA
+    return out
 
 
 def _fetch_fema_nri_counties() -> pd.DataFrame | None:
@@ -460,36 +576,46 @@ def populate_county_year_fema_acs() -> pd.DataFrame:
                 }
             ).drop_duplicates(subset=["county_fips"])
 
-    # Multi-year Census population estimates 2020–2023 (+ 2019 from older vintage if needed)
-    pop_frames: list[pd.DataFrame] = []
-    pop_raw = _http_get(POPEST_2023_URL, timeout=180) or _http_get_browser(POPEST_2023_URL)
-    if pop_raw:
-        write_bronze_bytes("census_acs", "co-est2023-alldata.csv", pop_raw, overwrite=True)
-        try:
-            # Estimates published ~March 2024 for 2023 vintage → conservative available_date
-            part = _popest_long_from_csv(
-                pop_raw,
-                years=[2020, 2021, 2022, 2023],
-                available_by_year={
-                    2020: pd.Timestamp("2021-05-01"),
-                    2021: pd.Timestamp("2022-03-01"),
-                    2022: pd.Timestamp("2023-03-01"),
-                    2023: pd.Timestamp("2024-03-14"),
-                },
-            )
-            pop_frames.append(part)
-            print(f"  popest 2020-2023 rows={len(part)}")
-        except Exception as exc:  # noqa: BLE001
-            write_bronze_text("census_acs", "parse_error.txt", str(exc), overwrite=True)
-    else:
-        write_bronze_text(
-            "census_acs",
-            "NOTE.txt",
-            "co-est2023-alldata.csv download failed.\n",
-            overwrite=True,
-        )
+    # Prefer Census 2023 pep/charv API (requires CENSUS_API_KEY); fall back to popest CSV.
+    import os
 
-    # 2019 from 2010–2020 vintage file
+    pop_frames: list[pd.DataFrame] = []
+    census_key = os.environ.get("CENSUS_API_KEY", "").strip()
+    pep = _fetch_pep_charv_all(census_key) if census_key else None
+    if pep is not None and len(pep):
+        pop_frames.append(pep)
+        print(f"  pep/charv 2020-2023 total rows={len(pep)} vintage={PEP_VINTAGE}")
+    else:
+        if not census_key:
+            write_bronze_text(
+                "census_acs",
+                "NOTE_API_KEY.txt",
+                "Set CENSUS_API_KEY in .env to use pep/charv API; falling back to popest CSV.\n",
+                overwrite=True,
+            )
+        pop_raw = _http_get(POPEST_2023_URL, timeout=180) or _http_get_browser(POPEST_2023_URL)
+        if pop_raw:
+            write_bronze_bytes("census_acs", "co-est2023-alldata.csv", pop_raw, overwrite=True)
+            try:
+                part = _popest_long_from_csv(
+                    pop_raw,
+                    years=list(PEP_YEARS),
+                    available_by_year=dict(PEP_AVAILABLE_BY_YEAR),
+                )
+                part["pep_vintage"] = PEP_VINTAGE
+                pop_frames.append(part)
+                print(f"  popest CSV 2020-2023 rows={len(part)} (API fallback)")
+            except Exception as exc:  # noqa: BLE001
+                write_bronze_text("census_acs", "parse_error.txt", str(exc), overwrite=True)
+        else:
+            write_bronze_text(
+                "census_acs",
+                "NOTE.txt",
+                "pep/charv and co-est2023-alldata.csv both failed.\n",
+                overwrite=True,
+            )
+
+    # 2019 from 2010–2020 vintage file (not in 2023 pep/charv YEAR loop above)
     pop20 = _http_get(POPEST_2020_URL, timeout=180) or _http_get_browser(POPEST_2020_URL)
     if pop20:
         write_bronze_bytes("census_acs", "co-est2020-alldata.csv", pop20, overwrite=True)
@@ -499,12 +625,15 @@ def populate_county_year_fema_acs() -> pd.DataFrame:
                 years=[2019],
                 available_by_year={2019: pd.Timestamp("2020-03-26")},
             )
+            part19["pep_vintage"] = 2020
             pop_frames.append(part19)
             print(f"  popest 2019 rows={len(part19)}")
         except Exception as exc:  # noqa: BLE001
             write_bronze_text("census_acs", "parse_error_2020.txt", str(exc), overwrite=True)
 
     acs_part = pd.concat(pop_frames, ignore_index=True) if pop_frames else None
+    if acs_part is not None and len(acs_part):
+        acs_part = _add_population_derived(acs_part)
 
     if acs_part is not None and fema_part is not None:
         # Attach FEMA risk onto every population year row for the county (asof uses available_date)
@@ -545,7 +674,16 @@ def populate_county_year_fema_acs() -> pd.DataFrame:
         print("county_year: no FEMA/ACS data — empty")
         return write_empty_table("county_year")
 
-    for c in ("county_gdp", "county_gdp_growth", "energy_community_eligible", "fema_risk_score", "median_income"):
+    for c in (
+        "county_gdp",
+        "county_gdp_growth",
+        "energy_community_eligible",
+        "fema_risk_score",
+        "median_income",
+        "pep_vintage",
+        "population_yoy_pct",
+        "population_change_since_2020",
+    ):
         if c not in out.columns:
             out[c] = pd.NA
 
@@ -553,8 +691,8 @@ def populate_county_year_fema_acs() -> pd.DataFrame:
     out["entity_key"] = out["county_fips"].astype(str) + "|" + out["year"].astype(str)
     out = attach_metadata(
         out,
-        source_name="FEMA NRI / Census popest",
-        source_url="https://www.fema.gov/about/openfema/data-sets/national-risk-index-data;https://www.census.gov/programs-surveys/popest.html",
+        source_name="FEMA NRI / Census pep/charv 2023",
+        source_url="https://www.fema.gov/about/openfema/data-sets/national-risk-index-data;https://api.census.gov/data/2023/pep/charv",
         retrieved_at=retrieved,
         match_method="county_fips",
         match_confidence=0.9,

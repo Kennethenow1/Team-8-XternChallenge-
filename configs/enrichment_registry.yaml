@@ -105,28 +105,28 @@ sources:
     source_name: MISO DPP GI Studies
     category: grid
     grain: project x report date
-    status: registered_empty
+    status: populate
     source_url: "https://www.misoenergy.org/planning/generator-interconnection/"
     bronze_subdir: miso_dpp_studies
-    notes: PDF/HTML harvest TODO — upgrade cost, restudy
+    notes: Optics harvest + local PDF re-extract; Restudy eligible for Gold delay chains
 
   - source_id: miso_mtep
     source_name: MISO MTEP Transmission Projects
     category: grid
     grain: upgrade x year
-    status: registered_empty
+    status: populate
     source_url: "https://www.misoenergy.org/planning/transmission-planning/mtep/"
     bronze_subdir: miso_mtep
-    notes: Needs geospatial join to POI
+    notes: Appendix A status / in-service Excel harvest → mtep_project_events
 
   - source_id: hifld_transmission
     source_name: HIFLD Transmission Lines
     category: grid
     grain: line geometry
-    status: registered_empty
+    status: populate
     source_url: "https://hifld-geoplatform.opendata.arcgis.com/"
     bronze_subdir: hifld_transmission
-    notes: Distance to line / voltage density
+    notes: MISO-state bbox pagination → transmission_assets + poi_grid_context distances
 
   - source_id: miso_lmp
     source_name: MISO Market LMP Congestion
@@ -177,10 +177,10 @@ sources:
     source_name: GDELT News
     category: news
     grain: article x published_at
-    status: registered_empty
+    status: populate
     source_url: "https://www.gdeltproject.org/"
     bronze_subdir: gdelt_news
-    notes: Event-type taxonomy extraction
+    notes: Bounded GKG/DOC ingest for MISO states + energy themes → news_events
 
   - source_id: nrel_resource
     source_name: NREL Solar and Wind Resource

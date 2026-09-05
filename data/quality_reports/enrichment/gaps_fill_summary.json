@@ -1,0 +1,50 @@
+{
+  "steps": {
+    "dpp_reextract": {
+      "mode": "reextract_local",
+      "download_ok": 51,
+      "events": 3046,
+      "unique_projects": 1793,
+      "with_cost": 879,
+      "retrieved_at": "2026-09-05T17:32:47Z"
+    },
+    "geo_centroids": {
+      "lat_coverage": 0.9662981455064193
+    },
+    "hifld": {
+      "transmission_assets": 21192,
+      "distance_nonnull": 0.9662981455064193,
+      "available_date_vintage": "2020-01-01"
+    },
+    "mtep": {
+      "events": 8739,
+      "matched_project_keys": 0,
+      "with_state": 8734
+    },
+    "gdelt": {
+      "news_events": 16472
+    }
+  },
+  "dpp": {
+    "n_silver_events": 3046,
+    "n_gold_eligible": 1142,
+    "pct_eligible_with_cost": 0.7644483362521891,
+    "gold_network_upgrade_cost": 0.10298158135748448,
+    "gold_study_delay_days": 0.08303653200366337,
+    "gold_restudy_count": 0.08303653200366337
+  },
+  "hifld": {
+    "n_transmission_assets": 21192,
+    "gold_distance_to_transmission_km": 0.9814795970285947
+  },
+  "mtep": {
+    "n_events": 8739,
+    "n_matched_project_keys": 0,
+    "gold_nearby_mtep_upgrade_count": 0.9856517757199552
+  },
+  "gdelt": {
+    "n_news_events": 16472,
+    "gold_news_count_90d": 0.9856517757199552,
+    "gold_news_sentiment_mean_90d": 0.9856517757199552
+  }
+}

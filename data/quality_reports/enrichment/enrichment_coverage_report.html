@@ -77,7 +77,7 @@ th,td{border:1px solid #ccc;padding:4px 8px;font-size:13px}th{background:#f4f4f4
       <td>county x year</td>
       <td>populate</td>
       <td>https://api.census.gov/data</td>
-      <td>4</td>
+      <td>8</td>
       <td>Population/income/rurality proxies</td>
     </tr>
     <tr>
@@ -125,30 +125,30 @@ th,td{border:1px solid #ccc;padding:4px 8px;font-size:13px}th{background:#f4f4f4
       <td>MISO DPP GI Studies</td>
       <td>grid</td>
       <td>project x report date</td>
-      <td>registered_empty</td>
+      <td>populate</td>
       <td>https://www.misoenergy.org/planning/generator-interconnection/</td>
       <td>12</td>
-      <td>PDF/HTML harvest TODO — upgrade cost, restudy</td>
+      <td>Optics harvest + local PDF re-extract; Restudy eligible for Gold delay chains</td>
     </tr>
     <tr>
       <td>miso_mtep</td>
       <td>MISO MTEP Transmission Projects</td>
       <td>grid</td>
       <td>upgrade x year</td>
-      <td>registered_empty</td>
+      <td>populate</td>
       <td>https://www.misoenergy.org/planning/transmission-planning/mtep/</td>
-      <td>1</td>
-      <td>Needs geospatial join to POI</td>
+      <td>5</td>
+      <td>Appendix A status / in-service Excel harvest → mtep_project_events</td>
     </tr>
     <tr>
       <td>hifld_transmission</td>
       <td>HIFLD Transmission Lines</td>
       <td>grid</td>
       <td>line geometry</td>
-      <td>registered_empty</td>
+      <td>populate</td>
       <td>https://hifld-geoplatform.opendata.arcgis.com/</td>
-      <td>2</td>
-      <td>Distance to line / voltage density</td>
+      <td>23</td>
+      <td>MISO-state bbox pagination → transmission_assets + poi_grid_context distances</td>
     </tr>
     <tr>
       <td>miso_lmp</td>
@@ -205,10 +205,10 @@ th,td{border:1px solid #ccc;padding:4px 8px;font-size:13px}th{background:#f4f4f4
       <td>GDELT News</td>
       <td>news</td>
       <td>article x published_at</td>
-      <td>registered_empty</td>
+      <td>populate</td>
       <td>https://www.gdeltproject.org/</td>
-      <td>0</td>
-      <td>Event-type taxonomy extraction</td>
+      <td>163</td>
+      <td>Bounded GKG/DOC ingest for MISO states + energy themes → news_events</td>
     </tr>
     <tr>
       <td>nrel_resource</td>
@@ -269,8 +269,8 @@ th,td{border:1px solid #ccc;padding:4px 8px;font-size:13px}th{background:#f4f4f4
     </tr>
     <tr>
       <td>transmission_assets</td>
-      <td>0</td>
-      <td>False</td>
+      <td>21192</td>
+      <td>True</td>
     </tr>
     <tr>
       <td>market_zone_month</td>
@@ -294,8 +294,8 @@ th,td{border:1px solid #ccc;padding:4px 8px;font-size:13px}th{background:#f4f4f4
     </tr>
     <tr>
       <td>news_events</td>
-      <td>0</td>
-      <td>False</td>
+      <td>16472</td>
+      <td>True</td>
     </tr>
     <tr>
       <td>county_month</td>
@@ -304,7 +304,7 @@ th,td{border:1px solid #ccc;padding:4px 8px;font-size:13px}th{background:#f4f4f4
     </tr>
     <tr>
       <td>county_year</td>
-      <td>15807</td>
+      <td>16041</td>
       <td>True</td>
     </tr>
     <tr>
@@ -349,6 +349,24 @@ th,td{border:1px solid #ccc;padding:4px 8px;font-size:13px}th{background:#f4f4f4
     </tr>
     <tr>
       <td>population</td>
+      <td>9633</td>
+      <td>9827</td>
+      <td>98.03</td>
+    </tr>
+    <tr>
+      <td>population_yoy_pct</td>
+      <td>9053</td>
+      <td>9827</td>
+      <td>92.12</td>
+    </tr>
+    <tr>
+      <td>population_change_since_2020</td>
+      <td>9633</td>
+      <td>9827</td>
+      <td>98.03</td>
+    </tr>
+    <tr>
+      <td>pep_vintage</td>
       <td>9633</td>
       <td>9827</td>
       <td>98.03</td>
@@ -475,9 +493,9 @@ th,td{border:1px solid #ccc;padding:4px 8px;font-size:13px}th{background:#f4f4f4
     </tr>
     <tr>
       <td>capacity_reduction_pct</td>
-      <td>606</td>
+      <td>509</td>
       <td>9827</td>
-      <td>6.17</td>
+      <td>5.18</td>
     </tr>
   </tbody>
 </table>
@@ -516,6 +534,27 @@ th,td{border:1px solid #ccc;padding:4px 8px;font-size:13px}th{background:#f4f4f4
     </tr>
     <tr>
       <td>2020</td>
+      <td>population_yoy_pct</td>
+      <td>580</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>2020</td>
+      <td>population_change_since_2020</td>
+      <td>580</td>
+      <td>580</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>2020</td>
+      <td>pep_vintage</td>
+      <td>580</td>
+      <td>580</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>2020</td>
       <td>rural_flag</td>
       <td>580</td>
       <td>580</td>
@@ -658,8 +697,8 @@ th,td{border:1px solid #ccc;padding:4px 8px;font-size:13px}th{background:#f4f4f4
       <td>2020</td>
       <td>capacity_reduction_pct</td>
       <td>580</td>
-      <td>56</td>
-      <td>9.66</td>
+      <td>41</td>
+      <td>7.07</td>
     </tr>
     <tr>
       <td>2021</td>
@@ -678,6 +717,27 @@ th,td{border:1px solid #ccc;padding:4px 8px;font-size:13px}th{background:#f4f4f4
     <tr>
       <td>2021</td>
       <td>population</td>
+      <td>963</td>
+      <td>960</td>
+      <td>99.69</td>
+    </tr>
+    <tr>
+      <td>2021</td>
+      <td>population_yoy_pct</td>
+      <td>963</td>
+      <td>960</td>
+      <td>99.69</td>
+    </tr>
+    <tr>
+      <td>2021</td>
+      <td>population_change_since_2020</td>
+      <td>963</td>
+      <td>960</td>
+      <td>99.69</td>
+    </tr>
+    <tr>
+      <td>2021</td>
+      <td>pep_vintage</td>
       <td>963</td>
       <td>960</td>
       <td>99.69</td>
@@ -826,8 +886,8 @@ th,td{border:1px solid #ccc;padding:4px 8px;font-size:13px}th{background:#f4f4f4
       <td>2021</td>
       <td>capacity_reduction_pct</td>
       <td>963</td>
-      <td>87</td>
-      <td>9.03</td>
+      <td>71</td>
+      <td>7.37</td>
     </tr>
     <tr>
       <td>2022</td>
@@ -846,6 +906,27 @@ th,td{border:1px solid #ccc;padding:4px 8px;font-size:13px}th{background:#f4f4f4
     <tr>
       <td>2022</td>
       <td>population</td>
+      <td>1734</td>
+      <td>1728</td>
+      <td>99.65</td>
+    </tr>
+    <tr>
+      <td>2022</td>
+      <td>population_yoy_pct</td>
+      <td>1734</td>
+      <td>1728</td>
+      <td>99.65</td>
+    </tr>
+    <tr>
+      <td>2022</td>
+      <td>population_change_since_2020</td>
+      <td>1734</td>
+      <td>1728</td>
+      <td>99.65</td>
+    </tr>
+    <tr>
+      <td>2022</td>
+      <td>pep_vintage</td>
       <td>1734</td>
       <td>1728</td>
       <td>99.65</td>
@@ -989,69 +1070,6 @@ th,td{border:1px solid #ccc;padding:4px 8px;font-size:13px}th{background:#f4f4f4
       <td>1734</td>
       <td>1734</td>
       <td>100.00</td>
-    </tr>
-    <tr>
-      <td>2022</td>
-      <td>capacity_reduction_pct</td>
-      <td>1734</td>
-      <td>128</td>
-      <td>7.38</td>
-    </tr>
-    <tr>
-      <td>2023</td>
-      <td>county_fips</td>
-      <td>1669</td>
-      <td>1665</td>
-      <td>99.76</td>
-    </tr>
-    <tr>
-      <td>2023</td>
-      <td>fema_risk_score</td>
-      <td>1669</td>
-      <td>1665</td>
-      <td>99.76</td>
-    </tr>
-    <tr>
-      <td>2023</td>
-      <td>population</td>
-      <td>1669</td>
-      <td>1665</td>
-      <td>99.76</td>
-    </tr>
-    <tr>
-      <td>2023</td>
-      <td>rural_flag</td>
-      <td>1669</td>
-      <td>1665</td>
-      <td>99.76</td>
-    </tr>
-    <tr>
-      <td>2023</td>
-      <td>storm_events_12m</td>
-      <td>1669</td>
-      <td>1659</td>
-      <td>99.40</td>
-    </tr>
-    <tr>
-      <td>2023</td>
-      <td>storm_property_damage_12m</td>
-      <td>1669</td>
-      <td>1659</td>
-      <td>99.40</td>
-    </tr>
-    <tr>
-      <td>2023</td>
-      <td>extreme_weather_days_12m</td>
-      <td>1669</td>
-      <td>1659</td>
-      <td>99.40</td>
-    </tr>
-    <tr>
-      <td>2023</td>
-      <td>energy_community_eligible</td>
-      <td>1669</td>
-      <td>1070</td>
-      <td>64.11</td>
     </tr>
   </tbody>
 </table>

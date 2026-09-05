@@ -8,6 +8,7 @@ import re
 import urllib.parse
 import urllib.request
 
+import numpy as np
 import pandas as pd
 
 from src.common.paths import SILVER_DIR
@@ -34,6 +35,60 @@ _MISO_FEATURE_COLS = (
     "miso_generation_yoy_pct",
     "miso_net_interchange_mw",
 )
+
+# Approximate WGS84 envelopes for MISO-footprint states (xmin, ymin, xmax, ymax).
+_MISO_STATE_BBOX: dict[str, tuple[float, float, float, float]] = {
+    "AR": (-94.62, 33.00, -89.64, 36.50),
+    "IA": (-96.64, 40.38, -90.14, 43.50),
+    "IL": (-91.51, 36.97, -87.02, 42.51),
+    "IN": (-88.10, 37.77, -84.78, 41.76),
+    "KY": (-89.57, 36.50, -81.96, 39.15),
+    "LA": (-94.04, 28.93, -88.82, 33.02),
+    "MI": (-90.42, 41.70, -82.12, 48.31),
+    "MN": (-97.24, 43.50, -89.49, 49.38),
+    "MO": (-95.77, 35.995, -89.10, 40.61),
+    "MS": (-91.66, 30.17, -88.10, 35.00),
+    "MT": (-116.05, 44.36, -104.04, 49.00),
+    "ND": (-104.05, 45.94, -96.55, 49.00),
+    "OH": (-84.82, 38.40, -80.52, 41.98),
+    "SD": (-104.06, 42.48, -96.45, 45.95),
+    "TX": (-106.65, 25.84, -93.51, 36.50),
+    "WI": (-92.89, 42.49, -86.25, 47.31),
+}
+
+_HIFLD_FS_QUERY = (
+    "https://services1.arcgis.com/Hp6G80Pky0om7QvQ/arcgis/rest/services/"
+    "Electric_Power_Transmission_Lines/FeatureServer/0/query"
+)
+_HIFLD_PAGE = 2000
+
+
+def _haversine_km(lat1: float, lon1: float, lat2: np.ndarray, lon2: np.ndarray) -> np.ndarray:
+    r = 6371.0
+    p1, p2 = np.radians(lat1), np.radians(lat2)
+    dphi = np.radians(lat2 - lat1)
+    dlmb = np.radians(lon2 - lon1)
+    a = np.sin(dphi / 2.0) ** 2 + np.cos(p1) * np.cos(p2) * np.sin(dlmb / 2.0) ** 2
+    return 2 * r * np.arcsin(np.sqrt(np.clip(a, 0.0, 1.0)))
+
+
+def _geojson_line_points(geom: dict) -> list[tuple[float, float]]:
+    """Flatten GeoJSON LineString / MultiLineString to (lon, lat) vertices."""
+    if not geom:
+        return []
+    gtype = geom.get("type")
+    coords = geom.get("coordinates") or []
+    pts: list[tuple[float, float]] = []
+    if gtype == "LineString":
+        for c in coords:
+            if len(c) >= 2:
+                pts.append((float(c[0]), float(c[1])))
+    elif gtype == "MultiLineString":
+        for line in coords:
+            for c in line:
+                if len(c) >= 2:
+                    pts.append((float(c[0]), float(c[1])))
+    return pts
 
 
 def _redact_api_key(url: str) -> str:
@@ -353,38 +408,143 @@ def enrich_market_zone_demand_growth() -> pd.DataFrame:
 
 def populate_hifld_poi_context() -> pd.DataFrame:
     """
-    Attempt HIFLD electric transmission lines download.
-    Compute distance/voltage using county centroids when line geometry available;
-    otherwise write empty typed table.
+    Paginate HIFLD electric transmission lines for MISO-state envelopes,
+    write transmission_assets, and compute project distance_to_transmission_km.
     """
     ensure_enrichment_dirs()
-    url = (
-        "https://services1.arcgis.com/Hp6G80Pky0om7QvQ/arcgis/rest/services/"
-        "Electric_Power_Transmission_Lines/FeatureServer/0/query"
-        "?where=1%3D1&outFields=VOLTAGE,STATUS&resultRecordCount=1&f=geojson"
-    )
-    raw = _http_get(url, timeout=60)
+    from src.enrichment.registry import utc_now_iso
+
+    retrieved_at = utc_now_iso()
     geo = pd.read_parquet(SILVER_DIR / "crosswalks" / "geo_crosswalk.parquet")
 
-    if raw is None:
+    all_features: list[dict] = []
+    page_bytes = 0
+    for st, (xmin, ymin, xmax, ymax) in _MISO_STATE_BBOX.items():
+        offset = 0
+        while True:
+            params = urllib.parse.urlencode(
+                {
+                    "where": "1=1",
+                    "geometry": f"{xmin},{ymin},{xmax},{ymax}",
+                    "geometryType": "esriGeometryEnvelope",
+                    "inSR": "4326",
+                    "spatialRel": "esriSpatialRelIntersects",
+                    "outFields": "OBJECTID,ID,VOLTAGE,STATUS,OWNER,SUB_1,SUB_2,VOLT_CLASS,SOURCEDATE,VAL_DATE",
+                    "returnGeometry": "true",
+                    "outSR": "4326",
+                    "f": "geojson",
+                    "resultOffset": str(offset),
+                    "resultRecordCount": str(_HIFLD_PAGE),
+                }
+            )
+            url = f"{_HIFLD_FS_QUERY}?{params}"
+            raw = _http_get(url, timeout=180)
+            if raw is None:
+                write_bronze_text(
+                    "hifld_transmission",
+                    f"download_failed_{st}_offset_{offset}.txt",
+                    f"Failed query for state={st} offset={offset}\n",
+                    overwrite=True,
+                )
+                break
+            page_bytes += len(raw)
+            write_bronze_bytes(
+                "hifld_transmission",
+                f"lines_{st}_offset_{offset:06d}.geojson",
+                raw,
+                overwrite=True,
+            )
+            try:
+                payload = json.loads(raw.decode("utf-8"))
+            except Exception as exc:  # noqa: BLE001
+                write_bronze_text(
+                    "hifld_transmission",
+                    f"parse_error_{st}_{offset}.txt",
+                    str(exc),
+                    overwrite=True,
+                )
+                break
+            feats = payload.get("features") or []
+            if not feats:
+                break
+            for feat in feats:
+                props = feat.get("properties") or {}
+                geom = feat.get("geometry") or {}
+                pts = _geojson_line_points(geom)
+                if len(pts) < 2:
+                    continue
+                # Midpoint proxy for asset table
+                mid = pts[len(pts) // 2]
+                vid = props.get("ID") or props.get("OBJECTID")
+                all_features.append(
+                    {
+                        "asset_id": str(vid) if vid is not None else None,
+                        "upgrade_id": str(vid) if vid is not None else None,
+                        "voltage_kv": props.get("VOLTAGE"),
+                        "volt_class": props.get("VOLT_CLASS"),
+                        "status": props.get("STATUS"),
+                        "transmission_owner": props.get("OWNER"),
+                        "sub_1": props.get("SUB_1"),
+                        "sub_2": props.get("SUB_2"),
+                        "source_date_ms": props.get("SOURCEDATE"),
+                        "val_date_ms": props.get("VAL_DATE"),
+                        "state_query": st,
+                        "mid_lon": mid[0],
+                        "mid_lat": mid[1],
+                        "n_vertices": len(pts),
+                        "_pts": pts,
+                    }
+                )
+            print(f"  HIFLD {st} offset={offset} feats={len(feats)} kept_total={len(all_features)}")
+            if len(feats) < _HIFLD_PAGE:
+                break
+            offset += _HIFLD_PAGE
+            if offset > 50000:
+                break
+
+    # Deduplicate by asset_id (state envelopes overlap)
+    assets_raw = pd.DataFrame(all_features)
+    if len(assets_raw) and "asset_id" in assets_raw.columns:
+        assets_raw = assets_raw.drop_duplicates("asset_id", keep="first")
+
+    # Layer vintage for PIT: prefer early validation dates from features; fall back to 2020-01-01.
+    vintage = pd.Timestamp("2020-01-01")
+    if len(assets_raw):
+        for col in ("val_date_ms", "source_date_ms"):
+            if col not in assets_raw.columns:
+                continue
+            ms = pd.to_numeric(assets_raw[col], errors="coerce").dropna()
+            if len(ms):
+                dates = pd.to_datetime(ms, unit="ms", errors="coerce").dropna()
+                if len(dates):
+                    vintage = pd.Timestamp(dates.quantile(0.25).date())
+                    break
+    available_date = vintage
+    retrieve_day = pd.Timestamp(retrieved_at[:10])
+    if available_date > retrieve_day:
+        available_date = retrieve_day
+    print(f"  HIFLD PIT available_date vintage={available_date.date()}")
+
+    if assets_raw.empty:
         write_bronze_text(
             "hifld_transmission",
             "DOWNLOAD_FAILED.txt",
-            "HIFLD FeatureServer probe failed — transmission_assets left empty.\n",
+            "HIFLD paginated MISO-state queries returned no features.\n",
             overwrite=True,
         )
         empty = write_empty_table("transmission_assets")
         ctx = geo[["project_key", "poi_key", "county_fips", "latitude", "longitude"]].copy()
         ctx["distance_to_transmission_km"] = pd.NA
         ctx["nearby_transmission_voltage"] = pd.NA
-        ctx["effective_date"] = pd.Timestamp("2024-01-01")
-        ctx["available_date"] = pd.Timestamp("2024-01-01")
+        ctx["effective_date"] = available_date
+        ctx["available_date"] = available_date
         ctx["entity_key"] = ctx["project_key"]
         ctx["geographic_key"] = ctx["county_fips"]
         ctx = attach_metadata(
             ctx,
-            source_name="HIFLD unavailable — centroids only",
+            source_name="HIFLD unavailable",
             source_url="https://hifld-geoplatform.opendata.arcgis.com/",
+            retrieved_at=retrieved_at,
             match_method="county_centroid",
             match_confidence=0.3,
             entity_key_col="entity_key",
@@ -393,60 +553,128 @@ def populate_hifld_poi_context() -> pd.DataFrame:
         ctx.to_parquet(SILVER_ENRICHMENT / "poi_grid_context.parquet", index=False)
         return empty
 
-    write_bronze_bytes("hifld_transmission", "probe.geojson", raw, overwrite=True)
-    write_bronze_text(
-        "hifld_transmission",
-        "NOTE.txt",
-        "Probe succeeded. Full line layer too large for sprint distance join; "
-        "poi_grid_context uses county centroids with null distance pending local extract.\n",
-        overwrite=True,
+    # Build per-state point indexes for nearest-line distance (vertex/midpoint approximation)
+    pts_by_state: dict[str, np.ndarray] = {}
+    volts_by_state: dict[str, list] = {}
+    for st, grp in assets_raw.groupby("state_query"):
+        line_pts: list[tuple[float, float, float | None]] = []
+        for _, row in grp.iterrows():
+            volt = row.get("voltage_kv")
+            pts = row["_pts"] if isinstance(row["_pts"], list) else []
+            if not pts:
+                continue
+            step = max(1, len(pts) // 15)
+            for lon, lat in pts[::step]:
+                line_pts.append((float(lat), float(lon), volt))
+            for lon, lat in (pts[0], pts[len(pts) // 2], pts[-1]):
+                line_pts.append((float(lat), float(lon), volt))
+        if not line_pts:
+            continue
+        pts_by_state[str(st)] = np.asarray([[p[0], p[1]] for p in line_pts], dtype=float)
+        volts_by_state[str(st)] = [p[2] for p in line_pts]
+
+    # National fallback pool (limited) for projects missing state
+    all_pts = (
+        np.vstack(list(pts_by_state.values()))
+        if pts_by_state
+        else np.zeros((0, 2))
     )
-    empty = write_empty_table("transmission_assets")
+    all_volts: list = []
+    for st in pts_by_state:
+        all_volts.extend(volts_by_state[st])
+
+    distances: list[float | object] = []
+    near_v: list[float | object] = []
+    for _, prow in geo.iterrows():
+        lat = prow.get("latitude")
+        lon = prow.get("longitude")
+        st = prow.get("state_code")
+        if pd.isna(lat) or pd.isna(lon):
+            distances.append(pd.NA)
+            near_v.append(pd.NA)
+            continue
+        pts_arr = pts_by_state.get(str(st)) if pd.notna(st) else None
+        volts_arr = volts_by_state.get(str(st)) if pd.notna(st) else None
+        if pts_arr is None or pts_arr.shape[0] == 0:
+            pts_arr = all_pts
+            volts_arr = all_volts
+        if pts_arr is None or pts_arr.shape[0] == 0:
+            distances.append(pd.NA)
+            near_v.append(pd.NA)
+            continue
+        best_i = 0
+        best_d = float("inf")
+        lat0 = float(lat)
+        lon0 = float(lon)
+        chunk = 8000
+        for start in range(0, len(pts_arr), chunk):
+            sl = pts_arr[start : start + chunk]
+            d = _haversine_km(lat0, lon0, sl[:, 0], sl[:, 1])
+            i = int(np.argmin(d))
+            if float(d[i]) < best_d:
+                best_d = float(d[i])
+                best_i = start + i
+        distances.append(best_d)
+        near_v.append(volts_arr[best_i] if volts_arr is not None and best_i < len(volts_arr) else pd.NA)
+
+    assets = assets_raw.drop(columns=["_pts"], errors="ignore").copy()
+    assets["voltage_kv"] = pd.to_numeric(assets.get("voltage_kv"), errors="coerce")
+    assets["effective_date"] = available_date
+    assets["available_date"] = available_date
+    assets["entity_key"] = assets["asset_id"]
+    assets["geographic_key"] = assets["state_query"]
+    assets["poi_key"] = pd.NA
+    assets["upgrade_completion_year"] = pd.NA
+    assets["investment_usd"] = pd.NA
+    assets["distance_to_transmission_km"] = pd.NA
+    assets = attach_metadata(
+        assets,
+        source_name="HIFLD Electric Power Transmission Lines",
+        source_url="https://hifld-geoplatform.opendata.arcgis.com/",
+        retrieved_at=retrieved_at,
+        match_method="miso_state_bbox_pagination",
+        match_confidence=0.85,
+        entity_key_col="entity_key",
+        geographic_key_col="geographic_key",
+    )
+    write_silver_table("transmission_assets", assets)
+    assets.to_parquet(SILVER_ENRICHMENT / "transmission_assets.parquet", index=False)
+
     ctx = geo[["project_key", "poi_key", "county_fips", "latitude", "longitude"]].copy()
-    ctx["distance_to_transmission_km"] = pd.NA
-    ctx["nearby_transmission_voltage"] = pd.NA
-    ctx["effective_date"] = pd.Timestamp("2024-01-01")
-    ctx["available_date"] = pd.Timestamp("2024-06-01")
+    ctx["distance_to_transmission_km"] = distances
+    ctx["nearby_transmission_voltage"] = near_v
+    ctx["effective_date"] = available_date
+    ctx["available_date"] = available_date
     ctx["entity_key"] = ctx["project_key"]
     ctx["geographic_key"] = ctx["county_fips"]
     ctx = attach_metadata(
         ctx,
-        source_name="HIFLD probe + county centroids",
+        source_name="HIFLD + county centroids",
         source_url="https://hifld-geoplatform.opendata.arcgis.com/",
-        match_method="county_centroid",
-        match_confidence=0.4,
+        retrieved_at=retrieved_at,
+        match_method="nearest_line_vertex_haversine",
+        match_confidence=0.75,
         entity_key_col="entity_key",
         geographic_key_col="geographic_key",
     )
     ctx.to_parquet(SILVER_ENRICHMENT / "poi_grid_context.parquet", index=False)
-    print(f"poi_grid_context rows={len(ctx)}")
-    return empty
+    nn = float(pd.Series(distances).notna().mean()) if distances else 0.0
+    write_bronze_text(
+        "hifld_transmission",
+        "NOTE.txt",
+        f"Paginated MISO-state HIFLD extract: assets={len(assets)} bytes≈{page_bytes} "
+        f"poi_distance_nonnull={nn:.3f}\n",
+        overwrite=True,
+    )
+    print(f"transmission_assets={len(assets)} poi_grid_context={len(ctx)} distance_nonnull={nn:.3f}")
+    return assets
 
 
 def populate_mtep_stub() -> pd.DataFrame:
-    ensure_enrichment_dirs()
-    write_bronze_text(
-        "miso_mtep",
-        "NOTE.txt",
-        "MTEP public project list harvest not automated in this sprint. "
-        "Table mtep_project_events left empty typed.\n",
-        overwrite=True,
-    )
-    from src.enrichment.registry import empty_enrichment_frame
+    """Deprecated stub — prefer ingest_mtep.run_mtep_harvest."""
+    from src.enrichment.ingest_mtep import run_mtep_harvest
 
-    extra = [
-        "upgrade_id",
-        "poi_key",
-        "transmission_owner",
-        "upgrade_completion_year",
-        "investment_usd",
-        "voltage_kv",
-        "project_name",
-    ]
-    df = empty_enrichment_frame(extra)
-    df.to_parquet(SILVER_ENRICHMENT / "mtep_project_events.parquet", index=False)
-    print("mtep_project_events empty typed written")
-    return df
+    return run_mtep_harvest()
 
 
 def populate_grid_pressure() -> None:

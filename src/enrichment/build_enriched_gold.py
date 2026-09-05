@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 
 from src.common.paths import GOLD_DIR, SILVER_DIR
-from src.enrichment.pit_join import asof_join, leakage_rows
+from src.enrichment.pit_join import asof_join, leakage_rows, rolling_event_features
 from src.enrichment.registry import ENRICHMENT_REPORTS, SILVER_ENRICHMENT, ensure_enrichment_dirs
 
 
@@ -209,7 +209,15 @@ def attach_county_features(panel: pd.DataFrame, geo: pd.DataFrame, county_year: 
                 left_on="county_fips",
                 right_on="county_fips",
             )
-            for feat in ("fema_risk_score", "population", "rural_flag", "median_income"):
+            for feat in (
+                "fema_risk_score",
+                "population",
+                "population_yoy_pct",
+                "population_change_since_2020",
+                "pep_vintage",
+                "rural_flag",
+                "median_income",
+            ):
                 if feat in joined.columns:
                     # reindex back — simpler: merge on project_key+obs from joined
                     out = out.drop(columns=[feat], errors="ignore")
@@ -219,10 +227,24 @@ def attach_county_features(panel: pd.DataFrame, geo: pd.DataFrame, county_year: 
                     out = out.merge(tmp, on=["project_key", "observation_date"], how="left")
         except Exception as exc:  # noqa: BLE001
             print(f"  county_year join: {exc}")
-            for feat in ("fema_risk_score", "population", "rural_flag"):
+            for feat in (
+                "fema_risk_score",
+                "population",
+                "population_yoy_pct",
+                "population_change_since_2020",
+                "pep_vintage",
+                "rural_flag",
+            ):
                 out[feat] = pd.NA
     else:
-        for feat in ("fema_risk_score", "population", "rural_flag"):
+        for feat in (
+            "fema_risk_score",
+            "population",
+            "population_yoy_pct",
+            "population_change_since_2020",
+            "pep_vintage",
+            "rural_flag",
+        ):
             out[feat] = pd.NA
 
     # weather 12m rolling from weather_county_month
@@ -322,20 +344,59 @@ def attach_developer_features(panel: pd.DataFrame, dev_x: pd.DataFrame, dq: pd.D
 
 
 def _dpp_gold_eligible(study: pd.DataFrame) -> pd.DataFrame:
-    """Keep high-confidence / table-backed DPP rows that have capacity or cost."""
+    """Keep high-confidence / table-backed DPP rows with capacity or cost.
+
+    Also keep dated Restudy document rows (even without capacity/cost) so
+    multi-event delay/restudy features can use real Restudy stamps.
+    """
     if study.empty:
         return study
     s = study.copy()
-    conf = pd.to_numeric(s["extraction_confidence"], errors="coerce") if "extraction_confidence" in s.columns else pd.Series(np.nan, index=s.index)
-    method = s["extraction_method"].astype(str).str.lower() if "extraction_method" in s.columns else pd.Series("", index=s.index)
+    conf = (
+        pd.to_numeric(s["extraction_confidence"], errors="coerce")
+        if "extraction_confidence" in s.columns
+        else pd.Series(np.nan, index=s.index)
+    )
+    method = (
+        s["extraction_method"].astype(str).str.lower()
+        if "extraction_method" in s.columns
+        else pd.Series("", index=s.index)
+    )
     high = conf.fillna(0) >= 0.85
     table = method.str.contains("table", na=False)
-    has_cap = pd.to_numeric(s["capacity_mw"], errors="coerce").notna() if "capacity_mw" in s.columns else False
-    has_cost = False
+    has_cap = (
+        pd.to_numeric(s["capacity_mw"], errors="coerce").notna()
+        if "capacity_mw" in s.columns
+        else pd.Series(False, index=s.index)
+    )
+    has_cost = pd.Series(False, index=s.index)
     for c in ("project_cost", "network_upgrade_cost", "upgrade_cost_usd"):
         if c in s.columns:
             has_cost = has_cost | pd.to_numeric(s[c], errors="coerce").notna()
-    return s[(high | table) & (has_cap | has_cost)].copy()
+
+    restudy = pd.Series(False, index=s.index)
+    if "restudy_flag" in s.columns:
+        restudy = restudy | pd.to_numeric(s["restudy_flag"], errors="coerce").fillna(0).astype(int).eq(1)
+    for c in ("study_phase", "phase", "document_type"):
+        if c in s.columns:
+            restudy = restudy | s[c].astype(str).str.contains("restudy", case=False, na=False)
+
+    dated = pd.Series(True, index=s.index)
+    if "report_date" in s.columns:
+        dated = pd.to_datetime(s["report_date"], errors="coerce").notna()
+    elif "available_date" in s.columns:
+        dated = pd.to_datetime(s["available_date"], errors="coerce").notna()
+    elif "event_date" in s.columns:
+        dated = pd.to_datetime(s["event_date"], errors="coerce").notna()
+
+    flag_ok = pd.Series(False, index=s.index)
+    if "restudy_flag" in s.columns:
+        flag_ok = pd.to_numeric(s["restudy_flag"], errors="coerce").fillna(0).astype(int).ge(1)
+
+    core = (high | table) & (has_cap | has_cost)
+    # Restudy stamps: dated + (table/high OR document-level restudy_flag)
+    restudy_ok = dated & restudy & (high | table | flag_ok)
+    return s[core | restudy_ok].copy()
 
 
 def attach_study_capacity_features(panel: pd.DataFrame, study: pd.DataFrame) -> pd.DataFrame:
@@ -417,12 +478,20 @@ def attach_study_capacity_features(panel: pd.DataFrame, study: pd.DataFrame) -> 
             cap_red_pct = pd.NA
             if n >= 2:
                 delay = int((hist["available_date"].iloc[-1] - hist["available_date"].iloc[0]).days)
-                if phase_col:
-                    restudy = int(
-                        hist[phase_col].astype(str).str.contains("restudy", case=False, na=False).sum()
+                restudy_mask = pd.Series(False, index=hist.index)
+                if phase_col and phase_col in hist.columns:
+                    restudy_mask = restudy_mask | hist[phase_col].astype(str).str.contains(
+                        "restudy", case=False, na=False
                     )
-                else:
-                    restudy = 0
+                if "restudy_flag" in hist.columns:
+                    restudy_mask = restudy_mask | pd.to_numeric(
+                        hist["restudy_flag"], errors="coerce"
+                    ).fillna(0).astype(int).eq(1)
+                if "document_type" in hist.columns:
+                    restudy_mask = restudy_mask | hist["document_type"].astype(str).str.contains(
+                        "restudy", case=False, na=False
+                    )
+                restudy = int(restudy_mask.sum())
                 c_prev, c_cur = costs.iloc[-2], costs.iloc[-1]
                 if pd.notna(c_prev) and pd.notna(c_cur):
                     cost_chg = float(c_cur) - float(c_prev)
@@ -472,6 +541,222 @@ def attach_study_capacity_features(panel: pd.DataFrame, study: pd.DataFrame) -> 
     return out
 
 
+def attach_transmission_distance_features(panel: pd.DataFrame, poi_ctx: pd.DataFrame) -> pd.DataFrame:
+    """PIT join distance_to_transmission_km from poi_grid_context."""
+    out = panel.copy()
+    if poi_ctx is None or poi_ctx.empty or "project_key" not in poi_ctx.columns:
+        out["distance_to_transmission_km"] = pd.NA
+        out["nearby_transmission_voltage"] = pd.NA
+        out["distance_to_transmission_km_status"] = "unavailable"
+        return out
+    ctx = poi_ctx.copy()
+    if "available_date" not in ctx.columns:
+        out["distance_to_transmission_km"] = pd.NA
+        out["nearby_transmission_voltage"] = pd.NA
+        out["distance_to_transmission_km_status"] = "unavailable"
+        return out
+    keep = [
+        c
+        for c in [
+            "project_key",
+            "available_date",
+            "distance_to_transmission_km",
+            "nearby_transmission_voltage",
+            "effective_date",
+        ]
+        if c in ctx.columns
+    ]
+    ctx = ctx[keep].dropna(subset=["project_key", "available_date"])
+    if ctx.empty or ctx["distance_to_transmission_km"].isna().all():
+        out["distance_to_transmission_km"] = pd.NA
+        out["nearby_transmission_voltage"] = pd.NA
+        out["distance_to_transmission_km_status"] = "unavailable"
+        return out
+    try:
+        joined = asof_join(out, ctx, left_on="project_key", right_on="project_key")
+        for f in ("distance_to_transmission_km", "nearby_transmission_voltage"):
+            col = f"{f}_enr" if f"{f}_enr" in joined.columns else f
+            if col in joined.columns:
+                out[f] = joined[col].values
+        out["distance_to_transmission_km_status"] = np.where(
+            out["distance_to_transmission_km"].notna(), "ok", "unavailable"
+        )
+    except Exception as exc:  # noqa: BLE001
+        print(f"  transmission distance join: {exc}")
+        out["distance_to_transmission_km"] = pd.NA
+        out["nearby_transmission_voltage"] = pd.NA
+        out["distance_to_transmission_km_status"] = "unavailable"
+    return out
+
+
+def attach_mtep_features(panel: pd.DataFrame, mtep: pd.DataFrame) -> pd.DataFrame:
+    """State-level (and county when present) PIT MTEP pressure features."""
+    out = panel.copy()
+    # Drop stub columns so asof_join does not suffix enrichment values as *_enr
+    out = out.drop(columns=["nearby_mtep_upgrade_count", "mtep_investment_nearby_usd"], errors="ignore")
+    if mtep is None or mtep.empty:
+        out["nearby_mtep_upgrade_count"] = pd.NA
+        out["mtep_investment_nearby_usd"] = pd.NA
+        out["nearby_mtep_upgrade_count_status"] = "unavailable"
+        return out
+    ev = mtep.copy()
+    if "available_date" not in ev.columns:
+        out["nearby_mtep_upgrade_count"] = pd.NA
+        out["mtep_investment_nearby_usd"] = pd.NA
+        out["nearby_mtep_upgrade_count_status"] = "unavailable"
+        return out
+    ev["available_date"] = pd.to_datetime(ev["available_date"], errors="coerce")
+    ev["investment_usd"] = pd.to_numeric(ev.get("investment_usd"), errors="coerce")
+    ev = ev.dropna(subset=["available_date"])
+    if ev.empty:
+        out["nearby_mtep_upgrade_count"] = pd.NA
+        out["mtep_investment_nearby_usd"] = pd.NA
+        out["nearby_mtep_upgrade_count_status"] = "unavailable"
+        return out
+
+    def _cum_asof(panel_df: pd.DataFrame, events: pd.DataFrame, key: str) -> pd.DataFrame | None:
+        if key not in panel_df.columns or key not in events.columns:
+            return None
+        e = events.dropna(subset=[key]).copy()
+        if e.empty:
+            return None
+        e[key] = e[key].astype(str)
+        e = e.sort_values([key, "available_date"])
+        e["_one"] = 1
+        agg = (
+            e.groupby([key, "available_date"], as_index=False)
+            .agg(
+                nearby_mtep_upgrade_count=("_one", "sum"),
+                mtep_investment_nearby_usd=("investment_usd", "sum"),
+            )
+            .sort_values([key, "available_date"])
+        )
+        agg["nearby_mtep_upgrade_count"] = agg.groupby(key)["nearby_mtep_upgrade_count"].cumsum()
+        agg["mtep_investment_nearby_usd"] = agg.groupby(key)["mtep_investment_nearby_usd"].cumsum()
+        left = panel_df.loc[panel_df[key].notna()].copy()
+        if left.empty:
+            return None
+        left[key] = left[key].astype(str)
+        left = left[~left[key].isin(["nan", "None", "<NA>", "NaT", ""])]
+        if left.empty:
+            return None
+        try:
+            joined = asof_join(left, agg, left_on=key, right_on=key)
+        except Exception as exc:  # noqa: BLE001
+            print(f"  mtep join ({key}): {exc}")
+            return None
+        for feat in ("nearby_mtep_upgrade_count", "mtep_investment_nearby_usd"):
+            alt = f"{feat}_enr"
+            if feat not in joined.columns and alt in joined.columns:
+                joined = joined.rename(columns={alt: feat})
+            elif feat in joined.columns and alt in joined.columns:
+                joined[feat] = joined[feat].fillna(joined[alt])
+        tmp = joined[
+            ["project_key", "observation_date", "nearby_mtep_upgrade_count", "mtep_investment_nearby_usd"]
+        ].drop_duplicates(["project_key", "observation_date"], keep="last")
+        base = panel_df[["project_key", "observation_date"]].copy()
+        base["observation_date"] = pd.to_datetime(base["observation_date"])
+        tmp = tmp.copy()
+        tmp["observation_date"] = pd.to_datetime(tmp["observation_date"])
+        return base.merge(tmp, on=["project_key", "observation_date"], how="left").reset_index(drop=True)
+
+    county_m = _cum_asof(out, ev, "county_fips")
+    state_m = _cum_asof(out, ev, "state_code")
+    cnt = pd.Series(np.full(len(out), np.nan))
+    inv = pd.Series(np.full(len(out), np.nan))
+    if county_m is not None:
+        cnt = pd.to_numeric(county_m["nearby_mtep_upgrade_count"], errors="coerce").reset_index(drop=True)
+        inv = pd.to_numeric(county_m["mtep_investment_nearby_usd"], errors="coerce").reset_index(drop=True)
+    if state_m is not None:
+        st_cnt = pd.to_numeric(state_m["nearby_mtep_upgrade_count"], errors="coerce").reset_index(drop=True)
+        st_inv = pd.to_numeric(state_m["mtep_investment_nearby_usd"], errors="coerce").reset_index(drop=True)
+        cnt = cnt.fillna(st_cnt)
+        inv = inv.fillna(st_inv)
+    out["nearby_mtep_upgrade_count"] = cnt.to_numpy()
+    out["mtep_investment_nearby_usd"] = inv.to_numpy()
+    out["nearby_mtep_upgrade_count_status"] = np.where(
+        pd.notna(out["nearby_mtep_upgrade_count"]), "ok", "unavailable"
+    )
+    return out
+
+
+def attach_news_features(panel: pd.DataFrame, news: pd.DataFrame) -> pd.DataFrame:
+    """Rolling state-level news counts / sentiment (PIT via available_date=published_at)."""
+    out = panel.copy()
+    feats = [
+        "news_count_30d",
+        "news_count_90d",
+        "news_sentiment_mean_90d",
+        "negative_news_count_90d",
+    ]
+    if news is None or news.empty or "state_code" not in out.columns:
+        for f in feats:
+            out[f] = pd.NA
+            out[f"{f}_status"] = "unavailable"
+        return out
+
+    ev = news.copy()
+    if "available_date" not in ev.columns and "published_at" in ev.columns:
+        ev["available_date"] = pd.to_datetime(ev["published_at"], errors="coerce")
+    ev["available_date"] = pd.to_datetime(ev["available_date"], errors="coerce", utc=True).dt.tz_localize(None)
+    ev = ev.dropna(subset=["state_code", "available_date"])
+    if ev.empty:
+        for f in feats:
+            out[f] = pd.NA
+            out[f"{f}_status"] = "unavailable"
+        return out
+
+    covered_states = set(ev["state_code"].astype(str).unique())
+    # Ensure panel observation_date is tz-naive for rolling compare
+    out = out.copy()
+    out["observation_date"] = pd.to_datetime(out["observation_date"], errors="coerce", utc=True).dt.tz_localize(None)
+    roll = rolling_event_features(
+        out,
+        ev,
+        panel_key="state_code",
+        event_key="state_code",
+        count_col="news_count",
+        windows_days=[30, 90],
+        source_available=True,
+    )
+    out["news_count_30d"] = roll["news_count_30d"].values
+    out["news_count_90d"] = roll["news_count_90d"].values
+    # Mask projects whose state has no observable GDELT coverage → null not zero
+    mask_cov = out["state_code"].astype(str).isin(covered_states)
+    out.loc[~mask_cov, "news_count_30d"] = pd.NA
+    out.loc[~mask_cov, "news_count_90d"] = pd.NA
+
+    # Sentiment / negative counts over 90d
+    sent_means: list[object] = []
+    neg_counts: list[object] = []
+    by_state = {k: g for k, g in ev.groupby("state_code")}
+    for st, t in zip(out["state_code"], pd.to_datetime(out["observation_date"]), strict=False):
+        if st is None or pd.isna(st) or str(st) not in covered_states:
+            sent_means.append(pd.NA)
+            neg_counts.append(pd.NA)
+            continue
+        eg = by_state.get(st)
+        if eg is None or eg.empty:
+            sent_means.append(0.0)
+            neg_counts.append(0)
+            continue
+        start = t - pd.Timedelta(days=90)
+        win = eg[(eg["available_date"] > start) & (eg["available_date"] <= t)]
+        if win.empty:
+            sent_means.append(0.0)
+            neg_counts.append(0)
+            continue
+        tones = pd.to_numeric(win.get("sentiment_score"), errors="coerce")
+        sent_means.append(float(tones.mean()) if tones.notna().any() else pd.NA)
+        neg_counts.append(int((tones < -1.0).sum()) if tones.notna().any() else 0)
+
+    out["news_sentiment_mean_90d"] = sent_means
+    out["negative_news_count_90d"] = neg_counts
+    for f in feats:
+        out[f"{f}_status"] = np.where(pd.Series(out[f]).notna(), "ok", "unavailable")
+    return out
+
+
 def attach_null_skeleton_features(panel: pd.DataFrame) -> pd.DataFrame:
     """Features from registered_empty sources — null with unavailable semantics."""
     out = panel.copy()
@@ -499,6 +784,8 @@ def attach_null_skeleton_features(panel: pd.DataFrame) -> pd.DataFrame:
         "expected_incremental_load_mw",
         "developer_financing_event_180d",
         "developer_distress_event_180d",
+        "nearby_mtep_upgrade_count",
+        "mtep_investment_nearby_usd",
     ]
     # Only mark unavailable when still entirely missing (DPP may have filled some).
     for f in ["study_delay_days", "restudy_count"]:
@@ -512,6 +799,8 @@ def attach_null_skeleton_features(panel: pd.DataFrame) -> pd.DataFrame:
     for f in null_feats:
         if f not in out.columns:
             out[f] = pd.NA
+            out[f"{f}_status"] = "unavailable"
+        elif out[f].isna().all() and f"{f}_status" not in out.columns:
             out[f"{f}_status"] = "unavailable"
     return out
 
@@ -535,7 +824,11 @@ def build_enriched_panels() -> dict[str, pd.DataFrame]:
     study = _read_enr("miso_dpp_events")
     if study.empty:
         study = _read_enr("study_events")
+    poi_ctx = _read_enr("poi_grid_context")
+    mtep = _read_enr("mtep_project_events")
+    news = _read_enr("news_events")
     print(f"  study/DPP events for Gold join: {len(study)}")
+    print(f"  poi_grid_context={len(poi_ctx)} mtep={len(mtep)} news={len(news)}")
 
     def enrich(panel: pd.DataFrame) -> pd.DataFrame:
         p = panel.copy()
@@ -545,6 +838,9 @@ def build_enriched_panels() -> dict[str, pd.DataFrame]:
         p = attach_macro_features(p, market)
         p = attach_developer_features(p, dev_x, dq)
         p = attach_study_capacity_features(p, study)
+        p = attach_transmission_distance_features(p, poi_ctx)
+        p = attach_mtep_features(p, mtep)
+        p = attach_news_features(p, news)
         p = attach_null_skeleton_features(p)
         return p
 
@@ -569,6 +865,8 @@ def build_enriched_panels() -> dict[str, pd.DataFrame]:
         ("developer_quarter", "developer_id"),
         ("study_events", "project_key"),
         ("policy_state_date", "county_fips"),
+        ("poi_grid_context", "project_key"),
+        ("news_events", "geographic_key"),
     ]:
         enr = _read_enr(name)
         if enr.empty:

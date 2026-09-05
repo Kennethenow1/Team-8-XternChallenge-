@@ -5,6 +5,7 @@ from __future__ import annotations
 import io
 import re
 import urllib.request
+import zipfile
 from pathlib import Path
 
 import pandas as pd
@@ -68,8 +69,63 @@ def _norm_developer(name: str | None) -> str | None:
     return s or None
 
 
+def download_county_gazetteer() -> pd.DataFrame:
+    """Census County Gazetteer centroids (INTPTLAT/INTPTLONG) keyed by GEOID / county_fips."""
+    ensure_enrichment_dirs()
+    urls = [
+        "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2024_Gazetteer/2024_Gaz_counties_national.zip",
+        "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2023_Gazetteer/2023_Gaz_counties_national.zip",
+        "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2022_Gazetteer/2022_Gaz_counties_national.zip",
+    ]
+    content = None
+    used = None
+    for u in urls:
+        try:
+            req = urllib.request.Request(u, headers={"User-Agent": "Team8-MISO-Enrichment/1.0"})
+            with urllib.request.urlopen(req, timeout=120) as resp:
+                content = resp.read()
+                used = u
+                break
+        except Exception:  # noqa: BLE001
+            continue
+    if content is None:
+        raise RuntimeError("Could not download Census County Gazetteer")
+
+    write_bronze_bytes("census_county_gazetteer", Path(used).name, content, overwrite=True)
+    with zipfile.ZipFile(io.BytesIO(content)) as zf:
+        names = [n for n in zf.namelist() if n.lower().endswith(".txt")]
+        if not names:
+            raise RuntimeError("Gazetteer zip missing .txt member")
+        text = zf.read(names[0]).decode("latin-1", errors="replace")
+
+    df = pd.read_csv(io.StringIO(text), sep="\t", dtype=str, skipinitialspace=True)
+    df.columns = [c.strip() for c in df.columns]
+    rename = {}
+    for c in df.columns:
+        cu = c.upper().strip()
+        if cu in {"GEOID", "GEOID10"}:
+            rename[c] = "GEOID"
+        elif cu in {"INTPTLAT", "LAT"}:
+            rename[c] = "INTPTLAT"
+        elif cu in {"INTPTLON", "INTPTLONG", "LON", "LONG"}:
+            rename[c] = "INTPTLON"
+        elif cu in {"USPS", "STATE"}:
+            rename[c] = "USPS"
+        elif cu == "NAME":
+            rename[c] = "NAME"
+    df = df.rename(columns=rename)
+    if "GEOID" not in df.columns:
+        raise RuntimeError("Gazetteer missing GEOID column")
+    df["county_fips"] = df["GEOID"].astype(str).str.replace(r"\.0$", "", regex=True).str.zfill(5)
+    df["latitude"] = pd.to_numeric(df.get("INTPTLAT"), errors="coerce")
+    df["longitude"] = pd.to_numeric(df.get("INTPTLON"), errors="coerce")
+    out = df[["county_fips", "latitude", "longitude"]].drop_duplicates("county_fips")
+    print(f"county_gazetteer rows={len(out)} lat_nonnull={float(out['latitude'].notna().mean()):.3f}")
+    return out
+
+
 def download_census_county_fips() -> pd.DataFrame:
-    """National county FIPS from Census reference files (with centroids when present)."""
+    """National county FIPS from Census reference files; centroids from County Gazetteer."""
     ensure_enrichment_dirs()
     urls = [
         "https://www2.census.gov/geo/docs/reference/codes2020/national_county2020.txt",
@@ -125,6 +181,15 @@ def download_census_county_fips() -> pd.DataFrame:
         df["longitude"] = pd.to_numeric(df["INTPTLON"], errors="coerce")
     else:
         df["longitude"] = pd.NA
+
+    # Prefer gazetteer centroids (national_county files usually lack lat/lon).
+    try:
+        gaz = download_county_gazetteer()
+        df = df.drop(columns=["latitude", "longitude"], errors="ignore").merge(
+            gaz, on="county_fips", how="left"
+        )
+    except Exception as exc:  # noqa: BLE001
+        print(f"  gazetteer merge skipped: {exc}")
     return df
 
 
@@ -313,6 +378,25 @@ def build_geo_crosswalk(*, enforce_gate: bool = True) -> pd.DataFrame:
     )
     merged["latitude"] = lats
     merged["longitude"] = lons
+    # Backfill any still-missing coords from gazetteer by county_fips.
+    missing_coord = merged["latitude"].isna() | merged["longitude"].isna()
+    if missing_coord.any() and merged["county_fips"].notna().any():
+        try:
+            gaz = download_county_gazetteer().rename(
+                columns={"latitude": "gaz_lat", "longitude": "gaz_lon"}
+            )
+            merged = merged.merge(gaz, on="county_fips", how="left")
+            fill = missing_coord & merged["gaz_lat"].notna() & merged["gaz_lon"].notna()
+            merged.loc[fill, "latitude"] = merged.loc[fill, "gaz_lat"]
+            merged.loc[fill, "longitude"] = merged.loc[fill, "gaz_lon"]
+            merged = merged.drop(columns=["gaz_lat", "gaz_lon"], errors="ignore")
+        except Exception as exc:  # noqa: BLE001
+            print(f"  gazetteer backfill skipped: {exc}")
+
+    merged["coord_source"] = pd.NA
+    has_xy = merged["latitude"].notna() & merged["longitude"].notna()
+    merged.loc[has_xy & merged["county_fips"].notna(), "coord_source"] = "county_centroid"
+
     merged["miso_zone"] = merged["study_group"].map(
         lambda x: _STUDY_GROUP_ZONE.get(str(x).upper().strip(), str(x) if pd.notna(x) else None)
     )
@@ -341,27 +425,27 @@ def build_geo_crosswalk(*, enforce_gate: bool = True) -> pd.DataFrame:
             merged.at[i, "match_confidence"] = 0.0
             merged.at[i, "geographic_key"] = None
 
-    out = merged[
-        [
-            "project_key",
-            "source_project_id",
-            "state_code",
-            "county_name",
-            "county_name_norm",
-            "multi_county",
-            "county_fips",
-            "poi_key",
-            "study_group",
-            "miso_zone",
-            "latitude",
-            "longitude",
-            "geographic_key",
-            "entity_key",
-            "match_method",
-            "match_score",
-            "match_confidence",
-        ]
-    ].drop_duplicates("project_key")
+    cols = [
+        "project_key",
+        "source_project_id",
+        "state_code",
+        "county_name",
+        "county_name_norm",
+        "multi_county",
+        "county_fips",
+        "poi_key",
+        "study_group",
+        "miso_zone",
+        "latitude",
+        "longitude",
+        "coord_source",
+        "geographic_key",
+        "entity_key",
+        "match_method",
+        "match_score",
+        "match_confidence",
+    ]
+    out = merged[[c for c in cols if c in merged.columns]].drop_duplicates("project_key")
 
     path = SILVER_DIR / "crosswalks" / "geo_crosswalk.parquet"
     out.to_parquet(path, index=False)
@@ -372,8 +456,9 @@ def build_geo_crosswalk(*, enforce_gate: bool = True) -> pd.DataFrame:
     review.to_csv(SILVER_DIR / "crosswalks" / "geo_match_review.csv", index=False)
 
     cov = float(out["county_fips"].notna().mean())
+    lat_cov = float(out["latitude"].notna().mean()) if "latitude" in out.columns else 0.0
     print(
-        f"geo_crosswalk rows={len(out)} fips_coverage={cov:.3f} "
+        f"geo_crosswalk rows={len(out)} fips_coverage={cov:.3f} lat_coverage={lat_cov:.3f} "
         f"cross_state_rejected={cross_state} methods={out['match_method'].value_counts().to_dict()}"
     )
     if enforce_gate and cov < _GEO_COVERAGE_GATE:

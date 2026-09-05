@@ -8,6 +8,14 @@ __pycache__/
 .env
 .env.*
 !.env.example
+data/exports/
+
+# Raw GDELT GKG zips are re-downloadable (~1GB); keep Silver news_events + ingest summaries
+data/bronze/enrichment/gdelt_news/*.gkg.csv.zip
+data/bronze/enrichment/gdelt_news/*.gkg.csv.zip.meta.json
+data/bronze/enrichment/gdelt_news/masterfilelist.txt
+data/bronze/enrichment/gdelt_news/masterfilelist.txt.meta.json
+
 # Large derived parquet/csv under data/ may be regenerated; keep quality reports optional
 # Uncomment to ignore derived layers in git:
 # data/bronze/

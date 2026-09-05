@@ -1,1 +1,1 @@
-Probe succeeded. Full line layer too large for sprint distance join; poi_grid_context uses county centroids with null distance pending local extract.
+Paginated MISO-state HIFLD extract: assets=21192 bytes≈45643268 poi_distance_nonnull=0.966
