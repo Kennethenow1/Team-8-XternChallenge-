@@ -1,0 +1,130 @@
+{
+  "queue": {
+    "n_columns": 28,
+    "mean_train_coverage": 0.8505383844108287,
+    "n_high_corr_pairs": 7,
+    "n_clusters": 7,
+    "columns": [
+      "service_type",
+      "state_code",
+      "study_phase",
+      "technology_primary",
+      "capacity_change_pct",
+      "capacity_mw",
+      "developer_active_project_count",
+      "developer_prior_completion_rate",
+      "developer_prior_withdrawal_rate",
+      "developer_total_active_mw",
+      "is_hybrid",
+      "log1p_capacity_mw",
+      "months_until_service",
+      "nearby_queue_mw",
+      "other_active_mw_same_poi",
+      "other_active_mw_same_state",
+      "other_active_mw_same_technology",
+      "other_active_projects_same_poi",
+      "other_active_projects_same_state",
+      "prior_12m_withdrawal_count",
+      "prior_12m_withdrawn_mw",
+      "queue_age_months",
+      "same_group_prior_withdrawal_rate",
+      "same_poi_project_count",
+      "service_date_passed",
+      "service_date_shift_months",
+      "years_in_queue",
+      "years_since_last_change"
+    ]
+  },
+  "cost_study": {
+    "n_columns": 8,
+    "mean_train_coverage": 0.10287610619469026,
+    "n_high_corr_pairs": 1,
+    "n_clusters": 1,
+    "columns": [
+      "upgrade_cost_change_pct",
+      "capacity_reduction_pct",
+      "cost_change_since_previous_study",
+      "dpp_event_count_to_date",
+      "network_upgrade_cost",
+      "restudy_count",
+      "study_delay_days",
+      "upgrade_cost_per_mw"
+    ]
+  },
+  "grid": {
+    "n_columns": 6,
+    "mean_train_coverage": 0.6657511951988608,
+    "n_high_corr_pairs": 0,
+    "n_clusters": 0,
+    "columns": [
+      "local_congestion_mean_12m",
+      "local_congestion_volatility_12m",
+      "distance_to_transmission_km",
+      "mtep_investment_nearby_usd",
+      "nearby_mtep_upgrade_count",
+      "nearby_transmission_voltage"
+    ]
+  },
+  "news": {
+    "n_columns": 9,
+    "mean_train_coverage": 0.4444444444444444,
+    "n_high_corr_pairs": 3,
+    "n_clusters": 1,
+    "columns": [
+      "days_since_last_negative_event",
+      "days_since_last_positive_event",
+      "financing_positive_count_180d",
+      "opposition_event_count_180d",
+      "permit_positive_count_180d",
+      "negative_news_count_90d",
+      "news_count_30d",
+      "news_count_90d",
+      "news_sentiment_mean_90d"
+    ]
+  },
+  "macro": {
+    "n_columns": 9,
+    "mean_train_coverage": 0.9606686332350048,
+    "n_high_corr_pairs": 17,
+    "n_clusters": 1,
+    "columns": [
+      "construction_cost_index_change_12m",
+      "interest_rate_at_entry",
+      "interest_rate_at_observation",
+      "interest_rate_change_since_entry",
+      "miso_demand_yoy_pct",
+      "miso_generation_yoy_pct",
+      "miso_mean_demand_mw",
+      "miso_net_interchange_mw",
+      "miso_peak_demand_mw"
+    ]
+  },
+  "geo_policy": {
+    "n_columns": 20,
+    "mean_train_coverage": 0.38886176380836135,
+    "n_high_corr_pairs": 0,
+    "n_clusters": 0,
+    "columns": [
+      "construction_employment_growth",
+      "county_gdp_growth",
+      "developer_distress_event_180d",
+      "developer_financing_event_180d",
+      "distance_to_wetlands_km",
+      "drought_months_12m",
+      "expected_incremental_load_mw",
+      "miso_zone",
+      "solar_resource_percentile",
+      "wetlands_overlap_pct",
+      "wind_resource_percentile",
+      "energy_community_eligible",
+      "extreme_weather_days_12m",
+      "fema_risk_score",
+      "population",
+      "population_change_since_2020",
+      "population_yoy_pct",
+      "rural_flag",
+      "storm_events_12m",
+      "storm_property_damage_12m"
+    ]
+  }
+}

@@ -1,0 +1,309 @@
+{
+  "recommendation": "keep_macros_as_is",
+  "warning": "Annual Gold repeats a few year-level macro values across thousands of projects; project-row Pearson correlations are misleading. Prefer native year_month grain.",
+  "panel_train_nunique": {
+    "interest_rate_at_observation": 3,
+    "interest_rate_at_entry": 65,
+    "interest_rate_change_since_entry": 120,
+    "construction_cost_index_change_12m": 3,
+    "miso_mean_demand_mw": 3,
+    "miso_peak_demand_mw": 3,
+    "miso_demand_yoy_pct": 2,
+    "miso_generation_yoy_pct": 2,
+    "miso_net_interchange_mw": 3
+  },
+  "panel_train_corr": {
+    "interest_rate_at_observation": {
+      "interest_rate_at_observation": 1.0,
+      "interest_rate_at_entry": 0.3186,
+      "interest_rate_change_since_entry": 0.7691,
+      "construction_cost_index_change_12m": -0.6807,
+      "miso_mean_demand_mw": 0.83,
+      "miso_peak_demand_mw": 1.0,
+      "miso_demand_yoy_pct": -1.0,
+      "miso_generation_yoy_pct": -1.0,
+      "miso_net_interchange_mw": 0.3726
+    },
+    "interest_rate_at_entry": {
+      "interest_rate_at_observation": 0.3186,
+      "interest_rate_at_entry": 1.0,
+      "interest_rate_change_since_entry": -0.3608,
+      "construction_cost_index_change_12m": -0.2564,
+      "miso_mean_demand_mw": 0.2343,
+      "miso_peak_demand_mw": 0.319,
+      "miso_demand_yoy_pct": -0.309,
+      "miso_generation_yoy_pct": -0.309,
+      "miso_net_interchange_mw": 0.0686
+    },
+    "interest_rate_change_since_entry": {
+      "interest_rate_at_observation": 0.7691,
+      "interest_rate_at_entry": -0.3608,
+      "interest_rate_change_since_entry": 1.0,
+      "construction_cost_index_change_12m": -0.4969,
+      "miso_mean_demand_mw": 0.6586,
+      "miso_peak_demand_mw": 0.7688,
+      "miso_demand_yoy_pct": -0.7009,
+      "miso_generation_yoy_pct": -0.7009,
+      "miso_net_interchange_mw": 0.3203
+    },
+    "construction_cost_index_change_12m": {
+      "interest_rate_at_observation": -0.6807,
+      "interest_rate_at_entry": -0.2564,
+      "interest_rate_change_since_entry": -0.4969,
+      "construction_cost_index_change_12m": 1.0,
+      "miso_mean_demand_mw": -0.1563,
+      "miso_peak_demand_mw": -0.6869,
+      "miso_demand_yoy_pct": 1.0,
+      "miso_generation_yoy_pct": 1.0,
+      "miso_net_interchange_mw": 0.4262
+    },
+    "miso_mean_demand_mw": {
+      "interest_rate_at_observation": 0.83,
+      "interest_rate_at_entry": 0.2343,
+      "interest_rate_change_since_entry": 0.6586,
+      "construction_cost_index_change_12m": -0.1563,
+      "miso_mean_demand_mw": 1.0,
+      "miso_peak_demand_mw": 0.8252,
+      "miso_demand_yoy_pct": -1.0,
+      "miso_generation_yoy_pct": -1.0,
+      "miso_net_interchange_mw": 0.8269
+    },
+    "miso_peak_demand_mw": {
+      "interest_rate_at_observation": 1.0,
+      "interest_rate_at_entry": 0.319,
+      "interest_rate_change_since_entry": 0.7688,
+      "construction_cost_index_change_12m": -0.6869,
+      "miso_mean_demand_mw": 0.8252,
+      "miso_peak_demand_mw": 1.0,
+      "miso_demand_yoy_pct": -1.0,
+      "miso_generation_yoy_pct": -1.0,
+      "miso_net_interchange_mw": 0.3647
+    },
+    "miso_demand_yoy_pct": {
+      "interest_rate_at_observation": -1.0,
+      "interest_rate_at_entry": -0.309,
+      "interest_rate_change_since_entry": -0.7009,
+      "construction_cost_index_change_12m": 1.0,
+      "miso_mean_demand_mw": -1.0,
+      "miso_peak_demand_mw": -1.0,
+      "miso_demand_yoy_pct": 1.0,
+      "miso_generation_yoy_pct": 1.0,
+      "miso_net_interchange_mw": 1.0
+    },
+    "miso_generation_yoy_pct": {
+      "interest_rate_at_observation": -1.0,
+      "interest_rate_at_entry": -0.309,
+      "interest_rate_change_since_entry": -0.7009,
+      "construction_cost_index_change_12m": 1.0,
+      "miso_mean_demand_mw": -1.0,
+      "miso_peak_demand_mw": -1.0,
+      "miso_demand_yoy_pct": 1.0,
+      "miso_generation_yoy_pct": 1.0,
+      "miso_net_interchange_mw": 1.0
+    },
+    "miso_net_interchange_mw": {
+      "interest_rate_at_observation": 0.3726,
+      "interest_rate_at_entry": 0.0686,
+      "interest_rate_change_since_entry": 0.3203,
+      "construction_cost_index_change_12m": 0.4262,
+      "miso_mean_demand_mw": 0.8269,
+      "miso_peak_demand_mw": 0.3647,
+      "miso_demand_yoy_pct": 1.0,
+      "miso_generation_yoy_pct": 1.0,
+      "miso_net_interchange_mw": 1.0
+    }
+  },
+  "native_grain": {
+    "path": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/silver/enrichment/market_zone_month.parquet",
+    "exists": true,
+    "n_rows_dedup": 1209,
+    "nunique": {
+      "interest_rate_10y": 502,
+      "ppi_construction": 680,
+      "miso_mean_demand_mw": 81,
+      "miso_peak_demand_mw": 81,
+      "miso_demand_yoy_pct": 69,
+      "miso_generation_yoy_pct": 69,
+      "miso_net_interchange_mw": 81
+    },
+    "corr": {
+      "interest_rate_10y": {
+        "interest_rate_10y": 1.0,
+        "ppi_construction": -0.5007,
+        "miso_mean_demand_mw": 0.1833,
+        "miso_peak_demand_mw": 0.2175,
+        "miso_demand_yoy_pct": -0.041,
+        "miso_generation_yoy_pct": -0.2225,
+        "miso_net_interchange_mw": 0.5327
+      },
+      "ppi_construction": {
+        "interest_rate_10y": -0.5007,
+        "ppi_construction": 1.0,
+        "miso_mean_demand_mw": 0.2157,
+        "miso_peak_demand_mw": 0.2146,
+        "miso_demand_yoy_pct": -0.0129,
+        "miso_generation_yoy_pct": -0.0879,
+        "miso_net_interchange_mw": 0.614
+      },
+      "miso_mean_demand_mw": {
+        "interest_rate_10y": 0.1833,
+        "ppi_construction": 0.2157,
+        "miso_mean_demand_mw": 1.0,
+        "miso_peak_demand_mw": 0.9035,
+        "miso_demand_yoy_pct": 0.3562,
+        "miso_generation_yoy_pct": 0.2152,
+        "miso_net_interchange_mw": -0.0819
+      },
+      "miso_peak_demand_mw": {
+        "interest_rate_10y": 0.2175,
+        "ppi_construction": 0.2146,
+        "miso_mean_demand_mw": 0.9035,
+        "miso_peak_demand_mw": 1.0,
+        "miso_demand_yoy_pct": 0.2463,
+        "miso_generation_yoy_pct": 0.1028,
+        "miso_net_interchange_mw": -0.1911
+      },
+      "miso_demand_yoy_pct": {
+        "interest_rate_10y": -0.041,
+        "ppi_construction": -0.0129,
+        "miso_mean_demand_mw": 0.3562,
+        "miso_peak_demand_mw": 0.2463,
+        "miso_demand_yoy_pct": 1.0,
+        "miso_generation_yoy_pct": 0.9231,
+        "miso_net_interchange_mw": 0.0382
+      },
+      "miso_generation_yoy_pct": {
+        "interest_rate_10y": -0.2225,
+        "ppi_construction": -0.0879,
+        "miso_mean_demand_mw": 0.2152,
+        "miso_peak_demand_mw": 0.1028,
+        "miso_demand_yoy_pct": 0.9231,
+        "miso_generation_yoy_pct": 1.0,
+        "miso_net_interchange_mw": 0.1696
+      },
+      "miso_net_interchange_mw": {
+        "interest_rate_10y": 0.5327,
+        "ppi_construction": 0.614,
+        "miso_mean_demand_mw": -0.0819,
+        "miso_peak_demand_mw": -0.1911,
+        "miso_demand_yoy_pct": 0.0382,
+        "miso_generation_yoy_pct": 0.1696,
+        "miso_net_interchange_mw": 1.0
+      }
+    },
+    "year_month_nunique": 1209
+  },
+  "train_observation_year_rows": 3,
+  "train_year_level_corr": {
+    "interest_rate_at_observation": {
+      "interest_rate_at_observation": 1.0,
+      "interest_rate_at_entry": -0.6719,
+      "interest_rate_change_since_entry": 0.9942,
+      "construction_cost_index_change_12m": -0.4788,
+      "miso_mean_demand_mw": 0.8263,
+      "miso_peak_demand_mw": 0.9999,
+      "miso_demand_yoy_pct": -1.0,
+      "miso_generation_yoy_pct": -1.0,
+      "miso_net_interchange_mw": 0.4904
+    },
+    "interest_rate_at_entry": {
+      "interest_rate_at_observation": -0.6719,
+      "interest_rate_at_entry": 1.0,
+      "interest_rate_change_since_entry": -0.7476,
+      "construction_cost_index_change_12m": -0.3284,
+      "miso_mean_demand_mw": -0.9723,
+      "miso_peak_demand_mw": -0.6643,
+      "miso_demand_yoy_pct": NaN,
+      "miso_generation_yoy_pct": NaN,
+      "miso_net_interchange_mw": -0.9749
+    },
+    "interest_rate_change_since_entry": {
+      "interest_rate_at_observation": 0.9942,
+      "interest_rate_at_entry": -0.7476,
+      "interest_rate_change_since_entry": 1.0,
+      "construction_cost_index_change_12m": -0.3817,
+      "miso_mean_demand_mw": 0.8821,
+      "miso_peak_demand_mw": 0.9931,
+      "miso_demand_yoy_pct": -1.0,
+      "miso_generation_yoy_pct": -1.0,
+      "miso_net_interchange_mw": 0.5812
+    },
+    "construction_cost_index_change_12m": {
+      "interest_rate_at_observation": -0.4788,
+      "interest_rate_at_entry": -0.3284,
+      "interest_rate_change_since_entry": -0.3817,
+      "construction_cost_index_change_12m": 1.0,
+      "miso_mean_demand_mw": 0.0987,
+      "miso_peak_demand_mw": -0.4878,
+      "miso_demand_yoy_pct": 1.0,
+      "miso_generation_yoy_pct": 1.0,
+      "miso_net_interchange_mw": 0.5303
+    },
+    "miso_mean_demand_mw": {
+      "interest_rate_at_observation": 0.8263,
+      "interest_rate_at_entry": -0.9723,
+      "interest_rate_change_since_entry": 0.8821,
+      "construction_cost_index_change_12m": 0.0987,
+      "miso_mean_demand_mw": 1.0,
+      "miso_peak_demand_mw": 0.8205,
+      "miso_demand_yoy_pct": -1.0,
+      "miso_generation_yoy_pct": -1.0,
+      "miso_net_interchange_mw": 0.896
+    },
+    "miso_peak_demand_mw": {
+      "interest_rate_at_observation": 0.9999,
+      "interest_rate_at_entry": -0.6643,
+      "interest_rate_change_since_entry": 0.9931,
+      "construction_cost_index_change_12m": -0.4878,
+      "miso_mean_demand_mw": 0.8205,
+      "miso_peak_demand_mw": 1.0,
+      "miso_demand_yoy_pct": -1.0,
+      "miso_generation_yoy_pct": -1.0,
+      "miso_net_interchange_mw": 0.4814
+    },
+    "miso_demand_yoy_pct": {
+      "interest_rate_at_observation": -1.0,
+      "interest_rate_at_entry": NaN,
+      "interest_rate_change_since_entry": -1.0,
+      "construction_cost_index_change_12m": 1.0,
+      "miso_mean_demand_mw": -1.0,
+      "miso_peak_demand_mw": -1.0,
+      "miso_demand_yoy_pct": 1.0,
+      "miso_generation_yoy_pct": 1.0,
+      "miso_net_interchange_mw": 1.0
+    },
+    "miso_generation_yoy_pct": {
+      "interest_rate_at_observation": -1.0,
+      "interest_rate_at_entry": NaN,
+      "interest_rate_change_since_entry": -1.0,
+      "construction_cost_index_change_12m": 1.0,
+      "miso_mean_demand_mw": -1.0,
+      "miso_peak_demand_mw": -1.0,
+      "miso_demand_yoy_pct": 1.0,
+      "miso_generation_yoy_pct": 1.0,
+      "miso_net_interchange_mw": 1.0
+    },
+    "miso_net_interchange_mw": {
+      "interest_rate_at_observation": 0.4904,
+      "interest_rate_at_entry": -0.9749,
+      "interest_rate_change_since_entry": 0.5812,
+      "construction_cost_index_change_12m": 0.5303,
+      "miso_mean_demand_mw": 0.896,
+      "miso_peak_demand_mw": 0.4814,
+      "miso_demand_yoy_pct": 1.0,
+      "miso_generation_yoy_pct": 1.0,
+      "miso_net_interchange_mw": 1.0
+    }
+  },
+  "train_year_level_nunique": {
+    "interest_rate_at_observation": 3,
+    "interest_rate_at_entry": 2,
+    "interest_rate_change_since_entry": 3,
+    "construction_cost_index_change_12m": 3,
+    "miso_mean_demand_mw": 3,
+    "miso_peak_demand_mw": 3,
+    "miso_demand_yoy_pct": 2,
+    "miso_generation_yoy_pct": 2,
+    "miso_net_interchange_mw": 3
+  }
+}

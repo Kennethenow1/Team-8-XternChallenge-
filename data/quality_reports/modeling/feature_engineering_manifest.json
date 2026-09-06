@@ -1,0 +1,216 @@
+{
+  "train_rows": 3277,
+  "engineered_shape": [
+    3277,
+    97
+  ],
+  "feature_cols": 94,
+  "derived_columns": [
+    "avg_withdrawn_mw_12m",
+    "developer_avg_active_project_mw",
+    "avg_active_project_mw_state",
+    "news_recent_intensity",
+    "negative_news_share_90d"
+  ],
+  "availability_flags": [
+    "dpp_delay_info_available",
+    "eia_yoy_available",
+    "project_change_history_available"
+  ],
+  "dropped_columns": [
+    "years_in_queue",
+    "same_poi_project_count",
+    "prior_12m_withdrawn_mw",
+    "developer_total_active_mw",
+    "other_active_mw_same_state",
+    "news_count_30d",
+    "negative_news_count_90d",
+    "restudy_count_missing",
+    "study_delay_days_missing",
+    "miso_demand_yoy_pct_missing",
+    "miso_generation_yoy_pct_missing",
+    "capacity_change_pct_missing",
+    "service_date_shift_months_missing"
+  ],
+  "project_change_history": {
+    "collapsed": true,
+    "agreement": 0.9969484284406469
+  },
+  "transforms": [
+    {
+      "cluster": "queue_age",
+      "action": "Keep queue_age_months; drop years_in_queue"
+    },
+    {
+      "cluster": "poi_congestion",
+      "action": "Keep other_active_projects_same_poi; drop same_poi_project_count"
+    },
+    {
+      "cluster": "prior_withdrawals",
+      "action": "Keep count; add avg_withdrawn_mw_12m; drop prior_12m_withdrawn_mw"
+    },
+    {
+      "cluster": "developer_scale",
+      "action": "Keep developer_active_project_count; add developer_avg_active_project_mw; drop total MW"
+    },
+    {
+      "cluster": "state_pressure",
+      "action": "Keep other_active_projects_same_state; add avg_active_project_mw_state; drop other_active_mw_same_state"
+    },
+    {
+      "cluster": "news",
+      "action": "Keep news_count_90d; add news_recent_intensity + negative_news_share_90d; drop N30 and Nneg counts"
+    },
+    {
+      "cluster": "dpp_missingness",
+      "action": "Collapse to dpp_delay_info_available; keep restudy_count and study_delay_days values"
+    },
+    {
+      "cluster": "eia_yoy_missingness",
+      "action": "Collapse to eia_yoy_available; keep YoY values"
+    },
+    {
+      "cluster": "capacity_service_missingness",
+      "action": "Collapsed to project_change_history_available"
+    },
+    {
+      "cluster": "macro",
+      "action": "NOT collapsed \u2014 see macro_grain_audit.json"
+    },
+    {
+      "cluster": "study_service_missing",
+      "action": "Kept both \u2014 see study_service_missing_audit.json"
+    }
+  ],
+  "matrix_meta": {
+    "onehot_columns": [
+      "technology_primary__battery",
+      "technology_primary__natural_gas",
+      "technology_primary__other",
+      "technology_primary__solar",
+      "technology_primary__wind_onshore",
+      "technology_primary__OTHER_RARE",
+      "state_code__AR",
+      "state_code__IA",
+      "state_code__IL",
+      "state_code__IN",
+      "state_code__KY",
+      "state_code__LA",
+      "state_code__MI",
+      "state_code__MN",
+      "state_code__MO",
+      "state_code__MS",
+      "state_code__ND",
+      "state_code__SD",
+      "state_code__TX",
+      "state_code__WI",
+      "state_code__OTHER_RARE",
+      "study_phase__In_Progress",
+      "study_phase__Not_Started",
+      "study_phase__OTHER_RARE",
+      "service_type__ERIS",
+      "service_type__NRIS",
+      "service_type__OTHER_RARE"
+    ],
+    "numeric_columns": [
+      "capacity_reduction_pct",
+      "cost_change_since_previous_study",
+      "dpp_event_count_to_date",
+      "network_upgrade_cost",
+      "restudy_count",
+      "study_delay_days",
+      "upgrade_cost_per_mw",
+      "extreme_weather_days_12m",
+      "fema_risk_score",
+      "population",
+      "population_change_since_2020",
+      "population_yoy_pct",
+      "rural_flag",
+      "storm_events_12m",
+      "storm_property_damage_12m",
+      "distance_to_transmission_km",
+      "mtep_investment_nearby_usd",
+      "nearby_mtep_upgrade_count",
+      "nearby_transmission_voltage",
+      "construction_cost_index_change_12m",
+      "interest_rate_at_entry",
+      "interest_rate_at_observation",
+      "interest_rate_change_since_entry",
+      "miso_demand_yoy_pct",
+      "miso_generation_yoy_pct",
+      "miso_mean_demand_mw",
+      "miso_net_interchange_mw",
+      "miso_peak_demand_mw",
+      "negative_news_count_90d",
+      "news_count_30d",
+      "news_count_90d",
+      "news_sentiment_mean_90d",
+      "capacity_change_pct",
+      "capacity_mw",
+      "developer_active_project_count",
+      "developer_prior_completion_rate",
+      "developer_prior_withdrawal_rate",
+      "developer_total_active_mw",
+      "is_hybrid",
+      "log1p_capacity_mw",
+      "months_until_service",
+      "nearby_queue_mw",
+      "other_active_mw_same_poi",
+      "other_active_mw_same_state",
+      "other_active_mw_same_technology",
+      "other_active_projects_same_poi",
+      "other_active_projects_same_state",
+      "prior_12m_withdrawal_count",
+      "prior_12m_withdrawn_mw",
+      "queue_age_months",
+      "same_poi_project_count",
+      "service_date_passed",
+      "service_date_shift_months",
+      "years_in_queue",
+      "years_since_last_change"
+    ],
+    "missing_indicators": [
+      "capacity_reduction_pct_missing",
+      "cost_change_since_previous_study_missing",
+      "dpp_event_count_to_date_missing",
+      "network_upgrade_cost_missing",
+      "restudy_count_missing",
+      "study_delay_days_missing",
+      "upgrade_cost_per_mw_missing",
+      "population_yoy_pct_missing",
+      "miso_demand_yoy_pct_missing",
+      "miso_generation_yoy_pct_missing",
+      "capacity_change_pct_missing",
+      "service_date_shift_months_missing",
+      "years_since_last_change_missing",
+      "technology_primary_missing",
+      "state_code_missing",
+      "study_phase_missing",
+      "service_type_missing"
+    ],
+    "skipped": [
+      {
+        "column": "energy_community_eligible",
+        "reason": "all_null_or_constant_train"
+      },
+      {
+        "column": "same_group_prior_withdrawal_rate",
+        "reason": "all_null_or_constant_train"
+      },
+      {
+        "column": "miso_zone",
+        "reason": "no_frequent_levels"
+      },
+      {
+        "column": "study_group",
+        "reason": "no_frequent_levels"
+      }
+    ],
+    "n_rows": 3277,
+    "n_cols": 99
+  },
+  "engineered_path": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/quality_reports/modeling/train_numeric_engineered.parquet",
+  "regularized_path": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/train_regularized.parquet",
+  "regularized_csv_path": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/train_regularized.csv",
+  "all_features_numeric": true
+}

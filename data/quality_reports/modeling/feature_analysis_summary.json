@@ -1,0 +1,135 @@
+{
+  "panel_path": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/withdrawal_panel_enriched.parquet",
+  "panel_rows": 9827,
+  "panel_cols": 124,
+  "train_complete_rows": 3277,
+  "numeric_preview_shape": [
+    3277,
+    99
+  ],
+  "n_inventory_rows": 124,
+  "n_high_corr_pairs": 28,
+  "n_clusters_by_family": {
+    "cost_study": 1,
+    "macro": 1,
+    "news": 1,
+    "queue": 7
+  },
+  "top_label_associations": [
+    {
+      "feature": "network_upgrade_cost",
+      "family": "cost_study",
+      "pearson_with_withdraw_next_12m": 0.351504944971488,
+      "abs_assoc": 0.351504944971488,
+      "n_complete": 498
+    },
+    {
+      "feature": "upgrade_cost_per_mw",
+      "family": "cost_study",
+      "pearson_with_withdraw_next_12m": 0.32021206703726424,
+      "abs_assoc": 0.32021206703726424,
+      "n_complete": 346
+    },
+    {
+      "feature": "dpp_event_count_to_date",
+      "family": "cost_study",
+      "pearson_with_withdraw_next_12m": -0.1995271611833858,
+      "abs_assoc": 0.1995271611833858,
+      "n_complete": 682
+    },
+    {
+      "feature": "miso_net_interchange_mw",
+      "family": "macro",
+      "pearson_with_withdraw_next_12m": -0.15831011305007855,
+      "abs_assoc": 0.15831011305007855,
+      "n_complete": 3277
+    },
+    {
+      "feature": "years_since_last_change",
+      "family": "queue",
+      "pearson_with_withdraw_next_12m": 0.15703715863425194,
+      "abs_assoc": 0.15703715863425194,
+      "n_complete": 76
+    },
+    {
+      "feature": "service_type_missing",
+      "family": "queue",
+      "pearson_with_withdraw_next_12m": 0.13877577685015174,
+      "abs_assoc": 0.13877577685015174,
+      "n_complete": 3277
+    },
+    {
+      "feature": "population_yoy_pct_missing",
+      "family": "geo_policy",
+      "pearson_with_withdraw_next_12m": 0.1357279604669902,
+      "abs_assoc": 0.1357279604669902,
+      "n_complete": 3277
+    },
+    {
+      "feature": "miso_generation_yoy_pct_missing",
+      "family": "macro",
+      "pearson_with_withdraw_next_12m": 0.13439196296359807,
+      "abs_assoc": 0.13439196296359807,
+      "n_complete": 3277
+    },
+    {
+      "feature": "miso_demand_yoy_pct_missing",
+      "family": "macro",
+      "pearson_with_withdraw_next_12m": 0.13439196296359807,
+      "abs_assoc": 0.13439196296359807,
+      "n_complete": 3277
+    },
+    {
+      "feature": "study_phase_missing",
+      "family": "queue",
+      "pearson_with_withdraw_next_12m": -0.134391962963598,
+      "abs_assoc": 0.134391962963598,
+      "n_complete": 3277
+    },
+    {
+      "feature": "miso_generation_yoy_pct",
+      "family": "macro",
+      "pearson_with_withdraw_next_12m": -0.12029012149698884,
+      "abs_assoc": 0.12029012149698884,
+      "n_complete": 2697
+    },
+    {
+      "feature": "miso_demand_yoy_pct",
+      "family": "macro",
+      "pearson_with_withdraw_next_12m": -0.1202901214969888,
+      "abs_assoc": 0.1202901214969888,
+      "n_complete": 2697
+    },
+    {
+      "feature": "construction_cost_index_change_12m",
+      "family": "macro",
+      "pearson_with_withdraw_next_12m": -0.1183516619060101,
+      "abs_assoc": 0.1183516619060101,
+      "n_complete": 3277
+    },
+    {
+      "feature": "study_phase__In_Progress",
+      "family": "queue",
+      "pearson_with_withdraw_next_12m": 0.11201288622307427,
+      "abs_assoc": 0.11201288622307427,
+      "n_complete": 3277
+    },
+    {
+      "feature": "service_type__NRIS",
+      "family": "queue",
+      "pearson_with_withdraw_next_12m": -0.10811502422254325,
+      "abs_assoc": 0.10811502422254325,
+      "n_complete": 3277
+    }
+  ],
+  "matrix_meta": {
+    "n_numeric": 55,
+    "n_onehot": 27,
+    "n_missing_indicators": 17,
+    "n_skipped": 4
+  },
+  "all_preview_features_numeric": true,
+  "non_numeric_preview_cols": [],
+  "reports_dir": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/quality_reports/modeling",
+  "corr_threshold": 0.9
+}

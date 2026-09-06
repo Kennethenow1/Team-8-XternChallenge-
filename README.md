@@ -126,6 +126,9 @@ python scripts/run_enrichment_sprint.py
 
 # 3) Fill DPP / HIFLD / MTEP / GDELT gaps and rewrite enriched Gold
 python scripts/refresh_enrichment_gaps.py
+
+# 4) Train-only feature analysis (numeric preview + collapse screen)
+python scripts/analyze_features.py
 ```
 
 Optional: put `EIA_API_KEY=...` in a repo-root `.env` (gitignored). Never commit secrets.
@@ -133,6 +136,32 @@ Optional: put `EIA_API_KEY=...` in a repo-root `.env` (gitignored). Never commit
 Dependencies: `requirements.txt` / `pyproject.toml`.
 
 Raw GDELT GKG zips are **not** stored in git (~1GB); re-run `refresh_enrichment_gaps.py` (or `ingest_gdelt`) to regenerate Bronze. Silver `news_events.parquet` **is** committed.
+
+---
+
+## Feature analysis (modeling prep)
+
+After enriched Gold exists, run a **train-only** analysis + engineering loop (no model fit on val/test/score; does not rewrite enriched Gold):
+
+```bash
+python scripts/analyze_features.py      # inventory + corr + engineering
+# or engineering only:
+python scripts/engineer_features.py
+```
+
+Logic:
+
+- [`src/modeling/feature_analysis.py`](src/modeling/feature_analysis.py) — coverage inventory, numeric preview, high-corr pairs  
+- [`src/modeling/feature_engineering.py`](src/modeling/feature_engineering.py) — approved collapses (frequency/severity, news intensity/share, missingness flags), macro grain audit  
+
+**Final regularized train matrix** (use this for modeling experiments):
+
+- `data/gold/modeling/train_regularized.parquet` (and `.csv`)  
+- Mirror: `data/quality_reports/modeling/train_numeric_engineered.parquet`  
+
+Reports: `data/quality_reports/modeling/` (`feature_engineering_notes.md`, `feature_engineering_manifest.json`, `macro_grain_audit.json`).  
+
+Macro ±1 correlations are **not** collapsed — panel rows only have a few unique year-level values; see the macro audit before treating them as independent predictors.
 
 ---
 

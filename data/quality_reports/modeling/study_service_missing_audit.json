@@ -1,0 +1,19 @@
+{
+  "recommendation": "keep_both_pending_audit",
+  "reason": "r\u2248-0.95 suggests complementary missingness, not identical availability \u2014 do not merge automatically.",
+  "study_phase_missing_rate": 0.8230088495575221,
+  "service_type_missing_rate": 0.19255416539517853,
+  "agreement_rate": 0.01556301495270064,
+  "complement_rate": 0.9844369850472994,
+  "crosstab": {
+    "False": {
+      "False": 0,
+      "True": 2646
+    },
+    "True": {
+      "False": 580,
+      "True": 51
+    }
+  },
+  "pearson_missing_indicators": -0.9496285520086469
+}
