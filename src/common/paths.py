@@ -12,7 +12,7 @@ SILVER_DIR = DATA_DIR / "silver"
 GOLD_DIR = DATA_DIR / "gold"
 QUALITY_DIR = DATA_DIR / "quality_reports"
 CONFIGS_DIR = REPO_ROOT / "configs"
-INTAKE_DIR = REPO_ROOT / "Data"
+INTAKE_DIR = DATA_DIR / "intake"
 
 REGISTRY_YAML = CONFIGS_DIR / "source_registry.yaml"
 REGISTRY_PARQUET = DATA_DIR / "source_registry.parquet"
@@ -23,6 +23,7 @@ TECH_MAP_YAML = REPO_ROOT / "src" / "common" / "technology_map.yaml"
 
 def ensure_layer_dirs() -> None:
     for p in [
+        INTAKE_DIR,
         BRONZE_DIR / "berkeley",
         BRONZE_DIR / "miso",
         SILVER_DIR / "projects",

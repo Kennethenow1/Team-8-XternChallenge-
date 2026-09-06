@@ -1,0 +1,98 @@
+feature,dtype,n_unique,missing_pct,role,encoding_needed,scaling,notes
+project_key,str,1938,0.0,identifier,Exclude,No,exclude from X
+observation_date,datetime64[us],3,0.0,time_key,Do not encode blindly,No,time key / split helper — not a raw feature
+withdraw_next_12m,int64,2,0.0,label,No,No,LABEL
+capacity_reduction_pct,float64,24,93.226,numeric,No,Yes*,high missing — keep nulls; do not zero-fill
+capacity_reduction_pct_missing,float64,2,0.0,missing_indicator,No,No,0/1 missingness
+cost_change_since_previous_study,float64,96,92.402,numeric,No,Yes*,high missing — keep nulls; do not zero-fill
+cost_change_since_previous_study_missing,float64,2,0.0,missing_indicator,No,No,0/1 missingness
+dpp_event_count_to_date,float64,5,79.188,numeric,No,Yes*,high missing — keep nulls; do not zero-fill
+dpp_event_count_to_date_missing,float64,2,0.0,missing_indicator,No,No,0/1 missingness
+network_upgrade_cost,float64,225,84.803,numeric,No,Yes*,high missing — keep nulls; do not zero-fill
+network_upgrade_cost_missing,float64,2,0.0,missing_indicator,No,No,0/1 missingness
+restudy_count,float64,2,89.319,binary,No,No,high missing — keep nulls; do not zero-fill
+study_delay_days,float64,20,89.319,numeric,No,Yes*,high missing — keep nulls; do not zero-fill
+upgrade_cost_per_mw,float64,165,89.442,numeric,No,Yes*,high missing — keep nulls; do not zero-fill
+upgrade_cost_per_mw_missing,float64,2,0.0,missing_indicator,No,No,0/1 missingness
+extreme_weather_days_12m,float64,20,1.068,numeric,No,Yes*,scale for logistic/SVM/NN; optional for trees
+fema_risk_score,float64,553,0.275,numeric,No,Yes*,scale for logistic/SVM/NN; optional for trees
+population,float64,1231,0.275,numeric,No,Yes*,scale for logistic/SVM/NN; optional for trees
+population_change_since_2020,float64,645,0.275,numeric,No,Yes*,scale for logistic/SVM/NN; optional for trees
+population_yoy_pct,float64,930,17.974,numeric,No,Yes*,scale for logistic/SVM/NN; optional for trees
+population_yoy_pct_missing,float64,2,0.0,missing_indicator,No,No,0/1 missingness
+rural_flag,float64,2,0.275,binary,No,No,0/1 numeric
+storm_events_12m,float64,53,1.068,numeric,No,Yes*,scale for logistic/SVM/NN; optional for trees
+storm_property_damage_12m,float64,338,1.068,numeric,No,Yes*,scale for logistic/SVM/NN; optional for trees
+distance_to_transmission_km,float64,553,0.275,numeric,No,Yes*,scale for logistic/SVM/NN; optional for trees
+mtep_investment_nearby_usd,float64,62,0.0,numeric,No,Yes*,scale for logistic/SVM/NN; optional for trees
+nearby_mtep_upgrade_count,float64,43,0.0,numeric,No,Yes*,scale for logistic/SVM/NN; optional for trees
+nearby_transmission_voltage,float64,9,0.275,numeric,No,Yes*,scale for logistic/SVM/NN; optional for trees
+construction_cost_index_change_12m,float64,3,0.0,numeric,No,Yes*,macro low-nunique on annual panel — see macro_grain_audit
+interest_rate_at_entry,float64,65,0.0,numeric,No,Yes*,scale for logistic/SVM/NN; optional for trees
+interest_rate_at_observation,float64,3,0.0,numeric,No,Yes*,macro low-nunique on annual panel — see macro_grain_audit
+interest_rate_change_since_entry,float64,120,0.0,numeric,No,Yes*,scale for logistic/SVM/NN; optional for trees
+miso_demand_yoy_pct,float64,2,17.699,numeric,No,Yes*,macro low-nunique on annual panel — see macro_grain_audit
+miso_generation_yoy_pct,float64,2,17.699,numeric,No,Yes*,macro low-nunique on annual panel — see macro_grain_audit
+miso_mean_demand_mw,float64,3,0.0,numeric,No,Yes*,macro low-nunique on annual panel — see macro_grain_audit
+miso_net_interchange_mw,float64,3,0.0,numeric,No,Yes*,macro low-nunique on annual panel — see macro_grain_audit
+miso_peak_demand_mw,float64,3,0.0,numeric,No,Yes*,macro low-nunique on annual panel — see macro_grain_audit
+news_count_90d,float64,37,0.0,numeric,No,Yes*,scale for logistic/SVM/NN; optional for trees
+news_sentiment_mean_90d,float64,45,0.0,numeric,No,Yes*,scale for logistic/SVM/NN; optional for trees
+capacity_change_pct,float64,30,59.078,numeric,No,Yes*,high missing — keep nulls; do not zero-fill
+capacity_mw,float64,267,0.0,numeric,No,Yes*,scale for logistic/SVM/NN; optional for trees
+developer_active_project_count,float64,54,0.0,numeric,No,Yes*,scale for logistic/SVM/NN; optional for trees
+developer_prior_completion_rate,float64,60,0.0,numeric,No,Yes*,scale for logistic/SVM/NN; optional for trees
+developer_prior_withdrawal_rate,float64,86,0.0,numeric,No,Yes*,scale for logistic/SVM/NN; optional for trees
+is_hybrid,int64,2,0.0,binary,No,No,0/1 numeric
+log1p_capacity_mw,float64,260,0.0,numeric,No,Yes*,scale for logistic/SVM/NN; optional for trees
+months_until_service,float64,535,0.305,numeric,No,Yes*,scale for logistic/SVM/NN; optional for trees
+nearby_queue_mw,float64,113,0.0,numeric,No,Yes*,scale for logistic/SVM/NN; optional for trees
+other_active_mw_same_poi,float64,128,0.0,numeric,No,Yes*,scale for logistic/SVM/NN; optional for trees
+other_active_mw_same_technology,float64,759,0.0,numeric,No,Yes*,scale for logistic/SVM/NN; optional for trees
+other_active_projects_same_poi,float64,8,0.0,numeric,No,Yes*,scale for logistic/SVM/NN; optional for trees
+other_active_projects_same_state,float64,42,0.0,numeric,No,Yes*,scale for logistic/SVM/NN; optional for trees
+prior_12m_withdrawal_count,int64,3,0.0,numeric,No,Yes*,scale for logistic/SVM/NN; optional for trees
+queue_age_months,float64,370,0.397,numeric,No,Yes*,scale for logistic/SVM/NN; optional for trees
+service_date_passed,int64,2,0.0,binary,No,No,0/1 numeric
+service_date_shift_months,float64,12,59.078,numeric,No,Yes*,high missing — keep nulls; do not zero-fill
+years_since_last_change,float64,2,97.681,numeric,No,Yes*,high missing — keep nulls; do not zero-fill
+years_since_last_change_missing,float64,2,0.0,missing_indicator,No,No,0/1 missingness
+technology_primary__battery,float64,2,0.0,onehot,Already one-hot,No,categorical already expanded
+technology_primary__natural_gas,float64,2,0.0,onehot,Already one-hot,No,categorical already expanded
+technology_primary__other,float64,2,0.0,onehot,Already one-hot,No,categorical already expanded
+technology_primary__solar,float64,2,0.0,onehot,Already one-hot,No,categorical already expanded
+technology_primary__wind_onshore,float64,2,0.0,onehot,Already one-hot,No,categorical already expanded
+technology_primary__OTHER_RARE,float64,2,0.0,onehot,Already one-hot,No,categorical already expanded
+technology_primary_missing,float64,1,0.0,missing_indicator,No,No,near-constant on train
+state_code__AR,float64,2,0.0,onehot,Already one-hot,No,categorical already expanded
+state_code__IA,float64,2,0.0,onehot,Already one-hot,No,categorical already expanded
+state_code__IL,float64,2,0.0,onehot,Already one-hot,No,categorical already expanded
+state_code__IN,float64,2,0.0,onehot,Already one-hot,No,categorical already expanded
+state_code__KY,float64,2,0.0,onehot,Already one-hot,No,categorical already expanded
+state_code__LA,float64,2,0.0,onehot,Already one-hot,No,categorical already expanded
+state_code__MI,float64,2,0.0,onehot,Already one-hot,No,categorical already expanded
+state_code__MN,float64,2,0.0,onehot,Already one-hot,No,categorical already expanded
+state_code__MO,float64,2,0.0,onehot,Already one-hot,No,categorical already expanded
+state_code__MS,float64,2,0.0,onehot,Already one-hot,No,categorical already expanded
+state_code__ND,float64,2,0.0,onehot,Already one-hot,No,categorical already expanded
+state_code__SD,float64,2,0.0,onehot,Already one-hot,No,categorical already expanded
+state_code__TX,float64,2,0.0,onehot,Already one-hot,No,categorical already expanded
+state_code__WI,float64,2,0.0,onehot,Already one-hot,No,categorical already expanded
+state_code__OTHER_RARE,float64,2,0.0,onehot,Already one-hot,No,categorical already expanded
+state_code_missing,float64,1,0.0,missing_indicator,No,No,near-constant on train
+study_phase__In_Progress,float64,2,0.0,onehot,Already one-hot,No,categorical already expanded
+study_phase__Not_Started,float64,2,0.0,onehot,Already one-hot,No,categorical already expanded
+study_phase__OTHER_RARE,float64,2,0.0,onehot,Already one-hot,No,categorical already expanded
+study_phase_missing,float64,2,0.0,missing_indicator,No,No,0/1 missingness
+service_type__ERIS,float64,2,0.0,onehot,Already one-hot,No,categorical already expanded
+service_type__NRIS,float64,2,0.0,onehot,Already one-hot,No,categorical already expanded
+service_type__OTHER_RARE,float64,2,0.0,onehot,Already one-hot,No,categorical already expanded
+service_type_missing,float64,2,0.0,missing_indicator,No,No,0/1 missingness
+dpp_delay_info_available,float64,2,0.0,binary,No,No,availability flag
+eia_yoy_available,float64,2,0.0,binary,No,No,availability flag
+project_change_history_available,float64,2,0.0,binary,No,No,availability flag
+avg_withdrawn_mw_12m,float64,3,0.0,numeric,No,Yes*,scale for logistic/SVM/NN; optional for trees
+developer_avg_active_project_mw,float64,122,0.0,numeric,No,Yes*,scale for logistic/SVM/NN; optional for trees
+avg_active_project_mw_state,float64,1261,0.031,numeric,No,Yes*,scale for logistic/SVM/NN; optional for trees
+news_recent_intensity,float64,43,0.0,numeric,No,Yes*,scale for logistic/SVM/NN; optional for trees
+negative_news_share_90d,float64,44,0.0,numeric,No,Yes*,scale for logistic/SVM/NN; optional for trees

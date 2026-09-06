@@ -1,20 +1,28 @@
-# Team 8 — Point-in-Time MISO Interconnection Queue Database
+# Team 8 — MISO Interconnection Policy-Response Simulator
 
-Build a **point-in-time (PIT)** feature store for modeling whether a MISO generator interconnection queue project **withdraws in the next 12 months**.
+**Project goal:** use predicted queue withdrawals as inputs to an actionable **policy-response simulator** —
+
+```text
+Predicted withdrawals → Expected consequences → MISO response
+→ Can MISO modify that response to reduce the consequences?
+```
+
+Phase 1 predicts project-level withdrawal risk (\(P(W)\), MW, study/POI context). Phase 2 asks how MISO’s existing response procedures can be modified to minimize downstream cost, delay, restudies, and secondary withdrawals under reliability and regulatory constraints. Full framing: **[docs/project_goal.md](docs/project_goal.md)**.
+
+**This repo’s current deliverable** is the **point-in-time (PIT) feature store** that supports Phase 1 prediction inputs (and future Phase 2 joins). No model training or response optimizer lives here yet.
 
 Each enriched training row means:
 
 > Everything that could legitimately be known about project \(i\) on observation date \(t\) — queue state, study costs, grid context, local risk, news — without using information published after \(t\). Did it withdraw in the following year?
-
-No model training lives in this repo yet. The product is the database and enrichment joins.
 
 ---
 
 ## How the database is organized
 
 ```
-Data/                         # Original downloads (staging; not edited by pipeline)
+Data/                         # (legacy pointer) → use data/intake/
 data/
+  intake/                     # Raw queue downloads
   bronze/                     # Immutable source copies (hash-checked)
     enrichment/               # External feeds (DPP PDFs, HIFLD, MTEP, GDELT, Census, …)
   silver/
@@ -28,12 +36,13 @@ data/
     current_miso_scoring/         # Active projects, no future labels
     withdrawal_panel_enriched.*   # ★ Main modeling table (queue + enrichment)
     current_miso_scoring_enriched.*
-  quality_reports/enrichment/ # Coverage, leakage audit, harvest summaries
+    modeling/                     # model_ready / logistic_ready / tree_ready
+  quality_reports/            # Coverage + modeling readiness
 configs/
   source_registry.yaml        # Core queue sources
   enrichment_registry.yaml    # External feature sources + status
-scripts/                      # run_pipeline, enrichment sprint, gaps refresh
-src/                          # Ingest, standardize, enrich, PIT joins
+scripts/                      # run_pipeline, run_enrichment, analyze_features, …
+src/                          # Ingest, standardize, enrich, PIT joins, modeling prep
 ```
 
 | Layer | Rule |
@@ -118,50 +127,41 @@ LMP congestion, federal permits / EPA ECHO, SEC EDGAR, NREL resource, wetlands, 
 ```bash
 source .venv/bin/activate   # or use .venv/bin/python
 
-# 1) Core queue → Silver/Gold
+# 1) Core queue → Silver / base Gold
 python scripts/run_pipeline.py
 
-# 2) Enrichment framework + sprint (geo, EIA, grid, county, Gold)
-python scripts/run_enrichment_sprint.py
+# 2) Enrichment
+python scripts/run_enrichment.py sprint
+python scripts/run_enrichment.py gaps
 
-# 3) Fill DPP / HIFLD / MTEP / GDELT gaps and rewrite enriched Gold
-python scripts/refresh_enrichment_gaps.py
-
-# 4) Train-only feature analysis (numeric preview + collapse screen)
+# 3) Train-only feature engineering + logistic/tree prep matrices
 python scripts/analyze_features.py
 ```
 
-Optional: put `EIA_API_KEY=...` in a repo-root `.env` (gitignored). Never commit secrets.
+See [docs/pipeline.md](docs/pipeline.md), [docs/data_catalog.md](docs/data_catalog.md), [data/README.md](data/README.md).  
+Intake downloads live in **`data/intake/`** (not the old capital-`Data/` folder).
 
-Dependencies: `requirements.txt` / `pyproject.toml`.
-
-Raw GDELT GKG zips are **not** stored in git (~1GB); re-run `refresh_enrichment_gaps.py` (or `ingest_gdelt`) to regenerate Bronze. Silver `news_events.parquet` **is** committed.
+Optional: `EIA_API_KEY` / `CENSUS_API_KEY` in repo-root `.env` (gitignored).
 
 ---
 
 ## Feature analysis (modeling prep)
 
-After enriched Gold exists, run a **train-only** analysis + engineering loop (no model fit on val/test/score; does not rewrite enriched Gold):
-
 ```bash
-python scripts/analyze_features.py      # inventory + corr + engineering
-# or engineering only:
-python scripts/engineer_features.py
+python scripts/analyze_features.py              # analysis + engineering + prep
+python scripts/analyze_features.py --engineer-only
+python scripts/prepare_model_matrices.py        # prep only
 ```
 
-Logic:
+| Artifact | Role |
+|----------|------|
+| `data/gold/modeling/model_ready_{train,val,test,score}.parquet` | Frozen-schema engineered matrices |
+| `data/gold/modeling/logistic_ready_*.parquet` | Train-median impute + StandardScaler |
+| `data/gold/modeling/tree_ready_*.parquet` | Same `X` order; NaNs kept for trees |
+| `data/quality_reports/modeling/model_ready_readiness.md` | Dtype/role checklist + A–D prep rules |
+| `data/quality_reports/modeling/sparse_feature_flags.md` | Ablation candidates (e.g. `years_since_last_change`) |
 
-- [`src/modeling/feature_analysis.py`](src/modeling/feature_analysis.py) — coverage inventory, numeric preview, high-corr pairs  
-- [`src/modeling/feature_engineering.py`](src/modeling/feature_engineering.py) — approved collapses (frequency/severity, news intensity/share, missingness flags), macro grain audit  
-
-**Final regularized train matrix** (use this for modeling experiments):
-
-- `data/gold/modeling/train_regularized.parquet` (and `.csv`)  
-- Mirror: `data/quality_reports/modeling/train_numeric_engineered.parquet`  
-
-Reports: `data/quality_reports/modeling/` (`feature_engineering_notes.md`, `feature_engineering_manifest.json`, `macro_grain_audit.json`).  
-
-Macro ±1 correlations are **not** collapsed — panel rows only have a few unique year-level values; see the macro audit before treating them as independent predictors.
+Prep fits **only on train**; apply to val/test/score. No model fitting in this step.
 
 ---
 

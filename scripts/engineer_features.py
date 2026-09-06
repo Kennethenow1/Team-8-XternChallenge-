@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-"""Apply approved feature collapses and write train_regularized modeling matrix."""
+"""Deprecated wrapper — use: python scripts/analyze_features.py --engineer-only"""
 
 from __future__ import annotations
 
-import json
 import sys
 from pathlib import Path
 
@@ -11,14 +10,12 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
-from src.modeling.feature_engineering import run_feature_engineering
+from scripts.analyze_features import main as analyze_main
 
 
 def main() -> int:
-    summary = run_feature_engineering()
-    print(json.dumps(summary, indent=2, default=str))
-    print(f"\nRegularized: {summary['manifest']['regularized_path']}")
-    return 0
+    print("NOTE: prefer `python scripts/analyze_features.py --engineer-only`", file=sys.stderr)
+    return analyze_main(["--engineer-only"])
 
 
 if __name__ == "__main__":

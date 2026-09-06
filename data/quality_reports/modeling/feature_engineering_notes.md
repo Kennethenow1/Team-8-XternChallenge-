@@ -1,6 +1,7 @@
 # Feature engineering notes
 
-Train-only engineered / regularized modeling matrix. Gold/Silver unchanged.
+Train-only engineered **model-ready** matrix (collapsed/derived features — not statistical regularization).
+Gold/Silver unchanged.
 
 ## Applied transforms
 
@@ -53,5 +54,6 @@ Train-only engineered / regularized modeling matrix. Gold/Silver unchanged.
 - Pearson(missing indicators): -0.9496285520086469
 - Agreement: 0.01556301495270064; complement: 0.9844369850472994
 
-Final regularized file: `/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/train_regularized.parquet`
-Engineered parquet: `/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/quality_reports/modeling/train_numeric_engineered.parquet`
+Model-ready train file: `/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/model_ready_train.parquet`
+Engineered parquet (report mirror): `/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/quality_reports/modeling/train_numeric_engineered.parquet`
+Schema / readiness: `model_ready_schema.csv`, `model_ready_readiness.md`

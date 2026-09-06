@@ -306,6 +306,80 @@ def build_numeric_preview(train: pd.DataFrame, inventory: pd.DataFrame) -> tuple
     return out, meta
 
 
+def _onehot_keep_levels(onehot_columns: list[str]) -> dict[str, set[str]]:
+    """Map categorical → frequent levels (excluding OTHER_RARE) from frozen one-hot names."""
+    keep: dict[str, set[str]] = {}
+    for name in onehot_columns:
+        if "__" not in name:
+            continue
+        cat, lev = name.split("__", 1)
+        if lev == "OTHER_RARE":
+            continue
+        keep.setdefault(cat, set()).add(lev)
+    return keep
+
+
+def build_numeric_preview_aligned(
+    df: pd.DataFrame,
+    reference_feature_columns: list[str],
+    reference_meta: dict[str, Any],
+) -> pd.DataFrame:
+    """Rebuild numeric matrix with exact train feature columns / one-hot levels."""
+    out = pd.DataFrame(index=df.index)
+    keep_levels = _onehot_keep_levels(list(reference_meta.get("onehot_columns") or []))
+
+    for col in reference_meta.get("numeric_columns") or []:
+        if col not in reference_feature_columns:
+            continue
+        if col in df.columns:
+            s = _to_numeric_series(df[col])
+        else:
+            s = pd.Series(np.nan, index=df.index, dtype="float64")
+        out[col] = s.to_numpy()
+        ind = f"{col}_missing"
+        if ind in reference_feature_columns:
+            out[ind] = s.isna().astype("float64").to_numpy()
+
+    # One-hots + cat missing indicators named in the frozen column list
+    for name in reference_feature_columns:
+        if name in out.columns:
+            continue
+        if name.endswith("_missing") and "__" not in name:
+            cat = name[: -len("_missing")]
+            if cat in ONEHOT_CATS:
+                if cat in df.columns:
+                    out[name] = df[cat].isna().astype("float64").to_numpy()
+                else:
+                    out[name] = np.ones(len(df), dtype="float64")
+            continue
+        if "__" not in name:
+            continue
+        cat, lev = name.split("__", 1)
+        if cat not in df.columns:
+            out[name] = np.zeros(len(df), dtype="float64")
+            continue
+        s = df[cat]
+        s_str = s.astype(str).where(s.notna(), other=np.nan)
+        if lev == "OTHER_RARE":
+            keep = keep_levels.get(cat, set())
+            rare = s.notna() & ~s_str.astype(str).isin(keep)
+            out[name] = rare.astype("float64").to_numpy()
+        else:
+            out[name] = (s_str.astype(str) == str(lev)).astype("float64").to_numpy()
+
+    # Any remaining frozen columns (derived / availability flags)
+    for name in reference_feature_columns:
+        if name in out.columns:
+            continue
+        if name in df.columns:
+            out[name] = pd.to_numeric(df[name], errors="coerce").to_numpy()
+        else:
+            out[name] = np.nan
+
+    # Exact column order
+    return out.reindex(columns=reference_feature_columns)
+
+
 def _corr_pairs(X: pd.DataFrame, cols: list[str], family: str) -> list[dict[str, Any]]:
     use = [c for c in cols if c in X.columns]
     if len(use) < 2:
@@ -407,6 +481,238 @@ def label_association(X: pd.DataFrame, y: pd.Series) -> pd.DataFrame:
     return pd.DataFrame(rows).sort_values("abs_assoc", ascending=False).reset_index(drop=True)
 
 
+def _classify_model_ready_column(col: str, s: pd.Series) -> dict[str, Any]:
+    """Assign role / encoding / scaling for one column of the model-ready matrix."""
+    n = len(s)
+    n_unique = int(s.nunique(dropna=True))
+    missing_pct = float(s.isna().mean() * 100.0) if n else 0.0
+    dtype_str = str(s.dtype)
+
+    notes: list[str] = []
+    if missing_pct >= 50:
+        notes.append("high missing — keep nulls; do not zero-fill")
+    if n_unique <= 1:
+        notes.append("near-constant on train")
+    if n_unique <= 5 and pd.api.types.is_numeric_dtype(s) and col not in LABEL_COLS:
+        # likely binary or low-cardinality numeric
+        pass
+
+    if col in LABEL_COLS or col == "withdraw_next_12m":
+        return {
+            "feature": col,
+            "dtype": dtype_str,
+            "n_unique": n_unique,
+            "missing_pct": round(missing_pct, 3),
+            "role": "label",
+            "encoding_needed": "No",
+            "scaling": "No",
+            "notes": "; ".join(notes) or "LABEL",
+        }
+    if col in ID_COLS:
+        return {
+            "feature": col,
+            "dtype": dtype_str,
+            "n_unique": n_unique,
+            "missing_pct": round(missing_pct, 3),
+            "role": "identifier",
+            "encoding_needed": "Exclude",
+            "scaling": "No",
+            "notes": "; ".join(notes) or "exclude from X",
+        }
+    if col == "observation_date" or (
+        col in META_COLS and (pd.api.types.is_datetime64_any_dtype(s) or "date" in col)
+    ):
+        return {
+            "feature": col,
+            "dtype": dtype_str,
+            "n_unique": n_unique,
+            "missing_pct": round(missing_pct, 3),
+            "role": "time_key",
+            "encoding_needed": "Do not encode blindly",
+            "scaling": "No",
+            "notes": "; ".join(notes) or "time key / split helper — not a raw feature",
+        }
+    if col.endswith("_missing") or col.endswith("_available"):
+        return {
+            "feature": col,
+            "dtype": dtype_str,
+            "n_unique": n_unique,
+            "missing_pct": round(missing_pct, 3),
+            "role": "missing_indicator" if col.endswith("_missing") else "binary",
+            "encoding_needed": "No",
+            "scaling": "No",
+            "notes": "; ".join(notes) or ("availability flag" if col.endswith("_available") else "0/1 missingness"),
+        }
+    if "__" in col:
+        # one-hot from build_numeric_preview
+        return {
+            "feature": col,
+            "dtype": dtype_str,
+            "n_unique": n_unique,
+            "missing_pct": round(missing_pct, 3),
+            "role": "onehot",
+            "encoding_needed": "Already one-hot",
+            "scaling": "No",
+            "notes": "; ".join(notes) or "categorical already expanded",
+        }
+
+    # Numeric continuous / binary
+    if pd.api.types.is_numeric_dtype(s):
+        non_null = s.dropna()
+        vals = set(pd.unique(non_null)) if len(non_null) else set()
+        is_binary = vals.issubset({0, 1, 0.0, 1.0}) and n_unique <= 2
+        if is_binary:
+            return {
+                "feature": col,
+                "dtype": dtype_str,
+                "n_unique": n_unique,
+                "missing_pct": round(missing_pct, 3),
+                "role": "binary",
+                "encoding_needed": "No",
+                "scaling": "No",
+                "notes": "; ".join(notes) or "0/1 numeric",
+            }
+        if n_unique <= 5 and col in (
+            "interest_rate_at_observation",
+            "construction_cost_index_change_12m",
+            "miso_mean_demand_mw",
+            "miso_peak_demand_mw",
+            "miso_demand_yoy_pct",
+            "miso_generation_yoy_pct",
+            "miso_net_interchange_mw",
+        ):
+            notes.append("macro low-nunique on annual panel — see macro_grain_audit")
+        return {
+            "feature": col,
+            "dtype": dtype_str,
+            "n_unique": n_unique,
+            "missing_pct": round(missing_pct, 3),
+            "role": "numeric",
+            "encoding_needed": "No",
+            "scaling": "Yes*",
+            "notes": "; ".join(notes)
+            or "scale for logistic/SVM/NN; optional for trees",
+        }
+
+    # Unexpected non-numeric leftover
+    return {
+        "feature": col,
+        "dtype": dtype_str,
+        "n_unique": n_unique,
+        "missing_pct": round(missing_pct, 3),
+        "role": "categorical",
+        "encoding_needed": "Yes",
+        "scaling": "No",
+        "notes": "; ".join(notes) or "unexpected non-numeric in model-ready matrix",
+    }
+
+
+def build_model_ready_schema_report(df: pd.DataFrame) -> pd.DataFrame:
+    """Per-column dtype / role / encoding / scaling table for model_ready_train."""
+    rows = [_classify_model_ready_column(c, df[c]) for c in df.columns]
+    return pd.DataFrame(rows)
+
+
+def model_ready_readiness_md(schema: pd.DataFrame, matrix_path: str, n_rows: int) -> str:
+    """Human checklist: is this matrix ready for X_train → Model?"""
+    roles = schema["role"].value_counts().to_dict()
+    feat = schema[~schema["role"].isin(["label", "identifier", "time_key"])]
+    encoding_yes = schema[schema["encoding_needed"].isin(["Yes"])]
+    all_feat_numeric = bool(
+        len(feat)
+        and all(
+            r in ("numeric", "binary", "onehot", "missing_indicator")
+            for r in feat["role"]
+        )
+    )
+    label = schema[schema["role"] == "label"]
+    label_ok = (
+        len(label) == 1
+        and float(label.iloc[0]["missing_pct"]) == 0.0
+        and int(label.iloc[0]["n_unique"]) == 2
+    )
+    ids = schema[schema["role"] == "identifier"]
+    times = schema[schema["role"] == "time_key"]
+    n_missing_feats = int((feat["missing_pct"] > 0).sum())
+    n_scale = int((feat["scaling"] == "Yes*").sum())
+    n_onehot = int((feat["role"] == "onehot").sum())
+
+    verdict = (
+        "Ready for `X_train → Model` with **train-only** scaling fitted later "
+        "(no model fit in this step). Exclude identifier / time_key from `X`."
+        if all_feat_numeric and label_ok and encoding_yes.empty
+        else "Not fully ready — see checklist failures below."
+    )
+
+    lines = [
+        "# Model-ready train — dtype / role readiness",
+        "",
+        f"Matrix: `{matrix_path}`",
+        f"Rows: **{n_rows}** · Columns: **{len(schema)}**",
+        "",
+        f"**Verdict:** {verdict}",
+        "",
+        "## Checklist",
+        "",
+        f"- [{'x' if all_feat_numeric else ' '}] Model features are numeric / binary / one-hot / missing indicators",
+        f"- [{'x' if label_ok else ' '}] Label present, binary, 0% missing",
+        f"- [{'x' if len(ids) else ' '}] Identifier column(s) present and marked Exclude (`{', '.join(ids['feature']) if len(ids) else 'none'}`)",
+        f"- [{'x' if len(times) else ' '}] Time key marked do-not-encode (`{', '.join(times['feature']) if len(times) else 'none'}`)",
+        f"- [{'x' if encoding_yes.empty else ' '}] No leftover columns needing encoding (`encoding_needed=Yes`: {len(encoding_yes)})",
+        f"- [x] Nulls kept as null (no zero-fill); features with missing > 0%: **{n_missing_feats}**",
+        "",
+        "## Role counts",
+        "",
+    ]
+    for role, cnt in sorted(roles.items(), key=lambda x: (-x[1], x[0])):
+        lines.append(f"- `{role}`: {cnt}")
+    lines.extend(
+        [
+            "",
+            "## Modeling prep rules (A–D)",
+            "",
+            "**A. Scaling** — for logistic / SVM / NN only: standardize continuous `Yes*` columns with",
+            "train mean/std. Trees: skip scaling.",
+            "",
+            "**B. Imputation** — sklearn logistic cannot take NaNs. Use **train median** for continuous",
+            "NaNs and **keep** `*_missing` / `*_available` indicators. Trees may leave NaNs.",
+            "See `logistic_ready_*` / `tree_ready_*` under `data/gold/modeling/`.",
+            "",
+            "**C. Sparse ablation** — features with ≥80% missing (esp. `years_since_last_change`)",
+            "are ablation candidates: Model A with / Model B without on **validation**. Do not auto-drop.",
+            "See `sparse_feature_flags.md` and default **V1** policy in `feature_policy_v1.md`.",
+            "",
+            "**D. Macros** — low nunique on the annual panel makes r=±1 misleading; keep macros,",
+            "do not collapse; see `macro_grain_audit.json`. Ablate macro family via V1 packs.",
+            "",
+            "**V1 default X** — use `logistic_v1_*` / `tree_v1_*` (drops raw `capacity_mw`, constant",
+            "missings, `years_since_last_change`, one reference dummy per cat). Full recipe remains in",
+            "`logistic_ready_*` for ablation experiments.",
+            "",
+            "## Scaling (detail)",
+            "",
+            f"- Continuous numeric columns marked `Yes*`: **{n_scale}**",
+            "- Fit scaler on **train only** for logistic regression / SVM / neural nets.",
+            "- Tree models (RF, GBM, etc.) typically do not need scaling.",
+            f"- One-hot columns already expanded: **{n_onehot}** (`encoding_needed=Already one-hot`).",
+            "",
+            "## Full table",
+            "",
+            "See `model_ready_schema.csv` next to this file.",
+            "",
+            "| feature | dtype | n_unique | missing % | role | encoding | scaling |",
+            "|---------|-------|----------|-----------|------|----------|---------|",
+        ]
+    )
+    for _, r in schema.iterrows():
+        lines.append(
+            f"| `{r['feature']}` | {r['dtype']} | {r['n_unique']} | {r['missing_pct']} | "
+            f"{r['role']} | {r['encoding_needed']} | {r['scaling']} |"
+        )
+    lines.append("")
+    return "\n".join(lines)
+
+
 def collapse_recommendations_md(
     pairs: pd.DataFrame,
     clusters: dict[str, list[list[str]]],
@@ -416,8 +722,12 @@ def collapse_recommendations_md(
     lines = [
         "# Feature collapse recommendations",
         "",
-        "Generated by train-only feature analysis. Suggestions are **not** automatic drops —",
-        "review before changing the modeling matrix. Gold/Silver were not modified.",
+        "> **Pre-engineering diagnostics only.** Applied keep/drop/derive decisions live in",
+        "> `feature_engineering_notes.md` and the live matrix",
+        "> `data/gold/modeling/model_ready_train.parquet`. Do not treat this file as current state.",
+        "",
+        "Generated by train-only feature analysis on the raw numeric preview.",
+        "Suggestions are **not** automatic drops. Gold/Silver were not modified.",
         "",
         f"Correlation threshold: `|r| >= {CORR_THRESHOLD}` within feature family.",
         "",

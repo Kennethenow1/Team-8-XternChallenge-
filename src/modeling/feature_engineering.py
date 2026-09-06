@@ -16,14 +16,73 @@ from src.common.paths import GOLD_DIR, QUALITY_DIR, SILVER_DIR
 from src.modeling.feature_analysis import (
     PANEL_PATH,
     REPORT_DIR,
-    ONEHOT_CATS,
     build_inventory,
+    build_model_ready_schema_report,
     build_numeric_preview,
+    build_numeric_preview_aligned,
+    model_ready_readiness_md,
     train_complete_mask,
+    _truthy_followup,
 )
 
 ENGINEERED_NAME = "train_numeric_engineered.parquet"
-REGULARIZED_GOLD_DIR = GOLD_DIR / "modeling"
+MODEL_READY_GOLD_DIR = GOLD_DIR / "modeling"
+SPLITS = ("train", "val", "test", "score")
+
+
+def split_row_mask(df: pd.DataFrame, split: str) -> pd.Series:
+    """Train/val/test require complete_followup; score keeps all score rows."""
+    m = df["split"].astype(str).eq(split)
+    if split == "score":
+        return m
+    if "complete_followup" in df.columns:
+        m = m & _truthy_followup(df["complete_followup"])
+    return m
+
+
+def _assemble_model_ready(X: pd.DataFrame, panel_slice: pd.DataFrame) -> pd.DataFrame:
+    engineered = X.copy()
+    engineered.insert(0, "project_key", panel_slice["project_key"].to_numpy())
+    engineered.insert(1, "observation_date", pd.to_datetime(panel_slice["observation_date"]).to_numpy())
+    if "withdraw_next_12m" in panel_slice.columns:
+        engineered.insert(
+            2,
+            "withdraw_next_12m",
+            pd.to_numeric(panel_slice["withdraw_next_12m"], errors="coerce").to_numpy(),
+        )
+    else:
+        engineered.insert(2, "withdraw_next_12m", np.nan)
+    return engineered
+
+
+def build_split_matrix(
+    panel_slice: pd.DataFrame,
+    *,
+    feature_cols: list[str],
+    matrix_meta: dict[str, Any],
+    collapse_change_history: bool,
+) -> pd.DataFrame:
+    """Apply derives + frozen train schema to one split."""
+    derived, notes = apply_panel_derives(panel_slice)
+    # Honor train collapse decision for capacity/service flag
+    if collapse_change_history and "project_change_history_available" not in derived.columns:
+        cap_miss = derived["capacity_change_pct"].isna() if "capacity_change_pct" in derived.columns else None
+        svc_miss = (
+            derived["service_date_shift_months"].isna()
+            if "service_date_shift_months" in derived.columns
+            else None
+        )
+        if cap_miss is not None and svc_miss is not None:
+            derived["project_change_history_available"] = ((~cap_miss) | (~svc_miss)).astype("float64")
+
+    X = build_numeric_preview_aligned(derived, feature_cols, matrix_meta)
+    # Ensure derived / availability columns present
+    for col in feature_cols:
+        if col not in X.columns and col in derived.columns:
+            X[col] = pd.to_numeric(derived[col], errors="coerce").to_numpy()
+    X = X.reindex(columns=feature_cols)
+    return _assemble_model_ready(X, derived)
+
 
 # Columns dropped from the engineered matrix after transforms
 DROP_AFTER_DERIVE = [
@@ -257,7 +316,8 @@ def _engineering_notes_md(manifest: dict[str, Any], macro: dict[str, Any], study
     lines = [
         "# Feature engineering notes",
         "",
-        "Train-only engineered / regularized modeling matrix. Gold/Silver unchanged.",
+        "Train-only engineered **model-ready** matrix (collapsed/derived features — not statistical regularization).",
+        "Gold/Silver unchanged.",
         "",
         "## Applied transforms",
         "",
@@ -286,8 +346,9 @@ def _engineering_notes_md(manifest: dict[str, Any], macro: dict[str, Any], study
             f"- Pearson(missing indicators): {study_svc.get('pearson_missing_indicators')}",
             f"- Agreement: {study_svc.get('agreement_rate')}; complement: {study_svc.get('complement_rate')}",
             "",
-            f"Final regularized file: `{manifest.get('regularized_path')}`",
-            f"Engineered parquet: `{manifest.get('engineered_path')}`",
+            f"Model-ready train file: `{manifest.get('model_ready_path')}`",
+            f"Engineered parquet (report mirror): `{manifest.get('engineered_path')}`",
+            f"Schema / readiness: `model_ready_schema.csv`, `model_ready_readiness.md`",
             "",
         ]
     )
@@ -301,21 +362,18 @@ def run_feature_engineering(
     panel_path = panel_path or PANEL_PATH
     report_dir = report_dir or REPORT_DIR
     report_dir.mkdir(parents=True, exist_ok=True)
-    REGULARIZED_GOLD_DIR.mkdir(parents=True, exist_ok=True)
+    MODEL_READY_GOLD_DIR.mkdir(parents=True, exist_ok=True)
 
     df = pd.read_parquet(panel_path)
     train = df.loc[train_complete_mask(df)].copy()
     train_derived, derive_notes = apply_panel_derives(train)
 
     inventory = build_inventory(df, train_derived)
-    # Ensure new derived numerics are classified as numeric in preview:
-    # build_inventory uses train_derived dtypes — good.
 
     X, matrix_meta = build_numeric_preview(train_derived, inventory)
     collapse_hist = bool(derive_notes.get("project_change_history", {}).get("collapsed"))
     X2, dropped = drop_engineered_columns(X, collapse_change_history=collapse_hist)
 
-    # Ensure availability flags present even if preview skipped somehow
     for flag in derive_notes.get("availability_flags", []):
         if flag in train_derived.columns and flag not in X2.columns:
             X2[flag] = pd.to_numeric(train_derived[flag], errors="coerce").to_numpy()
@@ -324,23 +382,62 @@ def run_feature_engineering(
         if dcol in train_derived.columns and dcol not in X2.columns:
             X2[dcol] = pd.to_numeric(train_derived[dcol], errors="coerce").to_numpy()
 
+    feature_cols = list(X2.columns)
+    matrix_meta = dict(matrix_meta)
+    matrix_meta["frozen_feature_columns"] = feature_cols
+
     macro_audit = audit_macro_grain(train)
     study_svc_audit = audit_study_service_missing(train)
 
-    # Assemble final regularized frame with keys + label
-    engineered = X2.copy()
-    engineered.insert(0, "project_key", train_derived["project_key"].to_numpy())
-    engineered.insert(1, "observation_date", pd.to_datetime(train_derived["observation_date"]).to_numpy())
-    engineered.insert(
-        2, "withdraw_next_12m", pd.to_numeric(train_derived["withdraw_next_12m"], errors="coerce").to_numpy()
+    engineered = _assemble_model_ready(X2, train_derived)
+    eng_path = report_dir / ENGINEERED_NAME
+    model_ready_paths: dict[str, str] = {}
+    engineered.to_parquet(eng_path, index=False)
+    train_path = MODEL_READY_GOLD_DIR / "model_ready_train.parquet"
+    train_csv = MODEL_READY_GOLD_DIR / "model_ready_train.csv"
+    engineered.to_parquet(train_path, index=False)
+    engineered.to_csv(train_csv, index=False)
+    model_ready_paths["train"] = str(train_path)
+
+    for split in ("val", "test", "score"):
+        sl = df.loc[split_row_mask(df, split)].copy()
+        if sl.empty:
+            continue
+        ready = build_split_matrix(
+            sl,
+            feature_cols=feature_cols,
+            matrix_meta=matrix_meta,
+            collapse_change_history=collapse_hist,
+        )
+        outp = MODEL_READY_GOLD_DIR / f"model_ready_{split}.parquet"
+        ready.to_parquet(outp, index=False)
+        ready.to_csv(MODEL_READY_GOLD_DIR / f"model_ready_{split}.csv", index=False)
+        model_ready_paths[split] = str(outp)
+
+    for legacy in (
+        MODEL_READY_GOLD_DIR / "train_regularized.parquet",
+        MODEL_READY_GOLD_DIR / "train_regularized.csv",
+    ):
+        if legacy.exists():
+            legacy.unlink()
+
+    schema = build_model_ready_schema_report(engineered)
+    schema_path = report_dir / "model_ready_schema.csv"
+    readiness_path = report_dir / "model_ready_readiness.md"
+    schema.to_csv(schema_path, index=False)
+    readiness_path.write_text(
+        model_ready_readiness_md(schema, str(train_path), len(engineered)),
+        encoding="utf-8",
     )
 
-    eng_path = report_dir / ENGINEERED_NAME
-    regularized_path = REGULARIZED_GOLD_DIR / "train_regularized.parquet"
-    regularized_csv = REGULARIZED_GOLD_DIR / "train_regularized.csv"
-    engineered.to_parquet(eng_path, index=False)
-    engineered.to_parquet(regularized_path, index=False)
-    engineered.to_csv(regularized_csv, index=False)
+    (MODEL_READY_GOLD_DIR / "frozen_feature_columns.json").write_text(
+        json.dumps(
+            {"feature_columns": feature_cols, "matrix_meta": matrix_meta},
+            indent=2,
+            default=str,
+        ),
+        encoding="utf-8",
+    )
 
     transforms = [
         {"cluster": "queue_age", "action": "Keep queue_age_months; drop years_in_queue"},
@@ -384,7 +481,7 @@ def run_feature_engineering(
     manifest = {
         "train_rows": int(len(train_derived)),
         "engineered_shape": [int(engineered.shape[0]), int(engineered.shape[1])],
-        "feature_cols": int(X2.shape[1]),
+        "feature_cols": int(len(feature_cols)),
         "derived_columns": derive_notes.get("derived", []),
         "availability_flags": derive_notes.get("availability_flags", []),
         "dropped_columns": dropped,
@@ -392,8 +489,11 @@ def run_feature_engineering(
         "transforms": transforms,
         "matrix_meta": matrix_meta,
         "engineered_path": str(eng_path),
-        "regularized_path": str(regularized_path),
-        "regularized_csv_path": str(regularized_csv),
+        "model_ready_path": str(train_path),
+        "model_ready_csv_path": str(train_csv),
+        "model_ready_paths": model_ready_paths,
+        "schema_path": str(schema_path),
+        "readiness_path": str(readiness_path),
         "all_features_numeric": all(pd.api.types.is_numeric_dtype(X2[c]) for c in X2.columns),
     }
 
@@ -409,16 +509,22 @@ def run_feature_engineering(
     (report_dir / "feature_engineering_notes.md").write_text(
         _engineering_notes_md(manifest, macro_audit, study_svc_audit), encoding="utf-8"
     )
-    (REGULARIZED_GOLD_DIR / "README.md").write_text(
+    (MODEL_READY_GOLD_DIR / "README.md").write_text(
         "\n".join(
             [
-                "# Modeling regularized train set",
+                "# Model-ready matrices",
                 "",
-                "`train_regularized.parquet` / `.csv` is the train-only numeric feature matrix after",
-                "approved collapse transforms (see `data/quality_reports/modeling/feature_engineering_notes.md`).",
+                "`model_ready_{train,val,test,score}.parquet` — numeric feature matrices after",
+                "approved collapse / derive transforms (not statistical regularization).",
+                "One-hot / drop schema is **frozen from train**.",
                 "",
-                "Built from `withdrawal_panel_enriched` with `split=train` and `complete_followup`.",
-                "Does not replace Gold; use this file for modeling experiments.",
+                "Preprocessing (train-only impute/scale for logistic; NaNs for trees):",
+                "`logistic_ready_*` / `tree_ready_*` via `scripts/prepare_model_matrices.py`.",
+                "",
+                "Schema: `data/quality_reports/modeling/model_ready_schema.csv`",
+                "Readiness: `data/quality_reports/modeling/model_ready_readiness.md`",
+                "",
+                "Exclude `project_key` and `observation_date` from `X`. Label: `withdraw_next_12m`.",
                 "",
             ]
         ),
@@ -430,6 +536,8 @@ def run_feature_engineering(
         "macro_audit_panel_nunique": macro_audit.get("panel_train_nunique"),
         "macro_recommendation": macro_audit.get("recommendation"),
         "study_service_recommendation": study_svc_audit.get("recommendation"),
+        "schema_role_counts": schema["role"].value_counts().to_dict(),
+        "model_ready_paths": model_ready_paths,
         "reports_dir": str(report_dir),
     }
     (report_dir / "feature_engineering_summary.json").write_text(

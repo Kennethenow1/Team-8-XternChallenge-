@@ -1,0 +1,92 @@
+{
+  "artifacts_dir": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/artifacts",
+  "paths": {
+    "logistic": {
+      "train": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/logistic_ready_train.parquet",
+      "val": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/logistic_ready_val.parquet",
+      "test": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/logistic_ready_test.parquet",
+      "score": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/logistic_ready_score.parquet"
+    },
+    "tree": {
+      "train": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/tree_ready_train.parquet",
+      "val": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/tree_ready_val.parquet",
+      "test": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/tree_ready_test.parquet",
+      "score": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/tree_ready_score.parquet"
+    },
+    "logistic_v1": {
+      "train": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/logistic_v1_train.parquet",
+      "val": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/logistic_v1_val.parquet",
+      "test": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/logistic_v1_test.parquet",
+      "score": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/logistic_v1_score.parquet"
+    },
+    "tree_v1": {
+      "train": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/tree_v1_train.parquet",
+      "val": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/tree_v1_val.parquet",
+      "test": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/tree_v1_test.parquet",
+      "score": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/tree_v1_score.parquet"
+    }
+  },
+  "nan_check": {
+    "train": {
+      "logistic_X_has_nan": false,
+      "logistic_v1_X_has_nan": false,
+      "tree_X_nan_frac": 0.0949460780812757,
+      "n_rows": 3277,
+      "n_v1_features": 85
+    },
+    "val": {
+      "logistic_X_has_nan": false,
+      "logistic_v1_X_has_nan": false,
+      "tree_X_nan_frac": 0.09999744578682536,
+      "n_rows": 1666,
+      "n_v1_features": 85
+    },
+    "test": {
+      "logistic_X_has_nan": false,
+      "logistic_v1_X_has_nan": false,
+      "tree_X_nan_frac": 0.13774761555392515,
+      "n_rows": 2204,
+      "n_v1_features": 85
+    },
+    "score": {
+      "logistic_X_has_nan": false,
+      "logistic_v1_X_has_nan": false,
+      "tree_X_nan_frac": 0.12535381483955094,
+      "n_rows": 2676,
+      "n_v1_features": 85
+    }
+  },
+  "n_features": 94,
+  "n_features_v1": 85,
+  "n_impute": 94,
+  "n_scale": 49,
+  "sparse_flags": {
+    "n_sparse": 6,
+    "features": [
+      "capacity_reduction_pct",
+      "cost_change_since_previous_study",
+      "network_upgrade_cost",
+      "study_delay_days",
+      "upgrade_cost_per_mw",
+      "years_since_last_change"
+    ],
+    "csv": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/quality_reports/modeling/sparse_feature_flags.csv",
+    "md": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/quality_reports/modeling/sparse_feature_flags.md"
+  },
+  "feature_policy_v1": {
+    "policy_json": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/artifacts/feature_policy_v1.json",
+    "columns_json": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/artifacts/feature_columns_v1.json",
+    "md": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/quality_reports/modeling/feature_policy_v1.md"
+  },
+  "v1_dropped": [
+    "capacity_mw",
+    "technology_primary_missing",
+    "state_code_missing",
+    "years_since_last_change",
+    "years_since_last_change_missing",
+    "technology_primary__OTHER_RARE",
+    "state_code__OTHER_RARE",
+    "study_phase__In_Progress",
+    "service_type__NRIS"
+  ]
+}

@@ -1,0 +1,7 @@
+feature,dtype,n_unique,missing_pct,role,encoding_needed,scaling,notes,ablation_candidate,n_non_null,n_rows
+capacity_reduction_pct,float64,24,93.226,numeric,No,Yes*,high missing — keep nulls; do not zero-fill,True,222,3277
+cost_change_since_previous_study,float64,96,92.402,numeric,No,Yes*,high missing — keep nulls; do not zero-fill,True,249,3277
+network_upgrade_cost,float64,225,84.803,numeric,No,Yes*,high missing — keep nulls; do not zero-fill,True,498,3277
+study_delay_days,float64,20,89.319,numeric,No,Yes*,high missing — keep nulls; do not zero-fill,True,350,3277
+upgrade_cost_per_mw,float64,165,89.442,numeric,No,Yes*,high missing — keep nulls; do not zero-fill,True,346,3277
+years_since_last_change,float64,2,97.681,numeric,No,Yes*,high missing — keep nulls; do not zero-fill,True,76,3277
