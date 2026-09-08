@@ -1,0 +1,44 @@
+{
+  "seed": 42,
+  "label_shuffle": false,
+  "hardware": {
+    "tensorflow_version": "2.21.0",
+    "gpus": [
+      "/physical_device:GPU:0"
+    ],
+    "n_gpus": 1
+  },
+  "mixed_precision": true,
+  "batch_size": 64,
+  "class_weights": {
+    "0": 0.570508356545961,
+    "1": 4.045679012345679
+  },
+  "train_prevalence": 0.12358865141868591,
+  "val_prevalence": 0.04141656681895256,
+  "n_train": 3277,
+  "n_val": 1666,
+  "n_class_0": 2872,
+  "n_class_1": 405,
+  "frozen": {
+    "best_val_pr_auc": 0.05470559373497963,
+    "best_epoch": 8,
+    "training_time_sec": 624.2942291020004,
+    "checkpoint": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/artifacts/nasnet/nasnetlarge_frozen_best.keras",
+    "history_path": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/artifacts/nasnet/history_frozen_seed_42.json"
+  },
+  "finetune": {
+    "n_unfrozen_layers": 96,
+    "best_val_pr_auc": 0.05385001003742218,
+    "training_time_sec": 409.6593731029998,
+    "checkpoint": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/artifacts/nasnet/nasnetlarge_finetuned_best_seed_42.keras",
+    "improved": false,
+    "promoted": false
+  },
+  "parameter_count": {
+    "trainable": 25744961,
+    "non_trainable": 60236946,
+    "total": 85981907
+  },
+  "peak_gpu_memory_mb": 3764.0146484375
+}

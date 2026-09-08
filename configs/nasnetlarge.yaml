@@ -1,0 +1,62 @@
+# NASNetLarge tabular-to-image experiment (TRAIN/VAL only; TEST/SCORE sealed)
+#
+# EXPERIMENT CLOSED (2026-09-07): negative result vs CatBoost champion.
+# Do not schedule further NASNet training without a new encoding hypothesis.
+experiment_status: closed
+
+seed: 42
+seeds: [42, 123, 2026]
+
+paths:
+  model_ready_train: data/gold/modeling/model_ready_train.parquet
+  model_ready_val: data/gold/modeling/model_ready_val.parquet
+  schema_csv: data/quality_reports/modeling/model_ready_schema.csv
+  champion_json: data/gold/modeling/artifacts/champion.json
+  data_dir: data/gold/modeling/nasnet
+  artifacts_dir: artifacts/nasnet
+  reports_dir: reports/models/nasnet
+
+preprocess:
+  numeric_low_pct: 0.5
+  numeric_high_pct: 99.5
+  z_clip: 5.0
+
+image:
+  target_size: 331
+  channels: 3
+  resize_method: nearest
+
+training:
+  batch_size: 64
+  # 64 requested for longer retrain; probe may lower if OOM
+  batch_size_candidates: [64, 32, 16]
+  skip_batch_probe: true
+  frozen_epochs: 100
+  finetune_epochs: 20
+  learning_rate: 1.0e-4
+  finetune_learning_rate: 1.0e-6
+  early_stopping_patience: 8
+  reduce_lr_patience: 3
+  reduce_lr_factor: 0.5
+  min_lr: 1.0e-7
+  l2: 1.0e-4
+  dense_256: 256
+  dense_64: 64
+  dropout_1: 0.50
+  dropout_2: 0.30
+  do_finetune: true
+  shuffle_buffer: 4096
+  label_shuffle_epochs: 5
+  require_gpu: true
+  prefetch: 4
+  fit_verbose: 2
+
+mlp:
+  epochs: 50
+  learning_rate: 1.0e-3
+  dense_256: 256
+  dense_64: 64
+  dropout: 0.3
+
+threshold:
+  rule: max_f1_on_val

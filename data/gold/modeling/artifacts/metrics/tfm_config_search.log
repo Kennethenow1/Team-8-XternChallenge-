@@ -1,0 +1,62 @@
+[tfm] 1/20 tabicl {'n_estimators': 4, 'random_state': 13}
+  kill_near_random pr=0.0403 roc=0.4710
+[tfm] 2/20 tabicl {'n_estimators': 4, 'random_state': 42}
+  kill_near_random pr=0.0449 roc=0.5056
+[tfm] 3/20 tabicl {'n_estimators': 4, 'random_state': 73}
+  kill_near_random pr=0.0423 roc=0.4758
+[tfm] 4/20 tabicl {'n_estimators': 8, 'random_state': 13}
+  kill_near_random pr=0.0398 roc=0.4712
+[tfm] 5/20 tabicl {'n_estimators': 8, 'random_state': 42}
+  kill_near_random pr=0.0437 roc=0.5003
+[tfm] 6/20 tabicl {'n_estimators': 8, 'random_state': 73}
+  kill_near_random pr=0.0407 roc=0.4816
+[tfm] 7/20 tabicl {'n_estimators': 12, 'random_state': 13}
+  kill_near_random pr=0.0417 roc=0.4830
+[tfm] 8/20 tabicl {'n_estimators': 12, 'random_state': 42}
+  kill_near_random pr=0.0456 roc=0.5166
+[tfm] 9/20 tabicl {'n_estimators': 12, 'random_state': 73}
+  kill_near_random pr=0.0404 roc=0.4807
+[tfm] 10/20 tabicl {'n_estimators': 16, 'random_state': 13}
+  kill_near_random pr=0.0430 roc=0.4936
+[tfm] 11/20 tabicl {'n_estimators': 16, 'random_state': 42}
+  kill_near_random pr=0.0450 roc=0.5157
+[tfm] 12/20 tabicl {'n_estimators': 16, 'random_state': 73}
+  kill_near_random pr=0.0397 roc=0.4743
+[tfm] 13/20 tabpfn {'n_estimators': 4, 'random_state': 13}
+  skipped: TABPFN_TOKEN not set
+[tfm] 14/20 tabpfn {'n_estimators': 4, 'random_state': 42}
+  skipped: TABPFN_TOKEN not set
+[tfm] 15/20 tabpfn {'n_estimators': 4, 'random_state': 73}
+  skipped: TABPFN_TOKEN not set
+[tfm] 16/20 tabpfn {'n_estimators': 4, 'random_state': 101}
+  skipped: TABPFN_TOKEN not set
+[tfm] 17/20 tabpfn {'n_estimators': 8, 'random_state': 13}
+  skipped: TABPFN_TOKEN not set
+[tfm] 18/20 tabpfn {'n_estimators': 8, 'random_state': 42}
+  skipped: TABPFN_TOKEN not set
+[tfm] 19/20 tabpfn {'n_estimators': 8, 'random_state': 73}
+  skipped: TABPFN_TOKEN not set
+[tfm] 20/20 tabpfn {'n_estimators': 8, 'random_state': 101}
+  skipped: TABPFN_TOKEN not set
+{
+  "n_configs": 20,
+  "killed": 12,
+  "best": {
+    "run_id": "tfm_tabicl_7",
+    "family": "tabicl",
+    "model": "tabicl_cfg_7",
+    "status": "ok",
+    "reason": null,
+    "source": "tfm_config_search",
+    "split": "val",
+    "test_sealed": true,
+    "config": {
+      "n_estimators": 12,
+      "random_state": 42
+    },
+    "pr_auc": 0.045630152536628873,
+    "roc_auc": 0.5166480629441071,
+    "brier": 0.0880309744328461,
+    "log_loss": 0.3449918337258172
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "model": "catboost_hpo_trial_149",
+  "family": "catboost",
+  "status": "ok",
+  "pr_auc": 0.14437253580115145,
+  "pr_lift": 3.4858644151408456,
+  "roc_auc": 0.7936937918016571,
+  "brier": 0.04237708751643873,
+  "ece": 0.06786651004022104,
+  "log_loss": 0.18725760666721541,
+  "withdrawn_mw_capture_at_10pct": 0.33523537803138376,
+  "precision_at_10pct": 0.15568862275449102,
+  "recall_at_10pct": 0.37681159420289856,
+  "goal": "strong",
+  "seed": 42.0,
+  "run_id": "catboost_hpo_149",
+  "composite_score": 0.17596529826025178,
+  "updated_at": "2026-09-06T22:18:22.801545+00:00",
+  "test_sealed": true
+}

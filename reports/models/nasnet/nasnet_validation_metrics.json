@@ -1,0 +1,76 @@
+{
+  "n": 1666.0,
+  "positive_rate": 0.04141656662665066,
+  "pr_auc": 0.05573686827646106,
+  "roc_auc": 0.508367137658472,
+  "brier": 0.18942979858040923,
+  "ece": 0.3757997578477301,
+  "log_loss": 0.5661546890166578,
+  "precision_at_5pct": 0.023809523809523808,
+  "recall_at_5pct": 0.028985507246376812,
+  "lift_at_5pct": 0.5748792270531401,
+  "withdrawn_mw_capture_at_5pct": 0.020073364581210517,
+  "precision_at_10pct": 0.023952095808383235,
+  "recall_at_10pct": 0.057971014492753624,
+  "lift_at_10pct": 0.5783216176342967,
+  "withdrawn_mw_capture_at_10pct": 0.06796413287140819,
+  "precision_at_20pct": 0.04491017964071856,
+  "recall_at_20pct": 0.21739130434782608,
+  "lift_at_20pct": 1.0843530330643063,
+  "withdrawn_mw_capture_at_20pct": 0.23914815569594458,
+  "pr_lift": 1.3457626393831226,
+  "val_prevalence": 0.04141656681895256,
+  "threshold": {
+    "threshold": 0.4854896664619446,
+    "f1": 0.08905380333951762,
+    "rule": "max_f1_on_val"
+  },
+  "confusion_matrix": {
+    "tn": 1151,
+    "fp": 446,
+    "fn": 45,
+    "tp": 24
+  },
+  "model_path": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/artifacts/nasnet/nasnetlarge_frozen_best.keras",
+  "selected_stage": "frozen",
+  "selected_summary_val_pr_auc": 0.05470559373497963,
+  "seed_summary": {
+    "pr_auc_mean": 0.05559505630426928,
+    "pr_auc_std": 0.0011426438209255767
+  },
+  "baselines": {
+    "prevalence": 0.04141656681895256,
+    "catboost_champion": {
+      "model": "catboost_hpo_trial_149",
+      "family": "catboost",
+      "status": "ok",
+      "pr_auc": 0.14437253580115145,
+      "pr_lift": 3.4858644151408456,
+      "roc_auc": 0.7936937918016571,
+      "brier": 0.04237708751643873,
+      "ece": 0.06786651004022104,
+      "log_loss": 0.18725760666721541,
+      "withdrawn_mw_capture_at_10pct": 0.33523537803138376,
+      "precision_at_10pct": 0.15568862275449102,
+      "recall_at_10pct": 0.37681159420289856,
+      "goal": "strong",
+      "seed": 42.0,
+      "run_id": "catboost_hpo_149",
+      "composite_score": 0.17596529826025178,
+      "updated_at": "2026-09-06T22:18:22.801545+00:00",
+      "test_sealed": true
+    },
+    "logistic": {
+      "model": "logistic_tuned",
+      "pr_auc": 0.05037195672409937,
+      "roc_auc": 0.5664742769504414,
+      "brier": 0.0836639913435046
+    },
+    "mlp": {
+      "pr_auc": 0.03963219333215544,
+      "roc_auc": 0.45138529670668737,
+      "brier": 0.18722325132283793,
+      "precision_at_10pct": 0.03592814371257485
+    }
+  }
+}

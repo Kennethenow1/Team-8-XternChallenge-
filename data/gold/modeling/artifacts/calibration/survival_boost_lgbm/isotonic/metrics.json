@@ -1,0 +1,48 @@
+{
+  "cross_fitted_primary": {
+    "brier": 0.03975460194526253,
+    "ece": 4.23442839247376e-05,
+    "log_loss": 0.17335861686691376,
+    "pr_auc": 0.04272447641144602,
+    "roc_auc": 0.5106631092719139,
+    "reliability": {
+      "fraction_positive": [
+        0.04141656662665066
+      ],
+      "mean_predicted": [
+        0.04145891067047971
+      ]
+    },
+    "protocol": "5-fold stratified CV on val (primary)"
+  },
+  "full_val_fit": {
+    "brier": 0.03962118887942989,
+    "ece": 3.001200538088611e-10,
+    "log_loss": 0.1714013651161532,
+    "pr_auc": 0.047278392040022585,
+    "roc_auc": 0.5523218353252929,
+    "reliability": {
+      "fraction_positive": [
+        0.04141656662665066
+      ],
+      "mean_predicted": [
+        0.04141656662665101
+      ]
+    },
+    "protocol": "fit on entire val (secondary; not for selection)"
+  },
+  "full_val_ops": {
+    "withdrawn_mw_capture_at_10pct": 0.24903199510902793,
+    "precision_at_10pct": 0.09580838323353294,
+    "recall_at_10pct": 0.2318840579710145
+  },
+  "raw_val": {
+    "n": 1666.0,
+    "positive_rate": 0.04141656662665066,
+    "pr_auc": 0.03794232353332842,
+    "roc_auc": 0.3594148448631039,
+    "brier": 0.2171374944797263,
+    "ece": 0.40706654825651006,
+    "log_loss": 0.6271399442229468
+  }
+}

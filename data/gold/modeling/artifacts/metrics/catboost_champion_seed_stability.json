@@ -1,0 +1,72 @@
+{
+  "parent_trial": 149,
+  "params": {
+    "depth": 5,
+    "learning_rate": 0.1324314134827593,
+    "l2_leaf_reg": 1.9470294574701563,
+    "random_strength": 2.900625533346776,
+    "bagging_temperature": 3.703566521912387,
+    "border_count": 214,
+    "min_data_in_leaf": 32,
+    "iterations": 5000,
+    "early_stopping_rounds": 100,
+    "loss_function": "Logloss",
+    "eval_metric": "Logloss",
+    "task_type": "GPU"
+  },
+  "seeds": [
+    42,
+    123,
+    2026
+  ],
+  "n_seeds": 3,
+  "pr_auc_mean": 0.08007331502306358,
+  "pr_auc_std": 0.027442959571571175,
+  "pr_auc_min": 0.05690201085977517,
+  "pr_auc_max": 0.11862175706790735,
+  "mw10_mean": 0.16306636777392838,
+  "mw10_std": 0.04511289444349159,
+  "mw10_min": 0.12747095985327084,
+  "mw10_max": 0.22671693499082943,
+  "per_seed": [
+    {
+      "seed": 42,
+      "pr_auc": 0.05690201085977517,
+      "roc_auc": 0.6378490466726562,
+      "log_loss": 0.20393313458401596,
+      "withdrawn_mw_capture_at_10pct": 0.13501120847768494,
+      "goal": "below_strong",
+      "meets_strong": false,
+      "model": "catboost_champion_seed_42"
+    },
+    {
+      "seed": 123,
+      "pr_auc": 0.06469617714150824,
+      "roc_auc": 0.6792445981142178,
+      "log_loss": 0.19392629090035005,
+      "withdrawn_mw_capture_at_10pct": 0.12747095985327084,
+      "goal": "below_strong",
+      "meets_strong": false,
+      "model": "catboost_champion_seed_123"
+    },
+    {
+      "seed": 2026,
+      "pr_auc": 0.11862175706790735,
+      "roc_auc": 0.7846823300935631,
+      "log_loss": 0.15975333958317983,
+      "withdrawn_mw_capture_at_10pct": 0.22671693499082943,
+      "goal": "strong",
+      "meets_strong": true,
+      "model": "catboost_champion_seed_2026"
+    }
+  ],
+  "hpo_peak_trial_149_seed42": {
+    "pr_auc": 0.14437253580115145,
+    "note": "Single HPO evaluation; not matched by all re-fits (seed variance)."
+  },
+  "promotion_decision": {
+    "keep_champion": "catboost_hpo_trial_149",
+    "promote_seed_mean": false,
+    "reason": "Seed-mean PR-AUC does not clearly beat the HPO peak while remaining Strong-stable; keep trial 149 as VAL peak champion. Deployable saved artifact remains catboost_tuned (best multiseed seed from prior promotion) for calibration."
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "updated_at": "2026-09-07",
+  "test_sealed": true,
+  "score_sealed": true,
+  "nasnet_status": "closed",
+  "val_peak_champion": {
+    "model": "catboost_hpo_trial_149",
+    "family": "catboost",
+    "matrix": "catboost_native_v1",
+    "pr_auc": 0.14437253580115145,
+    "pr_lift": 3.4858644151408456,
+    "roc_auc": 0.7936937918016571,
+    "log_loss": 0.18725760666721541,
+    "withdrawn_mw_capture_at_10pct": 0.33523537803138376,
+    "goal": "strong",
+    "champion_json": "data/gold/modeling/artifacts/champion.json"
+  },
+  "deployable_model": {
+    "model": "catboost_tuned",
+    "path": "data/gold/modeling/artifacts/models/catboost_tuned",
+    "random_seed": 2026,
+    "pr_auc": 0.12134404448088158,
+    "roc_auc": 0.7985126096939008,
+    "log_loss": 0.1563718595700445,
+    "withdrawn_mw_capture_at_10pct": 0.2914204198084369,
+    "goal": "strong"
+  },
+  "calibration": {
+    "model": "catboost_tuned",
+    "method": "platt",
+    "selection_rule": "best_method_by_cv_brier",
+    "cv_brier": 0.038465533216433506,
+    "cv_ece": 0.006591946288867569,
+    "cv_log_loss": 0.1529473470139325,
+    "protocol": "raw scores for rank/ops@K; Platt for calibrated P(W)",
+    "decision_doc": "data/gold/modeling/artifacts/metrics/calibration_phase1_decision.md",
+    "artifact_dir": "data/gold/modeling/artifacts/calibration/catboost_tuned/platt"
+  },
+  "seed_stability": {
+    "parent_trial": 149,
+    "seeds": [42, 123, 2026],
+    "pr_auc_mean": 0.08007331502306358,
+    "pr_auc_std": 0.027442959571571175,
+    "promote_seed_mean": false,
+    "report": "data/gold/modeling/artifacts/metrics/catboost_champion_seed_stability.md"
+  },
+  "freeze_doc": "docs/final_model_freeze.md"
+}

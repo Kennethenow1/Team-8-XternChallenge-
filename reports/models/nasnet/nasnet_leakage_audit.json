@@ -1,0 +1,12 @@
+{
+  "preprocess_train_only": true,
+  "test_score_unread": true,
+  "feature_order_locked": true,
+  "label_shuffle": {
+    "val_pr_auc": 0.07231960445642471,
+    "val_prevalence": 0.04141656681895256,
+    "near_random": true,
+    "pass": true
+  },
+  "overall_pass": true
+}

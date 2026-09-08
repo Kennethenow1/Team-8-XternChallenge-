@@ -1,0 +1,198 @@
+{
+  "capacity_reduction_pct": {
+    "low": -5.599999999999994,
+    "high": 11.05553896685557
+  },
+  "cost_change_since_previous_study": {
+    "low": -14247071.040000003,
+    "high": 4628709.679999981
+  },
+  "dpp_event_count_to_date": {
+    "low": 1.0,
+    "high": 4.0
+  },
+  "network_upgrade_cost": {
+    "low": 0.0,
+    "high": 56102175.3399998
+  },
+  "study_delay_days": {
+    "low": 12.0,
+    "high": 683.0
+  },
+  "upgrade_cost_per_mw": {
+    "low": 0.0,
+    "high": 348470.26761110785
+  },
+  "extreme_weather_days_12m": {
+    "low": 0.0,
+    "high": 16.0
+  },
+  "fema_risk_score": {
+    "low": 4.311704834605597,
+    "high": 98.29007633587786
+  },
+  "population": {
+    "low": 2654.18,
+    "high": 971543.0
+  },
+  "population_change_since_2020": {
+    "low": -13215.02,
+    "high": 5009.0
+  },
+  "population_yoy_pct": {
+    "low": -7.634643153399489,
+    "high": 6.098373832325343
+  },
+  "storm_events_12m": {
+    "low": 0.0,
+    "high": 56.0
+  },
+  "storm_property_damage_12m": {
+    "low": 0.0,
+    "high": 50000000.0
+  },
+  "distance_to_transmission_km": {
+    "low": 0.2665476306257769,
+    "high": 149.77199285572118
+  },
+  "mtep_investment_nearby_usd": {
+    "low": 703463.0,
+    "high": 7771583232.0
+  },
+  "nearby_mtep_upgrade_count": {
+    "low": 1.0,
+    "high": 1069.0
+  },
+  "nearby_transmission_voltage": {
+    "low": 115.0,
+    "high": 500.0
+  },
+  "construction_cost_index_change_12m": {
+    "low": -7.179227755746058,
+    "high": 47.993315508021375
+  },
+  "interest_rate_at_entry": {
+    "low": 0.64,
+    "high": 4.9901999999999775
+  },
+  "interest_rate_at_observation": {
+    "low": 0.89,
+    "high": 4.22
+  },
+  "interest_rate_change_since_entry": {
+    "low": -2.9261999999999997,
+    "high": 3.5799999999999996
+  },
+  "miso_demand_yoy_pct": {
+    "low": 1.2095487840053296,
+    "high": 3.902822972024885
+  },
+  "miso_generation_yoy_pct": {
+    "low": 1.5503132552714252,
+    "high": 11.917511051905072
+  },
+  "miso_mean_demand_mw": {
+    "low": 65831.23055555555,
+    "high": 69227.84444444445
+  },
+  "miso_net_interchange_mw": {
+    "low": -5910.3388888888885,
+    "high": -1727.375
+  },
+  "miso_peak_demand_mw": {
+    "low": 79415.0,
+    "high": 84452.0
+  },
+  "news_count_90d": {
+    "low": 8.0,
+    "high": 210.0
+  },
+  "news_sentiment_mean_90d": {
+    "low": -4.437048291788172,
+    "high": -0.2885708364708367
+  },
+  "capacity_change_pct": {
+    "low": -1.6902235695339158,
+    "high": 2.443474603007485
+  },
+  "capacity_mw": {
+    "low": 0.0,
+    "high": 752.8999999999951
+  },
+  "developer_active_project_count": {
+    "low": 1.0,
+    "high": 196.0
+  },
+  "developer_prior_completion_rate": {
+    "low": 0.0,
+    "high": 0.4117647058823529
+  },
+  "developer_prior_withdrawal_rate": {
+    "low": 0.0,
+    "high": 0.8
+  },
+  "log1p_capacity_mw": {
+    "low": 0.0,
+    "high": 6.62483579724268
+  },
+  "months_until_service": {
+    "low": -231.7233675564682,
+    "high": 69.0017248459959
+  },
+  "nearby_queue_mw": {
+    "low": 0.0,
+    "high": 1559.2399999999998
+  },
+  "other_active_mw_same_poi": {
+    "low": 0.0,
+    "high": 1564.62
+  },
+  "other_active_mw_same_technology": {
+    "low": 98.41999999999999,
+    "high": 228099.8
+  },
+  "other_active_projects_same_poi": {
+    "low": 0.0,
+    "high": 19.0
+  },
+  "other_active_projects_same_state": {
+    "low": 8.0,
+    "high": 238.0
+  },
+  "prior_12m_withdrawal_count": {
+    "low": 205.0,
+    "high": 2059.0
+  },
+  "queue_age_months": {
+    "low": 0.26283367556468173,
+    "high": 258.48509240246307
+  },
+  "service_date_shift_months": {
+    "low": 0.0,
+    "high": 0.0
+  },
+  "years_since_last_change": {
+    "low": 0.0,
+    "high": 0.999315537303217
+  },
+  "avg_withdrawn_mw_12m": {
+    "low": 193.8579941719281,
+    "high": 260.54048780487807
+  },
+  "developer_avg_active_project_mw": {
+    "low": 11.118266666666667,
+    "high": 365.5
+  },
+  "avg_active_project_mw_state": {
+    "low": 121.84705882352942,
+    "high": 241.0393939393939
+  },
+  "news_recent_intensity": {
+    "low": 0.3157894736842105,
+    "high": 1.8
+  },
+  "negative_news_share_90d": {
+    "low": 0.34210526315789475,
+    "high": 0.85
+  }
+}

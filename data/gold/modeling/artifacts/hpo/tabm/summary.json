@@ -1,0 +1,8 @@
+{
+  "family": "tabm",
+  "status": "stopped",
+  "reason": "kill_near_random_official_tabm_cpu",
+  "best_pr_auc": 0.04406,
+  "note": "Official TabM on CPU; PR\u22480.044 ROC\u22480.54 \u2014 kill rule. No sklearn fallback.",
+  "test_sealed": true
+}

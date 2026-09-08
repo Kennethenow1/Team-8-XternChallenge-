@@ -22,7 +22,10 @@ python scripts/run_enrichment.py dpp       # DPP PDF acquire/extract (no Gold me
 # 3) Train-only modeling prep (no fit on val/test/score)
 python scripts/analyze_features.py
 python scripts/analyze_features.py --engineer-only
+python scripts/prepare_model_matrices.py   # logistic / tree / foundation_v1
 ```
+
+Model architecture (TabICL / TabPFN / trees / survival / TimesFM): [model_architecture.md](model_architecture.md).
 
 Legacy script names (`run_enrichment_sprint.py`, `refresh_enrichment_gaps.py`, …) still work as thin wrappers and print a deprecation note.
 
@@ -78,6 +81,8 @@ Notes:
 | Enriched training panel | `data/gold/withdrawal_panel_enriched.parquet` |
 | Enriched scoring | `data/gold/current_miso_scoring_enriched.parquet` |
 | **Live model-ready train matrix** | `data/gold/modeling/model_ready_train.parquet` |
+| **Foundation TFM matrix (default)** | `data/gold/modeling/foundation_v1_train.parquet` |
+| Model architecture | [`docs/model_architecture.md`](model_architecture.md) |
 | Enrichment coverage | `data/quality_reports/enrichment/` |
 | Feature analysis / engineering reports | `data/quality_reports/modeling/` |
 

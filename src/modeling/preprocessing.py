@@ -18,6 +18,9 @@ from sklearn.preprocessing import StandardScaler
 from src.common.paths import GOLD_DIR, QUALITY_DIR
 from src.modeling.feature_analysis import build_model_ready_schema_report
 from src.modeling.feature_policy import build_v1_feature_policy, write_v1_policy
+from src.modeling.foundation_matrix import run_foundation_matrices
+from src.modeling.tabm_matrix import run_catboost_and_tabm_matrices
+from src.modeling.eval_protocol import write_protocol_notes
 
 MODELING_DIR = GOLD_DIR / "modeling"
 ARTIFACTS_DIR = MODELING_DIR / "artifacts"
@@ -236,7 +239,12 @@ def run_preprocessing(
         encoding="utf-8",
     )
 
-    paths: dict[str, Any] = {"logistic": {}, "tree": {}, "logistic_v1": {}, "tree_v1": {}}
+    paths: dict[str, Any] = {
+        "logistic": {},
+        "tree": {},
+        "logistic_v1": {},
+        "tree_v1": {},
+    }
     nan_check: dict[str, Any] = {}
 
     for split in SPLITS:
@@ -273,17 +281,55 @@ def run_preprocessing(
             "n_v1_features": len(v1_present),
         }
 
+    foundation_info = run_foundation_matrices(modeling_dir, ARTIFACTS_DIR)
+    paths["foundation_ready"] = foundation_info["paths"]["foundation_ready"]
+    paths["foundation_v1"] = foundation_info["paths"]["foundation_v1"]
+    extra = run_catboost_and_tabm_matrices(modeling_dir, ARTIFACTS_DIR)
+    paths["catboost_native_v1"] = extra["catboost_native"]["paths"]
+    paths["tabm_v1"] = extra["tabm"]["paths"]
+    paths["ftt_v1"] = extra["ftt"]["paths"]
+    protocol_path = write_protocol_notes(report_dir)
+
     summary = {
         "artifacts_dir": str(ARTIFACTS_DIR),
         "paths": paths,
         "nan_check": nan_check,
         "n_features": len(arts["feature_columns"]),
         "n_features_v1": len(v1_cols),
+        "n_features_foundation_v1": foundation_info["n_foundation_v1_features"],
+        "n_features_catboost_native_v1": extra["catboost_native"]["n_features"],
+        "n_features_tabm_v1": extra["tabm"]["n_features"],
+        "n_features_ftt_v1": extra["ftt"]["n_features"],
         "n_impute": len(arts["impute_columns"]),
         "n_scale": len(arts["scale_columns"]),
         "sparse_flags": sparse_info,
         "feature_policy_v1": policy_paths,
         "v1_dropped": policy["dropped_from_default"],
+        "foundation": {
+            "n_features": foundation_info["n_foundation_v1_features"],
+            "categorical_columns": foundation_info["categorical_columns"],
+            "dropped": foundation_info["dropped"],
+            "leftover_onehots": foundation_info["leftover_onehots"],
+            "feature_columns_path": foundation_info["feature_columns_path"],
+        },
+        "catboost_native": {
+            "n_features": extra["catboost_native"]["n_features"],
+            "categorical_columns": extra["catboost_native"]["categorical_columns"],
+            "feature_columns_path": extra["catboost_native"]["feature_columns_path"],
+        },
+        "tabm": {
+            "n_features": extra["tabm"]["n_features"],
+            "categorical_columns": extra["tabm"]["categorical_columns"],
+            "feature_columns_path": extra["tabm"]["feature_columns_path"],
+            "transformers_path": extra["tabm"]["transformers_path"],
+        },
+        "ftt": {
+            "n_features": extra["ftt"]["n_features"],
+            "categorical_columns": extra["ftt"]["categorical_columns"],
+            "feature_columns_path": extra["ftt"]["feature_columns_path"],
+            "transformers_path": extra["ftt"]["transformers_path"],
+        },
+        "eval_protocol_md": str(protocol_path),
     }
     (report_dir / "preprocessing_summary.json").write_text(
         json.dumps(summary, indent=2, default=str), encoding="utf-8"
@@ -293,13 +339,24 @@ def run_preprocessing(
             [
                 "# Preprocessing notes (train-only)",
                 "",
+                "## Five model-specific paths",
+                "",
+                "| Path | Role |",
+                "|------|------|",
+                "| `logistic_v1_*` | Median impute + StandardScaler + one-hot |",
+                "| `tree_v1_*` | NaNs + one-hot (XGBoost) |",
+                "| `catboost_native_v1_*` | Native cats; numeric NaNs; no scale |",
+                "| `foundation_v1_*` | Native cats for TabICL / TabPFN; no external scale |",
+                "| `tabm_v1_*` | Int cats + median impute + scale numerics |",
+                "| `ftt_v1_*` | Alias of tabm_v1 normalize for FT-Transformer |",
+                "",
                 "## A. Scaling",
-                "Logistic / SVM / NN: `StandardScaler` on continuous `Yes*` columns, fitted on train.",
-                "Trees: no scaling (`tree_ready_*`).",
+                "Logistic: `StandardScaler` on continuous columns, train-fit.",
+                "XGBoost / CatBoost / foundation TFMs: no external scaling.",
+                "TabM / FT-Transformer: train StandardScaler on numerics only.",
                 "",
                 "## B. Imputation",
-                "Logistic: `SimpleImputer(strategy=median)` on all X columns, train-fit.",
-                "Keep `*_missing` / `*_available` indicators. Trees leave NaNs.",
+                "Logistic / TabM / FTT numerics: train-median. Trees / CatBoost / foundation: leave NaNs.",
                 "",
                 "## C. Sparse ablation",
                 "See `sparse_feature_flags.md` — especially `years_since_last_change`.",
@@ -307,10 +364,12 @@ def run_preprocessing(
                 "## D. Macros",
                 "Low nunique on annual panel; do not collapse. See `macro_grain_audit.json`.",
                 "",
-                "## V1 feature policy",
-                f"Default modeling `X`: **{len(v1_cols)}** columns → `logistic_v1_*` / `tree_v1_*`.",
-                "See `feature_policy_v1.md` for drops, reference dummies, and ablation packs.",
+                "## V1 / foundation counts",
+                f"- logistic/tree V1: **{len(v1_cols)}** cols",
+                f"- foundation / catboost-native: **{foundation_info['n_foundation_v1_features']}** cols",
+                f"- tabm_v1 / ftt_v1: **{extra['tabm']['n_features']}** cols",
                 "",
+                "Architecture: `docs/model_architecture.md`. Eval: `eval_protocol.md`.",
                 f"Artifacts: `{ARTIFACTS_DIR}`",
                 "",
             ]

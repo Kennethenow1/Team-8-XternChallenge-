@@ -1,0 +1,47 @@
+{
+  "feature_set": "v1",
+  "drop_cols": [],
+  "macro_family": [
+    "construction_cost_index_change_12m",
+    "interest_rate_at_entry",
+    "interest_rate_at_observation",
+    "interest_rate_change_since_entry",
+    "miso_demand_yoy_pct",
+    "miso_generation_yoy_pct",
+    "miso_mean_demand_mw",
+    "miso_net_interchange_mw",
+    "miso_peak_demand_mw",
+    "prior_12m_withdrawal_count",
+    "avg_withdrawn_mw_12m"
+  ],
+  "selection_rule": "max val PR-AUC; tie-break lower LogLoss then lower Brier",
+  "v1": {
+    "pr_auc": 0.08055838553394236,
+    "roc_auc": 0.6983882823772835,
+    "brier": 0.04659927332423008,
+    "ece": 0.07995720983753875,
+    "log_loss": 0.2062168159534337,
+    "precision_at_5pct": 0.047619047619047616,
+    "precision_at_10pct": 0.10778443113772455,
+    "recall_at_10pct": 0.2608695652173913,
+    "lift_at_10pct": 2.602447279354335,
+    "withdrawn_mw_capture_at_10pct": 0.22366007744039126,
+    "best_iteration": 308,
+    "n_features": 64
+  },
+  "v1_minus_macro": {
+    "pr_auc": 0.04397544814330087,
+    "roc_auc": 0.5202372201501002,
+    "brier": 0.04856078726436444,
+    "ece": 0.08665516828425093,
+    "log_loss": 0.2178345994949774,
+    "precision_at_5pct": 0.03571428571428571,
+    "precision_at_10pct": 0.05389221556886228,
+    "recall_at_10pct": 0.13043478260869565,
+    "lift_at_10pct": 1.3012236396771675,
+    "withdrawn_mw_capture_at_10pct": 0.09374363154676991,
+    "best_iteration": 149,
+    "n_features": 53
+  },
+  "test_sealed": true
+}

@@ -10,6 +10,12 @@ __pycache__/
 !.env.example
 data/exports/
 
+# NASNetLarge weights / large blobs (metrics/reports stay tracked)
+artifacts/nasnet/*.keras
+artifacts/nasnet/*.h5
+artifacts/nasnet/numeric_scaler.joblib
+artifacts/nasnet/checkpoints/
+
 # Raw GDELT GKG zips are re-downloadable (~1GB); keep Silver news_events + ingest summaries
 data/bronze/enrichment/gdelt_news/*.gkg.csv.zip
 data/bronze/enrichment/gdelt_news/*.gkg.csv.zip.meta.json
@@ -23,3 +29,13 @@ data/bronze/enrichment/gdelt_news/masterfilelist.txt.meta.json
 # data/gold/
 # data/quality_reports/
 # data/source_registry.parquet
+
+# Large training artifacts / logs (metrics & reports stay tracked)
+artifacts/nasnet/archive_*/
+artifacts/nasnet/*.log
+artifacts/nasnet/*.npy
+catboost_info/
+data/gold/modeling/artifacts/models/
+data/bronze/enrichment/noaa_storm_events/*.csv.gz
+data/gold/modeling/artifacts/hpo/**/study.db
+data/gold/modeling/artifacts/hpo/**/*.log

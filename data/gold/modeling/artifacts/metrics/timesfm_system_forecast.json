@@ -1,0 +1,94 @@
+{
+  "target": "withdrawal_count",
+  "n_folds": 5,
+  "models": {
+    "naive": {
+      "rmse": 537.4039449055059,
+      "mape": 25.3701556786824
+    },
+    "ma3": {
+      "rmse": 422.41202239835303,
+      "mape": 74.64712438489217
+    },
+    "arima": {
+      "rmse": NaN,
+      "mape": NaN
+    },
+    "timesfm": {
+      "rmse": 477.83889686195647,
+      "mape": 40.52118181968888
+    }
+  },
+  "folds": [
+    {
+      "fold_end_month": "2021-12",
+      "target_month": "2022-12",
+      "is_val_year": false,
+      "actual": 226.0,
+      "preds": {
+        "naive": 52.0,
+        "ma3": 89.5,
+        "arima": NaN,
+        "timesfm": NaN
+      },
+      "arima_note": "series too short for ARIMA",
+      "timesfm_note": "series too short for TimesFM"
+    },
+    {
+      "fold_end_month": "2022-12",
+      "target_month": "2023-12",
+      "is_val_year": true,
+      "actual": 69.0,
+      "preds": {
+        "naive": 226.0,
+        "ma3": 135.0,
+        "arima": NaN,
+        "timesfm": 203.13404846191406
+      },
+      "arima_note": "series too short for ARIMA",
+      "timesfm_note": "backend=timesfm-3.0"
+    },
+    {
+      "fold_end_month": "2023-12",
+      "target_month": "2024-12",
+      "is_val_year": false,
+      "actual": 922.0,
+      "preds": {
+        "naive": 69.0,
+        "ma3": 115.66666666666667,
+        "arima": NaN,
+        "timesfm": 101.4684066772461
+      },
+      "arima_note": "series too short for ARIMA",
+      "timesfm_note": "backend=timesfm-3.0"
+    },
+    {
+      "fold_end_month": "2024-12",
+      "target_month": "2025-12",
+      "is_val_year": false,
+      "actual": 117.0,
+      "preds": {
+        "naive": 922.0,
+        "ma3": 405.6666666666667,
+        "arima": NaN,
+        "timesfm": 561.8502197265625
+      },
+      "arima_note": "series too short for ARIMA",
+      "timesfm_note": "backend=timesfm-3.0"
+    },
+    {
+      "fold_end_month": "2025-12",
+      "target_month": "2026-03",
+      "is_val_year": false,
+      "actual": 1.0,
+      "preds": {
+        "naive": 117.0,
+        "ma3": 369.3333333333333,
+        "arima": NaN,
+        "timesfm": 156.44866943359375
+      },
+      "arima_note": "series too short for ARIMA",
+      "timesfm_note": "backend=timesfm-3.0"
+    }
+  ]
+}

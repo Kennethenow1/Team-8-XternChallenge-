@@ -1,0 +1,9 @@
+{
+  "n_calibrated": 2,
+  "skipped": [],
+  "report": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/artifacts/metrics/calibration_summary.md",
+  "best_by_model": {
+    "catboost_tuned": "platt",
+    "catboost_champion_seed_2026": "isotonic"
+  }
+}

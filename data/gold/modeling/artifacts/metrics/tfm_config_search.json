@@ -1,0 +1,365 @@
+{
+  "results": [
+    {
+      "run_id": "tfm_tabicl_0",
+      "family": "tabicl",
+      "model": "tabicl_cfg_0",
+      "status": "ok",
+      "reason": null,
+      "source": "tfm_config_search",
+      "split": "val",
+      "test_sealed": true,
+      "config": {
+        "n_estimators": 4,
+        "random_state": 13
+      },
+      "pr_auc": 0.04033911844252519,
+      "roc_auc": 0.4709918052870873,
+      "brier": 0.08965655883560596,
+      "log_loss": 0.34869818125280033
+    },
+    {
+      "run_id": "tfm_tabicl_1",
+      "family": "tabicl",
+      "model": "tabicl_cfg_1",
+      "status": "ok",
+      "reason": null,
+      "source": "tfm_config_search",
+      "split": "val",
+      "test_sealed": true,
+      "config": {
+        "n_estimators": 4,
+        "random_state": 42
+      },
+      "pr_auc": 0.044858282372747076,
+      "roc_auc": 0.5055538918080096,
+      "brier": 0.0951182685114226,
+      "log_loss": 0.3630458035115284
+    },
+    {
+      "run_id": "tfm_tabicl_2",
+      "family": "tabicl",
+      "model": "tabicl_cfg_2",
+      "status": "ok",
+      "reason": null,
+      "source": "tfm_config_search",
+      "split": "val",
+      "test_sealed": true,
+      "config": {
+        "n_estimators": 4,
+        "random_state": 73
+      },
+      "pr_auc": 0.04229002798785164,
+      "roc_auc": 0.47581969816594527,
+      "brier": 0.08604802763771692,
+      "log_loss": 0.3397666634784341
+    },
+    {
+      "run_id": "tfm_tabicl_3",
+      "family": "tabicl",
+      "model": "tabicl_cfg_3",
+      "status": "ok",
+      "reason": null,
+      "source": "tfm_config_search",
+      "split": "val",
+      "test_sealed": true,
+      "config": {
+        "n_estimators": 8,
+        "random_state": 13
+      },
+      "pr_auc": 0.03977465837485385,
+      "roc_auc": 0.47115969253945356,
+      "brier": 0.09217510745747881,
+      "log_loss": 0.3555831776088048
+    },
+    {
+      "run_id": "tfm_tabicl_4",
+      "family": "tabicl",
+      "model": "tabicl_cfg_4",
+      "status": "ok",
+      "reason": null,
+      "source": "tfm_config_search",
+      "split": "val",
+      "test_sealed": true,
+      "config": {
+        "n_estimators": 8,
+        "random_state": 42
+      },
+      "pr_auc": 0.043728133275816636,
+      "roc_auc": 0.5003040120515823,
+      "brier": 0.0905115038035331,
+      "log_loss": 0.35157615191559
+    },
+    {
+      "run_id": "tfm_tabicl_5",
+      "family": "tabicl",
+      "model": "tabicl_cfg_5",
+      "status": "ok",
+      "reason": null,
+      "source": "tfm_config_search",
+      "split": "val",
+      "test_sealed": true,
+      "config": {
+        "n_estimators": 8,
+        "random_state": 73
+      },
+      "pr_auc": 0.040706144698949315,
+      "roc_auc": 0.48155962719954987,
+      "brier": 0.08409727301832447,
+      "log_loss": 0.3343757926991804
+    },
+    {
+      "run_id": "tfm_tabicl_6",
+      "family": "tabicl",
+      "model": "tabicl_cfg_6",
+      "status": "ok",
+      "reason": null,
+      "source": "tfm_config_search",
+      "split": "val",
+      "test_sealed": true,
+      "config": {
+        "n_estimators": 12,
+        "random_state": 13
+      },
+      "pr_auc": 0.04172057438523439,
+      "roc_auc": 0.4830388500176962,
+      "brier": 0.09256181417757849,
+      "log_loss": 0.3564843436715423
+    },
+    {
+      "run_id": "tfm_tabicl_7",
+      "family": "tabicl",
+      "model": "tabicl_cfg_7",
+      "status": "ok",
+      "reason": null,
+      "source": "tfm_config_search",
+      "split": "val",
+      "test_sealed": true,
+      "config": {
+        "n_estimators": 12,
+        "random_state": 42
+      },
+      "pr_auc": 0.045630152536628873,
+      "roc_auc": 0.5166480629441071,
+      "brier": 0.0880309744328461,
+      "log_loss": 0.3449918337258172
+    },
+    {
+      "run_id": "tfm_tabicl_8",
+      "family": "tabicl",
+      "model": "tabicl_cfg_8",
+      "status": "ok",
+      "reason": null,
+      "source": "tfm_config_search",
+      "split": "val",
+      "test_sealed": true,
+      "config": {
+        "n_estimators": 12,
+        "random_state": 73
+      },
+      "pr_auc": 0.040354828856884364,
+      "roc_auc": 0.48073834091094725,
+      "brier": 0.08433705392000157,
+      "log_loss": 0.33507439217148743
+    },
+    {
+      "run_id": "tfm_tabicl_9",
+      "family": "tabicl",
+      "model": "tabicl_cfg_9",
+      "status": "ok",
+      "reason": null,
+      "source": "tfm_config_search",
+      "split": "val",
+      "test_sealed": true,
+      "config": {
+        "n_estimators": 16,
+        "random_state": 13
+      },
+      "pr_auc": 0.042992439096448565,
+      "roc_auc": 0.4936157469167733,
+      "brier": 0.0887564813418269,
+      "log_loss": 0.346810418641292
+    },
+    {
+      "run_id": "tfm_tabicl_10",
+      "family": "tabicl",
+      "model": "tabicl_cfg_10",
+      "status": "ok",
+      "reason": null,
+      "source": "tfm_config_search",
+      "split": "val",
+      "test_sealed": true,
+      "config": {
+        "n_estimators": 16,
+        "random_state": 42
+      },
+      "pr_auc": 0.045013984588112205,
+      "roc_auc": 0.5156588894031381,
+      "brier": 0.08805120573532689,
+      "log_loss": 0.3451054694393938
+    },
+    {
+      "run_id": "tfm_tabicl_11",
+      "family": "tabicl",
+      "model": "tabicl_cfg_11",
+      "status": "ok",
+      "reason": null,
+      "source": "tfm_config_search",
+      "split": "val",
+      "test_sealed": true,
+      "config": {
+        "n_estimators": 16,
+        "random_state": 73
+      },
+      "pr_auc": 0.039709921330057754,
+      "roc_auc": 0.4742678754548837,
+      "brier": 0.0856082748216084,
+      "log_loss": 0.33844983216979696
+    },
+    {
+      "run_id": "tfm_tabpfn_12",
+      "family": "tabpfn",
+      "model": "tabpfn_cfg_12",
+      "status": "skipped",
+      "reason": "TABPFN_TOKEN not set",
+      "source": "tfm_config_search",
+      "split": "val",
+      "test_sealed": true,
+      "config": {
+        "n_estimators": 4,
+        "random_state": 13
+      },
+      "pr_auc": null,
+      "roc_auc": null,
+      "brier": null,
+      "log_loss": null
+    },
+    {
+      "run_id": "tfm_tabpfn_13",
+      "family": "tabpfn",
+      "model": "tabpfn_cfg_13",
+      "status": "skipped",
+      "reason": "TABPFN_TOKEN not set",
+      "source": "tfm_config_search",
+      "split": "val",
+      "test_sealed": true,
+      "config": {
+        "n_estimators": 4,
+        "random_state": 42
+      },
+      "pr_auc": null,
+      "roc_auc": null,
+      "brier": null,
+      "log_loss": null
+    },
+    {
+      "run_id": "tfm_tabpfn_14",
+      "family": "tabpfn",
+      "model": "tabpfn_cfg_14",
+      "status": "skipped",
+      "reason": "TABPFN_TOKEN not set",
+      "source": "tfm_config_search",
+      "split": "val",
+      "test_sealed": true,
+      "config": {
+        "n_estimators": 4,
+        "random_state": 73
+      },
+      "pr_auc": null,
+      "roc_auc": null,
+      "brier": null,
+      "log_loss": null
+    },
+    {
+      "run_id": "tfm_tabpfn_15",
+      "family": "tabpfn",
+      "model": "tabpfn_cfg_15",
+      "status": "skipped",
+      "reason": "TABPFN_TOKEN not set",
+      "source": "tfm_config_search",
+      "split": "val",
+      "test_sealed": true,
+      "config": {
+        "n_estimators": 4,
+        "random_state": 101
+      },
+      "pr_auc": null,
+      "roc_auc": null,
+      "brier": null,
+      "log_loss": null
+    },
+    {
+      "run_id": "tfm_tabpfn_16",
+      "family": "tabpfn",
+      "model": "tabpfn_cfg_16",
+      "status": "skipped",
+      "reason": "TABPFN_TOKEN not set",
+      "source": "tfm_config_search",
+      "split": "val",
+      "test_sealed": true,
+      "config": {
+        "n_estimators": 8,
+        "random_state": 13
+      },
+      "pr_auc": null,
+      "roc_auc": null,
+      "brier": null,
+      "log_loss": null
+    },
+    {
+      "run_id": "tfm_tabpfn_17",
+      "family": "tabpfn",
+      "model": "tabpfn_cfg_17",
+      "status": "skipped",
+      "reason": "TABPFN_TOKEN not set",
+      "source": "tfm_config_search",
+      "split": "val",
+      "test_sealed": true,
+      "config": {
+        "n_estimators": 8,
+        "random_state": 42
+      },
+      "pr_auc": null,
+      "roc_auc": null,
+      "brier": null,
+      "log_loss": null
+    },
+    {
+      "run_id": "tfm_tabpfn_18",
+      "family": "tabpfn",
+      "model": "tabpfn_cfg_18",
+      "status": "skipped",
+      "reason": "TABPFN_TOKEN not set",
+      "source": "tfm_config_search",
+      "split": "val",
+      "test_sealed": true,
+      "config": {
+        "n_estimators": 8,
+        "random_state": 73
+      },
+      "pr_auc": null,
+      "roc_auc": null,
+      "brier": null,
+      "log_loss": null
+    },
+    {
+      "run_id": "tfm_tabpfn_19",
+      "family": "tabpfn",
+      "model": "tabpfn_cfg_19",
+      "status": "skipped",
+      "reason": "TABPFN_TOKEN not set",
+      "source": "tfm_config_search",
+      "split": "val",
+      "test_sealed": true,
+      "config": {
+        "n_estimators": 8,
+        "random_state": 101
+      },
+      "pr_auc": null,
+      "roc_auc": null,
+      "brier": null,
+      "log_loss": null
+    }
+  ],
+  "killed_near_random": 12
+}

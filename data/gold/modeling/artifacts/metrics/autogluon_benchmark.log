@@ -1,0 +1,17 @@
+=== AutoGluon preset=medium_quality ===
+Warning: path already exists! This predictor may overwrite an existing predictor! path="/tmp/ag_benchmark_lov62of9"
+	Warning: Exception caused NeuralNetFastAI to fail during training (ImportError)... Skipping this model.
+		Import fastai failed. A quick tip is to install via `pip install autogluon.tabular[fastai]==1.6.1`. 
+  pr_auc=0.06496877416362941 log_loss=0.21342412002926298
+=== AutoGluon preset=good_quality ===
+Warning: path already exists! This predictor may overwrite an existing predictor! path="/tmp/ag_benchmark_f6jikswu"
+	Warning: Exception caused NeuralNetFastAI_BAG_L2 to fail during training (ImportError)... Skipping this model.
+		Import fastai failed. A quick tip is to install via `pip install autogluon.tabular[fastai]==1.6.1`. 
+  pr_auc=0.05320236079273548 log_loss=0.22958663141980543
+=== AutoGluon preset=best_quality ===
+Warning: path already exists! This predictor may overwrite an existing predictor! path="/tmp/ag_benchmark_gz867d3d"
+  pr_auc=0.05680890485271672 log_loss=0.22208122982243222
+{
+  "md": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/artifacts/metrics/autogluon_benchmark.md",
+  "n_presets": 3
+}

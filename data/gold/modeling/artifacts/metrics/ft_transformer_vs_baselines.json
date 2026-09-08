@@ -1,0 +1,53 @@
+{
+  "split": "val",
+  "test_sealed": true,
+  "matrix": "ftt_v1",
+  "matrix_policy": "alias of tabm_v1 normalize",
+  "decision_rule": "Promote interest only if FT-T beats TabM materially and approaches CatBoost Strong (pr_auc >= 0.10); else treat as weak neural challenger.",
+  "verdict": "weak_challenger",
+  "promote_interest": false,
+  "ft_transformer": {
+    "model": "ft_transformer",
+    "seed": 42,
+    "best_epoch": 25,
+    "device": "cpu",
+    "pr_auc": 0.08688462022741841,
+    "roc_auc": 0.6405080177506738,
+    "log_loss": 0.7683615724461713,
+    "withdrawn_mw_capture_at_10pct": 0.18392092928469533,
+    "source": "artifacts/models/ft_transformer/metrics.json"
+  },
+  "baselines": {
+    "catboost_hpo_trial_149": {
+      "pr_auc": 0.14437253580115145,
+      "roc_auc": 0.7936937918016571,
+      "log_loss": 0.18725760666721541,
+      "withdrawn_mw_capture_at_10pct": 0.33523537803138376,
+      "notes": "champion peak",
+      "source": "artifacts/champion.json"
+    },
+    "catboost_tuned": {
+      "pr_auc": 0.12134404448088158,
+      "roc_auc": 0.7985126096939008,
+      "log_loss": 0.1563718595700445,
+      "withdrawn_mw_capture_at_10pct": 0.2914204198084369,
+      "notes": "deployable",
+      "source": "artifacts/models/catboost_tuned/metrics.json"
+    },
+    "tabm": {
+      "pr_auc": 0.055615807866770894,
+      "roc_auc": 0.6150799052571397,
+      "log_loss": 0.1948596406730312,
+      "withdrawn_mw_capture_at_10pct": 0.1143264723863868,
+      "source": "artifacts/models/tabm/metrics.json"
+    },
+    "nasnet": {
+      "pr_auc": 0.05573686827646106,
+      "roc_auc": 0.508367137658472,
+      "log_loss": 0.5661546890166578,
+      "withdrawn_mw_capture_at_10pct": 0.06796413287140819,
+      "notes": "closed",
+      "source": "reports/models/nasnet/nasnet_validation_metrics.json"
+    }
+  }
+}

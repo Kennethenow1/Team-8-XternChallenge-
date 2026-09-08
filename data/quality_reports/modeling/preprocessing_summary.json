@@ -24,6 +24,30 @@
       "val": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/tree_v1_val.parquet",
       "test": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/tree_v1_test.parquet",
       "score": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/tree_v1_score.parquet"
+    },
+    "foundation_ready": {
+      "train": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/foundation_ready_train.parquet",
+      "val": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/foundation_ready_val.parquet",
+      "test": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/foundation_ready_test.parquet",
+      "score": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/foundation_ready_score.parquet"
+    },
+    "foundation_v1": {
+      "train": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/foundation_v1_train.parquet",
+      "val": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/foundation_v1_val.parquet",
+      "test": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/foundation_v1_test.parquet",
+      "score": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/foundation_v1_score.parquet"
+    },
+    "catboost_native_v1": {
+      "train": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/catboost_native_v1_train.parquet",
+      "val": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/catboost_native_v1_val.parquet",
+      "test": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/catboost_native_v1_test.parquet",
+      "score": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/catboost_native_v1_score.parquet"
+    },
+    "tabm_v1": {
+      "train": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/tabm_v1_train.parquet",
+      "val": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/tabm_v1_val.parquet",
+      "test": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/tabm_v1_test.parquet",
+      "score": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/tabm_v1_score.parquet"
     }
   },
   "nan_check": {
@@ -58,6 +82,9 @@
   },
   "n_features": 94,
   "n_features_v1": 85,
+  "n_features_foundation_v1": 64,
+  "n_features_catboost_native_v1": 64,
+  "n_features_tabm_v1": 64,
   "n_impute": 94,
   "n_scale": 49,
   "sparse_flags": {
@@ -88,5 +115,43 @@
     "state_code__OTHER_RARE",
     "study_phase__In_Progress",
     "service_type__NRIS"
-  ]
+  ],
+  "foundation": {
+    "n_features": 64,
+    "categorical_columns": [
+      "technology_primary",
+      "state_code",
+      "study_phase",
+      "service_type"
+    ],
+    "dropped": [
+      "capacity_mw",
+      "years_since_last_change",
+      "years_since_last_change_missing"
+    ],
+    "leftover_onehots": [],
+    "feature_columns_path": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/artifacts/feature_columns_foundation_v1.json"
+  },
+  "catboost_native": {
+    "n_features": 64,
+    "categorical_columns": [
+      "technology_primary",
+      "state_code",
+      "study_phase",
+      "service_type"
+    ],
+    "feature_columns_path": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/artifacts/feature_columns_catboost_native_v1.json"
+  },
+  "tabm": {
+    "n_features": 64,
+    "categorical_columns": [
+      "technology_primary",
+      "state_code",
+      "study_phase",
+      "service_type"
+    ],
+    "feature_columns_path": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/artifacts/feature_columns_tabm_v1.json",
+    "transformers_path": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/artifacts/preprocessing/tabm_transformers.joblib"
+  },
+  "eval_protocol_md": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/quality_reports/modeling/eval_protocol.md"
 }

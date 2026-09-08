@@ -1,0 +1,19 @@
+{
+  "target": "withdraw_next_12m",
+  "n_train": 3277,
+  "n_val": 1666,
+  "n_features": 94,
+  "side": 10,
+  "train_prevalence": 0.1235886481537992,
+  "val_prevalence": 0.04141656662665066,
+  "paths": {
+    "roles": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/artifacts/nasnet/nasnet_feature_roles.json",
+    "order": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/artifacts/nasnet/nasnet_feature_order.json",
+    "medians": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/artifacts/nasnet/numeric_medians.json",
+    "clip_bounds": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/artifacts/nasnet/numeric_clip_bounds.json",
+    "scaler": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/artifacts/nasnet/numeric_scaler.joblib",
+    "pixel_map": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/artifacts/nasnet/nasnet_feature_pixel_map.json",
+    "ready_train": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/nasnet/nasnet_ready_train.parquet",
+    "ready_val": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/nasnet/nasnet_ready_val.parquet"
+  }
+}
