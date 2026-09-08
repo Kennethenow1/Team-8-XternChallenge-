@@ -15,9 +15,143 @@ from src.modeling.model_registry import ARTIFACTS_DIR, ensure_artifact_dirs
 
 PANEL_PATH = GOLD_DIR / "withdrawal_panel_enriched.parquet"
 METRICS_PATH = ARTIFACTS_DIR / "metrics" / "timesfm_system_forecast.md"
+FEATURES_DIR = ARTIFACTS_DIR / "features"
+SYS_FC_PATH = FEATURES_DIR / "system_forecast_covariates.parquet"
+SYS_FC_META_PATH = FEATURES_DIR / "system_forecast_covariates_meta.json"
+
+# Engines used for CatBoost wiring (ARIMA omitted — series too short on annual grain).
+SYS_FC_ENGINES = ("naive", "ma3", "timesfm")
+SYS_FC_PRIMARY_TARGET = "withdrawal_count"
+SYS_FC_OPTIONAL_TARGETS = ("miso_mean_demand_mw", "interest_rate_at_observation")
 
 _TFM3_MODEL: Any | None = None
 _TFM3_LOAD_ERROR: str | None = None
+
+
+def _series_year(year_month: str) -> int:
+    return int(str(year_month)[:4])
+
+
+def _forecast_one(series: np.ndarray, engine: str, horizon: int = 1) -> tuple[float, str | None]:
+    """Point forecast from history for one engine."""
+    series = np.asarray(series, dtype=float)
+    series = series[np.isfinite(series)]
+    if engine == "naive":
+        pred = naive_forecast(series, horizon)[0]
+        return float(pred), None
+    if engine == "ma3":
+        pred = ma_forecast(series, 3, horizon)[0]
+        return float(pred), None
+    if engine == "timesfm":
+        pred, note = timesfm_forecast(series, horizon)
+        return float(pred[0]), note
+    raise ValueError(f"unknown engine: {engine}")
+
+
+def build_system_forecast_covariates(
+    *,
+    save: bool = True,
+    targets: list[str] | None = None,
+) -> tuple[pd.DataFrame, dict[str, Any]]:
+    """PIT-safe year-grain forecasts for CatBoost wiring.
+
+    For each observation year Y, forecast using only series points with year < Y
+    (no leakage from same-year panel labels).
+    """
+    ensure_artifact_dirs()
+    FEATURES_DIR.mkdir(parents=True, exist_ok=True)
+    monthly = build_monthly_system_series()
+    years = sorted({_series_year(m) for m in monthly["year_month"].astype(str)})
+
+    if targets is None:
+        targets = [SYS_FC_PRIMARY_TARGET] + [
+            t for t in SYS_FC_OPTIONAL_TARGETS if t in monthly.columns
+        ]
+    else:
+        targets = [t for t in targets if t in monthly.columns or t == SYS_FC_PRIMARY_TARGET]
+
+    rows: list[dict[str, Any]] = []
+    notes: dict[str, Any] = {"by_year": {}, "targets": targets, "engines": list(SYS_FC_ENGINES)}
+
+    for y in years:
+        hist = monthly[monthly["year_month"].astype(str).map(_series_year) < y]
+        row: dict[str, Any] = {
+            "observation_year": y,
+            "n_hist": int(len(hist)),
+        }
+        year_notes: dict[str, Any] = {"n_hist": int(len(hist))}
+        for target in targets:
+            if target not in monthly.columns:
+                continue
+            series = hist[target].astype(float).to_numpy()
+            for engine in SYS_FC_ENGINES:
+                col = f"sys_fc_{target}_{engine}"
+                if len(series) < 1:
+                    row[col] = float("nan")
+                    year_notes[col] = "no history"
+                    continue
+                if engine == "timesfm" and len(series) < 3:
+                    row[col] = float("nan")
+                    year_notes[col] = "series too short for TimesFM"
+                    continue
+                val, note = _forecast_one(series, engine)
+                row[col] = val
+                if note:
+                    year_notes[col] = note
+        rows.append(row)
+        notes["by_year"][str(y)] = year_notes
+        print(
+            f"[sys_fc] year={y} n_hist={len(hist)} "
+            + " ".join(
+                f"{k}={row[k]:.2f}" if isinstance(row.get(k), float) and np.isfinite(row[k]) else f"{k}=nan"
+                for k in row
+                if k.startswith("sys_fc_withdrawal_count_")
+            ),
+            flush=True,
+        )
+
+    fc = pd.DataFrame(rows).sort_values("observation_year").reset_index(drop=True)
+    meta = {
+        "grain": "annual",
+        "pit_rule": "history year < observation_year",
+        "n_years": int(len(fc)),
+        "columns": [c for c in fc.columns if c.startswith("sys_fc_")],
+        "notes": notes,
+        "path": str(SYS_FC_PATH),
+    }
+
+    if save:
+        fc.to_parquet(SYS_FC_PATH, index=False)
+        SYS_FC_META_PATH.write_text(json.dumps(meta, indent=2, default=str), encoding="utf-8")
+    return fc, meta
+
+
+def join_system_forecast_features(
+    X: pd.DataFrame,
+    meta: pd.DataFrame,
+    fc_table: pd.DataFrame,
+    columns: list[str] | None = None,
+) -> tuple[pd.DataFrame, list[str], str | None]:
+    """Join year-grain forecast covariates onto a model matrix via observation_date year."""
+    if "observation_date" not in meta.columns:
+        return X, [], "missing observation_date on meta"
+    cols = columns or [c for c in fc_table.columns if c.startswith("sys_fc_")]
+    cols = [c for c in cols if c in fc_table.columns]
+    if not cols:
+        return X, [], "no sys_fc columns to join"
+
+    left = meta[["observation_date"]].copy()
+    left["observation_date"] = pd.to_datetime(left["observation_date"])
+    left["observation_year"] = left["observation_date"].dt.year.astype(int)
+
+    right = fc_table[["observation_year"] + cols].copy()
+    merged = left.merge(right, on="observation_year", how="left", validate="many_to_one")
+    out = X.copy()
+    for c in cols:
+        out[c] = pd.to_numeric(merged[c], errors="coerce").to_numpy()
+    n_ok = int(np.isfinite(out[cols[0]].to_numpy(dtype=float)).sum()) if cols else 0
+    note = f"joined {cols} by observation_year; finite_primary={n_ok}/{len(out)}"
+    return out, cols, note
 
 
 def build_monthly_system_series() -> pd.DataFrame:

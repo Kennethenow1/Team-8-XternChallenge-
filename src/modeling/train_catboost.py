@@ -29,6 +29,8 @@ def fit_catboost_eval(
     *,
     drop_cols: Sequence[str] | None = None,
     add_cols: Sequence[str] | None = None,
+    sys_fc_table: pd.DataFrame | None = None,
+    sys_fc_cols: Sequence[str] | None = None,
     params: dict[str, Any] | None = None,
     model_name: str = "catboost",
     save: bool = True,
@@ -50,6 +52,7 @@ def fit_catboost_eval(
     meta_tr = meta_tr.loc[mask]
 
     join_note: str | None = None
+    added_features: list[str] = list(add_cols or [])
     if add_cols:
         from src.modeling.ablation_helpers import join_extra_feature_columns
 
@@ -63,6 +66,23 @@ def fit_catboost_eval(
                 "ablation": model_name,
             }
         join_note = note_tr or note_va
+        added_features = list(dict.fromkeys([*added_tr, *added_va]))
+
+    if sys_fc_table is not None:
+        from src.modeling.train_timesfm import join_system_forecast_features
+
+        want = list(sys_fc_cols) if sys_fc_cols is not None else None
+        X_tr, added_tr, note_tr = join_system_forecast_features(X_tr, meta_tr, sys_fc_table, want)
+        X_va, added_va, note_va = join_system_forecast_features(X_va, meta_va, sys_fc_table, want)
+        if not added_tr and not added_va:
+            return {
+                "model": model_name,
+                "status": "skipped",
+                "reason": note_tr or note_va or "sys_fc join failed",
+                "ablation": model_name,
+            }
+        join_note = "; ".join(n for n in (join_note, note_tr or note_va) if n)
+        added_features = list(dict.fromkeys([*added_features, *added_tr, *added_va]))
 
     drop = [c for c in (drop_cols or []) if c in X_tr.columns]
     if drop:
@@ -85,6 +105,12 @@ def fit_catboost_eval(
     }
     if params:
         base_params.update(params)
+        # Drop GPU-only keys when forcing CPU (None values break CatBoost).
+        if str(base_params.get("task_type", "")).upper() == "CPU":
+            base_params.pop("devices", None)
+            for k in list(base_params):
+                if base_params[k] is None:
+                    base_params.pop(k)
 
     task = str(base_params.get("task_type", "GPU")).upper()
     # PRAUC/AUC custom metrics are not implemented on GPU and can distort early stopping.
@@ -109,7 +135,7 @@ def fit_catboost_eval(
             "split": SELECTION_SPLIT,
             "best_iteration": int(getattr(model, "best_iteration_", model.tree_count_)),
             "dropped_features": drop,
-            "added_features": list(add_cols or []),
+            "added_features": added_features,
             "join_note": join_note,
             "n_features": int(X_tr.shape[1]),
         }
@@ -130,7 +156,7 @@ def fit_catboost_eval(
                 "prevalence_train": float(y_tr.mean()),
                 "prevalence_val": float(y_va.mean()),
                 "dropped_features": drop,
-                "added_features": list(add_cols or []),
+                "added_features": added_features,
                 "join_note": join_note,
             },
             metrics=metrics,

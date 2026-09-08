@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
-"""Fit train-only impute/scale; write logistic_ready_* and tree_ready_* matrices.
+"""Fit train-only impute/scale; write logistic/tree/foundation model matrices.
 
   python scripts/prepare_model_matrices.py
+
+Also emits foundation_v1_* (native categoricals, no scale) for TabICL / TabPFN / TabM.
 """
 
 from __future__ import annotations

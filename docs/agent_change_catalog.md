@@ -125,6 +125,7 @@ Living log of what you asked Cursor agents to do, **why**, and **what landed**. 
 | Calibration summary | `data/gold/modeling/artifacts/metrics/calibration_summary.md` |
 | Survival tournament | `data/gold/modeling/artifacts/metrics/survival_tournament.md` |
 | TimesFM system forecast | `data/gold/modeling/artifacts/metrics/timesfm_system_forecast.md` |
+| TimesFM → CatBoost wiring | `data/gold/modeling/artifacts/metrics/timesfm_catboost_wiring.md` |
 | Deferred county joins note | `data/quality_reports/enrichment/DEFERRED_COUNTY_JOINS.md` |
 | Enrichment sprint | `scripts/run_enrichment_sprint.py` |
 | Core pipeline | `scripts/run_pipeline.py` |

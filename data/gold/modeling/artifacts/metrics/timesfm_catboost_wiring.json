@@ -1,0 +1,153 @@
+{
+  "protocol": "train on TRAIN, eval on VAL; TEST sealed",
+  "matrix": "catboost_native_v1",
+  "task_type": "CPU",
+  "forecast_meta": {
+    "grain": "annual",
+    "pit_rule": "history year < observation_year",
+    "n_years": 7,
+    "columns": [
+      "sys_fc_withdrawal_count_naive",
+      "sys_fc_withdrawal_count_ma3",
+      "sys_fc_withdrawal_count_timesfm",
+      "sys_fc_miso_mean_demand_mw_naive",
+      "sys_fc_miso_mean_demand_mw_ma3",
+      "sys_fc_miso_mean_demand_mw_timesfm",
+      "sys_fc_interest_rate_at_observation_naive",
+      "sys_fc_interest_rate_at_observation_ma3",
+      "sys_fc_interest_rate_at_observation_timesfm"
+    ],
+    "notes": {
+      "by_year": {
+        "2020": {
+          "n_hist": 0,
+          "sys_fc_withdrawal_count_naive": "no history",
+          "sys_fc_withdrawal_count_ma3": "no history",
+          "sys_fc_withdrawal_count_timesfm": "no history",
+          "sys_fc_miso_mean_demand_mw_naive": "no history",
+          "sys_fc_miso_mean_demand_mw_ma3": "no history",
+          "sys_fc_miso_mean_demand_mw_timesfm": "no history",
+          "sys_fc_interest_rate_at_observation_naive": "no history",
+          "sys_fc_interest_rate_at_observation_ma3": "no history",
+          "sys_fc_interest_rate_at_observation_timesfm": "no history"
+        },
+        "2021": {
+          "n_hist": 1,
+          "sys_fc_withdrawal_count_timesfm": "series too short for TimesFM",
+          "sys_fc_miso_mean_demand_mw_timesfm": "series too short for TimesFM",
+          "sys_fc_interest_rate_at_observation_timesfm": "series too short for TimesFM"
+        },
+        "2022": {
+          "n_hist": 2,
+          "sys_fc_withdrawal_count_timesfm": "series too short for TimesFM",
+          "sys_fc_miso_mean_demand_mw_timesfm": "series too short for TimesFM",
+          "sys_fc_interest_rate_at_observation_timesfm": "series too short for TimesFM"
+        },
+        "2023": {
+          "n_hist": 3,
+          "sys_fc_withdrawal_count_timesfm": "backend=timesfm-3.0",
+          "sys_fc_miso_mean_demand_mw_timesfm": "backend=timesfm-3.0",
+          "sys_fc_interest_rate_at_observation_timesfm": "backend=timesfm-3.0"
+        },
+        "2024": {
+          "n_hist": 4,
+          "sys_fc_withdrawal_count_timesfm": "backend=timesfm-3.0",
+          "sys_fc_miso_mean_demand_mw_timesfm": "backend=timesfm-3.0",
+          "sys_fc_interest_rate_at_observation_timesfm": "backend=timesfm-3.0"
+        },
+        "2025": {
+          "n_hist": 5,
+          "sys_fc_withdrawal_count_timesfm": "backend=timesfm-3.0",
+          "sys_fc_miso_mean_demand_mw_timesfm": "backend=timesfm-3.0",
+          "sys_fc_interest_rate_at_observation_timesfm": "backend=timesfm-3.0"
+        },
+        "2026": {
+          "n_hist": 6,
+          "sys_fc_withdrawal_count_timesfm": "backend=timesfm-3.0",
+          "sys_fc_miso_mean_demand_mw_timesfm": "backend=timesfm-3.0",
+          "sys_fc_interest_rate_at_observation_timesfm": "backend=timesfm-3.0"
+        }
+      },
+      "targets": [
+        "withdrawal_count",
+        "miso_mean_demand_mw",
+        "interest_rate_at_observation"
+      ],
+      "engines": [
+        "naive",
+        "ma3",
+        "timesfm"
+      ]
+    },
+    "path": "/home/kenneth-enow/X-intern_misochallenge/Team-8-XternChallenge-/data/gold/modeling/artifacts/features/system_forecast_covariates.parquet"
+  },
+  "arms": {
+    "catboost_v1": {
+      "pr_auc": 0.08055838553394236,
+      "roc_auc": 0.6983882823772835,
+      "brier": 0.04659927332423008,
+      "ece": 0.07995720983753875,
+      "log_loss": 0.2062168159534337,
+      "precision_at_10pct": 0.10778443113772455,
+      "recall_at_10pct": 0.2608695652173913,
+      "lift_at_10pct": 2.602447279354335,
+      "withdrawn_mw_capture_at_10pct": 0.22366007744039126,
+      "best_iteration": 308,
+      "n_features": 64,
+      "status": "ok"
+    },
+    "catboost_plus_sys_fc_ma3": {
+      "pr_auc": 0.07435394444824892,
+      "roc_auc": 0.6862187253273803,
+      "brier": 0.04382860219891164,
+      "ece": 0.06424849170792378,
+      "log_loss": 0.1951046694968735,
+      "precision_at_10pct": 0.08982035928143713,
+      "recall_at_10pct": 0.21739130434782608,
+      "lift_at_10pct": 2.1687060661286126,
+      "withdrawn_mw_capture_at_10pct": 0.20226207458732423,
+      "best_iteration": 199,
+      "n_features": 65,
+      "status": "ok"
+    },
+    "catboost_plus_sys_fc_timesfm": {
+      "pr_auc": 0.08347931989458432,
+      "roc_auc": 0.6950396123165717,
+      "brier": 0.04604870089634299,
+      "ece": 0.07688490142562088,
+      "log_loss": 0.20345695251046605,
+      "precision_at_10pct": 0.11976047904191617,
+      "recall_at_10pct": 0.2898550724637681,
+      "lift_at_10pct": 2.891608088171483,
+      "withdrawn_mw_capture_at_10pct": 0.2282453637660485,
+      "best_iteration": 300,
+      "n_features": 65,
+      "status": "ok"
+    },
+    "catboost_plus_sys_fc_all": {
+      "pr_auc": 0.07868475741732003,
+      "roc_auc": 0.6896989826940005,
+      "brier": 0.04912566907240715,
+      "ece": 0.09020158617416658,
+      "log_loss": 0.21350355411514874,
+      "precision_at_10pct": 0.09580838323353294,
+      "recall_at_10pct": 0.2318840579710145,
+      "lift_at_10pct": 2.3132864705371867,
+      "withdrawn_mw_capture_at_10pct": 0.19105359690238435,
+      "best_iteration": 473,
+      "n_features": 67,
+      "status": "ok"
+    }
+  },
+  "verdict": {
+    "promote_interest": false,
+    "best_arm": "catboost_plus_sys_fc_timesfm",
+    "baseline_pr_auc": 0.08055838553394236,
+    "best_pr_auc": 0.08347931989458432,
+    "delta_pr_auc": 0.0029209343606419608,
+    "strong": false,
+    "material_lift": false,
+    "reason": "catboost_plus_sys_fc_timesfm delta=0.0029 < 0.01 PR-AUC; weak/negative result; leave champion freeze unchanged.",
+    "test_sealed": true
+  }
+}

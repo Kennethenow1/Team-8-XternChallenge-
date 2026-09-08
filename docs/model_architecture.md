@@ -182,9 +182,10 @@ python scripts/run_baseline_leaderboard.py
 python scripts/run_calibration.py          # Platt/isotonic on champion val probs
 python scripts/run_survival_tournament.py  # Cox-TV + discrete/boost/RSF
 python scripts/run_timesfm_experiment.py   # TimesFM-3 system monthly/annual series
+python scripts/run_timesfm_catboost_wiring.py  # TimesFM/MA3 → CatBoost covariates
 ```
 
-**Live now:** CatBoost/LGBM/XGB (+ tuned), calibration layer (`artifacts/calibration/`), Cox-TV + discrete survival, TimesFM-3 on CUDA. **Still thin:** ensemble weights, XGB-AFT API, CoxPH convergence on this panel, TimesFM→risk covariate wiring.
+**Live now:** CatBoost/LGBM/XGB (+ tuned), calibration layer (`artifacts/calibration/`), Cox-TV + discrete survival, TimesFM-3 on CUDA, TimesFM→CatBoost wiring experiment (`artifacts/metrics/timesfm_catboost_wiring.md` — **no promotion**; ΔPR-AUC ≪ 0.01). **Still thin:** ensemble weights, XGB-AFT API, CoxPH convergence on this panel.
 ## Related docs
 
 - Project goal (Phase 1→2): [`project_goal.md`](project_goal.md)

@@ -1,6 +1,6 @@
 # FT-Transformer vs baselines (VAL only)
 
-Protocol: train on TRAIN, evaluate on VAL. TEST/SCORE sealed. Matrix: `ftt_v1` (alias of `tabm_v1` normalize — integer cats + median impute + StandardScaler). FT-Transformer seed 42, early-stopped on VAL PR-AUC (best epoch 25; device cpu in final artifact run).
+Protocol: train on TRAIN, evaluate on VAL. TEST/SCORE sealed. Matrix: `ftt_v1` (alias of `tabm_v1` normalize — integer cats + median impute + StandardScaler). FT-Transformer seed 42, early-stopped on VAL PR-AUC (device: cpu; CUDA unavailable in this run).
 
 ## VAL metrics
 
@@ -20,7 +20,7 @@ Sources: `artifacts/champion.json`, `artifacts/models/catboost_tuned/metrics.jso
 
 **Verdict:** FT-Transformer is a **weak neural challenger**, not a promotion candidate.
 
-- Beats TabM on PR-AUC (0.087 vs 0.056) and MW@10% (0.184 vs 0.114), but still below CatBoost Strong.
+- Beats TabM on PR-AUC (0.087 vs 0.056) and MW@10% (0.184 vs 0.114), but still below CatBoost Strong (0.10) and far from tuned/peak CatBoost.
 - Does not approach CatBoost tuned (0.121) or peak champion (0.144).
 - Calibration / log-loss remains weak (0.768 vs TabM 0.195 / CatBoost ~0.16–0.19).
 - Same qualitative story as TabM/NASNet: neural tabular on this matrix underperforms gradient boosting on native features.

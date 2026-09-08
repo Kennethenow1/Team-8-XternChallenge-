@@ -37,6 +37,7 @@ def ensure_artifact_dirs() -> dict[str, Path]:
         "models": ARTIFACTS_DIR / "models",
         "predictions": ARTIFACTS_DIR / "predictions",
         "metrics": ARTIFACTS_DIR / "metrics",
+        "features": ARTIFACTS_DIR / "features",
         "hpo": ARTIFACTS_DIR / "hpo",
         "calibration": ARTIFACTS_DIR / "calibration",
     }
