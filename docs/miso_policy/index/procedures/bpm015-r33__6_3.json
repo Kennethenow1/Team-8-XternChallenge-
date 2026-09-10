@@ -1,0 +1,57 @@
+{
+  "unit_id": "bpm015-r33::6.3",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.3",
+    "title": "Coordination of studies between PJM and MISO",
+    "pages": [
+      95,
+      96
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp1",
+      "dpp2",
+      "dpp3"
+    ],
+    "milestone": [],
+    "actor": [
+      "miso",
+      "neighboring_rto",
+      "affected_system",
+      "to"
+    ],
+    "topic": [
+      "delay_of_study",
+      "cost_allocation"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "neighboring_rto",
+      "impact": "Neighboring RTO (PJM/SPP/MH): affected-system studies and limits."
+    },
+    {
+      "actor": "affected_system",
+      "impact": "Affected System / neighboring TO: coordination and restudy of impacts."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.3. Coordination of studies between PJM and MISO\nIn accordance with Section 9.3.3 of the MISO-PJM Joint Operating Agreement (“JOA”), MISO\nand PJM shall conduct Interconnection Studies, as necessary, to determine the impacts of IRs on\neach other’s transmission system, which will be treated as an Affected System. This joint\ncoordination of Interconnection Studies will be in addition to the existing Interconnection Studies\nthat MISO and PJM already perform to evaluate the impacts of their respective queues on their\nown transmission system and will be subject to the guidelines laid out in the MISO-PJM JOA.\n\nThe Transmission reinforcement and the study criteria used in the Coordinated Interconnection\nStudies will honor and incorporate provisions as outlined in the PJM and MISO Business Practices\nManuals and their respective Tariffs.\n\nWhen MISO and PJM perform any Coordinated Interconnection Study, the PJM and PJM TO\nstudy and reinforcement criteria will apply to PJM transmission facilities and the MISO and MISO\nTO study and reinforcement criteria will apply to MISO transmission facilities. For all tie lines\nbetween MISO and PJM, the reinforcement criteria and cost allocation rules of the region that\nidentified the constraint criteria violation will be applied.\n\n\nCoordination timing, as prescribed below, shall be based on the current MISO and PJM study\ncycles, and will be adjusted if there are changes to the study cycle timelines in the future.",
+  "cite": "BPM-015 r33 §6.3"
+}

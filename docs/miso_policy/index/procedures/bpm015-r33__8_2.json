@@ -1,0 +1,55 @@
+{
+  "unit_id": "bpm015-r33::8.2",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "8.2",
+    "title": "Scope",
+    "pages": [
+      131,
+      133
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "der_afs"
+    ],
+    "milestone": [],
+    "actor": [
+      "miso",
+      "to",
+      "affected_system",
+      "ferc"
+    ],
+    "topic": [
+      "deliverability"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow",
+      "study_method"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    },
+    {
+      "actor": "affected_system",
+      "impact": "Affected System / neighboring TO: coordination and restudy of impacts."
+    },
+    {
+      "actor": "ferc",
+      "impact": "FERC: GIA filing / unexecuted filing; not a compliance score on this card."
+    }
+  ],
+  "text": "8.2\nScope\nMISO’s DER AFS processes pertain only to DER as defined by this document. This definition\ncovers sources of power while excluding controllable load and energy efficiency, which are\nsometimes considered to be DER in other industry definitions (e.g., the Federal Energy\nRegulatory Commission (FERC)).27 MISO’s DER AFS is intended to evaluate the impacts of\nDER newly proposed for interconnection through the applicable EDC and RERRA process.\nDERs that have a pre-existing interconnection service agreement, according to the applicable\n\n\n27 NOPR, 157 FERC ¶ 61,121 at P 104; see supra Section IV.B. (Definitions of Distributed Energy Resource and Distributed Energy Resource\nAggregation).\n\n\nEDC and RERRA processes, are not intended for inclusion in the impacts evaluation group28\nunder MISO’s DER AFS studies, consistent with the outcome of the Lake Substation example\nincluded in Appendix F. Should a conflict arise between RERRA interconnection timing\nrequirements and MISO’s DER AFS timing requirements within BPM-015, the RERRA\ninterconnection requirements take precedent given the State-jurisdictional nature of DER\ninterconnection.\n\nAccounting for DER interconnection being a RERRA jurisdictional process, MISO’s role in the\nelectric system, and evolving wholesale market rules (e.g., FERC Order 2222), limitations exist\nas to what is addressed through MISO’s DER AFS proposal. MISO seeks to provide clarity on\ntwo key limitations:\n•\nRERRA-jurisdictional matters — DER interconnection is a RERRA jurisdictional\nprocess. MISO understands that RERRAs can be different entities including state\ncommissions, municipal governments, and cooperative boards. Further, RERRAs have\nindependent laws and rulemaking processes over DER interconnection, resulting in\ndifferent available information, processes, and outcomes.\n•\nMarket Participation — MISO’s DER AFS does not confer transmission rights or allow\naccess to wholesale markets without further action on behalf of a DER Customer. DER\nCustomers may access the Energy and Ancillary services markets by registering as a\nMISO Market Participant29 and by enrolling DER assets in market product for which the\nDER is eligible. By contrast, capacity market participation requires the DER customer to\nsecure appropriate transmission rights, which can be done by procuring Network\nResource Interconnection Service (NRIS) through MISO’s Definitive Planning Phase\ngenerator interconnection process30 or by obtaining Firm Transmission Service31.\n\nAt a high level, the scope of this document and MISO’s DER AFS proposals include three\nareas: (1) screening, (2) studies and reports, and (3) facilities studies and network upgrades\n(Figure 0-1). See Section 8.3 for a more detailed process view.\n\n\n28 In this context, the “impacts evaluation group” is intended to represent the DER that impacts would be evaluated and assigned to. However,\nall known DER needs to be included in the screening and analysis assumptions.\n29 See MISO Tariff Module A for Market Participant definition. Available at: https://docs.misoenergy.org/legalcontent/Module_A_-\n_Common_Tariff_Provisions.pdf\n30 See MISO BPM-015 for DPP process. Available at: https://cdn.misoenergy.org/BPM%20015%20-\n%20Generation%20Interconnection49574.zip\n31 MISO, Long Term Transmission Service Requests webpage. Information available at: https://www.misoenergy.org/planning/transmission-\nplanning/long-term-transmission-service-requests/\n\n\nFigure 0-1 High-level overview of MISO’s DER AFS proposal scope",
+  "cite": "BPM-015 r33 §8.2"
+}

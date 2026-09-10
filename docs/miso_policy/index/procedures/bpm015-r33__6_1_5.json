@@ -1,0 +1,53 @@
+{
+  "unit_id": "bpm015-r33::6.1.5",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.1.5",
+    "title": "Customer Funded Optional Study",
+    "pages": [
+      79,
+      79
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp1",
+      "dpp2",
+      "dpp3"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "cost_allocation",
+      "deliverability",
+      "deposit_refund"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "study_method"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.1.5.\nCustomer Funded Optional Study\nAny existing IC can request an optional study, as pursuant to Section 10 of the Attachment X of\nthe MISO Tariff. The purpose of these technical studies is to provide additional information to the\nIC that is normally outside the scope of a typical SIS. MISO initially charges a sixty-thousand-\ndollar ($60,000) study deposit to perform such optional studies and then may request, if\nnecessary, additional funds to complete the study.",
+  "cite": "BPM-015 r33 §6.1.5"
+}

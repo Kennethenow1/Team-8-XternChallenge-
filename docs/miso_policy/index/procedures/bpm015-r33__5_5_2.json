@@ -1,0 +1,50 @@
+{
+  "unit_id": "bpm015-r33::5.5.2",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "5.5.2",
+    "title": "Name Change Required Documents / How to Submit a Request / When the Interconnection Customer Can Submit a Request",
+    "pages": [
+      59,
+      60
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp3",
+      "gia"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "transfer_of_ownership"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "5.5.2 Name Change Required Documents\n1. Name Change Certificate\na. The Interconnection Customer must submit a Name Change Certificate to\ncomplete a Name Change request.\nExamples of a Name Change Certificate can be found in the Transfer of\nOwnership Guide.\n2. Updated W9 Form\na. The Interconnection Customer is required to update their W-9 form to reflect\nthe new entity name (Tax ID should not change).\nb. The correct customer’s name and parent company must be accurately listed.\n\n3. Attachment C NDA\na. The Interconnection Customer must update the Attachment C NDA list in\nonline tool. If the project is older and not available on the online tool,\ncustomers must submit an updated Attachment C NDA list.\nb. A fillable Attachment C NDA document can be found on the MISO public\nwebsite.\n\n5.5.3 How to Submit a Request\nThe Interconnection Customer may submit a transfer of ownership or name change request\nin the MISO application portal.\n\nThe MISO Transfer of Ownership Guide contains images and detailed steps on how to submit\na request.\n\n5.5.4 When the Interconnection Customer Can Submit a Request",
+  "cite": "BPM-015 r33 §5.5.2"
+}

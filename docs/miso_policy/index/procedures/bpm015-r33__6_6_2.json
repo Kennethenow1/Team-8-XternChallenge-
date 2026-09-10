@@ -1,0 +1,42 @@
+{
+  "unit_id": "bpm015-r33::6.6.2",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.6.2",
+    "title": "Eligibility and Timing of Studies / Annual ERIS Evaluation",
+    "pages": [
+      112,
+      113
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [],
+    "milestone": [],
+    "actor": [
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "deliverability"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.6.2.\nEligibility and Timing of Studies\nThe Annual ERIS and Annual Interim Deliverability study for the next Planning Year will be\ncompleted by October 31st of every calendar year with results posted on the MISO Extranet and\ndocumented in the MISO Interconnection Service Workbook.\n\nThe Annual ERIS and Annual Interim Deliverability Analysis for the next Planning Year will include\nonly those projects with Generator Interconnection Agreements that have been executed by April\n15th of the study calendar year. In addition, all generators that are subject to the Annual studies\nmust be online during the Planning Year being analyzed.  MISO will notify those eligible projects\nat the beginning of the study process.\n\n6.6.3.\nAnnual ERIS Evaluation\n\n\nThe maximum amount of injection available for the studies generator will be identified for the next\nPlanning Year.",
+  "cite": "BPM-015 r33 §6.6.2"
+}

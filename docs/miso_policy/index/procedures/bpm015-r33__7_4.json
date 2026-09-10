@@ -1,0 +1,53 @@
+{
+  "unit_id": "bpm015-r33::7.4",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "7.4",
+    "title": "Testing / Registration of Asset with MISO / Inclusion in Network Model",
+    "pages": [
+      129,
+      129
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "post_gia",
+      "gia"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "gia_negotiation",
+      "commercial_operation"
+    ],
+    "risk_code": [
+      "gia_execution"
+    ],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "7.4. Testing\nThe IC or the designated MP will notify MISO with a test plan in advance of conducting the tests\nfor the Generating unit(s). The notification should be provided by completing the Pre-commercial\nGeneration Test Notification form located in Appendix D of this BPM and submitting it to MISO\nReal Time Operations at least five (5) Business Days prior to the first testing date. The MISO\nOperations will work with the Asset Owner/MP and approve a schedule to conduct the tests. The\ntesting process will also be coordinated with Transmission Operators.\n\n7.5. Registration of Asset with MISO\nThe Market Registration BPM describes the details of Asset Registration.\n\n7.6. Inclusion in Network Model\nThe Network and Commercial Model BPM describes the steps required to submit the information\nto include a generator in Network Model.",
+  "cite": "BPM-015 r33 §7.4"
+}

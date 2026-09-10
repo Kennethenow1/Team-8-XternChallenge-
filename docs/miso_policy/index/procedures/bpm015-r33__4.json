@@ -1,0 +1,47 @@
+{
+  "unit_id": "bpm015-r33::4",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "4",
+    "title": "Application Review Phase",
+    "pages": [
+      25,
+      26
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "application_review"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "4.\nApplication Review Phase\nAn IC or an MHVDC Connection Customer wishing to join the next Definitive Planning Phase\nshall submit their IR to the Transmission Provider no later than the application deadline, which\nwill be at least ninety (90) Calendar Days prior to the scheduled start of the next Definitive\nPlanning Phase cycle, published on the MISO public website. ICs must initiate IRs through the\nonline application tool. ICs must establish a profile on the MISO website prior to requesting\naccess to the online application tool via the MISO Generator Interconnection page. The online\napplication tool, instructions for establishing a profile, and an IC training module may be\naccessed through MISO’s website at: https://www.misoenergy.org/planning/generator-\ninterconnection/. The online application tool contains all data required by Tariff Attachment X,\nAppendix 1 and enables ICs to submit data to MISO in the form of Appendix 1. MISO will only\naccept IRs completed using the online application tool. In the event that MISO experiences an\noutage or other technical difficulty that prevents Interconnection Customers from completing and\nsubmitting IRs, MISO will communicate an alternative method for affected Interconnection\nCustomers to submit their IR. MHVDC Connection Customers shall follow the process for\nsubmitting an MHVDC Transmission Connection Request specified in Appendix GGG to the\nTariff instead of the online application tool described in this section.\n\nThe Application Review Phase, as depicted in Figure 4-1, will include preliminary work required\nbefore a study can begin. During information review, MISO will communicate with the IC to\nverify the information provided in the application and clarify any ambiguity. Upon receiving a\nnew IR, MISO will send an acknowledgement to the IC of receiving the request within five (5)\nBusiness Days. An IR will not be accepted until all of the required sections are completed in the\napplication. MISO will inform the IC that an IR is valid or explain deficiencies within fifteen (15)\nBusiness Days of receiving application. If the IR is deficient the IC must provide any additional\ninformation requested to constitute a valid request no later than ten (10) Business Days after the\nMISO notice of deficiency is made. Proposed modifications to a submitted IR may be requested\nby ICs in writing as described in Attachment X, Section 4.4 et. seq. Upon approval of a\nproposed IC-requested modification, or if MISO identifies a modification required to correct a\ndeficiency or otherwise comply with the Tariff, MISO shall provide the IC with instructions for\nupdating its Interconnection Request to reflect the approved modification using the online\napplication tool. Within ten (10) Business Days after notifying IC that an IR is valid, or an\napplication modification is made, MISO will provide a summary of the request to the IC and\nlikely affected TOs. Affected TOs may also access IC request summaries through the online\napplication tool via MISO’s Generator Interconnection page along with a TO training module at\nthe following link at: https://www.misoenergy.org/planning/generator-interconnection/. TOs must\nhave a profile on the MISO website prior to requesting access to the online application tool via\nthe MISO Generator Interconnection page.\n\n\nFigure 0-4 Overview of Application Review Phase",
+  "cite": "BPM-015 r33 §4"
+}

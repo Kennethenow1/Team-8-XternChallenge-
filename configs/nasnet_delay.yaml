@@ -1,0 +1,45 @@
+# NASNetLarge tabular-to-image DELAY experiment (TRAIN/VAL only; TEST/SCORE sealed)
+#
+# Linear Huber head. Full budget — never a 2-epoch smoke.
+experiment_status: open
+
+seed: 42
+seeds: [42, 123, 2026]
+
+paths:
+  artifacts_dir: artifacts/nasnet_delay
+  reports_dir: reports/models/nasnet_delay
+
+preprocess:
+  numeric_low_pct: 0.5
+  numeric_high_pct: 99.5
+  z_clip: 5.0
+
+image:
+  target_size: 331
+  channels: 3
+  resize_method: nearest
+
+training:
+  batch_size: 8
+  batch_size_candidates: [8, 4, 2]
+  skip_batch_probe: false
+  frozen_epochs: 100
+  finetune_epochs: 20
+  learning_rate: 1.0e-4
+  finetune_learning_rate: 1.0e-6
+  early_stopping_patience: 8
+  reduce_lr_patience: 3
+  reduce_lr_factor: 0.5
+  min_lr: 1.0e-7
+  l2: 1.0e-4
+  dense_256: 256
+  dense_64: 64
+  dropout_1: 0.50
+  dropout_2: 0.30
+  do_finetune: true
+  shuffle_buffer: 4096
+  label_shuffle_epochs: 5
+  require_gpu: true
+  prefetch: 4
+  fit_verbose: 2

@@ -1,0 +1,33 @@
+{
+  "unit_id": "bpm015-r33::6.7",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.7",
+    "title": "Modification of Existing Generating Facilities",
+    "pages": [
+      115,
+      115
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [],
+    "milestone": [],
+    "actor": [],
+    "topic": [],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    }
+  ],
+  "text": "6.7. Modification of Existing Generating Facilities",
+  "cite": "BPM-015 r33 §6.7"
+}

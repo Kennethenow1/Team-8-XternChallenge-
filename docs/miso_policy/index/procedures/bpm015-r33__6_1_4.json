@@ -1,0 +1,53 @@
+{
+  "unit_id": "bpm015-r33::6.1.4",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.1.4",
+    "title": "Storage Charging from the Grid",
+    "pages": [
+      78,
+      79
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp1",
+      "dpp2",
+      "dpp3"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "cost_allocation",
+      "deliverability",
+      "gia_negotiation"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "study_method"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.1.4.  Storage Charging from the Grid\n\n\nIf a storage interconnection application indicates that it will charge from the grid, it will be modeled\nat its default maximum charging capability in the DPP Shoulder Peak charging case as shown in\nTable 6.1. For system constraints that appear only in the DPP Shoulder Peak charging case,\nlimiting the battery charging rate(s) is an acceptable mitigation option. Any lower charging limit\nidentified would be documented in the GIA as a control scheme requirement.\n\nGIA-enforced charging limits may be evaluated for modification or removal following the\ngeneration interconnection process by re-entry into a subsequent interconnection queue cycle,\nprocurement of long-term Transmission Service to serve the desired amount of charging load, or\nby working with the relevant Transmission Owner and/or Load-Serving Entity for study and\nsubmittal into MISO’s annual MTEP process.",
+  "cite": "BPM-015 r33 §6.1.4"
+}

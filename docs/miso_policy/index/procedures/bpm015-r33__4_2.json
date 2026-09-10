@@ -1,0 +1,46 @@
+{
+  "unit_id": "bpm015-r33::4.2",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "4.2",
+    "title": "Initial Screening",
+    "pages": [
+      26,
+      27
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "application_review"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso"
+    ],
+    "topic": [
+      "commercial_operation"
+    ],
+    "risk_code": [
+      "cod_already_slipped"
+    ],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    }
+  ],
+  "text": "4.2\nInitial Screening\nAll IRs will go through a set of screenings before they can enter the DPP, or other planning\nprocesses defined in the GIP. This screening will include verifying the application submitted has\nthe required date information, technical information, met the necessary Milestones, and study\n\n\ndeposits, etc. For IRs submitted for entry into the DPP all original Commercial Operation Dates\nshall be no more than five (5) years beyond the MISO Transmission Expansion Planning (MTEP)\nmodel year in effect for the active Queue cycle. The original Commercial Operation Date and\noriginal In-Service Date set forth in the verified IR upon entering the DPP shall be considered as\nthe dates in the original IR for the purpose of applying requirements in Tariff Attachment X, Section\n4.4.4.",
+  "cite": "BPM-015 r33 §4.2"
+}

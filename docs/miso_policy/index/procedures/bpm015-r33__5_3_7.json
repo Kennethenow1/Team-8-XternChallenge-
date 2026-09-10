@@ -1,0 +1,49 @@
+{
+  "unit_id": "bpm015-r33::5.3.7",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "5.3.7",
+    "title": "Simulation Tests for Battery Energy Storage System Grid-Forming",
+    "pages": [
+      52,
+      54
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp2"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "decision_point"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "5.3.7 Simulation Tests for Battery Energy Storage System Grid-Forming\nControls\n\nBy the start of Decision Point 2, the IC shall submit PSCAD simulation test results for the battery\nenergy storage system (BESS) grid forming control (GFM) test procedures outlined in Appendix\nH. MISO will review test results and supporting documentation and may request additional\ninformation during Decision Point 2 if conformity with GFM BESS requirements is not clearly\ndemonstrated. The test results shall be included as part of the DPP III SIS.\n\n\nThe testing requirements apply to BESS systems with a unique POI (e.g., not applicable to hybrid\nplants) and will be applied starting with DPP 2023. PSCAD models shall conform with PSCAD\nModel Requirements Supplier Checklist in Section 5.2.3.1 of BPM-015. PSCAD Version 5 shall\nbe used.\n\nTo facilitate MISO’s review of the GFM BESS capabilities, the Interconnection Customer shall\nsubmit information outlined in PSCAD Requirements, Attachment 1, including:\n•\nA completed test procedure check list using the MISO-provided template.\n•\nSimulation test result plots (voltage and reactive power; frequency and active power) for\neach test in the MISO-provided template.\n•\nThe PSCAD test set-ups (e.g., .pscx files, library files) with OEM model included and\nparametrization as configured during tests.\n•\nModel documentation for both inverter and power plant control describing functionality and\noperation of resource and model.8\n\nAs demonstrated by the test results, GFM BESS shall provide autonomous, near-instantaneous\nfrequency and voltage support by maintaining a nearly constant internal voltage phasor in the\nsub-transient time frame, within the inverter’s current limits and the resource’s energy limitations.9\nThe voltage phasor of a GFM BESS shall be controlled to maintain synchronism with other\ngeneration and electric storage resources on the power system.\n\nGFM IBR shall be exempt from the following IEEE 2800-2022 subclauses: 4.7 (prioritization of\nIBR responses), 7.2.2.3.4 (current injection during voltage ride-through mode), and 7.2.2.3.5\n(performance specifications).\n\nIn the case of the permissive operation region mentioned in IEEE 2800-2022 subclauses 7.2.2.1\n(general requirements and exceptions, voltage disturbance ride-through), 7.2.2.3.3 (low and high-\nvoltage ride-through performance), and 7.3.2.1 (general requirements and exceptions, frequency\ndisturbance ride-through), the GFM IBR shall only implement current blocking for the purpose of\nequipment protection.1 Otherwise, the IBR GFM shall operate as if it were in the mandatory\noperation region.\n\nGFM IBR shall be exempt from only Table 13 (voltage ride-through performance requirements),\nand associated normative language, within subclause 7.2.2.3.2 (low-and high-voltage ride-\nthrough capability). Further, the GFM shall not alter voltage source characteristics to meet\nreactive current priority mode requirements within subclause 7.2.2.3.2 and is exempted from this\nsubclause should that be the implication of conformity.2\n\n\nFor IEEE 2800-2022 subclause 7.2.2.6, for requirements applicable upon the applicable voltage\nreturning to the continuous operating region after IBR performing ride-through, the GFM active\npower recover shall occur immediately with the rate of recovery not control-constrained by a\ndefault active power recovery rate of 1 second.3",
+  "cite": "BPM-015 r33 §5.3.7"
+}

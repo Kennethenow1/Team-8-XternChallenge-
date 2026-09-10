@@ -1,0 +1,5 @@
+{
+  "model": "tabpfn",
+  "status": "skipped",
+  "reason": "TABPFN_TOKEN not set. Add TABPFN_TOKEN=... to repo-root .env (or export TABPFN_TOKEN=...), then re-run."
+}

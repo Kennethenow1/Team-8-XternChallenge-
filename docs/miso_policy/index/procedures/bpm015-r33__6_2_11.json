@@ -1,0 +1,66 @@
+{
+  "unit_id": "bpm015-r33::6.2.11",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.2.11",
+    "title": "Refunds of Definitive Planning Phase Milestones (M2, M3, M4)",
+    "pages": [
+      92,
+      95
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp1",
+      "dpp2",
+      "dpp3"
+    ],
+    "milestone": [
+      "M2",
+      "M3",
+      "M4"
+    ],
+    "actor": [
+      "ic",
+      "miso",
+      "to",
+      "affected_system"
+    ],
+    "topic": [
+      "withdrawal",
+      "deposit_refund",
+      "decision_point",
+      "cost_allocation"
+    ],
+    "risk_code": [
+      "abandonment"
+    ],
+    "claim_class": [
+      "deposit_rule",
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    },
+    {
+      "actor": "affected_system",
+      "impact": "Affected System / neighboring TO: coordination and restudy of impacts."
+    }
+  ],
+  "text": "6.2.11.   Refunds of Definitive Planning Phase Milestones (M2, M3, M4)\n\nRefunds of Definitive Planning Phase Milestones (M2, M3, M4) – for the Interconnection\nRequests for which the application deadline to enter the Definitive Planning Phase is on\nor after January 22, 2024\n\nICs are eligible to receive forty percent (40%) refund of the DPP Entry Milestone (M2) only when\nthe IR is withdrawn or deemed withdrawn prior to the end of IC Decision Point I. If the IR is\nwithdrawn any time after the IC Decision Point I, then the DPP Entry Milestone (M2) becomes\none hundred percent (100%) at risk and will be used to fund Study Cost and Network Upgrades\npursuant to Section 7.8 and 7.6.2.1.1 of Attachment X of the GIP.\n\nICs are eligible to receive one hundred percent (100%) refund of the DPP II Milestone (M3) only\nwhen the IR is withdrawn or deemed withdrawn before the end of IC Decision Point II. If the IR is\nwithdrawn any time after the ID Decision Point II, then the DPP II Milestone (M3) becomes at risk\nand will be used to fund Network Upgrades pursuant to Section 7.8 of Attachment X of the GIP.\n\nICs are not eligible to receive any portion of the DPP II Milestone (M4) if the IC decides to withdraw\nits IR any time after entering the DPP III. The DPP II Milestone (M4) will be used to fund Network\nUpgrades pursuant to Section 7.8 of Attachment X of the GIP.\n\n\nMilestone payments will be refunded in the event the IC withdraws because the total Network\nUpgrade cost estimates in the DPP Phase II SIS increased by more than fifty percent (50%) and\nmore than ten thousand dollars ($10,000) per MW over the DPP Phase I SIS as a result of MISO,\nAffected System or TO error.\n\nMilestone payments will be refunded in the event the IC withdraws because the total Network\nUpgrade cost estimates in the DPP Phase III SIS increased by more than thirty-five percent (35%)\nand more than ten thousand dollars ($10,000) per MW over the DPP Phase II SIS as a result of\nMISO, Affected System or TO error.\n\nFor the purposes of Automatic Withdrawal Penalty, an error is any of the following confirmed\nthrough documented correspondence with MISO staff before the final study report is posted, for\nthe phase in which the error was introduced:\n\n•\nIncorrect representation of topology in the MISO footprint\n•\nIncorrect representation of an Interconnection Request in the MISO footprint (or)\n•\nIncorrect implementation of generation dispatch\n\nThe error must also have gone uncorrected and caused an increase to the project’s Network\nUpgrade cost.\n\nThe error is only relevant for withdrawn Interconnection Requests.\n\nMilestone payments less any Automatic Withdrawal Penalty amounts applied pursuant to Section\n7.6.2.1.1 of the Attachment X, will also be refunded in the event the IC withdraws and the total\nNetwork Upgrade cost estimates in the Facilities Study increased by more than thirty-five percent\n(35%) and more than ten thousand dollars ($10,000) per MW over the Network Upgrade cost\nestimates in the DPP Phase III Interconnection SIS.\n\nMilestone payments less any Automatic Withdrawal Penalty amounts applied pursuant to\nSection 7.6.2.1.1 of the Attachment X, will also be refunded in the event the IC withdraws within\nthe later of five (5) Business Days or at the end of an IC Decision Point, if applicable, of results\nindicating designated increases in estimated upgrade costs across the following intervals:\n1. DPP Phase I to DPP Phase II\na. An increase in the combined MISO Network Upgrade costs from Phase I to\nPhase II of at least fifty percent (50%) and more than ten thousand dollars\n($10,000) per MW from the preliminary SIS to the Revised SIS; or\n2. DPP Phase II to DPP Phase III\n\n\na. An increase in combined MISO Network Upgrade and Affected Systems costs\nfrom Phase II to Phase III of at least thirty-five percent (35%) and more than\nfifteen thousand dollars ($15,000) per MW from the Revised SIS to any Final\nSIS.\nRefunds of Definitive Planning Phase Milestones (M2, M3, M4) – for the Interconnection\nRequests for which the application deadline to enter the Definitive Planning Phase is\nbefore January 22, 2024\n\nICs are eligible to receive fifty percent (50%) refund of the DPP Entry Milestone (M2) only when\nthe IR is withdrawn or deemed withdrawn prior to the end of IC Decision Point I. If the IR is\nwithdrawn any time after the IC Decision Point I, then the DPP Entry Milestone (M2) becomes\none hundred percent (100%) at risk and will be used to fund Study Cost pursuant to Section 7.8\nof Attachment X of the GIP.\n\nICs are eligible to receive one hundred percent (100%) refund of the DPP II Milestone (M3) only\nwhen the IR is withdrawn or deemed withdrawn before the end of IC Decision Point II. If the IR is\nwithdrawn any time after the ID Decision Point II, then the DPP II Milestone (M3) becomes at risk\nand will be used to fund Network Upgrades pursuant to Section 7.8 of Attachment X of the GIP.\n\nICs are not eligible to receive any portion of the DPP II Milestone (M4) if the IC decides to withdraw\nits IR any time after entering the DPP III. The DPP II Milestone (M4) will be used to fund Network\nUpgrades pursuant to Section 7.8 of Attachment X of the GIP.\n\nMilestone payments will be refunded in the event the IC withdraws because the total Network\nUpgrade cost estimates in the DPP Phase III SIS increased by more than twenty five percent\n(25%) and more than ten thousand dollars ($10,000) per MW over the DPP Phase II SIS as a\nresult of MISO, Affected System or TO error.\n\nMilestone payments will also be refunded in the event the IC withdraws and the total Network\nUpgrade cost estimates in the Facilities Study increased by more than twenty five percent (25%)\nand more than ten thousand dollars ($10,000) per MW over the Network Upgrade cost estimates\nin the DPP Phase III Interconnection SIS.\n\nMilestone payments will also be refunded in the event the IC withdraws within the later of five\n(5) Business Days or at the end of an IC Decision Point, if applicable, of results indicating\ndesignated increases in estimated upgrade costs across the following intervals:\n1. DPP Phase I to DPP Phase II\n\n\na. An increase in the MISO Network Upgrade costs from Phase I to Phase II of at\nleast fifty percent (50%) and more than ten thousand dollars ($10,000) per MW\nfrom the preliminary SIS to the Revised SIS;\n\nb. Affected System upgrade costs on transmission systems other than the MISO\nTransmission System of more than ten thousand dollars ($10,000) per MW.\n\n2. DPP Phase II to DPP Phase III\na. An increase in MISO Network Upgrade costs from Phase II to Phase III of at\nleast thirty-five percent (35%) and more than fifteen thousand dollars ($15,000)\nper MW from the Revised SIS to any Final SIS;\n\nb. An increase in Affected System upgrade costs on transmission systems other\nthan the MISO Transmission System of forty percent (40%) and more than\nfifteen thousand dollars ($15,000) per MW\n\n\n          3. DPP Phase I to DPP Phase III\n\n                      a. An increase in MISO Network Upgrade costs of fifty percent (50%) and more\n                            than twenty thousand dollars ($20,000) per MW from the Preliminary SIS to\n                            any DPP Phase III SIS.",
+  "cite": "BPM-015 r33 §6.2.11"
+}

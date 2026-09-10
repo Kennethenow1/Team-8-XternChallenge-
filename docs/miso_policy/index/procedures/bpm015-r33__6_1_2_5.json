@@ -1,0 +1,52 @@
+{
+  "unit_id": "bpm015-r33::6.1.2.5",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.1.2.5",
+    "title": "Mitigation Used to Resolve Stability Constraints",
+    "pages": [
+      78,
+      78
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp1",
+      "dpp2",
+      "dpp3"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "cost_allocation",
+      "deliverability"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "study_method"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.1.2.5.\nMitigation Used to Resolve Stability Constraints\nMISO will coordinate and seek feedback from the ad-hoc group to identify and implement\nappropriate mitigation recommendations, for observed criteria violation in 0. This mitigation may\ninclude, but not limited to, the transmission reinforcement, faster breakers, new breakers,\nadditional static or dynamic reactive support, an operating guide or RAS in accordance with local\nplanning criteria depending on the type of disturbance causing the constraint.",
+  "cite": "BPM-015 r33 §6.1.2.5"
+}

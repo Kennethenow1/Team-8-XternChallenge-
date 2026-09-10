@@ -1,0 +1,5 @@
+{
+  "model": "tabpfn",
+  "status": "skipped",
+  "reason": "TabPFN license/token required (set TABPFN_TOKEN); skipped"
+}

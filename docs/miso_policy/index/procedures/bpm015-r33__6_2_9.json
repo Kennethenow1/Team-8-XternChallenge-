@@ -1,0 +1,61 @@
+{
+  "unit_id": "bpm015-r33::6.2.9",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.2.9",
+    "title": "Provisional Generator Interconnection Agreement",
+    "pages": [
+      86,
+      87
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "gia"
+    ],
+    "milestone": [
+      "M1",
+      "M2",
+      "M3",
+      "M4",
+      "D1",
+      "D2"
+    ],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "gia_negotiation",
+      "decision_point",
+      "delay_of_study",
+      "cost_allocation"
+    ],
+    "risk_code": [
+      "gia_execution"
+    ],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.2.9.\nProvisional Generator Interconnection Agreement\nIC can request a PGIA for a project for a limited operation of the plant at any time through IC\nDecision Point II, or if the schedule becomes delayed by more than sixty (60) Calendar Days\nbetween Decision Point II and the end of the Facilities Studies. An IC must meet all of the following\nconditions before a PGIA will be offered:\ni.\nAll planning studies identifying system impacts and mitigations have been completed\nin accordance with NERC and applicable regional reliability criteria through a\nProvisional Interconnection Study\nii.\nProject has met all Milestones in the process (i.e., D1, D2, M1, M2, M3, and M4. The\nM3 and M4 deposits will be eight thousand dollars ($8,000) per MW of the IR if not\nalready calculated)\niii.\nFacility Study has been completed for the required Interconnection Facilities for the\nproject or if there are existing Interconnection Facilities that can be used for the project\nwithout any modifications.\niv.\nIC agrees to install equipment or protective devices that would disconnect the\nGenerating Facility in the event the output of the Generating Facility exceeds the\noperational limit described in the PGIA.\nv.\nIC agrees to assume all risks and liability associated with the changes in the\nInterconnection Agreement including but not limited to the change in output limit and\nadditional costs for Network Upgrades\n\n\nUnder the PGIA, the maximum permissible output of the Generating Facility will be determined\nbased on the incremental transfer capability available at the POI to the MISO footprint. Such limit\nwill be identified on the Base Cases used for Available Flowgate Capacity (AFC) calculations\nunder Attachment C of the MISO OATT. Analysis to identify the operational limit for provisional\nGIA will be performed after IC meets all process Milestones for the project. The operational limit\nfor the Generating Facility under provisional GIA will be reviewed and updated as required on a\nplanning year quarterly basis.",
+  "cite": "BPM-015 r33 §6.2.9"
+}

@@ -1,0 +1,59 @@
+{
+  "unit_id": "bpm015-r33::6.1.1.3",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.1.1.3",
+    "title": "Power Factor Requirement and Low Voltage Ride Through",
+    "pages": [
+      76,
+      76
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp1",
+      "dpp2",
+      "dpp3"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to",
+      "ferc"
+    ],
+    "topic": [
+      "cost_allocation",
+      "deliverability",
+      "delay_of_study",
+      "gia_negotiation"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "study_method"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    },
+    {
+      "actor": "ferc",
+      "impact": "FERC: GIA filing / unexecuted filing; not a compliance score on this card."
+    }
+  ],
+  "text": "6.1.1.3.\nPower Factor Requirement and Low Voltage Ride Through\nAnalysis for Wind Generation Plants\nPF and Low Voltage Ride Through (LVRT) analysis will be performed to determine the\nrequirements for a new Wind Generation Plant according to FERC Orders 661/661-A, FERC\nOrder 827, and Appendix G of the pro forma GIA. MISO will use the following methodology in\ndetermining the final requirements as determined during the SIS.\ni.\nTo determine the PF requirements for a Wind Generation Plant, MISO will model each\nWind Generation Plant under study at unity PF at the POI (no reactive capability). If\nvoltage criteria violations at the POI exist, then MISO will enforce the criteria laid out\nin FERC Orders 661/661-A, thereby modeling the plant at the more stringent of 0.95\nleading and lagging PF capability at the POI or the TOs’ interconnection guidelines PF\nrequirements. Should no voltage criteria violations exist, MISO will model the inherent\ncapability of the Turbines at the POI using the best available IC supplied data, and\nproceed with the studies.\nii.\nFor a new Generating Facility, MISO will request the IC to demonstrate compliance\nwith the FERC Order 827 requirement. The associated modeling will be applied in the\nstudy model.\niii.\nA Wind Generation Plant must be able to remain online during select system\ndisturbances. To test the LVRT capability of a Wind Generation Plant, MISO will\nevaluate the plants’ performance for the following faults:\na. Three phase faults with normal clearing\nb. Single Line to Ground faults with delayed clearing\n\nIf violations are found, the IC will be required to submit updated LVRT settings to ensure that the\nLVRT threshold is maintained at the POI. The Wind Generating Plant will be required to remain\nonline for the specified time intervals.",
+  "cite": "BPM-015 r33 §6.1.1.3"
+}

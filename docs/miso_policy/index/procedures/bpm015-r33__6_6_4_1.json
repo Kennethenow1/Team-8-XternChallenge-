@@ -1,0 +1,38 @@
+{
+  "unit_id": "bpm015-r33::6.6.4.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.6.4.1",
+    "title": "Methodology",
+    "pages": [
+      114,
+      114
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [],
+    "milestone": [],
+    "actor": [
+      "miso"
+    ],
+    "topic": [
+      "deliverability",
+      "gia_negotiation"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    }
+  ],
+  "text": "6.6.4.1.\nMethodology\nThe Interim Deliverability Study will follow the MISO deliverability methodology as documented in\nAppendix C of this BPM.\n\nThe Interim Deliverability Analysis will be performed on the Summer Peak Case used for the\nAnnual ERIS evaluation analysis.  A constraint should not be considered as a limit if the LODF\n(Line Outage Distribution Factor) between the overloaded element and the unfinished contingent\nfacility from the project’s GIA is less than 20%.  This LODF screening does not apply if the\noverloaded element in this analysis, or the unfinished contingent facility, is directly connected at\nthe generator’s POI.",
+  "cite": "BPM-015 r33 §6.6.4.1"
+}

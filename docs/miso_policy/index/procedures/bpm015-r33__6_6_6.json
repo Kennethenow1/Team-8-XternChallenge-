@@ -1,0 +1,37 @@
+{
+  "unit_id": "bpm015-r33::6.6.6",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.6.6",
+    "title": "Annual ERIS Studies and QOL Coordination",
+    "pages": [
+      114,
+      115
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [],
+    "milestone": [],
+    "actor": [
+      "to"
+    ],
+    "topic": [
+      "deliverability"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.6.6.\nAnnual ERIS Studies and QOL Coordination\nThe amount of ERIS injection that clears the Annual ERIS evaluation for the next Planning Year\nwill not be subject to the Quarterly Operating Limits (QOL) studies for all 4 quarters of that year.\n\n\nAny ERIS injection that does not clear the Annual ERIS evaluation for the next Planning Year will\nbe included in the QOL studies for all 4 quarters of that year. The customer may choose not to be\nincluded in the QOL studies if they wish to be limited by the Annual ERIS evaluation results for all\n4 quarters of that year.",
+  "cite": "BPM-015 r33 §6.6.6"
+}

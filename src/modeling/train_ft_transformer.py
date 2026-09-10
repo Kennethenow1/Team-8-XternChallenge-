@@ -126,7 +126,12 @@ def fit_ft_transformer_eval(
 
     x_num_tr, x_cat_tr = _split_xy(X_tr, cat_cols, num_cols)
     x_num_va, x_cat_va = _split_xy(X_va, cat_cols, num_cols)
+    if x_num_tr is not None:
+        x_num_tr = np.array(x_num_tr, copy=True)
+        x_num_va = np.array(x_num_va, copy=True)
     if x_cat_tr is not None and x_cat_va is not None:
+        x_cat_tr = np.array(x_cat_tr, copy=True)
+        x_cat_va = np.array(x_cat_va, copy=True)
         for i, card in enumerate(cat_cardinalities):
             hi = max(card - 1, 0)
             x_cat_tr[:, i] = np.clip(x_cat_tr[:, i], 0, hi)
@@ -145,7 +150,11 @@ def fit_ft_transformer_eval(
         try:
             device = torch.device("cuda")
             torch.cuda.manual_seed_all(seed)
-        except Exception:
+            torch.cuda.empty_cache()
+            # Fail fast if the card is already full (e.g. TF still attached).
+            torch.zeros(1, device=device)
+        except Exception as e:  # noqa: BLE001
+            print(f"[ftt] CUDA unusable ({type(e).__name__}: {e}); falling back to CPU", flush=True)
             device = torch.device("cpu")
 
     model = FTTransformer(
@@ -219,6 +228,9 @@ def fit_ft_transformer_eval(
     for epoch in range(int(cfg["max_epochs"])):
         model.train()
         order = np.random.permutation(train_size)
+        train_loss_sum = 0.0
+        train_correct = 0.0
+        train_n = 0
         for start in range(0, train_size, batch_size):
             idx = order[start : start + batch_size]
             xn, xc, yt = _batch_tensors(idx)
@@ -230,9 +242,19 @@ def fit_ft_transformer_eval(
             if clip is not None:
                 torch.nn.utils.clip_grad_norm_(model.parameters(), float(clip))
             optimizer.step()
+            bs = int(yt.shape[0])
+            train_loss_sum += float(loss.item()) * bs
+            train_n += bs
+            with torch.no_grad():
+                pred = (torch.sigmoid(logits) >= 0.5).float()
+                train_correct += float((pred == yt).sum().item())
+
+        train_loss = train_loss_sum / max(train_n, 1)
+        train_acc = train_correct / max(train_n, 1)
 
         val_prob = _predict(x_num_va, x_cat_va)
         val_pr = _average_precision_np(y_va_np.astype(int), val_prob)
+        val_acc = float(((val_prob >= 0.5) == (y_va_np >= 0.5)).mean())
         # also track val BCE for logging
         with torch.inference_mode():
             vn = (
@@ -247,7 +269,17 @@ def fit_ft_transformer_eval(
             )
             vt = torch.as_tensor(y_va_np, device=device, dtype=torch.float32)
             vloss = float(loss_fn(model(vn, vc), vt).item())
-        history.append({"epoch": float(epoch), "val_pr_auc": float(val_pr), "val_loss": vloss})
+        history.append(
+            {
+                "step": float(epoch),
+                "epoch": float(epoch),
+                "train_loss": float(train_loss),
+                "train_acc": float(train_acc),
+                "val_loss": float(vloss),
+                "val_acc": float(val_acc),
+                "val_pr_auc": float(val_pr),
+            }
+        )
 
         improved = np.isfinite(val_pr) and val_pr > best_val_pr + 1e-6
         if improved or best_epoch < 0:
@@ -280,6 +312,7 @@ def fit_ft_transformer_eval(
             "n_features": int(X_tr.shape[1]),
             "backend": "ft_transformer",
             "device": str(device),
+            "history": history,
         }
     )
     hyperparams = {
@@ -319,6 +352,7 @@ def fit_ft_transformer_eval(
     else:
         metrics["_proba"] = proba
         metrics["_params"] = hyperparams
+        metrics["_history"] = history
     return metrics
 
 

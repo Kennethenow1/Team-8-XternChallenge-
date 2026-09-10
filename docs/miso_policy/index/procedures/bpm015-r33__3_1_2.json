@@ -1,0 +1,49 @@
+{
+  "unit_id": "bpm015-r33::3.1.2",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "3.1.2",
+    "title": "Ongoing Efforts",
+    "pages": [
+      22,
+      22
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "pre_queue"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "scoping"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "3.1.2\nOngoing Efforts\nMISO will continue to review the process and business practices for potential improvements on\nan ongoing basis. To address the transmission limitations in highly constrained areas, MISO will\ncoordinate the upgrades to the transmission system to accommodate the queued requests. MISO\nwill continue to coordinate the Generator Interconnection process with the other planning activities\noutside the queue to provide the IC with more cost-efficient and timely solutions to their IR.",
+  "cite": "BPM-015 r33 §3.1.2"
+}

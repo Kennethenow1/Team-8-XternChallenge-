@@ -1,0 +1,58 @@
+{
+  "unit_id": "bpm015-r33::4.2.4.2",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "4.2.4.2",
+    "title": "External NR Interconnection Service Study",
+    "pages": [
+      30,
+      31
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "application_review"
+    ],
+    "milestone": [
+      "M2",
+      "D1",
+      "D2"
+    ],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "deposit_refund",
+      "deliverability",
+      "gia_negotiation"
+    ],
+    "risk_code": [
+      "cost_pressure"
+    ],
+    "claim_class": [
+      "deposit_rule",
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "4.2.4.2.\nExternal NR Interconnection Service Study\nThe study funding deposit for an IR to determine availability of NRIS for a Generating Facility\nexternal to MISO shall be the same as for a new IR, per Section 3.3 of the GIP. The (D1)\nApplication Fee and (D2) DPP Study Funding deposit is also required at the time of application\nfor an External NRIS study request. The (M2) DPP Entry Milestone deposit is required as well, in\nthe form of eight thousand dollars  ($8,000) per MW, and it must be received no later than the\napplication deadline published on the Transmission Provider website. To be eligible for study, a\nGenerating Facility must meet at least one of the following criteria:\n\n\ni.\nIn-service\nii.\nUnder Construction\nMust have an Interconnection Agreement with the Transmission Provider to which it directly\nphysically connects.\n\nDeliverability study for External Resources will be processed in the same manner as for any other\nGenerating Facility that has existing injection rights and is requesting NRIS on the MISO system.\n\nUpon receiving a valid application, MISO will place the request in the next applicable DPP cycle\nand evaluate it for deliverability service only. No additional analysis will be performed.\n\nGenerating Facilities that are granted a Service Agreement for External NRIS will be required to\nprocure Transmission Service to the MISO border in order to validate the External NRIS request.",
+  "cite": "BPM-015 r33 §4.2.4.2"
+}

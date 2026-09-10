@@ -1,0 +1,49 @@
+{
+  "unit_id": "bpm015-r33::5.2",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "5.2",
+    "title": "Definitive Planning Phase I",
+    "pages": [
+      47,
+      48
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp1"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "decision_point"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "5.2. Definitive Planning Phase I\nThe DPP I will start on a defined, periodic basis. Phase I of the DPP is designed to provide the IC\nwith a preliminary detailed analysis of their IR’s impact on the reliability of the Transmission\nSystem and will be approximately one hundred (100) Calendar Days in length. During this phase\nMISO will perform the initial Model Building and Review, which is scheduled for ten (10) Calendar\nDays. Following this, a preliminary Interconnection SIS will be performed and is scheduled for\nsixty-five (65) Calendar Days. Once the analysis is done, the IC will enter into IC Decision Point\nI, which will last fifteen (15) Business Days.",
+  "cite": "BPM-015 r33 §5.2"
+}

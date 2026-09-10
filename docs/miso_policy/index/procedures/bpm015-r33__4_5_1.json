@@ -1,0 +1,57 @@
+{
+  "unit_id": "bpm015-r33::4.5.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "4.5.1",
+    "title": "Applicable Transmission Owner Planning Criteria - General",
+    "pages": [
+      36,
+      38
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "application_review"
+    ],
+    "milestone": [
+      "M2"
+    ],
+    "actor": [
+      "miso",
+      "to",
+      "lse",
+      "ferc"
+    ],
+    "topic": [
+      "scoping",
+      "restudy"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    },
+    {
+      "actor": "lse",
+      "impact": "Load-serving entity: reliability criteria coordination where FAC-002 / Attachment FF apply."
+    },
+    {
+      "actor": "ferc",
+      "impact": "FERC: GIA filing / unexecuted filing; not a compliance score on this card."
+    }
+  ],
+  "text": "4.5.1.\nApplicable Transmission Owner Planning Criteria - General\nTO has the exclusive authority to establish and modify its local transmission planning criteria at\nany time. Annually, the TO files updates to its local transmission planning criteria as part of the\nFERC Form 715 filing. In addition, whenever the TO updates its local transmission planning\ncriteria, the TO provides the updated local transmission planning criteria to MISO sufficiently in\nadvance of when the TO intends for it to be effective to enable MISO to evaluate the potential\nimpacts of such modifications on pending IRs and their relationship to other Tariff processes in\norder to facilitate the Transmission Providers obligations to provide transmission access on a non-\ndiscriminatory basis. As the Transmission Provider, MISO will post the new TO criteria on the\nPlanning page of the MISO website or provide a link to the TO’s web site. Concurrently, MISO\nwill post a notice on the Planning page of MISO’s web site indicating MISO has received updated\nlocal TOs’ planning criteria.\n\nThe following describes the process for TOs to update their Local Planning Criteria and when\nthose updates will be used in planning studies:\n\n\ni.\nThe effective date of the TO’s local transmission planning criteria will be the date that\nthe TO submits revised criteria to MISO. The TO should use best efforts in notifying\nMISO that the TO is in the process of modifying its local transmission planning criteria\n30 days or more, prior to when the TO expects to submit the modified criteria to MISO.\nii.\nThe TO’s local transmission planning criteria in effect prior to the (M2) Milestone\ndeadline will be applied to the immediate DPP cycle. Modified local transmission\nplanning criteria in effect after the (M2) Milestone deadline, but before the beginning\nof a DPP SIS phase, will be reviewed on a case-by-case basis as to whether it will be\napplied to the immediate DPP study phase. Modified local transmission planning\ncriteria submitted after the start date of the DPP study phase will not be applied to the\nimmediate or ongoing DPP SIS phase but will be applied to subsequent DPP cycles\nand may be applied to the subsequent DPP SIS phase, on a case-by-case basis.\nHowever, if the immediate DPP SIS undergoes a restudy and the modified local\ntransmission planning criteria is submitted prior to the start of the restudy, the modified\nlocal transmission planning criteria will be reviewed on a case-by-case basis as to\nwhether it will be applied to the restudy of the immediate DPP cycle.\niii.\nMISO will coordinate with the TO when necessary to understand newly posted local\ntransmission planning criteria so that MISO is able to apply the criteria.\niv.\nMISO will inform, in writing, the projects/requests to which newly posted local\ntransmission planning criteria will be applied in accordance with i, ii, and iii of this\nsection.\nv.\nAny changes in Local Planning Criteria that require additional studies in the DPP\nprocess will be applied to DPP cycles in which the MTEP base cases have also been\nevaluated under the changed Local Planning Criteria\n\nIn the event that a modification to a TO local transmission planning criteria conflicts with any\nprovisions of an established MISO BPM, in addition to the process in this section, MISO will work\ndirectly with the TO discuss and attempt to resolve the differences. If necessary, MISO will\nconvene the applicable MISO stakeholder forum to address the necessary modifications to the\nBPM to enable consistency with the specific TO modification to local transmission planning\ncriteria.",
+  "cite": "BPM-015 r33 §4.5.1"
+}

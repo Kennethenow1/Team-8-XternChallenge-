@@ -1,0 +1,55 @@
+{
+  "unit_id": "bpm015-r33::6.2.3",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.2.3",
+    "title": "Cost of Upgrades",
+    "pages": [
+      83,
+      83
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp3",
+      "gia"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "gia_negotiation",
+      "cost_allocation",
+      "deposit_refund"
+    ],
+    "risk_code": [
+      "cost_pressure",
+      "gia_execution"
+    ],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.2.3.\nCost of Upgrades\nThe Facilities Study will provide a breakdown of various components of Network Upgrades and\nInterconnection Facilities required to interconnect the proposed Generating Facility. The report\nshould include the following Exhibits to include in Appendix A of the GIA:\ni.\n Exhibit A7: (Consultant develops) a categorized tabulation of TO Interconnection\nFacilities, Non-Stand-Alone Network Upgrades, Stand-Alone Network Upgrades,\nSystem Protection Upgrades to be constructed by the IC.\nii.\nExhibit A8: (Consultant develops) a categorized detailed cost breakdown of facilities\nidentified in Exhibit A7 as by the IC by major component (e.g., line terminal, etc.) and\nby subcomponent (e.g., breaker, lightning arrester, disconnect switches, protection\nequipment etc.).\niii.\nExhibit A9: (Consultant develops) Total categorized cost estimate for TO\nInterconnection Facilities and Network Upgrades (Stand-Alone and non-Stand-Alone)\nincluding a list or tabulation of Interconnection Network Upgrades (Stand-Alone and\nnon-Stand Alone) that are subject to the Attachment FF treatment. There is no refund\nfor radial facilities from network to the Generating Facility.",
+  "cite": "BPM-015 r33 §6.2.3"
+}

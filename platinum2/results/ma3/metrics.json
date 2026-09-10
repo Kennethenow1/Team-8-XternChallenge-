@@ -1,0 +1,36 @@
+{
+  "model": "ma3",
+  "status": "ok",
+  "reason": null,
+  "split": "val",
+  "target": "delayed_mw",
+  "rmse": 16559.367425143475,
+  "mae": 16323.979166666668,
+  "mape": 0.8910467350305462,
+  "rmse_h3": 8501.037177897768,
+  "mape_h3": 0.40409583930966453,
+  "n_folds_h12": 4,
+  "n_folds_h3": 3,
+  "beats_seasonal_naive": false,
+  "horizons": {
+    "3": {
+      "n": 3.0,
+      "rmse": 8501.037177897768,
+      "mae": 8299.622222222226,
+      "mape": 0.40409583930966453,
+      "seasonal_naive_rmse": 15646.660918121373,
+      "beats_seasonal_naive": true,
+      "n_folds": 3
+    },
+    "12": {
+      "n": 4.0,
+      "rmse": 16559.367425143475,
+      "mae": 16323.979166666668,
+      "mape": 0.8910467350305462,
+      "seasonal_naive_rmse": 14864.23891139402,
+      "beats_seasonal_naive": false,
+      "n_folds": 4
+    }
+  },
+  "n_snapshots": 18
+}

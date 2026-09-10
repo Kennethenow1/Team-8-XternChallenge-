@@ -1,0 +1,61 @@
+{
+  "unit_id": "bpm015-r33::5.2.4",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "5.2.4",
+    "title": "The (M3) Milestone Calculation",
+    "pages": [
+      49,
+      50
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp1"
+    ],
+    "milestone": [
+      "M3",
+      "M2"
+    ],
+    "actor": [
+      "ic",
+      "miso",
+      "to",
+      "affected_system"
+    ],
+    "topic": [
+      "deposit_refund",
+      "cost_allocation"
+    ],
+    "risk_code": [
+      "cost_pressure",
+      "abandonment"
+    ],
+    "claim_class": [
+      "deposit_rule"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    },
+    {
+      "actor": "affected_system",
+      "impact": "Affected System / neighboring TO: coordination and restudy of impacts."
+    }
+  ],
+  "text": "5.2.4.\nThe (M3) Milestone Calculation\nThe (M3) Milestone Calculation – for the Interconnection Requests for which the\napplication deadline to enter the Definitive Planning Phase is on or after January 22, 2024\nThe DPP II Milestone (M3) will be calculated as the greater of twenty percent (20%) of the amount\nof Network Upgrades identified in the DPP Phase I SIS less the amount previously provided at\n(M2) or $1,000/MW, but in no event shall (M3) be less than zero dollars. Network Upgrades are\nall of the upgrades identified on the MISO system. Network Upgrades do not include\nInterconnection Facilities or Affected System (external to MISO) upgrades. The (M3) Milestone\nwill be in the form of either cash or irrevocable Letter of Credit reasonably acceptable to the\nTransmission Provider and must be received prior to the start of DPP II.\n\nThe (M3) Milestone Calculation – for the Interconnection Requests for which the\napplication deadline to enter the Definitive Planning Phase is before January 22, 2024\n\n\nThe DPP II Milestone (M3) will be calculated as the ten percent (10%) of the amount of Network\nUpgrades identified in the DPP Phase I SIS less the amount previously provided at (M2), but in\nno event shall (M3) be less than zero dollars. Network Upgrades are all of the upgrades identified\non the MISO system. Network Upgrades do not include Interconnection Facilities or Affected\nSystem (external to MISO) upgrades. The (M3) Milestone will be in the form of either cash or\nirrevocable Letter of Credit reasonably acceptable to the Transmission Provider and must be\nreceived prior to the start of DPP II.",
+  "cite": "BPM-015 r33 §5.2.4"
+}

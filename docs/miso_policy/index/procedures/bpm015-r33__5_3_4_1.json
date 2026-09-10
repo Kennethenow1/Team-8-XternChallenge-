@@ -1,0 +1,57 @@
+{
+  "unit_id": "bpm015-r33::5.3.4.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "5.3.4.1",
+    "title": "True-down of Milestone Payments",
+    "pages": [
+      51,
+      52
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp2"
+    ],
+    "milestone": [
+      "M4",
+      "M2",
+      "M3"
+    ],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "deposit_refund",
+      "cost_allocation"
+    ],
+    "risk_code": [
+      "cost_pressure",
+      "abandonment"
+    ],
+    "claim_class": [
+      "deposit_rule"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "5.3.4.1\nTrue-down of Milestone Payments\nTrue-down of Milestone Payments - for the Interconnection Requests for which the\napplication deadline to enter the Definitive Planning Phase is on or after January 22, 2024\n\n\nWithin ten (10) Business Days from the start of DPP Phase III, Transmission Provider shall\nnotify the Interconnection Customer if the total posted M3 and M4 milestone payments (i.e., the\nsum of the M3 and M4 payments) for the Interconnection Request exceed thirty percent (30%)\nof the total Network Upgrade cost assigned to such Interconnection Request in the revised\nSystem Impact Study. Transmission Provider shall refund such excess amounts to the\nInterconnection Customer as soon as practicable.\n\nTrue-down of Milestone Payments - for the Interconnection Requests for which the\napplication deadline to enter the Definitive Planning Phase is before January 22, 2024\n\nWithin ten (10) Business Days from the start of DPP Phase III, Transmission Provider shall\nnotify the Interconnection Customer if the total posted M2, M3 and M4 milestone payments (i.e.,\nthe sum of the M2, M3 and M4 payments) for the Interconnection Request exceed twenty\npercent (20%) of the total Network Upgrade cost assigned to such Interconnection Request in\nthe revised System Impact Study. Transmission Provider shall refund such excess amounts to\nthe Interconnection Customer as soon as practicable.",
+  "cite": "BPM-015 r33 §5.3.4.1"
+}

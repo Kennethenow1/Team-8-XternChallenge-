@@ -1,0 +1,71 @@
+{
+  "schema_version": "policy_index.v1",
+  "doc_id": "bpm-015-r33-clean",
+  "effective_date": "2026-07-01",
+  "gi_phase": [
+    "pre_queue",
+    "application_review",
+    "dpp1",
+    "dpp2",
+    "dpp3",
+    "gia",
+    "post_gia",
+    "eras",
+    "der_afs"
+  ],
+  "milestone": [
+    "M1",
+    "M2",
+    "M3",
+    "M4",
+    "D1",
+    "D2"
+  ],
+  "actor": [
+    "ic",
+    "miso",
+    "to",
+    "affected_system",
+    "ferc",
+    "lse",
+    "neighboring_rto"
+  ],
+  "topic": [
+    "site_control",
+    "withdrawal",
+    "restudy",
+    "deposit_refund",
+    "delay_of_study",
+    "gia_negotiation",
+    "cost_allocation",
+    "deliverability",
+    "transfer_of_ownership",
+    "commercial_operation",
+    "scoping",
+    "decision_point"
+  ],
+  "risk_code": [
+    "abandonment",
+    "system_congestion",
+    "gia_execution",
+    "cod_already_slipped",
+    "developer_serial_quit",
+    "restudy_friction",
+    "hazard_exposure",
+    "cost_pressure",
+    "policy_incentive"
+  ],
+  "claim_class": [
+    "workflow",
+    "timeline_target",
+    "deposit_rule",
+    "study_method",
+    "do_not_use_as_legal_opinion"
+  ],
+  "stub_risks_no_bpm": [
+    "developer_serial_quit",
+    "hazard_exposure",
+    "policy_incentive"
+  ],
+  "note": "Closed vocabularies. GPT must not invent tags. Tariff (Attachment X) still controls if it conflicts with BPM-015."
+}

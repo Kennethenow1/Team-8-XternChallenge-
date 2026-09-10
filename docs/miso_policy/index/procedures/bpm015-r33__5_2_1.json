@@ -1,0 +1,49 @@
+{
+  "unit_id": "bpm015-r33::5.2.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "5.2.1",
+    "title": "Model Building and System Impact Study",
+    "pages": [
+      48,
+      48
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp1"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "withdrawal"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "5.2.1.\nModel Building and System Impact Study\nPrior to starting the preliminary SIS, MISO will distribute the study models to the IC and the TO.\nThe IC and the TO may recommend changes to the study model by providing a completed\nInterconnection Study Model Review Form, Appendix 10 to the GIP within ten (10) Business Days\nafter receipt of the study models. The proposed changes will be incorporated into the study\nmodels after mutual agreement on the changes by MISO, the IC, and the TO, such agreement\nnot to be unreasonably withheld. The preliminary SIS in Phase I will begin the day after the final\nmodel is posted and is scheduled to take place up to sixty-five (65) Calendar Days.  Failure of the\nIC to provide a completed Interconnection Study Model Review Form within ten (10) Business\nDays of receipt of the study models will result in withdrawal of the IR pursuant to Section 3.6 of\nthe GIP.",
+  "cite": "BPM-015 r33 §5.2.1"
+}

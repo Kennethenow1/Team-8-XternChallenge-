@@ -1,0 +1,36 @@
+{
+  "model": "timesfm",
+  "status": "ok",
+  "reason": null,
+  "split": "val",
+  "target": "delayed_mw",
+  "rmse": 10714.657132225704,
+  "mae": 9819.976708984377,
+  "mape": 0.5873702437833712,
+  "rmse_h3": 3358.288737231724,
+  "mape_h3": 0.16555058112596274,
+  "n_folds_h12": 4,
+  "n_folds_h3": 3,
+  "beats_seasonal_naive": true,
+  "horizons": {
+    "3": {
+      "n": 3.0,
+      "rmse": 3358.288737231724,
+      "mae": 3344.2253906250007,
+      "mape": 0.16555058112596274,
+      "seasonal_naive_rmse": 15646.660918121373,
+      "beats_seasonal_naive": true,
+      "n_folds": 3
+    },
+    "12": {
+      "n": 4.0,
+      "rmse": 10714.657132225704,
+      "mae": 9819.976708984377,
+      "mape": 0.5873702437833712,
+      "seasonal_naive_rmse": 14864.23891139402,
+      "beats_seasonal_naive": true,
+      "n_folds": 4
+    }
+  },
+  "n_snapshots": 18
+}

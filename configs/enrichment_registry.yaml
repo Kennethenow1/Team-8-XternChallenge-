@@ -217,3 +217,22 @@ sources:
     source_url: "https://www.misoenergy.org/"
     bronze_subdir: miso_large_load
     notes: Expected incremental demand
+
+  - source_id: eia_860m
+    source_name: EIA-860M Monthly Generator Inventory
+    category: generation
+    grain: generator x month
+    status: populate
+    source_url: "https://www.eia.gov/electricity/data/eia860m/"
+    bronze_subdir: eia_860m
+    notes: Planned COD and operating status for MISO-footprint proposed generators
+
+  - source_id: ferc_730
+    source_name: FERC Form 730 Transmission
+    category: transmission
+    grain: project x year
+    status: registered_empty
+    source_url: "https://www.ferc.gov/industries-data/electric/general-information/electric-industry-forms"
+    bronze_subdir: ferc_730
+    notes: No clean bulk table; skipped unless a parseable filing dump appears
+

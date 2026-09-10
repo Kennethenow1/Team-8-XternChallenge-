@@ -1,0 +1,1801 @@
+[
+  {
+    "schema_version": "platinum3.v1",
+    "project_key": "P::B::E291",
+    "observation_date": "2023-12-31",
+    "capacity_mw": 27.0,
+    "study_phase": "IA Executed",
+    "technology_primary": "hydro",
+    "state_code": "TX",
+    "poi_name": "Rich 138 kV substation",
+    "p_quit_12m_raw": 0.06997304936030217,
+    "p_quit_12m": 0.06997304936030217,
+    "p_quit_source": "electrum_catboost",
+    "calibration_note": "Electrum CatBoost joblib (trial-149 recipe). Freeze catboost_tuned is not on disk (gitignored). Do not apply freeze Platt to this score distribution.",
+    "pile": {
+      "delayed_mw_now": 25299.4,
+      "gia_delayed_mw_now": 0.0,
+      "delayed_mw_h3": 27748.480252452253,
+      "delayed_mw_h12": 37044.3253839384,
+      "pile_percentile_pit": 1.0,
+      "pile_asof": "2023-12-01",
+      "pile_forecast_engine": "holt_damped",
+      "n_history": 8,
+      "note": "EIA planned delayed MW (delay \u226512m vs first seen). GIA overlay is a thin fuzzy match \u2014 do not treat as the full GIA pile. 3m/12m are Holt (or naive) from history \u2264 as-of; not 2024 actuals."
+    },
+    "flags": {
+      "high_quit_risk": false,
+      "medium_quit_risk": true,
+      "is_gia": true,
+      "cod_already_slipped": true,
+      "developer_serial": true,
+      "restudy_on_record": false,
+      "hazard_high": false,
+      "upgrade_cost_high": false,
+      "pile_crowded": true,
+      "energy_community": false
+    },
+    "scenario": {
+      "name": "baseline",
+      "note": "Observed state; no overlay."
+    },
+    "p_quit_under_scenario": 0.06997304936030217,
+    "delta_p_quit": 0.0,
+    "risks": [
+      {
+        "code": "system_congestion",
+        "severity": "high",
+        "evidence": "Delayed-MW pile at/above PIT 75th percentile (or scenario override).",
+        "meaning": "The planned delayed-MW pile is large versus history (system crowding)."
+      },
+      {
+        "code": "cod_already_slipped",
+        "severity": "high",
+        "evidence": "service_date_passed or months_until_service < 0 (current fact).",
+        "meaning": "Planned service date is already at or before the as-of date."
+      },
+      {
+        "code": "abandonment",
+        "severity": "medium",
+        "evidence": "P(quit 12m)=0.070 \u2265 0.05",
+        "meaning": "Project is at elevated chance of leaving the queue in ~12 months."
+      },
+      {
+        "code": "gia_execution",
+        "severity": "medium",
+        "evidence": "GIA / IA as-of this observation.",
+        "meaning": "Project is in GIA / IA \u2014 execution and offtake risk, not just study-queue risk."
+      },
+      {
+        "code": "developer_serial_quit",
+        "severity": "medium",
+        "evidence": "developer_prior_withdrawal_rate \u2265 train p75 (0.522).",
+        "meaning": "This sponsor\u2019s prior projects withdrew at a high rate."
+      }
+    ],
+    "playbook_ids": [
+      "pb_system_congestion",
+      "pb_cod_already_slipped",
+      "pb_abandonment",
+      "pb_gia_execution",
+      "pb_developer_serial"
+    ],
+    "do_not_claim": [
+      "do not quote months of future COD slip as a model output",
+      "do not claim a MISO Step-Up / Firm Service failure record",
+      "do not treat EIA delayed MW as a complete GIA list (overlay is thin)",
+      "do not treat scenario deltas as causal effects",
+      "do not use FERC-730 as a clean delay source",
+      "do not unseal 2024 test labels or tune on test/score"
+    ]
+  },
+  {
+    "schema_version": "platinum3.v1",
+    "project_key": "P::B::E291",
+    "observation_date": "2023-12-31",
+    "capacity_mw": 27.0,
+    "study_phase": "IA Executed",
+    "technology_primary": "hydro",
+    "state_code": "TX",
+    "poi_name": "Rich 138 kV substation",
+    "p_quit_12m_raw": 0.06997304936030217,
+    "p_quit_12m": 0.06997304936030217,
+    "p_quit_source": "electrum_catboost",
+    "calibration_note": "Electrum CatBoost joblib (trial-149 recipe). Freeze catboost_tuned is not on disk (gitignored). Do not apply freeze Platt to this score distribution.",
+    "pile": {
+      "delayed_mw_now": 25299.4,
+      "gia_delayed_mw_now": 0.0,
+      "delayed_mw_h3": 27748.480252452253,
+      "delayed_mw_h12": 37044.3253839384,
+      "pile_percentile_pit": 1.0,
+      "pile_asof": "2023-12-01",
+      "pile_forecast_engine": "holt_damped",
+      "n_history": 8,
+      "note": "EIA planned delayed MW (delay \u226512m vs first seen). GIA overlay is a thin fuzzy match \u2014 do not treat as the full GIA pile. 3m/12m are Holt (or naive) from history \u2264 as-of; not 2024 actuals."
+    },
+    "flags": {
+      "high_quit_risk": false,
+      "medium_quit_risk": true,
+      "is_gia": true,
+      "cod_already_slipped": true,
+      "developer_serial": true,
+      "restudy_on_record": false,
+      "hazard_high": false,
+      "upgrade_cost_high": false,
+      "pile_crowded": true,
+      "energy_community": false
+    },
+    "scenario": {
+      "name": "enter_gia",
+      "note": "If study_phase were IA Executed (GIA/IA). Sensitivity, not a causal GIA effect."
+    },
+    "p_quit_under_scenario": 0.06997304936030217,
+    "delta_p_quit": 0.0,
+    "risks": [
+      {
+        "code": "system_congestion",
+        "severity": "high",
+        "evidence": "Delayed-MW pile at/above PIT 75th percentile (or scenario override).",
+        "meaning": "The planned delayed-MW pile is large versus history (system crowding)."
+      },
+      {
+        "code": "cod_already_slipped",
+        "severity": "high",
+        "evidence": "service_date_passed or months_until_service < 0 (current fact).",
+        "meaning": "Planned service date is already at or before the as-of date."
+      },
+      {
+        "code": "abandonment",
+        "severity": "medium",
+        "evidence": "P(quit 12m)=0.070 \u2265 0.05",
+        "meaning": "Project is at elevated chance of leaving the queue in ~12 months."
+      },
+      {
+        "code": "gia_execution",
+        "severity": "medium",
+        "evidence": "GIA / IA as-of this observation.",
+        "meaning": "Project is in GIA / IA \u2014 execution and offtake risk, not just study-queue risk."
+      },
+      {
+        "code": "developer_serial_quit",
+        "severity": "medium",
+        "evidence": "developer_prior_withdrawal_rate \u2265 train p75 (0.522).",
+        "meaning": "This sponsor\u2019s prior projects withdrew at a high rate."
+      }
+    ],
+    "playbook_ids": [
+      "pb_system_congestion",
+      "pb_cod_already_slipped",
+      "pb_abandonment",
+      "pb_gia_execution",
+      "pb_developer_serial"
+    ],
+    "do_not_claim": [
+      "do not quote months of future COD slip as a model output",
+      "do not claim a MISO Step-Up / Firm Service failure record",
+      "do not treat EIA delayed MW as a complete GIA list (overlay is thin)",
+      "do not treat scenario deltas as causal effects",
+      "do not use FERC-730 as a clean delay source",
+      "do not unseal 2024 test labels or tune on test/score"
+    ]
+  },
+  {
+    "schema_version": "platinum3.v1",
+    "project_key": "P::B::E291",
+    "observation_date": "2023-12-31",
+    "capacity_mw": 27.0,
+    "study_phase": "IA Executed",
+    "technology_primary": "hydro",
+    "state_code": "TX",
+    "poi_name": "Rich 138 kV substation",
+    "p_quit_12m_raw": 0.06997304936030217,
+    "p_quit_12m": 0.06997304936030217,
+    "p_quit_source": "electrum_catboost",
+    "calibration_note": "Electrum CatBoost joblib (trial-149 recipe). Freeze catboost_tuned is not on disk (gitignored). Do not apply freeze Platt to this score distribution.",
+    "pile": {
+      "delayed_mw_now": 25299.4,
+      "gia_delayed_mw_now": 0.0,
+      "delayed_mw_h3": 27748.480252452253,
+      "delayed_mw_h12": 37044.3253839384,
+      "pile_percentile_pit": 1.0,
+      "pile_asof": "2023-12-01",
+      "pile_forecast_engine": "holt_damped",
+      "n_history": 8,
+      "note": "EIA planned delayed MW (delay \u226512m vs first seen). GIA overlay is a thin fuzzy match \u2014 do not treat as the full GIA pile. 3m/12m are Holt (or naive) from history \u2264 as-of; not 2024 actuals."
+    },
+    "flags": {
+      "high_quit_risk": false,
+      "medium_quit_risk": true,
+      "is_gia": true,
+      "cod_already_slipped": true,
+      "developer_serial": true,
+      "restudy_on_record": false,
+      "hazard_high": false,
+      "upgrade_cost_high": false,
+      "pile_crowded": true,
+      "energy_community": false
+    },
+    "scenario": {
+      "name": "already_past_cod",
+      "note": "If the planned service date were already 12+ months past as-of. Fact overlay, not Platinum 1 months."
+    },
+    "p_quit_under_scenario": 0.06905239350747486,
+    "delta_p_quit": -0.0009206558528273151,
+    "risks": [
+      {
+        "code": "system_congestion",
+        "severity": "high",
+        "evidence": "Delayed-MW pile at/above PIT 75th percentile (or scenario override).",
+        "meaning": "The planned delayed-MW pile is large versus history (system crowding)."
+      },
+      {
+        "code": "cod_already_slipped",
+        "severity": "high",
+        "evidence": "service_date_passed or months_until_service < 0 (current fact).",
+        "meaning": "Planned service date is already at or before the as-of date."
+      },
+      {
+        "code": "abandonment",
+        "severity": "medium",
+        "evidence": "P(quit 12m)=0.069 \u2265 0.05",
+        "meaning": "Project is at elevated chance of leaving the queue in ~12 months."
+      },
+      {
+        "code": "gia_execution",
+        "severity": "medium",
+        "evidence": "GIA / IA as-of this observation.",
+        "meaning": "Project is in GIA / IA \u2014 execution and offtake risk, not just study-queue risk."
+      },
+      {
+        "code": "developer_serial_quit",
+        "severity": "medium",
+        "evidence": "developer_prior_withdrawal_rate \u2265 train p75 (0.522).",
+        "meaning": "This sponsor\u2019s prior projects withdrew at a high rate."
+      }
+    ],
+    "playbook_ids": [
+      "pb_system_congestion",
+      "pb_cod_already_slipped",
+      "pb_abandonment",
+      "pb_gia_execution",
+      "pb_developer_serial"
+    ],
+    "do_not_claim": [
+      "do not quote months of future COD slip as a model output",
+      "do not claim a MISO Step-Up / Firm Service failure record",
+      "do not treat EIA delayed MW as a complete GIA list (overlay is thin)",
+      "do not treat scenario deltas as causal effects",
+      "do not use FERC-730 as a clean delay source",
+      "do not unseal 2024 test labels or tune on test/score"
+    ]
+  },
+  {
+    "schema_version": "platinum3.v1",
+    "project_key": "P::B::E291",
+    "observation_date": "2023-12-31",
+    "capacity_mw": 27.0,
+    "study_phase": "IA Executed",
+    "technology_primary": "hydro",
+    "state_code": "TX",
+    "poi_name": "Rich 138 kV substation",
+    "p_quit_12m_raw": 0.06997304936030217,
+    "p_quit_12m": 0.06997304936030217,
+    "p_quit_source": "electrum_catboost",
+    "calibration_note": "Electrum CatBoost joblib (trial-149 recipe). Freeze catboost_tuned is not on disk (gitignored). Do not apply freeze Platt to this score distribution.",
+    "pile": {
+      "delayed_mw_now": 25299.4,
+      "gia_delayed_mw_now": 0.0,
+      "delayed_mw_h3": 27748.480252452253,
+      "delayed_mw_h12": 37044.3253839384,
+      "pile_percentile_pit": 1.0,
+      "pile_asof": "2023-12-01",
+      "pile_forecast_engine": "holt_damped",
+      "n_history": 8,
+      "note": "EIA planned delayed MW (delay \u226512m vs first seen). GIA overlay is a thin fuzzy match \u2014 do not treat as the full GIA pile. 3m/12m are Holt (or naive) from history \u2264 as-of; not 2024 actuals."
+    },
+    "flags": {
+      "high_quit_risk": false,
+      "medium_quit_risk": true,
+      "is_gia": true,
+      "cod_already_slipped": true,
+      "developer_serial": true,
+      "restudy_on_record": true,
+      "hazard_high": false,
+      "upgrade_cost_high": false,
+      "pile_crowded": true,
+      "energy_community": false
+    },
+    "scenario": {
+      "name": "restudy",
+      "note": "If one additional restudy were on the record."
+    },
+    "p_quit_under_scenario": 0.05542419474471662,
+    "delta_p_quit": -0.014548854615585555,
+    "risks": [
+      {
+        "code": "system_congestion",
+        "severity": "high",
+        "evidence": "Delayed-MW pile at/above PIT 75th percentile (or scenario override).",
+        "meaning": "The planned delayed-MW pile is large versus history (system crowding)."
+      },
+      {
+        "code": "cod_already_slipped",
+        "severity": "high",
+        "evidence": "service_date_passed or months_until_service < 0 (current fact).",
+        "meaning": "Planned service date is already at or before the as-of date."
+      },
+      {
+        "code": "abandonment",
+        "severity": "medium",
+        "evidence": "P(quit 12m)=0.055 \u2265 0.05",
+        "meaning": "Project is at elevated chance of leaving the queue in ~12 months."
+      },
+      {
+        "code": "gia_execution",
+        "severity": "medium",
+        "evidence": "GIA / IA as-of this observation.",
+        "meaning": "Project is in GIA / IA \u2014 execution and offtake risk, not just study-queue risk."
+      },
+      {
+        "code": "developer_serial_quit",
+        "severity": "medium",
+        "evidence": "developer_prior_withdrawal_rate \u2265 train p75 (0.522).",
+        "meaning": "This sponsor\u2019s prior projects withdrew at a high rate."
+      },
+      {
+        "code": "restudy_friction",
+        "severity": "medium",
+        "evidence": "restudy_count \u2265 1.",
+        "meaning": "Study restudies are already on the record."
+      }
+    ],
+    "playbook_ids": [
+      "pb_system_congestion",
+      "pb_cod_already_slipped",
+      "pb_abandonment",
+      "pb_gia_execution",
+      "pb_developer_serial",
+      "pb_restudy"
+    ],
+    "do_not_claim": [
+      "do not quote months of future COD slip as a model output",
+      "do not claim a MISO Step-Up / Firm Service failure record",
+      "do not treat EIA delayed MW as a complete GIA list (overlay is thin)",
+      "do not treat scenario deltas as causal effects",
+      "do not use FERC-730 as a clean delay source",
+      "do not unseal 2024 test labels or tune on test/score"
+    ]
+  },
+  {
+    "schema_version": "platinum3.v1",
+    "project_key": "P::B::E291",
+    "observation_date": "2023-12-31",
+    "capacity_mw": 27.0,
+    "study_phase": "IA Executed",
+    "technology_primary": "hydro",
+    "state_code": "TX",
+    "poi_name": "Rich 138 kV substation",
+    "p_quit_12m_raw": 0.06997304936030217,
+    "p_quit_12m": 0.06997304936030217,
+    "p_quit_source": "electrum_catboost",
+    "calibration_note": "Electrum CatBoost joblib (trial-149 recipe). Freeze catboost_tuned is not on disk (gitignored). Do not apply freeze Platt to this score distribution.",
+    "pile": {
+      "delayed_mw_now": 25299.4,
+      "gia_delayed_mw_now": 0.0,
+      "delayed_mw_h3": 27748.480252452253,
+      "delayed_mw_h12": 37044.3253839384,
+      "pile_percentile_pit": 1.0,
+      "pile_asof": "2023-12-01",
+      "pile_forecast_engine": "holt_damped",
+      "n_history": 8,
+      "note": "EIA planned delayed MW (delay \u226512m vs first seen). GIA overlay is a thin fuzzy match \u2014 do not treat as the full GIA pile. 3m/12m are Holt (or naive) from history \u2264 as-of; not 2024 actuals."
+    },
+    "flags": {
+      "high_quit_risk": true,
+      "medium_quit_risk": true,
+      "is_gia": true,
+      "cod_already_slipped": true,
+      "developer_serial": true,
+      "restudy_on_record": false,
+      "hazard_high": false,
+      "upgrade_cost_high": false,
+      "pile_crowded": true,
+      "energy_community": false
+    },
+    "scenario": {
+      "name": "rate_shock",
+      "note": "If observation interest rate were +2 points vs the row."
+    },
+    "p_quit_under_scenario": 0.17166326893630202,
+    "delta_p_quit": 0.10169021957599984,
+    "risks": [
+      {
+        "code": "abandonment",
+        "severity": "high",
+        "evidence": "P(quit 12m)=0.172 \u2265 0.1",
+        "meaning": "Project is at elevated chance of leaving the queue in ~12 months."
+      },
+      {
+        "code": "system_congestion",
+        "severity": "high",
+        "evidence": "Delayed-MW pile at/above PIT 75th percentile (or scenario override).",
+        "meaning": "The planned delayed-MW pile is large versus history (system crowding)."
+      },
+      {
+        "code": "cod_already_slipped",
+        "severity": "high",
+        "evidence": "service_date_passed or months_until_service < 0 (current fact).",
+        "meaning": "Planned service date is already at or before the as-of date."
+      },
+      {
+        "code": "gia_execution",
+        "severity": "medium",
+        "evidence": "GIA / IA as-of this observation.",
+        "meaning": "Project is in GIA / IA \u2014 execution and offtake risk, not just study-queue risk."
+      },
+      {
+        "code": "developer_serial_quit",
+        "severity": "medium",
+        "evidence": "developer_prior_withdrawal_rate \u2265 train p75 (0.522).",
+        "meaning": "This sponsor\u2019s prior projects withdrew at a high rate."
+      }
+    ],
+    "playbook_ids": [
+      "pb_abandonment",
+      "pb_system_congestion",
+      "pb_cod_already_slipped",
+      "pb_gia_execution",
+      "pb_developer_serial"
+    ],
+    "do_not_claim": [
+      "do not quote months of future COD slip as a model output",
+      "do not claim a MISO Step-Up / Firm Service failure record",
+      "do not treat EIA delayed MW as a complete GIA list (overlay is thin)",
+      "do not treat scenario deltas as causal effects",
+      "do not use FERC-730 as a clean delay source",
+      "do not unseal 2024 test labels or tune on test/score"
+    ]
+  },
+  {
+    "schema_version": "platinum3.v1",
+    "project_key": "P::B::E291",
+    "observation_date": "2023-12-31",
+    "capacity_mw": 27.0,
+    "study_phase": "IA Executed",
+    "technology_primary": "hydro",
+    "state_code": "TX",
+    "poi_name": "Rich 138 kV substation",
+    "p_quit_12m_raw": 0.06997304936030217,
+    "p_quit_12m": 0.06997304936030217,
+    "p_quit_source": "electrum_catboost",
+    "calibration_note": "Electrum CatBoost joblib (trial-149 recipe). Freeze catboost_tuned is not on disk (gitignored). Do not apply freeze Platt to this score distribution.",
+    "pile": {
+      "delayed_mw_now": 25299.4,
+      "gia_delayed_mw_now": 0.0,
+      "delayed_mw_h3": 27748.480252452253,
+      "delayed_mw_h12": 37044.3253839384,
+      "pile_percentile_pit": 1.0,
+      "pile_asof": "2023-12-01",
+      "pile_forecast_engine": "holt_damped",
+      "n_history": 8,
+      "note": "EIA planned delayed MW (delay \u226512m vs first seen). GIA overlay is a thin fuzzy match \u2014 do not treat as the full GIA pile. 3m/12m are Holt (or naive) from history \u2264 as-of; not 2024 actuals."
+    },
+    "flags": {
+      "high_quit_risk": false,
+      "medium_quit_risk": true,
+      "is_gia": true,
+      "cod_already_slipped": true,
+      "developer_serial": true,
+      "restudy_on_record": false,
+      "hazard_high": false,
+      "upgrade_cost_high": false,
+      "pile_crowded": true,
+      "energy_community": false
+    },
+    "scenario": {
+      "name": "serial_developer",
+      "note": "If sponsor prior withdrawal rate were at least 75%."
+    },
+    "p_quit_under_scenario": 0.06997304936030217,
+    "delta_p_quit": 0.0,
+    "risks": [
+      {
+        "code": "system_congestion",
+        "severity": "high",
+        "evidence": "Delayed-MW pile at/above PIT 75th percentile (or scenario override).",
+        "meaning": "The planned delayed-MW pile is large versus history (system crowding)."
+      },
+      {
+        "code": "cod_already_slipped",
+        "severity": "high",
+        "evidence": "service_date_passed or months_until_service < 0 (current fact).",
+        "meaning": "Planned service date is already at or before the as-of date."
+      },
+      {
+        "code": "abandonment",
+        "severity": "medium",
+        "evidence": "P(quit 12m)=0.070 \u2265 0.05",
+        "meaning": "Project is at elevated chance of leaving the queue in ~12 months."
+      },
+      {
+        "code": "gia_execution",
+        "severity": "medium",
+        "evidence": "GIA / IA as-of this observation.",
+        "meaning": "Project is in GIA / IA \u2014 execution and offtake risk, not just study-queue risk."
+      },
+      {
+        "code": "developer_serial_quit",
+        "severity": "medium",
+        "evidence": "developer_prior_withdrawal_rate \u2265 train p75 (0.522).",
+        "meaning": "This sponsor\u2019s prior projects withdrew at a high rate."
+      }
+    ],
+    "playbook_ids": [
+      "pb_system_congestion",
+      "pb_cod_already_slipped",
+      "pb_abandonment",
+      "pb_gia_execution",
+      "pb_developer_serial"
+    ],
+    "do_not_claim": [
+      "do not quote months of future COD slip as a model output",
+      "do not claim a MISO Step-Up / Firm Service failure record",
+      "do not treat EIA delayed MW as a complete GIA list (overlay is thin)",
+      "do not treat scenario deltas as causal effects",
+      "do not use FERC-730 as a clean delay source",
+      "do not unseal 2024 test labels or tune on test/score"
+    ]
+  },
+  {
+    "schema_version": "platinum3.v1",
+    "project_key": "P::B::E291",
+    "observation_date": "2023-12-31",
+    "capacity_mw": 27.0,
+    "study_phase": "IA Executed",
+    "technology_primary": "hydro",
+    "state_code": "TX",
+    "poi_name": "Rich 138 kV substation",
+    "p_quit_12m_raw": 0.06997304936030217,
+    "p_quit_12m": 0.06997304936030217,
+    "p_quit_source": "electrum_catboost",
+    "calibration_note": "Electrum CatBoost joblib (trial-149 recipe). Freeze catboost_tuned is not on disk (gitignored). Do not apply freeze Platt to this score distribution.",
+    "pile": {
+      "delayed_mw_now": 25299.4,
+      "gia_delayed_mw_now": 0.0,
+      "delayed_mw_h3": 27748.480252452253,
+      "delayed_mw_h12": 37044.3253839384,
+      "pile_percentile_pit": 1.0,
+      "pile_asof": "2023-12-01",
+      "pile_forecast_engine": "holt_damped",
+      "n_history": 8,
+      "note": "EIA planned delayed MW (delay \u226512m vs first seen). GIA overlay is a thin fuzzy match \u2014 do not treat as the full GIA pile. 3m/12m are Holt (or naive) from history \u2264 as-of; not 2024 actuals. Scenario high_system_delay forced crowded."
+    },
+    "flags": {
+      "high_quit_risk": false,
+      "medium_quit_risk": true,
+      "is_gia": true,
+      "cod_already_slipped": true,
+      "developer_serial": true,
+      "restudy_on_record": false,
+      "hazard_high": false,
+      "upgrade_cost_high": false,
+      "pile_crowded": true,
+      "energy_community": false
+    },
+    "scenario": {
+      "name": "high_system_delay",
+      "note": "Pile crowding forced high. Electrum X unchanged; P(quit) delta is 0 unless you retrain with pile features."
+    },
+    "p_quit_under_scenario": 0.06997304936030217,
+    "delta_p_quit": 0.0,
+    "risks": [
+      {
+        "code": "system_congestion",
+        "severity": "high",
+        "evidence": "Delayed-MW pile at/above PIT 75th percentile (or scenario override).",
+        "meaning": "The planned delayed-MW pile is large versus history (system crowding)."
+      },
+      {
+        "code": "cod_already_slipped",
+        "severity": "high",
+        "evidence": "service_date_passed or months_until_service < 0 (current fact).",
+        "meaning": "Planned service date is already at or before the as-of date."
+      },
+      {
+        "code": "abandonment",
+        "severity": "medium",
+        "evidence": "P(quit 12m)=0.070 \u2265 0.05",
+        "meaning": "Project is at elevated chance of leaving the queue in ~12 months."
+      },
+      {
+        "code": "gia_execution",
+        "severity": "medium",
+        "evidence": "GIA / IA as-of this observation.",
+        "meaning": "Project is in GIA / IA \u2014 execution and offtake risk, not just study-queue risk."
+      },
+      {
+        "code": "developer_serial_quit",
+        "severity": "medium",
+        "evidence": "developer_prior_withdrawal_rate \u2265 train p75 (0.522).",
+        "meaning": "This sponsor\u2019s prior projects withdrew at a high rate."
+      }
+    ],
+    "playbook_ids": [
+      "pb_system_congestion",
+      "pb_cod_already_slipped",
+      "pb_abandonment",
+      "pb_gia_execution",
+      "pb_developer_serial"
+    ],
+    "do_not_claim": [
+      "do not quote months of future COD slip as a model output",
+      "do not claim a MISO Step-Up / Firm Service failure record",
+      "do not treat EIA delayed MW as a complete GIA list (overlay is thin)",
+      "do not treat scenario deltas as causal effects",
+      "do not use FERC-730 as a clean delay source",
+      "do not unseal 2024 test labels or tune on test/score"
+    ]
+  },
+  {
+    "schema_version": "platinum3.v1",
+    "project_key": "P::J2280",
+    "observation_date": "2023-12-31",
+    "capacity_mw": 198.0,
+    "study_phase": "System Impact Study",
+    "technology_primary": "battery",
+    "state_code": "IN",
+    "poi_name": "Greentown 230-kV",
+    "p_quit_12m_raw": 0.897754525032305,
+    "p_quit_12m": 0.897754525032305,
+    "p_quit_source": "electrum_catboost",
+    "calibration_note": "Electrum CatBoost joblib (trial-149 recipe). Freeze catboost_tuned is not on disk (gitignored). Do not apply freeze Platt to this score distribution.",
+    "pile": {
+      "delayed_mw_now": 25299.4,
+      "gia_delayed_mw_now": 0.0,
+      "delayed_mw_h3": 27748.480252452253,
+      "delayed_mw_h12": 37044.3253839384,
+      "pile_percentile_pit": 1.0,
+      "pile_asof": "2023-12-01",
+      "pile_forecast_engine": "holt_damped",
+      "n_history": 8,
+      "note": "EIA planned delayed MW (delay \u226512m vs first seen). GIA overlay is a thin fuzzy match \u2014 do not treat as the full GIA pile. 3m/12m are Holt (or naive) from history \u2264 as-of; not 2024 actuals."
+    },
+    "flags": {
+      "high_quit_risk": true,
+      "medium_quit_risk": true,
+      "is_gia": false,
+      "cod_already_slipped": true,
+      "developer_serial": false,
+      "restudy_on_record": false,
+      "hazard_high": false,
+      "upgrade_cost_high": false,
+      "pile_crowded": true,
+      "energy_community": false
+    },
+    "scenario": {
+      "name": "baseline",
+      "note": "Observed state; no overlay."
+    },
+    "p_quit_under_scenario": 0.897754525032305,
+    "delta_p_quit": 0.0,
+    "risks": [
+      {
+        "code": "abandonment",
+        "severity": "high",
+        "evidence": "P(quit 12m)=0.898 \u2265 0.1",
+        "meaning": "Project is at elevated chance of leaving the queue in ~12 months."
+      },
+      {
+        "code": "system_congestion",
+        "severity": "high",
+        "evidence": "Delayed-MW pile at/above PIT 75th percentile (or scenario override).",
+        "meaning": "The planned delayed-MW pile is large versus history (system crowding)."
+      },
+      {
+        "code": "cod_already_slipped",
+        "severity": "high",
+        "evidence": "service_date_passed or months_until_service < 0 (current fact).",
+        "meaning": "Planned service date is already at or before the as-of date."
+      }
+    ],
+    "playbook_ids": [
+      "pb_abandonment",
+      "pb_system_congestion",
+      "pb_cod_already_slipped"
+    ],
+    "do_not_claim": [
+      "do not quote months of future COD slip as a model output",
+      "do not claim a MISO Step-Up / Firm Service failure record",
+      "do not treat EIA delayed MW as a complete GIA list (overlay is thin)",
+      "do not treat scenario deltas as causal effects",
+      "do not use FERC-730 as a clean delay source",
+      "do not unseal 2024 test labels or tune on test/score"
+    ]
+  },
+  {
+    "schema_version": "platinum3.v1",
+    "project_key": "P::J2280",
+    "observation_date": "2023-12-31",
+    "capacity_mw": 198.0,
+    "study_phase": "IA Executed",
+    "technology_primary": "battery",
+    "state_code": "IN",
+    "poi_name": "Greentown 230-kV",
+    "p_quit_12m_raw": 0.897754525032305,
+    "p_quit_12m": 0.897754525032305,
+    "p_quit_source": "electrum_catboost",
+    "calibration_note": "Electrum CatBoost joblib (trial-149 recipe). Freeze catboost_tuned is not on disk (gitignored). Do not apply freeze Platt to this score distribution.",
+    "pile": {
+      "delayed_mw_now": 25299.4,
+      "gia_delayed_mw_now": 0.0,
+      "delayed_mw_h3": 27748.480252452253,
+      "delayed_mw_h12": 37044.3253839384,
+      "pile_percentile_pit": 1.0,
+      "pile_asof": "2023-12-01",
+      "pile_forecast_engine": "holt_damped",
+      "n_history": 8,
+      "note": "EIA planned delayed MW (delay \u226512m vs first seen). GIA overlay is a thin fuzzy match \u2014 do not treat as the full GIA pile. 3m/12m are Holt (or naive) from history \u2264 as-of; not 2024 actuals."
+    },
+    "flags": {
+      "high_quit_risk": true,
+      "medium_quit_risk": true,
+      "is_gia": true,
+      "cod_already_slipped": true,
+      "developer_serial": false,
+      "restudy_on_record": false,
+      "hazard_high": false,
+      "upgrade_cost_high": false,
+      "pile_crowded": true,
+      "energy_community": false
+    },
+    "scenario": {
+      "name": "enter_gia",
+      "note": "If study_phase were IA Executed (GIA/IA). Sensitivity, not a causal GIA effect."
+    },
+    "p_quit_under_scenario": 0.9275797766465906,
+    "delta_p_quit": 0.02982525161428562,
+    "risks": [
+      {
+        "code": "abandonment",
+        "severity": "high",
+        "evidence": "P(quit 12m)=0.928 \u2265 0.1",
+        "meaning": "Project is at elevated chance of leaving the queue in ~12 months."
+      },
+      {
+        "code": "system_congestion",
+        "severity": "high",
+        "evidence": "Delayed-MW pile at/above PIT 75th percentile (or scenario override).",
+        "meaning": "The planned delayed-MW pile is large versus history (system crowding)."
+      },
+      {
+        "code": "cod_already_slipped",
+        "severity": "high",
+        "evidence": "service_date_passed or months_until_service < 0 (current fact).",
+        "meaning": "Planned service date is already at or before the as-of date."
+      },
+      {
+        "code": "gia_execution",
+        "severity": "medium",
+        "evidence": "GIA / IA as-of this observation.",
+        "meaning": "Project is in GIA / IA \u2014 execution and offtake risk, not just study-queue risk."
+      }
+    ],
+    "playbook_ids": [
+      "pb_abandonment",
+      "pb_system_congestion",
+      "pb_cod_already_slipped",
+      "pb_gia_execution"
+    ],
+    "do_not_claim": [
+      "do not quote months of future COD slip as a model output",
+      "do not claim a MISO Step-Up / Firm Service failure record",
+      "do not treat EIA delayed MW as a complete GIA list (overlay is thin)",
+      "do not treat scenario deltas as causal effects",
+      "do not use FERC-730 as a clean delay source",
+      "do not unseal 2024 test labels or tune on test/score"
+    ]
+  },
+  {
+    "schema_version": "platinum3.v1",
+    "project_key": "P::J2280",
+    "observation_date": "2023-12-31",
+    "capacity_mw": 198.0,
+    "study_phase": "System Impact Study",
+    "technology_primary": "battery",
+    "state_code": "IN",
+    "poi_name": "Greentown 230-kV",
+    "p_quit_12m_raw": 0.897754525032305,
+    "p_quit_12m": 0.897754525032305,
+    "p_quit_source": "electrum_catboost",
+    "calibration_note": "Electrum CatBoost joblib (trial-149 recipe). Freeze catboost_tuned is not on disk (gitignored). Do not apply freeze Platt to this score distribution.",
+    "pile": {
+      "delayed_mw_now": 25299.4,
+      "gia_delayed_mw_now": 0.0,
+      "delayed_mw_h3": 27748.480252452253,
+      "delayed_mw_h12": 37044.3253839384,
+      "pile_percentile_pit": 1.0,
+      "pile_asof": "2023-12-01",
+      "pile_forecast_engine": "holt_damped",
+      "n_history": 8,
+      "note": "EIA planned delayed MW (delay \u226512m vs first seen). GIA overlay is a thin fuzzy match \u2014 do not treat as the full GIA pile. 3m/12m are Holt (or naive) from history \u2264 as-of; not 2024 actuals."
+    },
+    "flags": {
+      "high_quit_risk": true,
+      "medium_quit_risk": true,
+      "is_gia": false,
+      "cod_already_slipped": true,
+      "developer_serial": false,
+      "restudy_on_record": false,
+      "hazard_high": false,
+      "upgrade_cost_high": false,
+      "pile_crowded": true,
+      "energy_community": false
+    },
+    "scenario": {
+      "name": "already_past_cod",
+      "note": "If the planned service date were already 12+ months past as-of. Fact overlay, not Platinum 1 months."
+    },
+    "p_quit_under_scenario": 0.8770122919847764,
+    "delta_p_quit": -0.020742233047528646,
+    "risks": [
+      {
+        "code": "abandonment",
+        "severity": "high",
+        "evidence": "P(quit 12m)=0.877 \u2265 0.1",
+        "meaning": "Project is at elevated chance of leaving the queue in ~12 months."
+      },
+      {
+        "code": "system_congestion",
+        "severity": "high",
+        "evidence": "Delayed-MW pile at/above PIT 75th percentile (or scenario override).",
+        "meaning": "The planned delayed-MW pile is large versus history (system crowding)."
+      },
+      {
+        "code": "cod_already_slipped",
+        "severity": "high",
+        "evidence": "service_date_passed or months_until_service < 0 (current fact).",
+        "meaning": "Planned service date is already at or before the as-of date."
+      }
+    ],
+    "playbook_ids": [
+      "pb_abandonment",
+      "pb_system_congestion",
+      "pb_cod_already_slipped"
+    ],
+    "do_not_claim": [
+      "do not quote months of future COD slip as a model output",
+      "do not claim a MISO Step-Up / Firm Service failure record",
+      "do not treat EIA delayed MW as a complete GIA list (overlay is thin)",
+      "do not treat scenario deltas as causal effects",
+      "do not use FERC-730 as a clean delay source",
+      "do not unseal 2024 test labels or tune on test/score"
+    ]
+  },
+  {
+    "schema_version": "platinum3.v1",
+    "project_key": "P::J2280",
+    "observation_date": "2023-12-31",
+    "capacity_mw": 198.0,
+    "study_phase": "System Impact Study",
+    "technology_primary": "battery",
+    "state_code": "IN",
+    "poi_name": "Greentown 230-kV",
+    "p_quit_12m_raw": 0.897754525032305,
+    "p_quit_12m": 0.897754525032305,
+    "p_quit_source": "electrum_catboost",
+    "calibration_note": "Electrum CatBoost joblib (trial-149 recipe). Freeze catboost_tuned is not on disk (gitignored). Do not apply freeze Platt to this score distribution.",
+    "pile": {
+      "delayed_mw_now": 25299.4,
+      "gia_delayed_mw_now": 0.0,
+      "delayed_mw_h3": 27748.480252452253,
+      "delayed_mw_h12": 37044.3253839384,
+      "pile_percentile_pit": 1.0,
+      "pile_asof": "2023-12-01",
+      "pile_forecast_engine": "holt_damped",
+      "n_history": 8,
+      "note": "EIA planned delayed MW (delay \u226512m vs first seen). GIA overlay is a thin fuzzy match \u2014 do not treat as the full GIA pile. 3m/12m are Holt (or naive) from history \u2264 as-of; not 2024 actuals."
+    },
+    "flags": {
+      "high_quit_risk": true,
+      "medium_quit_risk": true,
+      "is_gia": false,
+      "cod_already_slipped": true,
+      "developer_serial": false,
+      "restudy_on_record": true,
+      "hazard_high": false,
+      "upgrade_cost_high": false,
+      "pile_crowded": true,
+      "energy_community": false
+    },
+    "scenario": {
+      "name": "restudy",
+      "note": "If one additional restudy were on the record."
+    },
+    "p_quit_under_scenario": 0.8153285781022797,
+    "delta_p_quit": -0.08242594693002536,
+    "risks": [
+      {
+        "code": "abandonment",
+        "severity": "high",
+        "evidence": "P(quit 12m)=0.815 \u2265 0.1",
+        "meaning": "Project is at elevated chance of leaving the queue in ~12 months."
+      },
+      {
+        "code": "system_congestion",
+        "severity": "high",
+        "evidence": "Delayed-MW pile at/above PIT 75th percentile (or scenario override).",
+        "meaning": "The planned delayed-MW pile is large versus history (system crowding)."
+      },
+      {
+        "code": "cod_already_slipped",
+        "severity": "high",
+        "evidence": "service_date_passed or months_until_service < 0 (current fact).",
+        "meaning": "Planned service date is already at or before the as-of date."
+      },
+      {
+        "code": "restudy_friction",
+        "severity": "medium",
+        "evidence": "restudy_count \u2265 1.",
+        "meaning": "Study restudies are already on the record."
+      }
+    ],
+    "playbook_ids": [
+      "pb_abandonment",
+      "pb_system_congestion",
+      "pb_cod_already_slipped",
+      "pb_restudy"
+    ],
+    "do_not_claim": [
+      "do not quote months of future COD slip as a model output",
+      "do not claim a MISO Step-Up / Firm Service failure record",
+      "do not treat EIA delayed MW as a complete GIA list (overlay is thin)",
+      "do not treat scenario deltas as causal effects",
+      "do not use FERC-730 as a clean delay source",
+      "do not unseal 2024 test labels or tune on test/score"
+    ]
+  },
+  {
+    "schema_version": "platinum3.v1",
+    "project_key": "P::J2280",
+    "observation_date": "2023-12-31",
+    "capacity_mw": 198.0,
+    "study_phase": "System Impact Study",
+    "technology_primary": "battery",
+    "state_code": "IN",
+    "poi_name": "Greentown 230-kV",
+    "p_quit_12m_raw": 0.897754525032305,
+    "p_quit_12m": 0.897754525032305,
+    "p_quit_source": "electrum_catboost",
+    "calibration_note": "Electrum CatBoost joblib (trial-149 recipe). Freeze catboost_tuned is not on disk (gitignored). Do not apply freeze Platt to this score distribution.",
+    "pile": {
+      "delayed_mw_now": 25299.4,
+      "gia_delayed_mw_now": 0.0,
+      "delayed_mw_h3": 27748.480252452253,
+      "delayed_mw_h12": 37044.3253839384,
+      "pile_percentile_pit": 1.0,
+      "pile_asof": "2023-12-01",
+      "pile_forecast_engine": "holt_damped",
+      "n_history": 8,
+      "note": "EIA planned delayed MW (delay \u226512m vs first seen). GIA overlay is a thin fuzzy match \u2014 do not treat as the full GIA pile. 3m/12m are Holt (or naive) from history \u2264 as-of; not 2024 actuals."
+    },
+    "flags": {
+      "high_quit_risk": true,
+      "medium_quit_risk": true,
+      "is_gia": false,
+      "cod_already_slipped": true,
+      "developer_serial": false,
+      "restudy_on_record": false,
+      "hazard_high": false,
+      "upgrade_cost_high": false,
+      "pile_crowded": true,
+      "energy_community": false
+    },
+    "scenario": {
+      "name": "rate_shock",
+      "note": "If observation interest rate were +2 points vs the row."
+    },
+    "p_quit_under_scenario": 0.8923021443788464,
+    "delta_p_quit": -0.005452380653458655,
+    "risks": [
+      {
+        "code": "abandonment",
+        "severity": "high",
+        "evidence": "P(quit 12m)=0.892 \u2265 0.1",
+        "meaning": "Project is at elevated chance of leaving the queue in ~12 months."
+      },
+      {
+        "code": "system_congestion",
+        "severity": "high",
+        "evidence": "Delayed-MW pile at/above PIT 75th percentile (or scenario override).",
+        "meaning": "The planned delayed-MW pile is large versus history (system crowding)."
+      },
+      {
+        "code": "cod_already_slipped",
+        "severity": "high",
+        "evidence": "service_date_passed or months_until_service < 0 (current fact).",
+        "meaning": "Planned service date is already at or before the as-of date."
+      }
+    ],
+    "playbook_ids": [
+      "pb_abandonment",
+      "pb_system_congestion",
+      "pb_cod_already_slipped"
+    ],
+    "do_not_claim": [
+      "do not quote months of future COD slip as a model output",
+      "do not claim a MISO Step-Up / Firm Service failure record",
+      "do not treat EIA delayed MW as a complete GIA list (overlay is thin)",
+      "do not treat scenario deltas as causal effects",
+      "do not use FERC-730 as a clean delay source",
+      "do not unseal 2024 test labels or tune on test/score"
+    ]
+  },
+  {
+    "schema_version": "platinum3.v1",
+    "project_key": "P::J2280",
+    "observation_date": "2023-12-31",
+    "capacity_mw": 198.0,
+    "study_phase": "System Impact Study",
+    "technology_primary": "battery",
+    "state_code": "IN",
+    "poi_name": "Greentown 230-kV",
+    "p_quit_12m_raw": 0.897754525032305,
+    "p_quit_12m": 0.897754525032305,
+    "p_quit_source": "electrum_catboost",
+    "calibration_note": "Electrum CatBoost joblib (trial-149 recipe). Freeze catboost_tuned is not on disk (gitignored). Do not apply freeze Platt to this score distribution.",
+    "pile": {
+      "delayed_mw_now": 25299.4,
+      "gia_delayed_mw_now": 0.0,
+      "delayed_mw_h3": 27748.480252452253,
+      "delayed_mw_h12": 37044.3253839384,
+      "pile_percentile_pit": 1.0,
+      "pile_asof": "2023-12-01",
+      "pile_forecast_engine": "holt_damped",
+      "n_history": 8,
+      "note": "EIA planned delayed MW (delay \u226512m vs first seen). GIA overlay is a thin fuzzy match \u2014 do not treat as the full GIA pile. 3m/12m are Holt (or naive) from history \u2264 as-of; not 2024 actuals."
+    },
+    "flags": {
+      "high_quit_risk": true,
+      "medium_quit_risk": true,
+      "is_gia": false,
+      "cod_already_slipped": true,
+      "developer_serial": true,
+      "restudy_on_record": false,
+      "hazard_high": false,
+      "upgrade_cost_high": false,
+      "pile_crowded": true,
+      "energy_community": false
+    },
+    "scenario": {
+      "name": "serial_developer",
+      "note": "If sponsor prior withdrawal rate were at least 75%."
+    },
+    "p_quit_under_scenario": 0.9484467518528235,
+    "delta_p_quit": 0.05069222682051844,
+    "risks": [
+      {
+        "code": "abandonment",
+        "severity": "high",
+        "evidence": "P(quit 12m)=0.948 \u2265 0.1",
+        "meaning": "Project is at elevated chance of leaving the queue in ~12 months."
+      },
+      {
+        "code": "system_congestion",
+        "severity": "high",
+        "evidence": "Delayed-MW pile at/above PIT 75th percentile (or scenario override).",
+        "meaning": "The planned delayed-MW pile is large versus history (system crowding)."
+      },
+      {
+        "code": "cod_already_slipped",
+        "severity": "high",
+        "evidence": "service_date_passed or months_until_service < 0 (current fact).",
+        "meaning": "Planned service date is already at or before the as-of date."
+      },
+      {
+        "code": "developer_serial_quit",
+        "severity": "medium",
+        "evidence": "developer_prior_withdrawal_rate \u2265 train p75 (0.522).",
+        "meaning": "This sponsor\u2019s prior projects withdrew at a high rate."
+      }
+    ],
+    "playbook_ids": [
+      "pb_abandonment",
+      "pb_system_congestion",
+      "pb_cod_already_slipped",
+      "pb_developer_serial"
+    ],
+    "do_not_claim": [
+      "do not quote months of future COD slip as a model output",
+      "do not claim a MISO Step-Up / Firm Service failure record",
+      "do not treat EIA delayed MW as a complete GIA list (overlay is thin)",
+      "do not treat scenario deltas as causal effects",
+      "do not use FERC-730 as a clean delay source",
+      "do not unseal 2024 test labels or tune on test/score"
+    ]
+  },
+  {
+    "schema_version": "platinum3.v1",
+    "project_key": "P::J2280",
+    "observation_date": "2023-12-31",
+    "capacity_mw": 198.0,
+    "study_phase": "System Impact Study",
+    "technology_primary": "battery",
+    "state_code": "IN",
+    "poi_name": "Greentown 230-kV",
+    "p_quit_12m_raw": 0.897754525032305,
+    "p_quit_12m": 0.897754525032305,
+    "p_quit_source": "electrum_catboost",
+    "calibration_note": "Electrum CatBoost joblib (trial-149 recipe). Freeze catboost_tuned is not on disk (gitignored). Do not apply freeze Platt to this score distribution.",
+    "pile": {
+      "delayed_mw_now": 25299.4,
+      "gia_delayed_mw_now": 0.0,
+      "delayed_mw_h3": 27748.480252452253,
+      "delayed_mw_h12": 37044.3253839384,
+      "pile_percentile_pit": 1.0,
+      "pile_asof": "2023-12-01",
+      "pile_forecast_engine": "holt_damped",
+      "n_history": 8,
+      "note": "EIA planned delayed MW (delay \u226512m vs first seen). GIA overlay is a thin fuzzy match \u2014 do not treat as the full GIA pile. 3m/12m are Holt (or naive) from history \u2264 as-of; not 2024 actuals. Scenario high_system_delay forced crowded."
+    },
+    "flags": {
+      "high_quit_risk": true,
+      "medium_quit_risk": true,
+      "is_gia": false,
+      "cod_already_slipped": true,
+      "developer_serial": false,
+      "restudy_on_record": false,
+      "hazard_high": false,
+      "upgrade_cost_high": false,
+      "pile_crowded": true,
+      "energy_community": false
+    },
+    "scenario": {
+      "name": "high_system_delay",
+      "note": "Pile crowding forced high. Electrum X unchanged; P(quit) delta is 0 unless you retrain with pile features."
+    },
+    "p_quit_under_scenario": 0.897754525032305,
+    "delta_p_quit": 0.0,
+    "risks": [
+      {
+        "code": "abandonment",
+        "severity": "high",
+        "evidence": "P(quit 12m)=0.898 \u2265 0.1",
+        "meaning": "Project is at elevated chance of leaving the queue in ~12 months."
+      },
+      {
+        "code": "system_congestion",
+        "severity": "high",
+        "evidence": "Delayed-MW pile at/above PIT 75th percentile (or scenario override).",
+        "meaning": "The planned delayed-MW pile is large versus history (system crowding)."
+      },
+      {
+        "code": "cod_already_slipped",
+        "severity": "high",
+        "evidence": "service_date_passed or months_until_service < 0 (current fact).",
+        "meaning": "Planned service date is already at or before the as-of date."
+      }
+    ],
+    "playbook_ids": [
+      "pb_abandonment",
+      "pb_system_congestion",
+      "pb_cod_already_slipped"
+    ],
+    "do_not_claim": [
+      "do not quote months of future COD slip as a model output",
+      "do not claim a MISO Step-Up / Firm Service failure record",
+      "do not treat EIA delayed MW as a complete GIA list (overlay is thin)",
+      "do not treat scenario deltas as causal effects",
+      "do not use FERC-730 as a clean delay source",
+      "do not unseal 2024 test labels or tune on test/score"
+    ]
+  },
+  {
+    "schema_version": "platinum3.v1",
+    "project_key": "P::J2460",
+    "observation_date": "2023-12-31",
+    "capacity_mw": 100.0,
+    "study_phase": "Not Started",
+    "technology_primary": "battery",
+    "state_code": "AR",
+    "poi_name": "White Bluff EHV 500kV",
+    "p_quit_12m_raw": 0.8759175538631553,
+    "p_quit_12m": 0.8759175538631553,
+    "p_quit_source": "electrum_catboost",
+    "calibration_note": "Electrum CatBoost joblib (trial-149 recipe). Freeze catboost_tuned is not on disk (gitignored). Do not apply freeze Platt to this score distribution.",
+    "pile": {
+      "delayed_mw_now": 25299.4,
+      "gia_delayed_mw_now": 0.0,
+      "delayed_mw_h3": 27748.480252452253,
+      "delayed_mw_h12": 37044.3253839384,
+      "pile_percentile_pit": 1.0,
+      "pile_asof": "2023-12-01",
+      "pile_forecast_engine": "holt_damped",
+      "n_history": 8,
+      "note": "EIA planned delayed MW (delay \u226512m vs first seen). GIA overlay is a thin fuzzy match \u2014 do not treat as the full GIA pile. 3m/12m are Holt (or naive) from history \u2264 as-of; not 2024 actuals."
+    },
+    "flags": {
+      "high_quit_risk": true,
+      "medium_quit_risk": true,
+      "is_gia": false,
+      "cod_already_slipped": false,
+      "developer_serial": false,
+      "restudy_on_record": false,
+      "hazard_high": true,
+      "upgrade_cost_high": false,
+      "pile_crowded": true,
+      "energy_community": true
+    },
+    "scenario": {
+      "name": "baseline",
+      "note": "Observed state; no overlay."
+    },
+    "p_quit_under_scenario": 0.8759175538631553,
+    "delta_p_quit": 0.0,
+    "risks": [
+      {
+        "code": "abandonment",
+        "severity": "high",
+        "evidence": "P(quit 12m)=0.876 \u2265 0.1",
+        "meaning": "Project is at elevated chance of leaving the queue in ~12 months."
+      },
+      {
+        "code": "system_congestion",
+        "severity": "high",
+        "evidence": "Delayed-MW pile at/above PIT 75th percentile (or scenario override).",
+        "meaning": "The planned delayed-MW pile is large versus history (system crowding)."
+      },
+      {
+        "code": "hazard_exposure",
+        "severity": "low",
+        "evidence": "fema_risk_score \u2265 train p75 (79.5).",
+        "meaning": "County FEMA risk is high versus the training distribution."
+      },
+      {
+        "code": "policy_incentive",
+        "severity": "low",
+        "evidence": "energy_community_eligible is true.",
+        "meaning": "Energy-community / IRA bonus-credit flag is on (financing context, not a delay model)."
+      }
+    ],
+    "playbook_ids": [
+      "pb_abandonment",
+      "pb_system_congestion",
+      "pb_hazard",
+      "pb_policy_incentive"
+    ],
+    "do_not_claim": [
+      "do not quote months of future COD slip as a model output",
+      "do not claim a MISO Step-Up / Firm Service failure record",
+      "do not treat EIA delayed MW as a complete GIA list (overlay is thin)",
+      "do not treat scenario deltas as causal effects",
+      "do not use FERC-730 as a clean delay source",
+      "do not unseal 2024 test labels or tune on test/score"
+    ]
+  },
+  {
+    "schema_version": "platinum3.v1",
+    "project_key": "P::J2460",
+    "observation_date": "2023-12-31",
+    "capacity_mw": 100.0,
+    "study_phase": "IA Executed",
+    "technology_primary": "battery",
+    "state_code": "AR",
+    "poi_name": "White Bluff EHV 500kV",
+    "p_quit_12m_raw": 0.8759175538631553,
+    "p_quit_12m": 0.8759175538631553,
+    "p_quit_source": "electrum_catboost",
+    "calibration_note": "Electrum CatBoost joblib (trial-149 recipe). Freeze catboost_tuned is not on disk (gitignored). Do not apply freeze Platt to this score distribution.",
+    "pile": {
+      "delayed_mw_now": 25299.4,
+      "gia_delayed_mw_now": 0.0,
+      "delayed_mw_h3": 27748.480252452253,
+      "delayed_mw_h12": 37044.3253839384,
+      "pile_percentile_pit": 1.0,
+      "pile_asof": "2023-12-01",
+      "pile_forecast_engine": "holt_damped",
+      "n_history": 8,
+      "note": "EIA planned delayed MW (delay \u226512m vs first seen). GIA overlay is a thin fuzzy match \u2014 do not treat as the full GIA pile. 3m/12m are Holt (or naive) from history \u2264 as-of; not 2024 actuals."
+    },
+    "flags": {
+      "high_quit_risk": true,
+      "medium_quit_risk": true,
+      "is_gia": true,
+      "cod_already_slipped": false,
+      "developer_serial": false,
+      "restudy_on_record": false,
+      "hazard_high": true,
+      "upgrade_cost_high": false,
+      "pile_crowded": true,
+      "energy_community": true
+    },
+    "scenario": {
+      "name": "enter_gia",
+      "note": "If study_phase were IA Executed (GIA/IA). Sensitivity, not a causal GIA effect."
+    },
+    "p_quit_under_scenario": 0.8065469973731549,
+    "delta_p_quit": -0.06937055649000035,
+    "risks": [
+      {
+        "code": "abandonment",
+        "severity": "high",
+        "evidence": "P(quit 12m)=0.807 \u2265 0.1",
+        "meaning": "Project is at elevated chance of leaving the queue in ~12 months."
+      },
+      {
+        "code": "system_congestion",
+        "severity": "high",
+        "evidence": "Delayed-MW pile at/above PIT 75th percentile (or scenario override).",
+        "meaning": "The planned delayed-MW pile is large versus history (system crowding)."
+      },
+      {
+        "code": "gia_execution",
+        "severity": "medium",
+        "evidence": "GIA / IA as-of this observation.",
+        "meaning": "Project is in GIA / IA \u2014 execution and offtake risk, not just study-queue risk."
+      },
+      {
+        "code": "hazard_exposure",
+        "severity": "low",
+        "evidence": "fema_risk_score \u2265 train p75 (79.5).",
+        "meaning": "County FEMA risk is high versus the training distribution."
+      },
+      {
+        "code": "policy_incentive",
+        "severity": "low",
+        "evidence": "energy_community_eligible is true.",
+        "meaning": "Energy-community / IRA bonus-credit flag is on (financing context, not a delay model)."
+      }
+    ],
+    "playbook_ids": [
+      "pb_abandonment",
+      "pb_system_congestion",
+      "pb_gia_execution",
+      "pb_hazard",
+      "pb_policy_incentive"
+    ],
+    "do_not_claim": [
+      "do not quote months of future COD slip as a model output",
+      "do not claim a MISO Step-Up / Firm Service failure record",
+      "do not treat EIA delayed MW as a complete GIA list (overlay is thin)",
+      "do not treat scenario deltas as causal effects",
+      "do not use FERC-730 as a clean delay source",
+      "do not unseal 2024 test labels or tune on test/score"
+    ]
+  },
+  {
+    "schema_version": "platinum3.v1",
+    "project_key": "P::J2460",
+    "observation_date": "2023-12-31",
+    "capacity_mw": 100.0,
+    "study_phase": "Not Started",
+    "technology_primary": "battery",
+    "state_code": "AR",
+    "poi_name": "White Bluff EHV 500kV",
+    "p_quit_12m_raw": 0.8759175538631553,
+    "p_quit_12m": 0.8759175538631553,
+    "p_quit_source": "electrum_catboost",
+    "calibration_note": "Electrum CatBoost joblib (trial-149 recipe). Freeze catboost_tuned is not on disk (gitignored). Do not apply freeze Platt to this score distribution.",
+    "pile": {
+      "delayed_mw_now": 25299.4,
+      "gia_delayed_mw_now": 0.0,
+      "delayed_mw_h3": 27748.480252452253,
+      "delayed_mw_h12": 37044.3253839384,
+      "pile_percentile_pit": 1.0,
+      "pile_asof": "2023-12-01",
+      "pile_forecast_engine": "holt_damped",
+      "n_history": 8,
+      "note": "EIA planned delayed MW (delay \u226512m vs first seen). GIA overlay is a thin fuzzy match \u2014 do not treat as the full GIA pile. 3m/12m are Holt (or naive) from history \u2264 as-of; not 2024 actuals."
+    },
+    "flags": {
+      "high_quit_risk": true,
+      "medium_quit_risk": true,
+      "is_gia": false,
+      "cod_already_slipped": true,
+      "developer_serial": false,
+      "restudy_on_record": false,
+      "hazard_high": true,
+      "upgrade_cost_high": false,
+      "pile_crowded": true,
+      "energy_community": true
+    },
+    "scenario": {
+      "name": "already_past_cod",
+      "note": "If the planned service date were already 12+ months past as-of. Fact overlay, not Platinum 1 months."
+    },
+    "p_quit_under_scenario": 0.45926786982009543,
+    "delta_p_quit": -0.41664968404305985,
+    "risks": [
+      {
+        "code": "abandonment",
+        "severity": "high",
+        "evidence": "P(quit 12m)=0.459 \u2265 0.1",
+        "meaning": "Project is at elevated chance of leaving the queue in ~12 months."
+      },
+      {
+        "code": "system_congestion",
+        "severity": "high",
+        "evidence": "Delayed-MW pile at/above PIT 75th percentile (or scenario override).",
+        "meaning": "The planned delayed-MW pile is large versus history (system crowding)."
+      },
+      {
+        "code": "cod_already_slipped",
+        "severity": "high",
+        "evidence": "service_date_passed or months_until_service < 0 (current fact).",
+        "meaning": "Planned service date is already at or before the as-of date."
+      },
+      {
+        "code": "hazard_exposure",
+        "severity": "low",
+        "evidence": "fema_risk_score \u2265 train p75 (79.5).",
+        "meaning": "County FEMA risk is high versus the training distribution."
+      },
+      {
+        "code": "policy_incentive",
+        "severity": "low",
+        "evidence": "energy_community_eligible is true.",
+        "meaning": "Energy-community / IRA bonus-credit flag is on (financing context, not a delay model)."
+      }
+    ],
+    "playbook_ids": [
+      "pb_abandonment",
+      "pb_system_congestion",
+      "pb_cod_already_slipped",
+      "pb_hazard",
+      "pb_policy_incentive"
+    ],
+    "do_not_claim": [
+      "do not quote months of future COD slip as a model output",
+      "do not claim a MISO Step-Up / Firm Service failure record",
+      "do not treat EIA delayed MW as a complete GIA list (overlay is thin)",
+      "do not treat scenario deltas as causal effects",
+      "do not use FERC-730 as a clean delay source",
+      "do not unseal 2024 test labels or tune on test/score"
+    ]
+  },
+  {
+    "schema_version": "platinum3.v1",
+    "project_key": "P::J2460",
+    "observation_date": "2023-12-31",
+    "capacity_mw": 100.0,
+    "study_phase": "Not Started",
+    "technology_primary": "battery",
+    "state_code": "AR",
+    "poi_name": "White Bluff EHV 500kV",
+    "p_quit_12m_raw": 0.8759175538631553,
+    "p_quit_12m": 0.8759175538631553,
+    "p_quit_source": "electrum_catboost",
+    "calibration_note": "Electrum CatBoost joblib (trial-149 recipe). Freeze catboost_tuned is not on disk (gitignored). Do not apply freeze Platt to this score distribution.",
+    "pile": {
+      "delayed_mw_now": 25299.4,
+      "gia_delayed_mw_now": 0.0,
+      "delayed_mw_h3": 27748.480252452253,
+      "delayed_mw_h12": 37044.3253839384,
+      "pile_percentile_pit": 1.0,
+      "pile_asof": "2023-12-01",
+      "pile_forecast_engine": "holt_damped",
+      "n_history": 8,
+      "note": "EIA planned delayed MW (delay \u226512m vs first seen). GIA overlay is a thin fuzzy match \u2014 do not treat as the full GIA pile. 3m/12m are Holt (or naive) from history \u2264 as-of; not 2024 actuals."
+    },
+    "flags": {
+      "high_quit_risk": true,
+      "medium_quit_risk": true,
+      "is_gia": false,
+      "cod_already_slipped": false,
+      "developer_serial": false,
+      "restudy_on_record": true,
+      "hazard_high": true,
+      "upgrade_cost_high": false,
+      "pile_crowded": true,
+      "energy_community": true
+    },
+    "scenario": {
+      "name": "restudy",
+      "note": "If one additional restudy were on the record."
+    },
+    "p_quit_under_scenario": 0.8298968302191967,
+    "delta_p_quit": -0.046020723643958594,
+    "risks": [
+      {
+        "code": "abandonment",
+        "severity": "high",
+        "evidence": "P(quit 12m)=0.830 \u2265 0.1",
+        "meaning": "Project is at elevated chance of leaving the queue in ~12 months."
+      },
+      {
+        "code": "system_congestion",
+        "severity": "high",
+        "evidence": "Delayed-MW pile at/above PIT 75th percentile (or scenario override).",
+        "meaning": "The planned delayed-MW pile is large versus history (system crowding)."
+      },
+      {
+        "code": "restudy_friction",
+        "severity": "medium",
+        "evidence": "restudy_count \u2265 1.",
+        "meaning": "Study restudies are already on the record."
+      },
+      {
+        "code": "hazard_exposure",
+        "severity": "low",
+        "evidence": "fema_risk_score \u2265 train p75 (79.5).",
+        "meaning": "County FEMA risk is high versus the training distribution."
+      },
+      {
+        "code": "policy_incentive",
+        "severity": "low",
+        "evidence": "energy_community_eligible is true.",
+        "meaning": "Energy-community / IRA bonus-credit flag is on (financing context, not a delay model)."
+      }
+    ],
+    "playbook_ids": [
+      "pb_abandonment",
+      "pb_system_congestion",
+      "pb_restudy",
+      "pb_hazard",
+      "pb_policy_incentive"
+    ],
+    "do_not_claim": [
+      "do not quote months of future COD slip as a model output",
+      "do not claim a MISO Step-Up / Firm Service failure record",
+      "do not treat EIA delayed MW as a complete GIA list (overlay is thin)",
+      "do not treat scenario deltas as causal effects",
+      "do not use FERC-730 as a clean delay source",
+      "do not unseal 2024 test labels or tune on test/score"
+    ]
+  },
+  {
+    "schema_version": "platinum3.v1",
+    "project_key": "P::J2460",
+    "observation_date": "2023-12-31",
+    "capacity_mw": 100.0,
+    "study_phase": "Not Started",
+    "technology_primary": "battery",
+    "state_code": "AR",
+    "poi_name": "White Bluff EHV 500kV",
+    "p_quit_12m_raw": 0.8759175538631553,
+    "p_quit_12m": 0.8759175538631553,
+    "p_quit_source": "electrum_catboost",
+    "calibration_note": "Electrum CatBoost joblib (trial-149 recipe). Freeze catboost_tuned is not on disk (gitignored). Do not apply freeze Platt to this score distribution.",
+    "pile": {
+      "delayed_mw_now": 25299.4,
+      "gia_delayed_mw_now": 0.0,
+      "delayed_mw_h3": 27748.480252452253,
+      "delayed_mw_h12": 37044.3253839384,
+      "pile_percentile_pit": 1.0,
+      "pile_asof": "2023-12-01",
+      "pile_forecast_engine": "holt_damped",
+      "n_history": 8,
+      "note": "EIA planned delayed MW (delay \u226512m vs first seen). GIA overlay is a thin fuzzy match \u2014 do not treat as the full GIA pile. 3m/12m are Holt (or naive) from history \u2264 as-of; not 2024 actuals."
+    },
+    "flags": {
+      "high_quit_risk": true,
+      "medium_quit_risk": true,
+      "is_gia": false,
+      "cod_already_slipped": false,
+      "developer_serial": false,
+      "restudy_on_record": false,
+      "hazard_high": true,
+      "upgrade_cost_high": false,
+      "pile_crowded": true,
+      "energy_community": true
+    },
+    "scenario": {
+      "name": "rate_shock",
+      "note": "If observation interest rate were +2 points vs the row."
+    },
+    "p_quit_under_scenario": 0.7419086375560457,
+    "delta_p_quit": -0.13400891630710954,
+    "risks": [
+      {
+        "code": "abandonment",
+        "severity": "high",
+        "evidence": "P(quit 12m)=0.742 \u2265 0.1",
+        "meaning": "Project is at elevated chance of leaving the queue in ~12 months."
+      },
+      {
+        "code": "system_congestion",
+        "severity": "high",
+        "evidence": "Delayed-MW pile at/above PIT 75th percentile (or scenario override).",
+        "meaning": "The planned delayed-MW pile is large versus history (system crowding)."
+      },
+      {
+        "code": "hazard_exposure",
+        "severity": "low",
+        "evidence": "fema_risk_score \u2265 train p75 (79.5).",
+        "meaning": "County FEMA risk is high versus the training distribution."
+      },
+      {
+        "code": "policy_incentive",
+        "severity": "low",
+        "evidence": "energy_community_eligible is true.",
+        "meaning": "Energy-community / IRA bonus-credit flag is on (financing context, not a delay model)."
+      }
+    ],
+    "playbook_ids": [
+      "pb_abandonment",
+      "pb_system_congestion",
+      "pb_hazard",
+      "pb_policy_incentive"
+    ],
+    "do_not_claim": [
+      "do not quote months of future COD slip as a model output",
+      "do not claim a MISO Step-Up / Firm Service failure record",
+      "do not treat EIA delayed MW as a complete GIA list (overlay is thin)",
+      "do not treat scenario deltas as causal effects",
+      "do not use FERC-730 as a clean delay source",
+      "do not unseal 2024 test labels or tune on test/score"
+    ]
+  },
+  {
+    "schema_version": "platinum3.v1",
+    "project_key": "P::J2460",
+    "observation_date": "2023-12-31",
+    "capacity_mw": 100.0,
+    "study_phase": "Not Started",
+    "technology_primary": "battery",
+    "state_code": "AR",
+    "poi_name": "White Bluff EHV 500kV",
+    "p_quit_12m_raw": 0.8759175538631553,
+    "p_quit_12m": 0.8759175538631553,
+    "p_quit_source": "electrum_catboost",
+    "calibration_note": "Electrum CatBoost joblib (trial-149 recipe). Freeze catboost_tuned is not on disk (gitignored). Do not apply freeze Platt to this score distribution.",
+    "pile": {
+      "delayed_mw_now": 25299.4,
+      "gia_delayed_mw_now": 0.0,
+      "delayed_mw_h3": 27748.480252452253,
+      "delayed_mw_h12": 37044.3253839384,
+      "pile_percentile_pit": 1.0,
+      "pile_asof": "2023-12-01",
+      "pile_forecast_engine": "holt_damped",
+      "n_history": 8,
+      "note": "EIA planned delayed MW (delay \u226512m vs first seen). GIA overlay is a thin fuzzy match \u2014 do not treat as the full GIA pile. 3m/12m are Holt (or naive) from history \u2264 as-of; not 2024 actuals."
+    },
+    "flags": {
+      "high_quit_risk": true,
+      "medium_quit_risk": true,
+      "is_gia": false,
+      "cod_already_slipped": false,
+      "developer_serial": true,
+      "restudy_on_record": false,
+      "hazard_high": true,
+      "upgrade_cost_high": false,
+      "pile_crowded": true,
+      "energy_community": true
+    },
+    "scenario": {
+      "name": "serial_developer",
+      "note": "If sponsor prior withdrawal rate were at least 75%."
+    },
+    "p_quit_under_scenario": 0.8688080030216176,
+    "delta_p_quit": -0.007109550841537637,
+    "risks": [
+      {
+        "code": "abandonment",
+        "severity": "high",
+        "evidence": "P(quit 12m)=0.869 \u2265 0.1",
+        "meaning": "Project is at elevated chance of leaving the queue in ~12 months."
+      },
+      {
+        "code": "system_congestion",
+        "severity": "high",
+        "evidence": "Delayed-MW pile at/above PIT 75th percentile (or scenario override).",
+        "meaning": "The planned delayed-MW pile is large versus history (system crowding)."
+      },
+      {
+        "code": "developer_serial_quit",
+        "severity": "medium",
+        "evidence": "developer_prior_withdrawal_rate \u2265 train p75 (0.522).",
+        "meaning": "This sponsor\u2019s prior projects withdrew at a high rate."
+      },
+      {
+        "code": "hazard_exposure",
+        "severity": "low",
+        "evidence": "fema_risk_score \u2265 train p75 (79.5).",
+        "meaning": "County FEMA risk is high versus the training distribution."
+      },
+      {
+        "code": "policy_incentive",
+        "severity": "low",
+        "evidence": "energy_community_eligible is true.",
+        "meaning": "Energy-community / IRA bonus-credit flag is on (financing context, not a delay model)."
+      }
+    ],
+    "playbook_ids": [
+      "pb_abandonment",
+      "pb_system_congestion",
+      "pb_developer_serial",
+      "pb_hazard",
+      "pb_policy_incentive"
+    ],
+    "do_not_claim": [
+      "do not quote months of future COD slip as a model output",
+      "do not claim a MISO Step-Up / Firm Service failure record",
+      "do not treat EIA delayed MW as a complete GIA list (overlay is thin)",
+      "do not treat scenario deltas as causal effects",
+      "do not use FERC-730 as a clean delay source",
+      "do not unseal 2024 test labels or tune on test/score"
+    ]
+  },
+  {
+    "schema_version": "platinum3.v1",
+    "project_key": "P::J2460",
+    "observation_date": "2023-12-31",
+    "capacity_mw": 100.0,
+    "study_phase": "Not Started",
+    "technology_primary": "battery",
+    "state_code": "AR",
+    "poi_name": "White Bluff EHV 500kV",
+    "p_quit_12m_raw": 0.8759175538631553,
+    "p_quit_12m": 0.8759175538631553,
+    "p_quit_source": "electrum_catboost",
+    "calibration_note": "Electrum CatBoost joblib (trial-149 recipe). Freeze catboost_tuned is not on disk (gitignored). Do not apply freeze Platt to this score distribution.",
+    "pile": {
+      "delayed_mw_now": 25299.4,
+      "gia_delayed_mw_now": 0.0,
+      "delayed_mw_h3": 27748.480252452253,
+      "delayed_mw_h12": 37044.3253839384,
+      "pile_percentile_pit": 1.0,
+      "pile_asof": "2023-12-01",
+      "pile_forecast_engine": "holt_damped",
+      "n_history": 8,
+      "note": "EIA planned delayed MW (delay \u226512m vs first seen). GIA overlay is a thin fuzzy match \u2014 do not treat as the full GIA pile. 3m/12m are Holt (or naive) from history \u2264 as-of; not 2024 actuals. Scenario high_system_delay forced crowded."
+    },
+    "flags": {
+      "high_quit_risk": true,
+      "medium_quit_risk": true,
+      "is_gia": false,
+      "cod_already_slipped": false,
+      "developer_serial": false,
+      "restudy_on_record": false,
+      "hazard_high": true,
+      "upgrade_cost_high": false,
+      "pile_crowded": true,
+      "energy_community": true
+    },
+    "scenario": {
+      "name": "high_system_delay",
+      "note": "Pile crowding forced high. Electrum X unchanged; P(quit) delta is 0 unless you retrain with pile features."
+    },
+    "p_quit_under_scenario": 0.8759175538631553,
+    "delta_p_quit": 0.0,
+    "risks": [
+      {
+        "code": "abandonment",
+        "severity": "high",
+        "evidence": "P(quit 12m)=0.876 \u2265 0.1",
+        "meaning": "Project is at elevated chance of leaving the queue in ~12 months."
+      },
+      {
+        "code": "system_congestion",
+        "severity": "high",
+        "evidence": "Delayed-MW pile at/above PIT 75th percentile (or scenario override).",
+        "meaning": "The planned delayed-MW pile is large versus history (system crowding)."
+      },
+      {
+        "code": "hazard_exposure",
+        "severity": "low",
+        "evidence": "fema_risk_score \u2265 train p75 (79.5).",
+        "meaning": "County FEMA risk is high versus the training distribution."
+      },
+      {
+        "code": "policy_incentive",
+        "severity": "low",
+        "evidence": "energy_community_eligible is true.",
+        "meaning": "Energy-community / IRA bonus-credit flag is on (financing context, not a delay model)."
+      }
+    ],
+    "playbook_ids": [
+      "pb_abandonment",
+      "pb_system_congestion",
+      "pb_hazard",
+      "pb_policy_incentive"
+    ],
+    "do_not_claim": [
+      "do not quote months of future COD slip as a model output",
+      "do not claim a MISO Step-Up / Firm Service failure record",
+      "do not treat EIA delayed MW as a complete GIA list (overlay is thin)",
+      "do not treat scenario deltas as causal effects",
+      "do not use FERC-730 as a clean delay source",
+      "do not unseal 2024 test labels or tune on test/score"
+    ]
+  }
+]

@@ -1,0 +1,52 @@
+{
+  "unit_id": "bpm015-r33::6.1.3",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.1.3",
+    "title": "Mitigation Verification",
+    "pages": [
+      78,
+      78
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp1",
+      "dpp2",
+      "dpp3"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "cost_allocation",
+      "deliverability"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "study_method"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.1.3.\nMitigation Verification\nSensitivity analyses will be performed by modeling Network Upgrades identified in all SIS\nanalyses to verify that the recommended mitigation does not cause any new reliability violations.\nIf it is determined that the coordinated and recommended mitigation plan causes further reliability\nviolations on the transmission system, then the IC will be provided various alternatives as follows.\ni.\nIC can agree to fund these additional upgrades and proceed to the Facilities phase of\nthe GIP.\nii.\nIC can proceed with the alternative mitigation plan that does not cause reliability\nviolations.",
+  "cite": "BPM-015 r33 §6.1.3"
+}

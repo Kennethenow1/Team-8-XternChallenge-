@@ -1,0 +1,59 @@
+{
+  "unit_id": "bpm015-r33::6.2.2",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.2.2",
+    "title": "Scope of Upgrades",
+    "pages": [
+      82,
+      83
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp3",
+      "gia"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to",
+      "affected_system"
+    ],
+    "topic": [
+      "gia_negotiation",
+      "cost_allocation"
+    ],
+    "risk_code": [
+      "cost_pressure",
+      "gia_execution"
+    ],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    },
+    {
+      "actor": "affected_system",
+      "impact": "Affected System / neighboring TO: coordination and restudy of impacts."
+    }
+  ],
+  "text": "6.2.2.\nScope of Upgrades\nThe Facilities Study will clearly describe, and list various upgrades required to interconnect the\nproposed Generating Facility. The report should include the following Exhibits to include in\nAppendix A of the GIA:\ni.\nExhibit A1: (IC provides to Consultant) IC Generating Facility and IC constructed\nInterconnection Facilities. This would include IC Single Line or Elementary One-line\nDiagram(s) and system Maps depicting and identifying the POI, meter point(s),\nmetering and relaying CT arrangements, the Ownership demarcation(s).\nii.\nExhibit A2: (Consultant develops) TO single line or Elementary One-line Diagram(s)\nand system Maps depicting and identifying the POI, meter point(s), metering and\nrelaying CT arrangements relative to the Interconnection, the Ownership\ndemarcation(s), the TO Interconnection Facilities, Network Upgrades, Stand-Alone\nNetwork Upgrades, System Protection Upgrades and Affected System Upgrades.\niii.\nExhibit A3: (Consultant develops) a Site Plan and/or General Arrangement drawing\nshowing the entire interconnection substation complete with all transmission line\nstructures impacted by the new substation. This drawing will be based on and\ndeveloped from the IC provided certified site survey drawing.\niv.\nExhibit A4: (Consultant develops) a basic Plan and Profile drawing showing the\nrequired line tap work associated with the interconnection sub or switching station.\nThis drawing will be based on and developed from the IC provided certified site survey\ndrawing.\nv.\nExhibit A5: (Consultant develops) a categorized list or tabulation of TO Interconnection\nFacilities, non-Stand-Alone Network Upgrades, Stand-Alone Network Upgrades,\nSystem Protection Upgrades and Affected System Upgrades to be constructed by the\nTO.\nvi.\nExhibit A6: (Consultant develops) a categorized detailed cost breakdown of facilities\nidentified in Exhibit A5 as by TO, by major component (e.g., transformer, line terminal,\n\n\nbreaker, etc.) and by subcomponent (e.g., lightning arrester, disconnect switches,\nprotection equipment, communication equipment, monitoring and alarm equipment,\nmetering facilities, grounding, special controls, or equipment needed to meet stability\nor short circuit criteria, etc.) Similarly, each transmission line should be subcategorized\nby ROW acquisition needs (new/existing and major/minor) and the major and minor\ncomponents.",
+  "cite": "BPM-015 r33 §6.2.2"
+}

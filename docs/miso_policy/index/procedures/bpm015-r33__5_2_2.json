@@ -1,0 +1,52 @@
+{
+  "unit_id": "bpm015-r33::5.2.2",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "5.2.2",
+    "title": "Delays to Phase I Timeline",
+    "pages": [
+      48,
+      48
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp1"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "delay_of_study",
+      "withdrawal",
+      "deposit_refund"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "timeline_target",
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "5.2.2.\nDelays to Phase I Timeline\nAt the request of the IC, or at any time MISO determines that it will not meet the required time\nframe for completing the preliminary Interconnection SIS, MISO shall notify the IC regarding:\ni.\nThe schedule status of the preliminary Interconnection SIS\nii.\nAn estimated completion date and an explanation of the reasons why additional time\nis required.\niii.\nA revised cost estimate of study deposits with an explanation of the reasons why the\ncost estimates were revised. If required, the IC must provide an additional deposit\nequal to the difference between the initial and revised cost estimate within thirty (30)\nCalendar Days of MISO’s notice. Failure of the IC to provide this additional deposit will\nresult in withdrawal of the IR pursuant to Section 3.6 of the GIP.",
+  "cite": "BPM-015 r33 §5.2.2"
+}

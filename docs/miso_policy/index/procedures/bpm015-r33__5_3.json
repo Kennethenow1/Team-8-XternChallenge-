@@ -1,0 +1,50 @@
+{
+  "unit_id": "bpm015-r33::5.3",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "5.3",
+    "title": "Definitive Planning Phase II",
+    "pages": [
+      50,
+      50
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp2"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "withdrawal",
+      "decision_point"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "5.3. Definitive Planning Phase II\nThe DPP II will start the next day after the fifteen (15) Business Days IC Decision Point I window\nexpires. Phase II of the DPP is designed to provide the IC a revised and detailed analysis of their\nInterconnection Project’s impact on the reliability of the Transmission System after incorporating\nupdated generation assumptions resulting from the withdrawal of IRs during DPP I, and it will be\napproximately one-hundred and five (105) Calendar Days in length. MISO will perform an update\nto the Model Building and Review results done DPP I, scheduled for six (6) Calendar Days.\nFollowing this, MISO will conduct a revised SIS, scheduled for seventy-five (75) Calendar Days.\nAt the beginning of the DPP II, MISO will also conduct the Interconnection Facilities Study,\nscheduled for ninety (90) Calendar Days.",
+  "cite": "BPM-015 r33 §5.3"
+}

@@ -1,0 +1,40 @@
+{
+  "unit_id": "bpm015-r33::app.A",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "app.A",
+    "title": "Appendix A",
+    "pages": [
+      144,
+      145
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso"
+    ],
+    "topic": [],
+    "risk_code": [],
+    "claim_class": [
+      "study_method"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    }
+  ],
+  "text": "Appendix A\nSample Contour Map\n\nThis is a sample contour map generated using August 2017 Definitive Planning Phase model for\nCentral, MI, ATC and South regions and an August 2016 model for the West region. Estimated\ntime through interconnection queue does not include construction time.",
+  "cite": "BPM-015 r33 Appendix A"
+}

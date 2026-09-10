@@ -1,0 +1,60 @@
+{
+  "unit_id": "bpm015-r33::7.3",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "7.3",
+    "title": "Interconnection Customer delays",
+    "pages": [
+      128,
+      129
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "post_gia"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to",
+      "affected_system"
+    ],
+    "topic": [
+      "delay_of_study",
+      "cost_allocation",
+      "gia_negotiation"
+    ],
+    "risk_code": [
+      "cod_already_slipped",
+      "gia_execution"
+    ],
+    "claim_class": [
+      "workflow",
+      "timeline_target"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    },
+    {
+      "actor": "affected_system",
+      "impact": "Affected System / neighboring TO: coordination and restudy of impacts."
+    }
+  ],
+  "text": "7.3. Interconnection Customer delays\nInterconnection Customer requests to amend GIA milestones are addressed under the terms of\nthe effective GIA.  Article 30.10 of the pro forma GIA requires the consent of all Parties in order\nto amend the terms of the GIA.  Therefore, to the extent that the effective GIA does not otherwise\nprohibit or preclude the Interconnection Customer’s request to amend GIA milestones, consent\nof MISO and the Transmission Owner are required before the Interconnection Customer’s\nproposed amendment may be pursued.\n\nIn order to ensure consistent treatment and efficient review of such requests, MISO requires that\nthe requesting Interconnection Customer satisfy the following criteria to provide MISO with\ncomplete information upon which to determine whether its consent to amendment will be provided\npursuant to GIA Article 30.10.  These criteria are as follows:\n•\n(1) Interconnection Customer to provide a written statement from a Company\nOfficer or authorized agent describing circumstances that require the milestone\nchange;\n•\n(2) Interconnection Customer and Transmission Owner agree on specific\nmilestone changes in writing and in advance of submitting request to MISO;\n•\n(3) Interconnection Customer demonstrates an absence of any significant potential\nfor harm to other queued projects.  Factors that may be considered: whether\nchanges specifically affect Network Upgrades, aside from those at the POI;\nwhether proposed change would satisfy a Qualified Change standard (see\nQualified Change definition in Attachment X of the MISO Tariff for additional\ndetails); whether POI is shared by any downstream projects (i.e., no\ndependencies); whether the particular project is appearing in MTEP models;\nwhether Network Upgrades or affected system upgrades are assigned to the\nproject.",
+  "cite": "BPM-015 r33 §7.3"
+}

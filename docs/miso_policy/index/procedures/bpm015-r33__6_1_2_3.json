@@ -1,0 +1,52 @@
+{
+  "unit_id": "bpm015-r33::6.1.2.3",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.1.2.3",
+    "title": "Permissible Software Tools",
+    "pages": [
+      78,
+      78
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp1",
+      "dpp2",
+      "dpp3"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "cost_allocation",
+      "deliverability"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "study_method"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.1.2.3.\nPermissible Software Tools\nSiemens PTI’s PSS/E software for power system studies will be used to perform the studies.\nMISO may use the in-house software tools/scripts or regionally accepted software programs to\ngenerate the results with PSS/E and post-process them. MISO may consider using other industry\naccepted power system analysis software tools with similar capabilities.\n\nFor short circuit analysis, PSS/E, Aspen, CAPE, or any other industry accepted software tools\nwith similar capabilities may be used.",
+  "cite": "BPM-015 r33 §6.1.2.3"
+}

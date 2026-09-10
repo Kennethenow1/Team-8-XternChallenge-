@@ -113,6 +113,7 @@ def fit_tabm_eval(
         "gradient_clipping_norm": 1.0,
         "share_training_batches": True,
         "seed": 42,
+        "use_gpu": True,
     }
     if params:
         cfg.update(params)
@@ -136,8 +137,13 @@ def fit_tabm_eval(
 
         x_num_tr, x_cat_tr = _split_xy(X_tr, cat_cols, num_cols)
         x_num_va, x_cat_va = _split_xy(X_va, cat_cols, num_cols)
+        if x_num_tr is not None:
+            x_num_tr = np.array(x_num_tr, copy=True)
+            x_num_va = np.array(x_num_va, copy=True)
         # Clip categorical indices into embedding range (unseen val levels)
         if x_cat_tr is not None and x_cat_va is not None:
+            x_cat_tr = np.array(x_cat_tr, copy=True)
+            x_cat_va = np.array(x_cat_va, copy=True)
             for i, card in enumerate(cat_cardinalities):
                 hi = max(card - 1, 0)
                 x_cat_tr[:, i] = np.clip(x_cat_tr[:, i], 0, hi)
@@ -149,8 +155,13 @@ def fit_tabm_eval(
         seed = int(cfg["seed"])
         torch.manual_seed(seed)
         np.random.seed(seed)
-        # Force CPU: this environment's CUDA driver is unreliable for TabM.
         device = torch.device("cpu")
+        if bool(cfg.get("use_gpu", True)) and torch.cuda.is_available():
+            try:
+                device = torch.device("cuda")
+                torch.cuda.manual_seed_all(seed)
+            except Exception:
+                device = torch.device("cpu")
 
         make_kwargs: dict[str, Any] = {
             "n_num_features": len(num_cols),
@@ -204,6 +215,7 @@ def fit_tabm_eval(
         best_epoch = -1
         best_val_loss = float("inf")
         remaining_patience = int(cfg["patience"])
+        history: list[dict[str, float]] = []
 
         for epoch in range(int(cfg["max_epochs"])):
             batches = (
@@ -212,14 +224,20 @@ def fit_tabm_eval(
                 else torch.rand((train_size, k), device=device).argsort(dim=0).split(batch_size, dim=0)
             )
             model.train()
+            train_loss_sum = 0.0
+            train_n = 0
             for batch_idx in batches:
                 optimizer.zero_grad()
-                loss = loss_fn(apply_model("train", batch_idx), data["train"]["y"][batch_idx])
+                logits = apply_model("train", batch_idx)
+                loss = loss_fn(logits, data["train"]["y"][batch_idx])
                 loss.backward()
                 clip = cfg.get("gradient_clipping_norm")
                 if clip is not None:
                     torch.nn.utils.clip_grad_norm_(model.parameters(), float(clip))
                 optimizer.step()
+                n_b = int(batch_idx.numel() if hasattr(batch_idx, "numel") else len(batch_idx))
+                train_loss_sum += float(loss.item()) * n_b
+                train_n += n_b
 
             # Early stop on val loss (lower is better)
             model.eval()
@@ -229,6 +247,28 @@ def fit_tabm_eval(
                     idx = torch.arange(start, min(start + batch_size, len(y_va_np)), device=device)
                     val_losses.append(float(loss_fn(apply_model("val", idx), data["val"]["y"][idx]).item()))
                 val_loss = float(np.mean(val_losses))
+
+            tr_prob = _predict_proba_tabm(model, x_num_tr, x_cat_tr, device=device)
+            va_prob = _predict_proba_tabm(model, x_num_va, x_cat_va, device=device)
+            train_acc = float(((tr_prob >= 0.5) == (y_tr_np >= 0.5)).mean())
+            val_acc = float(((va_prob >= 0.5) == (y_va_np >= 0.5)).mean())
+            try:
+                from sklearn.metrics import average_precision_score
+
+                val_pr = float(average_precision_score(y_va_np, va_prob))
+            except Exception:
+                val_pr = float("nan")
+            history.append(
+                {
+                    "step": float(epoch),
+                    "epoch": float(epoch),
+                    "train_loss": float(train_loss_sum / max(train_n, 1)),
+                    "train_acc": train_acc,
+                    "val_loss": val_loss,
+                    "val_acc": val_acc,
+                    "val_pr_auc": val_pr,
+                }
+            )
 
             if epoch == 0 or val_loss < best_val_loss:
                 best_val_loss = val_loss
@@ -251,6 +291,8 @@ def fit_tabm_eval(
                 "best_epoch": int(best_epoch),
                 "n_features": int(X_tr.shape[1]),
                 "backend": "tabm",
+                "device": str(device),
+                "history": history,
             }
         )
         hyperparams = {
@@ -291,6 +333,7 @@ def fit_tabm_eval(
             metrics["_meta_va"] = meta_va
             metrics["_y_va"] = y_va
             metrics["_capacity"] = capacity
+            metrics["_history"] = history
         return metrics
     except Exception as e:
         return {

@@ -1,0 +1,54 @@
+{
+  "unit_id": "bpm015-r33::4.2.4.4",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "4.2.4.4",
+    "title": "Application Fee (D1)",
+    "pages": [
+      33,
+      33
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "application_review"
+    ],
+    "milestone": [
+      "D1"
+    ],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "deposit_refund",
+      "withdrawal"
+    ],
+    "risk_code": [
+      "cost_pressure"
+    ],
+    "claim_class": [
+      "deposit_rule"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "4.2.4.4.\nApplication Fee (D1)\nThe amount of the Application Fee (D1) is seven thousand dollars ($7,000) for all project sizes.\nThe Application Fee is used to offset the cost of the Pre-Queue expenses and is non-refundable.\nFailure to pay the (D1) Application Fee will result in withdrawal of the IR.",
+  "cite": "BPM-015 r33 §4.2.4.4"
+}

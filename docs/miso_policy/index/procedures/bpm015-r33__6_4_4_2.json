@@ -1,0 +1,59 @@
+{
+  "unit_id": "bpm015-r33::6.4.4.2",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.4.4.2",
+    "title": "Limitations on MISO Generators with Impacts on the SPP System",
+    "pages": [
+      101,
+      102
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp1",
+      "dpp2",
+      "dpp3"
+    ],
+    "milestone": [],
+    "actor": [
+      "miso",
+      "neighboring_rto",
+      "affected_system",
+      "to"
+    ],
+    "topic": [
+      "delay_of_study",
+      "cost_allocation",
+      "deliverability",
+      "gia_negotiation"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "neighboring_rto",
+      "impact": "Neighboring RTO (PJM/SPP/MH): affected-system studies and limits."
+    },
+    {
+      "actor": "affected_system",
+      "impact": "Affected System / neighboring TO: coordination and restudy of impacts."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.4.4.2.\nLimitations on MISO Generators with Impacts on the SPP System\nMISO Generation Interconnection projects that come into service prior to completion of required\nNetwork Upgrades on the SPP transmission system will be subject to the MISO Annual ERIS and\nQuarterly Operating Limit processes, with input from SPP’s Affected System study process.  .\nSPP will coordinate thermal constraints and associated limits with MISO on a quarterly basis or\nmore often as events occur, and SPP will provide MISO the list of conditions that will be added to\nMISO Generator Interconnection Agreement.\n\nRequest\nJTIQ\nParticipation\nGroup?\nSubject to Expanded\nScope Analysis?\nRequire\nRegular\nMISO/SPP AFS?\nMISO DPP/MISO ERAS\nWest, Central, ATC, ITC\nregions\nYes\nYes\nNo\nNo\nYes\nNo\nMISO DPP/MISO ERAS\nSouth\nYes\nYes\nNo\nNo\nNo\nYes\nSPP DISIS/ SPP ERAS\n(Group 1,2,3)\nYes\nYes\nNo\nNo\nYes\nNo\nSPP DISIS/ SPP ERAS\n(Group 4,5)\nYes\nYes\nNo\nNo\nNo\nYes",
+  "cite": "BPM-015 r33 §6.4.4.2"
+}

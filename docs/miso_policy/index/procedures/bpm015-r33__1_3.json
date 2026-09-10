@@ -1,0 +1,41 @@
+{
+  "unit_id": "bpm015-r33::1.3",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "1.3",
+    "title": "References",
+    "pages": [
+      18,
+      19
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [],
+    "milestone": [],
+    "actor": [
+      "miso",
+      "to"
+    ],
+    "topic": [],
+    "risk_code": [],
+    "claim_class": [
+      "do_not_use_as_legal_opinion",
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "1.3 References\nOther reference information related to this BPM includes:\n•\nBPM-001 Market Registration\n•\nBPM-004 FTR and ARR\n•\nBPM-010 Network and Commercial Model\n•\nBPM-020 Transmission Planning\n•\nAgreement of the Transmission Facilities Owners to Organize the Midcontinent\nIndependent System Operator, Inc., a Delaware Non-Stock Corporation (MISO\nAgreement)\n•\nThe Tariff\n•\nAttachment X (Generator Interconnection Procedures and Agreement) of the Tariff",
+  "cite": "BPM-015 r33 §1.3"
+}

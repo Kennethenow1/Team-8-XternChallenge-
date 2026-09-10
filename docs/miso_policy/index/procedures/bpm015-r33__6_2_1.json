@@ -1,0 +1,51 @@
+{
+  "unit_id": "bpm015-r33::6.2.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.2.1",
+    "title": "Study Objectives",
+    "pages": [
+      81,
+      82
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp3",
+      "gia"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "gia_negotiation",
+      "cost_allocation"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "study_method"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.2.1.\nStudy Objectives\nFor facility improvements determined from the SIS and based on the official POI:\ni.\nDesign and specification of facility improvements in accordance with Good Utility\nPractice and applicable planning and design criteria. These criteria must be\nconsistently applied to all existing and proposed generation projects in an LBA.\nii.\nDevelopment of detailed cost estimates that include equipment, engineering,\nprocurement, and construction costs according to the level of accuracy possible based\non the proposed in-service date of the projects.\niii.\nIdentification of the electrical switching configuration of the connection equipment,\nincluding, but not limited to the transformer, switchgear, meters, and other station\nequipment.\niv.\nIdentification of the nature and estimated cost of any TO’s Interconnection Facilities\nand Network Upgrades, System Protection Facilities and Distribution Upgrades on the\nTransmission System and Affected Systems necessary to accomplish the\ninterconnection.\nv.\nAn estimate of the time required to construct facilities and required phasing of\nimprovements, if any.\nvi.\nPreparation of the draft Appendices to the Interconnection Agreement/Facilities\nConstruction Agreement with completed exhibits\n\n\nGenerally, the TOs with facilities needing upgrades identified in the SIS will determine the\nconstruction and cost estimate of those upgrades and/or Interconnection Facilities. Cost\nestimates will be determined to a +/- twenty percent (20%) margin if the lead time to the in-service\ndate for the required facilities does not exceed eighteen (18) months. For studies requiring cost\nestimates for longer lead items, a good faith estimate will be developed. To the extent the IC\nrequests a cost estimate with a smaller margin of error, and the TO can reasonably obtain that\nestimate without holding up other projects in the DPP, then the estimate will be within the\nnegotiated margin.",
+  "cite": "BPM-015 r33 §6.2.1"
+}

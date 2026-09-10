@@ -1,0 +1,54 @@
+{
+  "unit_id": "bpm015-r33::7.2",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "7.2",
+    "title": "Construction",
+    "pages": [
+      127,
+      128
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "post_gia",
+      "gia"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "gia_negotiation",
+      "commercial_operation",
+      "cost_allocation"
+    ],
+    "risk_code": [
+      "gia_execution"
+    ],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "7.2. Construction\nThe project construction will take place according to the construction schedule established in the\nGenerator Interconnection Agreement. In the event, a project goes into suspension the required\nNetwork Upgrades and TO Interconnection Facilities will be constructed on the schedule\ndescribed in the appendices to the GIA, except for the following reasons:\ni. Construction is stopped by a Governmental Authority. ii. Network Upgrades are not\nneeded for another project; or\niii. MISO or the TO determines that a Force Majeure event prevents construction.\n\n\nThe IC will closely coordinate the various construction activities with the Transmission Owner to\nmake sure the appropriate design standards are followed and technical specifications of the IC\nconstructed facilities match with that of the TO constructed facilities. IC construction activities are\nexpected to be conducted in parallel with TO construction activities.",
+  "cite": "BPM-015 r33 §7.2"
+}

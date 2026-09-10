@@ -1,0 +1,63 @@
+{
+  "unit_id": "bpm015-r33::6.4.4.3",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.4.4.3",
+    "title": "Limitations on PJM Generators with Impacts on the MISO System",
+    "pages": [
+      102,
+      102
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp1",
+      "dpp2",
+      "dpp3"
+    ],
+    "milestone": [],
+    "actor": [
+      "miso",
+      "neighboring_rto",
+      "affected_system",
+      "ic",
+      "to"
+    ],
+    "topic": [
+      "delay_of_study",
+      "cost_allocation",
+      "gia_negotiation"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "neighboring_rto",
+      "impact": "Neighboring RTO (PJM/SPP/MH): affected-system studies and limits."
+    },
+    {
+      "actor": "affected_system",
+      "impact": "Affected System / neighboring TO: coordination and restudy of impacts."
+    },
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.4.4.3.\nLimitations on PJM Generators with Impacts on the MISO System\nPJM Generation Interconnection Projects that come into service prior to completion of required\nNetwork Upgrades on the MISO transmission system will be subject to the MISO Quarterly\nOperating Limit process, as outlined in the MISO Tariff in Attachment X Section 11.5 and in the\nMISO Transmission Access Planning Provisional Interconnection Agreement Limit Methodology\nwhitepaper, until required Network Upgrades on the MISO transmission system have been\ncompleted. MISO will coordinate project output limitations with PJM on a quarterly basis, and\nMISO will provide PJM with the list of conditions that will be added to PJM IC’s Interconnection\nService agreement.",
+  "cite": "BPM-015 r33 §6.4.4.3"
+}

@@ -1,0 +1,51 @@
+{
+  "unit_id": "bpm015-r33::4.2.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "4.2.1",
+    "title": "Application Milestones (M1)",
+    "pages": [
+      27,
+      27
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "application_review"
+    ],
+    "milestone": [
+      "M1"
+    ],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "scoping"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "4.2.1\nApplication Milestones (M1)\nThe IC must meet the requirements of Milestone (M1) in order for the application to be determined\nvalid by MISO. The application Milestone (M1) will include all of the requirements in Section\n4.2.1.1, Section 4.2.1.1.1, and Section 4.2.1.2.",
+  "cite": "BPM-015 r33 §4.2.1"
+}

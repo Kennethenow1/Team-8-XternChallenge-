@@ -1,0 +1,12 @@
+{
+  "model": "timesfm",
+  "status": "ok",
+  "split": "val",
+  "pr_auc": null,
+  "roc_auc": null,
+  "log_loss": null,
+  "rmse": 477.8389546976592,
+  "mape": 40.521129086583926,
+  "reason": "system forecast \u2014 not project-row PR-AUC",
+  "n_folds": 5
+}

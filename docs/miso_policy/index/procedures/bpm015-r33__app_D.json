@@ -1,0 +1,45 @@
+{
+  "unit_id": "bpm015-r33::app.D",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "app.D",
+    "title": "Appendix D",
+    "pages": [
+      153,
+      154
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [],
+    "risk_code": [],
+    "claim_class": [
+      "study_method"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "Appendix D\nPre-Commercial Generation Test Notification Form\nThe following form would need to be submitted to MISO Real Time Operations at least five (5)\nBusiness Days prior to the first date of testing.\nProject Number:\nProject Name:\nPoint of Interconnection:\nDispatcher Contact Information:\nDate\nStart Time\n(in EST)\nEnd Time\n(in EST)\nExpected MW\nOutput\nExpected MVAR Output\n(Only needed if beyond\nnormal power factor)",
+  "cite": "BPM-015 r33 Appendix D"
+}

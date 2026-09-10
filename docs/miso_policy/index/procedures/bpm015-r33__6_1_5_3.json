@@ -1,0 +1,52 @@
+{
+  "unit_id": "bpm015-r33::6.1.5.3",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.1.5.3",
+    "title": "MISO Sub-Regional Planning Meetings / Availability of ARRs",
+    "pages": [
+      80,
+      80
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp1",
+      "dpp2",
+      "dpp3"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "cost_allocation",
+      "deliverability"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "study_method"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.1.5.3.\nMISO Sub-Regional Planning Meetings\nWhere a Market Participant (MP) requests and funds a Facility Study, MISO staff will notify all\nstakeholders at its upcoming applicable Sub Regional Planning Meeting. Further, when necessary\nFCAs are in place, MISO staff will notify all stakeholders at a subsequent SPM and include in\nMTEP as “Other - MP Funded” project.\n\n6.1.5.4.\nAvailability of ARRs\nICs can request MISO Auction Revenue Rights (ARRs) associated with funded transmission\nexpansions. This will be handled by the Financial Transmission Rights (FTR) group consistent\nwith BPM-004.",
+  "cite": "BPM-015 r33 §6.1.5.3"
+}

@@ -1,0 +1,54 @@
+{
+  "unit_id": "bpm015-r33::4.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "4.1",
+    "title": "Scoping Meeting",
+    "pages": [
+      26,
+      26
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "application_review"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to",
+      "affected_system"
+    ],
+    "topic": [
+      "scoping"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    },
+    {
+      "actor": "affected_system",
+      "impact": "Affected System / neighboring TO: coordination and restudy of impacts."
+    }
+  ],
+  "text": "4.1\nScoping Meeting\nMISO shall establish a date that is agreeable to the IC and the TO for a mandatory Scoping\nMeeting. That date will be at least five (5) Business Days prior to and no more than forty-five (45)\nCalendar Days prior to the kick-off of the DPP, unless mutually agreed upon by MISO, the TO\nand the IC. MISO, the IC, and the TO must attend the Scoping Meeting. MISO shall use\nReasonable Efforts to include any other Affected System Operators in the Scoping Meeting.\n\nTopics for discussion during the Scoping Meeting may include, but are not limited to:\ni.\nConsider a reasonable number of alternative interconnection options to determine\npotential feasible POIs.\nii.\nGeneral Facility loadings\niii.\nGeneral stability and short circuit issues in the area\niv.\nGeneral voltage issues including the ride through capabilities of the Generating Facility\nv.\nGeneral power quality issues including voltage flicker and harmonics.\nvi.\nGeneral local and regional reliability issues\nvii.\nDiagrams and/or layout of applicable substations and transmission lines\n\nThe IC may as a result of the Scoping Meeting modify its POI. The IC will have five (5) Business\nDays from the date of the Scoping Meeting to submit the modified POI to MISO. Any issues or\nquestions that arise during the Scoping Meeting will be addressed by the responsible parties\nwithin a timeframe agreed upon by the meeting participants before the end of the Scoping\nMeeting.",
+  "cite": "BPM-015 r33 §4.1"
+}

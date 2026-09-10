@@ -1,0 +1,49 @@
+{
+  "unit_id": "bpm015-r33::5.1.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "5.1.1",
+    "title": "Screening Analysis Prior to Definitive Planning Phase",
+    "pages": [
+      42,
+      42
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp1"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "site_control"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "5.1.1.\nScreening Analysis Prior to Definitive Planning Phase\nTransmission Provider will perform an indicative non-binding screening analysis to identify\npotential thermal and voltage constraints and publish the results of that analysis for\nInterconnection Customers and MHVDC Connection Customers entering the Definitive Planning\nPhase at least fifteen (15) Calendar Days prior to the kick-off of the DPP Phase I.\n\nScreening Analysis Study\nMISO will use the Definitive Planning Phase model that was published prior to the kickoff of\nDPP Phase I to perform its Screening Analysis Study. All new GI Projects will undergo an AC\nscreening, utilizing the full list of contingencies, to determine both thermal and voltage\nissues. Refer to section 6.1.1.1.8 of this Business Practice Manual for additional study details.\nRaw study results will be published for review by the ad-hoc study group. Potential mitigations\nand corresponding costs will not be included in these results. The results of this screening\nanalysis will be non-binding.",
+  "cite": "BPM-015 r33 §5.1.1"
+}

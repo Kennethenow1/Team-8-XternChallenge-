@@ -1,0 +1,36 @@
+{
+  "unit_id": "bpm015-r33::1.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "1.1",
+    "title": "Purpose of the MISO Business Practices Manuals",
+    "pages": [
+      18,
+      18
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [],
+    "milestone": [],
+    "actor": [
+      "miso"
+    ],
+    "topic": [],
+    "risk_code": [],
+    "claim_class": [
+      "do_not_use_as_legal_opinion",
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    }
+  ],
+  "text": "1.1\nPurpose of the MISO Business Practices Manuals\nThe BPMs developed by MISO provide background information, guidelines, business rules, and\nprocesses established by MISO for the operation and administration of MISO markets, provisions\nof transmission reliability services, and compliance with MISO settlements, billing, and accounting\nrequirements. A complete list of MISO BPMs is available for reference through MISO’s website.",
+  "cite": "BPM-015 r33 §1.1"
+}

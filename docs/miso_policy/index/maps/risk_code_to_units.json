@@ -1,0 +1,64 @@
+{
+  "abandonment": {
+    "unit_ids": [
+      "bpm015-r33::5.2.5",
+      "bpm015-r33::5.3.5",
+      "bpm015-r33::4.2.4.6",
+      "bpm015-r33::6.2.11",
+      "bpm015-r33::5.2.3",
+      "bpm015-r33::5.3.3"
+    ],
+    "note": null
+  },
+  "system_congestion": {
+    "unit_ids": [
+      "bpm015-r33::3.1.1",
+      "bpm015-r33::4.3"
+    ],
+    "note": null
+  },
+  "gia_execution": {
+    "unit_ids": [
+      "bpm015-r33::6.2.7",
+      "bpm015-r33::6.2.8",
+      "bpm015-r33::6.2.9",
+      "bpm015-r33::7.3",
+      "bpm015-r33::7.7"
+    ],
+    "note": null
+  },
+  "cod_already_slipped": {
+    "unit_ids": [
+      "bpm015-r33::4.2",
+      "bpm015-r33::7.3",
+      "bpm015-r33::7.7"
+    ],
+    "note": null
+  },
+  "developer_serial_quit": {
+    "unit_ids": [],
+    "note": "No BPM-015 clause. Keep company/stub playbook only. Do not invent a MISO rule."
+  },
+  "restudy_friction": {
+    "unit_ids": [
+      "bpm015-r33::5.4.6"
+    ],
+    "note": null
+  },
+  "hazard_exposure": {
+    "unit_ids": [],
+    "note": "No BPM-015 clause. Keep company/stub playbook only. Do not invent a MISO rule."
+  },
+  "cost_pressure": {
+    "unit_ids": [
+      "bpm015-r33::4.2.4.5",
+      "bpm015-r33::4.2.4",
+      "bpm015-r33::6.2.3"
+    ],
+    "note": null
+  },
+  "policy_incentive": {
+    "unit_ids": [],
+    "note": "No BPM-015 clause. Keep company/stub playbook only. Do not invent a MISO rule."
+  }
+}

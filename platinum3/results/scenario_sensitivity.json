@@ -1,0 +1,64 @@
+{
+  "schema_version": "platinum3.v1",
+  "split": "val",
+  "n_rows": 1666,
+  "n_cards": 11662,
+  "scorer_source": "electrum_catboost",
+  "calibration_note": "Electrum CatBoost joblib (trial-149 recipe). Freeze catboost_tuned is not on disk (gitignored). Do not apply freeze Platt to this score distribution.",
+  "scenario_sensitivity_val_only": [
+    {
+      "scenario": "enter_gia",
+      "mean_delta_p": -0.004880547465879814,
+      "median_delta_p": 0.0,
+      "share_up": 0.4189675870348139,
+      "n": 1666
+    },
+    {
+      "scenario": "already_past_cod",
+      "mean_delta_p": -0.024295509451563196,
+      "median_delta_p": -0.009922556232767853,
+      "share_up": 0.12785114045618248,
+      "n": 1666
+    },
+    {
+      "scenario": "restudy",
+      "mean_delta_p": -0.0193622975861899,
+      "median_delta_p": -0.011698041779371591,
+      "share_up": 0.02581032412965186,
+      "n": 1666
+    },
+    {
+      "scenario": "rate_shock",
+      "mean_delta_p": 0.033465860258673,
+      "median_delta_p": 0.0055902424737108575,
+      "share_up": 0.648859543817527,
+      "n": 1666
+    },
+    {
+      "scenario": "serial_developer",
+      "mean_delta_p": 0.00931543909749207,
+      "median_delta_p": 0.0024984501738240343,
+      "share_up": 0.6374549819927972,
+      "n": 1666
+    },
+    {
+      "scenario": "high_system_delay",
+      "mean_delta_p": 0.0,
+      "median_delta_p": 0.0,
+      "share_up": 0.0,
+      "n": 1666
+    }
+  ],
+  "sample_project_keys": [
+    "P::B::E291",
+    "P::J2280",
+    "P::J2460"
+  ],
+  "outputs": {
+    "cards_jsonl": "C:\\Users\\Magjun\\Documents\\Team-8-XternChallenge-\\platinum3\\results\\val_risk_cards.jsonl",
+    "cards_parquet": "C:\\Users\\Magjun\\Documents\\Team-8-XternChallenge-\\platinum3\\results\\val_risk_cards.parquet",
+    "samples": "C:\\Users\\Magjun\\Documents\\Team-8-XternChallenge-\\platinum3\\results\\sample_cards.json",
+    "audit": "C:\\Users\\Magjun\\Documents\\Team-8-XternChallenge-\\platinum3\\results\\val_card_audit.parquet"
+  },
+  "note": "val_card_audit.parquet has y_true for the team only. It is not part of the GPT contract."
+}

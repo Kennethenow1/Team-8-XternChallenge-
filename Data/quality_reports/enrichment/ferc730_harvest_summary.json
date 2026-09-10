@@ -1,0 +1,9 @@
+{
+  "status": "skipped_not_clean",
+  "n": 0,
+  "note": "FERC-730 is not available as a clean bulk table. Transmission delay modeling is skipped. Use NERC LTRA (110 of 1,160 projects delayed) and MTEP nearby counts as supporting context.",
+  "inventory": [
+    "failed https://www.ferc.gov/industries-data/electric/general-information/electric-industry-forms: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1010)>"
+  ],
+  "retrieved_at": "2026-09-10T01:01:03Z"
+}

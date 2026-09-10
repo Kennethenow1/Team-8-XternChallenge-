@@ -1,0 +1,48 @@
+{
+  "unit_id": "bpm015-r33::8.3.2.4",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "8.3.2.4",
+    "title": "Modeling Assumptions and Inputs",
+    "pages": [
+      139,
+      139
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "der_afs"
+    ],
+    "milestone": [],
+    "actor": [
+      "miso",
+      "to",
+      "affected_system"
+    ],
+    "topic": [],
+    "risk_code": [],
+    "claim_class": [
+      "workflow",
+      "study_method"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    },
+    {
+      "actor": "affected_system",
+      "impact": "Affected System / neighboring TO: coordination and restudy of impacts."
+    }
+  ],
+  "text": "8.3.2.4.\nModeling Assumptions and Inputs\nMISO selects the latest DPP Phase 3 model at the time a new DER AFS cycle is initiated.\nMISO selects peak and shoulder peak models based on Section 6.1.1.1.2 of this BPM.\n\nMISO has a partial view of existing DER, which is included as negative load in the MTEP\nmodels when reported by members. Per section 8.3.2.3, DER AFS will model DER as a\ngenerator rather than a negative load. MISO will include all new DER information submitted for\na given cycle but will not include previous cycle information unless submitted by the TO for the\ncurrent DER AFS cycle or submitted as part of MISO’s modeling business practices.\n\nDER will be dispatched against local area generators as defined by the MTEP model “area\nnumber.”",
+  "cite": "BPM-015 r33 §8.3.2.4"
+}

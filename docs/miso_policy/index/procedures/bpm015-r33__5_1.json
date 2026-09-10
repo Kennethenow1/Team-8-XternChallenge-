@@ -1,0 +1,56 @@
+{
+  "unit_id": "bpm015-r33::5.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "5.1",
+    "title": "Definitive Planning Phase Entry",
+    "pages": [
+      42,
+      42
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp1"
+    ],
+    "milestone": [
+      "M1",
+      "M2",
+      "D1",
+      "D2"
+    ],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "site_control",
+      "withdrawal",
+      "deposit_refund"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "5.1. Definitive Planning Phase Entry\nWhen the IC satisfies the (M1) requirements and provides the (D1) Application Fee, (D2) DPP\nStudy Funding deposit, and the (M2) DPP Entry Milestone deposit must be received no later than\nthe application deadline published on the Transmission Provider website. The project will enter\ninto the DPP as described in the following sections, providing the deliverables for each phase.\nDetails of each of the DPP processes and methodologies are discussed in Section 6 below. If the\nIC elects not to meet the (M1) requirements and the (M2) Milestone deposit, the project will be\nconsidered withdrawn.",
+  "cite": "BPM-015 r33 §5.1"
+}

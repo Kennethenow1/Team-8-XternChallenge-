@@ -9,6 +9,9 @@ Architecture overview: [architecture.png](architecture.png). Code map: [code_map
 ```bash
 source .venv/bin/activate   # or use .venv/bin/python
 
+# Windows PowerShell (CPU):  .\.venv\Scripts\Activate.ps1
+# Windows GPU (WSL2 CUDA):   .\scripts\wsl-python.cmd scripts\run_pipeline.py
+
 # 1) Core queue: Bronze → Silver → base Gold
 python scripts/run_pipeline.py
 

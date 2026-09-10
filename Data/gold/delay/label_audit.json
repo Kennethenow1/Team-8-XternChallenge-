@@ -1,0 +1,165 @@
+{
+  "followup_months": 24,
+  "n_rows": 9827,
+  "have_cod_at_t": 9086,
+  "by_year": {
+    "2020": {
+      "n": 580,
+      "complete_followup": 580,
+      "labeled": 412,
+      "withdrawn": 166,
+      "median_slip": 0.0,
+      "share_ge_6m": 0.015517241379310345,
+      "share_ge_12m": 0.015517241379310345,
+      "share_ge_24m": 0.008620689655172414,
+      "delayed_mw": 1363.0,
+      "labeled_mw": 67079.4
+    },
+    "2021": {
+      "n": 963,
+      "complete_followup": 963,
+      "labeled": 793,
+      "withdrawn": 165,
+      "median_slip": 0.0,
+      "share_ge_6m": 0.01142263759086189,
+      "share_ge_12m": 0.01142263759086189,
+      "share_ge_24m": 0.007268951194184839,
+      "delayed_mw": 1821.0,
+      "labeled_mw": 134186.8
+    },
+    "2022": {
+      "n": 1734,
+      "complete_followup": 1734,
+      "labeled": 1443,
+      "withdrawn": 286,
+      "median_slip": 0.0,
+      "share_ge_6m": 0.01787773933102653,
+      "share_ge_12m": 0.01787773933102653,
+      "share_ge_24m": 0.002306805074971165,
+      "delayed_mw": 6463.0,
+      "labeled_mw": 266001.8
+    },
+    "2023": {
+      "n": 1669,
+      "complete_followup": 1666,
+      "labeled": 1054,
+      "withdrawn": 595,
+      "median_slip": 0.0,
+      "share_ge_6m": 0.2516476932294787,
+      "share_ge_12m": 0.2372678250449371,
+      "share_ge_24m": 0.17855002995805871,
+      "delayed_mw": 67673.0,
+      "labeled_mw": 184355.4
+    },
+    "2024": {
+      "n": 2205,
+      "complete_followup": 2197,
+      "labeled": 945,
+      "withdrawn": 956,
+      "median_slip": 0.0,
+      "share_ge_6m": 0.2,
+      "share_ge_12m": 0.19229024943310657,
+      "share_ge_24m": 0.1528344671201814,
+      "delayed_mw": 73329.04000000001,
+      "labeled_mw": 168075.2
+    },
+    "2025": {
+      "n": 1638,
+      "complete_followup": 1528,
+      "labeled": 1411,
+      "withdrawn": 117,
+      "median_slip": 0.0,
+      "share_ge_6m": 0.043345543345543344,
+      "share_ge_12m": 0.04151404151404151,
+      "share_ge_24m": 0.031135531135531136,
+      "delayed_mw": 12728.59,
+      "labeled_mw": 285260.76
+    },
+    "2026": {
+      "n": 1038,
+      "complete_followup": 1,
+      "labeled": 0,
+      "withdrawn": 1,
+      "median_slip": null,
+      "share_ge_6m": null,
+      "share_ge_12m": null,
+      "share_ge_24m": null,
+      "delayed_mw": 0.0,
+      "labeled_mw": 0.0
+    }
+  },
+  "by_split": {
+    "score": {
+      "n": 2676,
+      "complete_followup": 1529,
+      "labeled": 1411,
+      "withdrawn": 118,
+      "median_slip": 0.0,
+      "share_ge_6m": 0.026532137518684603,
+      "share_ge_12m": 0.025411061285500747,
+      "share_ge_24m": 0.01905829596412556,
+      "delayed_mw": 12728.59,
+      "labeled_mw": 285260.76
+    },
+    "test": {
+      "n": 2205,
+      "complete_followup": 2197,
+      "labeled": 945,
+      "withdrawn": 956,
+      "median_slip": 0.0,
+      "share_ge_6m": 0.2,
+      "share_ge_12m": 0.19229024943310657,
+      "share_ge_24m": 0.1528344671201814,
+      "delayed_mw": 73329.04000000001,
+      "labeled_mw": 168075.2
+    },
+    "train": {
+      "n": 3277,
+      "complete_followup": 3277,
+      "labeled": 2648,
+      "withdrawn": 617,
+      "median_slip": 0.0,
+      "share_ge_6m": 0.01556301495270064,
+      "share_ge_12m": 0.01556301495270064,
+      "share_ge_24m": 0.004882514494964907,
+      "delayed_mw": 9647.0,
+      "labeled_mw": 467268.0
+    },
+    "val": {
+      "n": 1669,
+      "complete_followup": 1666,
+      "labeled": 1054,
+      "withdrawn": 595,
+      "median_slip": 0.0,
+      "share_ge_6m": 0.2516476932294787,
+      "share_ge_12m": 0.2372678250449371,
+      "share_ge_24m": 0.17855002995805871,
+      "delayed_mw": 67673.0,
+      "labeled_mw": 184355.4
+    }
+  },
+  "val_labeled": 1054,
+  "train_labeled": 2648,
+  "gia_labeled": {
+    "n": 827,
+    "complete_followup": 827,
+    "labeled": 827,
+    "withdrawn": 0,
+    "median_slip": 10.0,
+    "share_ge_6m": 0.5296251511487303,
+    "share_ge_12m": 0.49455864570737607,
+    "share_ge_24m": 0.3422007255139057,
+    "delayed_mw": 66360.59,
+    "labeled_mw": 126959.03
+  },
+  "gia_val_labeled": 284,
+  "event_counts": {
+    "labeled": 6058,
+    "withdrawn": 2286,
+    "censored": 1158,
+    "no_future_cod": 325
+  },
+  "neural_nets_ok": true,
+  "neural_net_min_val_labeled": 200,
+  "note": "Berkeley 2024 service dates are empty; follow-up uses the next non-null COD within 24 months (typically year-end t -> t+2). MISO operational_date is Appl In Service Date, not proven COD."
+}

@@ -1,0 +1,45 @@
+{
+  "unit_id": "bpm015-r33::app.F",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "app.F",
+    "title": "Appendix F",
+    "pages": [
+      156,
+      157
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [],
+    "risk_code": [],
+    "claim_class": [
+      "study_method"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "Appendix F\nExample Screening of DER Substation After a DER AFS\n\n1. “Lake Substation” has DER interconnection requests that equate to 5.5 MW of DER Net\nInjection onto transmission at summer peak and/or shoulder peak.\n2. TO performs a 5 MW Net Injection screen and requests a MISO study.\n3. MISO performs DER Affected Systems Study and determines no impacts.\n4. An additional 0.5 MW of DER Net Injection is proposed at Lake Substation.\n5. The TO considers the aggregate 6 MW of DER Net Injection with the new 1 MW\nscreening dead band limit (currently set at 6.5 MW for Lake Substation) and determines\nno request for study is needed. Should the TO request a study, MISO would review\nrecords and respond that none is needed.\n6. An additional 0.75 MW of DER is proposed at Lake Substation.\n7. The TO applies the aggregate 6.75 MW of DER Net Injection against 6.5 MW dead band\nlimit and requests a MISO study for new/incremental 1.25 MW of DER Net Injection with\nimpacts assignment applicable to the 0.75 MW triggering a DER AFS.",
+  "cite": "BPM-015 r33 Appendix F"
+}

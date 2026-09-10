@@ -1,0 +1,63 @@
+{
+  "unit_id": "bpm015-r33::6.4.4.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.4.4.1",
+    "title": "Limitations on SPP Generators with Impacts on the MISO System",
+    "pages": [
+      101,
+      101
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp1",
+      "dpp2",
+      "dpp3"
+    ],
+    "milestone": [],
+    "actor": [
+      "miso",
+      "neighboring_rto",
+      "affected_system",
+      "ic",
+      "to"
+    ],
+    "topic": [
+      "delay_of_study",
+      "cost_allocation",
+      "deliverability"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "neighboring_rto",
+      "impact": "Neighboring RTO (PJM/SPP/MH): affected-system studies and limits."
+    },
+    {
+      "actor": "affected_system",
+      "impact": "Affected System / neighboring TO: coordination and restudy of impacts."
+    },
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.4.4.1.\nLimitations on SPP Generators with Impacts on the MISO System\nSPP Generation Interconnection Projects that come into service prior to completion of required\nNetwork Upgrades on the MISO transmission system will be subject to the MISO Annual ERIS\nand Quarterly Operating Limit processes, as outlined in Section 6.6 of this BPM and the MISO\nTariff in Attachment X Section 11.5, until required Network Upgrades on the MISO transmission\nhave been completed. MISO will coordinate project output limitations with SPP on a quarterly\nbasis, and MISO will provide SPP with the list of conditions that will be added to SPP IC’s\nInterconnection Service agreement.",
+  "cite": "BPM-015 r33 §6.4.4.1"
+}

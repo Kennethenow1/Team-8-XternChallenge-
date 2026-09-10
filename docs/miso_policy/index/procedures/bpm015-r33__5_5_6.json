@@ -1,0 +1,50 @@
+{
+  "unit_id": "bpm015-r33::5.5.6",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "5.5.6",
+    "title": "ERAS Transfer of Ownership",
+    "pages": [
+      60,
+      61
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp3",
+      "gia"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "transfer_of_ownership"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "5.5.6 ERAS Transfer of Ownership\nAn Interconnection Customer participating in the Expedited Resource Addition Study may\ntransfer its Interconnection Request to another entity only after execution of the EGIA or\nfiling the EGIA unexecuted. The new entity must maintain the ERAS eligibility requirements.",
+  "cite": "BPM-015 r33 §5.5.6"
+}

@@ -1,0 +1,52 @@
+{
+  "unit_id": "bpm015-r33::6.1.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.1.1",
+    "title": "Steady State Analysis",
+    "pages": [
+      61,
+      61
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp1",
+      "dpp2",
+      "dpp3"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "cost_allocation",
+      "deliverability"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "study_method"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.1.1.\nSteady State Analysis\nThe Steady State Analysis will include the evaluation of system performance under both normal\nand contingency conditions for all new generation IRs, including energy storage devices, in\naccordance with Reliability TPL Standards. The Steady State Analysis will generally include the\nfollowing analyses:\ni.\nThermal analysis\nii.\nVoltage analysis\niii.\nPF requirement analysis\niv.\nPrior outage analysis\n\nFor IRs related to energy storage devices, MISO will evaluate the plant for an entire range of\noperation by testing the plant as a generator and a load.",
+  "cite": "BPM-015 r33 §6.1.1"
+}

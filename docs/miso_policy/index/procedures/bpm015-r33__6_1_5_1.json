@@ -1,0 +1,53 @@
+{
+  "unit_id": "bpm015-r33::6.1.5.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.1.5.1",
+    "title": "Background",
+    "pages": [
+      79,
+      79
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp1",
+      "dpp2",
+      "dpp3"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "cost_allocation",
+      "deliverability",
+      "gia_negotiation"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "study_method"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.1.5.1.\nBackground\nThe Generation Interconnection SIS results identify reliability constraints that must have a\nmitigation plan prior to the execution of a GIA. Depending on the individual generator impact and\nthe type of the requested interconnection service, there could be a situation where a reliability\nconstraint is identified in the SIS report, but the IC is exempt from mitigating the constraint if its\nimpact is below the threshold as identified in Section 6.1.1.1.6.\n\nTherefore, despite not being responsible for paying for Network upgrades, identified in the SISs,\nan IC’s generation facility can get curtailed in Real Time for the same constraint under varying\noperating environments. Therefore, to evaluate potential options to reduce Real Time congestion\nand curtailment for their respective generating facilities, ICs can request an Optional\nInterconnection Study by providing a detailed scope.\n\nSince Optional Interconnection Studies are outside the scope of regular SISs and are performed\nout of regular interconnection study cycles, the results of any such analysis are non-binding.",
+  "cite": "BPM-015 r33 §6.1.5.1"
+}

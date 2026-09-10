@@ -1,0 +1,49 @@
+{
+  "unit_id": "bpm015-r33::3.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "3.1",
+    "title": "Resources Available",
+    "pages": [
+      21,
+      21
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "pre_queue"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "scoping"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "3.1\nResources Available\nPrior to entering the queue, an IC can utilize various resources available to familiarize themselves\nwith the Tariff, queue processing and Milestones in the process. The MISO website will have\nonline training programs, learning tools, contour maps indicating incremental transfer capability\non the system, an interactive Queue Map, and other informational material. These programs are\nprovided to help educate ICs about the queue rules, process steps and requirements in each\nphase, to prepare them for successful completion of the MISO Generator Interconnection\nprocess. Additionally, ICs can participate in the periodically scheduled information sessions or\nrequest a meeting to discuss specific issues.",
+  "cite": "BPM-015 r33 §3.1"
+}

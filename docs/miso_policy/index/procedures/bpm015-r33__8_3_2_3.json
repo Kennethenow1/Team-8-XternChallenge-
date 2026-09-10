@@ -1,0 +1,48 @@
+{
+  "unit_id": "bpm015-r33::8.3.2.3",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "8.3.2.3",
+    "title": "Data Exchange",
+    "pages": [
+      138,
+      139
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "der_afs"
+    ],
+    "milestone": [],
+    "actor": [
+      "miso",
+      "to",
+      "affected_system"
+    ],
+    "topic": [],
+    "risk_code": [],
+    "claim_class": [
+      "workflow",
+      "study_method"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    },
+    {
+      "actor": "affected_system",
+      "impact": "Affected System / neighboring TO: coordination and restudy of impacts."
+    }
+  ],
+  "text": "8.3.2.3.\nData Exchange\nThe DER information submitted to MISO for screening is sufficient for MISO to carry out the\nDER AFS. The minimum information required for each screening cycle includes: (1) Substation\nname and associated transmission bus number; (2) DER capacity, in megawatts, categorized\nby the fuel types found in BPM-015; (3) equivalent short circuit impedance by fuel type; and (4)\nreactive power control mode and settings by fuel type. The entity submitting information may\nchoose to submit assumptions for equivalent short circuit impedance by fuel type and reactive\n\n\npower control mode and settings by fuel type to be used for all DER submitted by that entity\nuntil further notice of assumptions changes by that entity.\n\nThe DER information shall be submitted in IDEV or PSSE (*.raw) format, representing the\naggregate DER connected and proposing interconnection at the transmission bus using the\ndata record for generators. The DER information should include both newly proposed and\nexisting DER.\n\nDER being studied through DER AFS shall be submitted via email to DER-\nAFS@misoenergy.org.",
+  "cite": "BPM-015 r33 §8.3.2.3"
+}

@@ -1,0 +1,56 @@
+{
+  "unit_id": "bpm015-r33::5.2.3",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "5.2.3",
+    "title": "Interconnection Customer Decision Point I",
+    "pages": [
+      48,
+      48
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp1"
+    ],
+    "milestone": [
+      "M3",
+      "M2"
+    ],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "decision_point",
+      "withdrawal",
+      "deposit_refund"
+    ],
+    "risk_code": [
+      "abandonment"
+    ],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "5.2.3.\nInterconnection Customer Decision Point I\nOnce the preliminary SIS, including estimated upgrades and costs, is delivered, the IC will pass\nthrough the IC Decision Point I. The IC Decision Point I will last for fifteen (15) Business Days and\nthe IC can either proceed to DPP II or withdraw its IR. During the IC Decision Point I, the IC may\nreduce the size of its IR by as much as one hundred percent (100%), but the required DPP II\nMilestone (M3) calculation will be based on the DPP I results. If the IC decides to withdraw its IR\nduring, or at any time before the end of the IC Decision Point I, then pursuant to Section 7.6 of\nthe GIP, MISO will refund the IC forty percent (40%) of the DPP I Milestone (M2) and any\nremaining study deposits. If the IC decides to proceed to the DPP II, then it will be required to pay\nthe DPP II Milestone (M3), pursuant to Section 7.3.1.4.1 of the GIP.",
+  "cite": "BPM-015 r33 §5.2.3"
+}

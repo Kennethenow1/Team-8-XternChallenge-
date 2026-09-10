@@ -1,0 +1,51 @@
+{
+  "unit_id": "bpm015-r33::2",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "2",
+    "title": "Generator Interconnection Process Overview",
+    "pages": [
+      19,
+      21
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "pre_queue",
+      "application_review",
+      "dpp1"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "site_control"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "2.\nGenerator Interconnection Process Overview\nThe Generator Interconnection Process (GI) is divided into three phases:\n•\nPre-Queue (represented by green in the diagram)\n•\nApplication Review (represented by aqua in the diagram)\n•\nDefinitive Planning (represented by blue in the diagram)\n\nAn overview of the process is shown in Figures 2-1 and 2-1a. The process incorporates interaction\nbetween generator Interconnection Customers (ICs) and MISO and uses Milestone achievement\nas a method of moving Interconnection Requests (IRs) through the queue. Milestones\n(represented by black diamonds in the diagram) serve as control checkpoints where MISO\nassesses IRs based on pre-defined criteria. Milestone achievement is a key determinant in how\nan IR is progressing through the process. Milestones may be technical (such as a stability model)\nor business-related (such as proof of Site Control).\n\n\nFigure 0-1 Generator Interconnection Process Overview – for the Interconnection Requests\nfor which the application deadline to enter the Definitive Planning Phase is before\nJanuary 22, 2024\n\nFigure 0-2a Generator Interconnection Process Overview – for the Interconnection\nRequests for which the application deadline to enter the Definitive Planning Phase is\nafter January 22, 2024",
+  "cite": "BPM-015 r33 §2"
+}

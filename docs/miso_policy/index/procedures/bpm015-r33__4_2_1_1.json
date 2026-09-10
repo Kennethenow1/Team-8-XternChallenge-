@@ -1,0 +1,49 @@
+{
+  "unit_id": "bpm015-r33::4.2.1.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "4.2.1.1",
+    "title": "Non-Technical Requirements",
+    "pages": [
+      27,
+      27
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "application_review"
+    ],
+    "milestone": [
+      "M1",
+      "D1",
+      "D2"
+    ],
+    "actor": [
+      "ic",
+      "miso"
+    ],
+    "topic": [
+      "scoping",
+      "deposit_refund"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    }
+  ],
+  "text": "4.2.1.1\nNon-Technical Requirements\n•\nComplete Application (Appendix 1 with Attachments A, B and C).\n•\nThe (D1) Application Fee must be received no later than the application deadline published\non the Transmission Provider website.\n•\nThe (D2) DPP Study Funding deposit must be received no later than the application deadline\npublished on the Transmission Provider website.\n•\nW-9 form and banking information for accounting purposes.",
+  "cite": "BPM-015 r33 §4.2.1.1"
+}

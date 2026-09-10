@@ -1,0 +1,40 @@
+{
+  "unit_id": "bpm015-r33::6.5.4.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.5.4.1",
+    "title": "Large Generator Interconnections",
+    "pages": [
+      104,
+      106
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [],
+    "milestone": [],
+    "actor": [
+      "miso",
+      "to"
+    ],
+    "topic": [],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.5.4.1\nLarge Generator Interconnections\nA GIR is deemed in scope for this coordination procedure as follows:\ni.\nAll MISO North GIR for MISO\nii.\nAll GIR for MPC\niii.\nAll GIR for MH\n\nFor any GIR that falls within this scope, the Neighbouring TSPs will be considered Affected\nSystems.\n\nMISO North refers generally to the northern part of MISO, which is subject to change as members\njoin or leave MISO. The red section in the picture20 below captures the in-scope area for MISO at\nthe time the agreement was executed.\n\n\n20\nFrom\nMTEP\n2014\n-\nhttps://www.misoenergy.org/planning/transmission-studies-and-reports/#nt=%2Freport-study-\nanalysistype%3AMTEP%2Fmtepdoctype%3AMTEP%20Report%2Fmtepreportyear%3APrevious%20MTEP%20Reports&t=10&p=0&s=Fil\neName&sd=desc\n\n\nFigure 0-2 MISO Planning Regions",
+  "cite": "BPM-015 r33 §6.5.4.1"
+}

@@ -1,0 +1,56 @@
+{
+  "unit_id": "bpm015-r33::5.3.4",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "5.3.4",
+    "title": "The (M4) Milestone Calculation",
+    "pages": [
+      51,
+      51
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp2"
+    ],
+    "milestone": [
+      "M4",
+      "M2",
+      "M3"
+    ],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "deposit_refund"
+    ],
+    "risk_code": [
+      "cost_pressure",
+      "abandonment"
+    ],
+    "claim_class": [
+      "deposit_rule"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "5.3.4.\nThe (M4) Milestone Calculation\nThe (M4) Milestone Calculation – for the Interconnection Requests for which the\napplication deadline to enter the Definitive Planning Phase is on or after January 22, 2024\n\nThe DPP III Milestone (M4) will be calculated as thirty percent (30%) of the amount of Network\nUpgrades identified in the revised SIS less the amount previously provided at (M2) and (M3),.\nThe (M4) Milestone will be in the form of either cash or irrevocable Letter of Credit reasonably\nacceptable to the Transmission Provider and must be received prior to the start of DPP III.\n\nThe (M4) Milestone Calculation – for the Interconnection Requests for which the\napplication deadline to enter the Definitive Planning Phase is before January 22, 2024\n\nThe DPP III Milestone (M4) will be calculated as twenty percent (20%) of the amount of Network\nUpgrades identified in the revised SIS less the amount previously provided at (M2) and (M3),.\nThe (M4) Milestone will be in the form of either cash or irrevocable Letter of Credit reasonably\nacceptable to the Transmission Provider and must be received prior to the start of DPP III.",
+  "cite": "BPM-015 r33 §5.3.4"
+}

@@ -1,0 +1,54 @@
+{
+  "unit_id": "bpm015-r33::6.2.6.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.2.6.1",
+    "title": "Interconnection Agreement Appendices Populated",
+    "pages": [
+      85,
+      85
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp3",
+      "gia"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "gia_negotiation",
+      "cost_allocation"
+    ],
+    "risk_code": [
+      "cost_pressure",
+      "gia_execution"
+    ],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.2.6.1.\nInterconnection Agreement Appendices Populated\nThe Facilities Study report must include the Exhibits A1 through A13 of the GIA populated in draft\nformat. These exhibits must go through legal review by the TO prior to publishing the report.\nHaving these draft GIA exhibits in the Facilities Study report will provide a good starting point for\nthe development of the GIA and will make the GIA review process smoother and less time\nconsuming.",
+  "cite": "BPM-015 r33 §6.2.6.1"
+}

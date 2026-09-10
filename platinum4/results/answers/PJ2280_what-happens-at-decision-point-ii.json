@@ -1,0 +1,3662 @@
+{
+  "model": "gpt-4.1",
+  "dialect": "bpm_register",
+  "question": "What happens at Decision Point II?",
+  "project_key": "P::J2280",
+  "packet": {
+    "schema_version": "bot.v1",
+    "card": {
+      "project_key": "P::J2280",
+      "observation_date": "2023-12-31",
+      "study_phase": "System Impact Study",
+      "scenario": {
+        "name": "baseline",
+        "note": "Observed state; no overlay."
+      },
+      "p_quit_12m": 0.897754525032305,
+      "flags": {
+        "high_quit_risk": true,
+        "medium_quit_risk": true,
+        "is_gia": false,
+        "cod_already_slipped": true,
+        "developer_serial": false,
+        "restudy_on_record": false,
+        "hazard_high": false,
+        "upgrade_cost_high": false,
+        "pile_crowded": true,
+        "energy_community": false
+      },
+      "risks": [
+        {
+          "code": "abandonment",
+          "severity": "high",
+          "evidence": "P(quit 12m)=0.898 \u2265 0.1",
+          "meaning": "Project is at elevated chance of leaving the queue in ~12 months."
+        },
+        {
+          "code": "system_congestion",
+          "severity": "high",
+          "evidence": "Delayed-MW pile at/above PIT 75th percentile (or scenario override).",
+          "meaning": "The planned delayed-MW pile is large versus history (system crowding)."
+        },
+        {
+          "code": "cod_already_slipped",
+          "severity": "high",
+          "evidence": "service_date_passed or months_until_service < 0 (current fact).",
+          "meaning": "Planned service date is already at or before the as-of date."
+        }
+      ]
+    },
+    "workflow": {
+      "gi_phase_guess": [
+        "dpp1",
+        "dpp2"
+      ],
+      "next_steps": [
+        "BPM-015 r33 \u00a75.2.3: Interconnection Customer Decision Point I",
+        "BPM-015 r33 \u00a75.3.3: Interconnection Customer Decision Point II",
+        "BPM-015 r33 \u00a76.2.11: Refunds of Definitive Planning Phase Milestones (M2, M3, M4)",
+        "BPM-015 r33 \u00a74.2.4.6: Refunds of Study Deposits",
+        "BPM-015 r33 \u00a77.3: Interconnection Customer delays",
+        "BPM-015 r33 \u00a77.7: Commercial Operation"
+      ],
+      "note": "GIQ study_phase is coarser than DPP 1/2/3. Phase guess is best-effort."
+    },
+    "stakeholders": [
+      {
+        "actor": "ic",
+        "why": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution.",
+        "unit_ids": [
+          "bpm015-r33::5.2.3",
+          "bpm015-r33::5.3.3",
+          "bpm015-r33::6.2.11",
+          "bpm015-r33::4.2.4.6",
+          "bpm015-r33::7.3",
+          "bpm015-r33::7.7",
+          "bpm015-r33::4.2",
+          "bpm015-r33::5.3.5"
+        ]
+      },
+      {
+        "actor": "miso",
+        "why": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing.",
+        "unit_ids": [
+          "bpm015-r33::5.2.3",
+          "bpm015-r33::5.3.3",
+          "bpm015-r33::6.2.11",
+          "bpm015-r33::4.2.4.6",
+          "bpm015-r33::7.3",
+          "bpm015-r33::7.7",
+          "bpm015-r33::4.2",
+          "bpm015-r33::5.3.5"
+        ]
+      },
+      {
+        "actor": "to",
+        "why": "Transmission Owner: scoping, facilities, local criteria, construction.",
+        "unit_ids": [
+          "bpm015-r33::5.2.3",
+          "bpm015-r33::5.3.3",
+          "bpm015-r33::6.2.11",
+          "bpm015-r33::4.2.4.6",
+          "bpm015-r33::7.3",
+          "bpm015-r33::7.7",
+          "bpm015-r33::5.3.5",
+          "bpm015-r33::5.2.5"
+        ]
+      },
+      {
+        "actor": "affected_system",
+        "why": "Affected System / neighboring TO: coordination and restudy of impacts.",
+        "unit_ids": [
+          "bpm015-r33::5.3.3",
+          "bpm015-r33::6.2.11",
+          "bpm015-r33::7.3"
+        ]
+      }
+    ],
+    "mitigation": [
+      {
+        "risk_code": "abandonment",
+        "actions": [
+          "Treat P(quit) as a ranking input, not a guaranteed outcome.",
+          "Check milestone security, offtake, and financing against the 12-month window.",
+          "If the sponsor is serial-high, require extra diligence before restudy spend."
+        ],
+        "citations": [
+          "BPM-015 r33 \u00a75.2.5",
+          "BPM-015 r33 \u00a75.3.5",
+          "BPM-015 r33 \u00a74.2.4.6",
+          "BPM-015 r33 \u00a76.2.11"
+        ],
+        "playbook_id": "pb_abandonment",
+        "source": "bpm015_index",
+        "bpm_note": null
+      },
+      {
+        "risk_code": "system_congestion",
+        "actions": [
+          "Use the pile as regime context (everyone late), not this plant\u2019s COD.",
+          "Stress study / construction calendars against a larger delayed stock 3 and 12 months out.",
+          "Do not convert pile RMSE into a project-level month slip."
+        ],
+        "citations": [
+          "BPM-015 r33 \u00a73.1.1",
+          "BPM-015 r33 \u00a74.3"
+        ],
+        "playbook_id": "pb_system_congestion",
+        "source": "bpm015_index",
+        "bpm_note": null
+      },
+      {
+        "risk_code": "cod_already_slipped",
+        "actions": [
+          "The date has already moved (fact). Do not ask the model for additional months of slip.",
+          "Re-baseline offtake and interconnection milestones against the last known ISD."
+        ],
+        "citations": [
+          "BPM-015 r33 \u00a74.2",
+          "BPM-015 r33 \u00a77.3",
+          "BPM-015 r33 \u00a77.7"
+        ],
+        "playbook_id": "pb_cod_already_slipped",
+        "source": "bpm015_index",
+        "bpm_note": null
+      }
+    ],
+    "compliance": {
+      "status": "not_determined",
+      "meaning": "We do not score legal compliance of a COD slip. Retrieved delay/restudy/withdrawal clauses only."
+    },
+    "retrieved": [
+      {
+        "unit_id": "bpm015-r33::5.2.3",
+        "cite": "BPM-015 r33 \u00a75.2.3",
+        "title": "Interconnection Customer Decision Point I",
+        "bpm_section": "5.2.3",
+        "pages": [
+          48,
+          48
+        ],
+        "tags": {
+          "gi_phase": [
+            "dpp1"
+          ],
+          "milestone": [
+            "M3",
+            "M2"
+          ],
+          "actor": [
+            "ic",
+            "miso",
+            "to"
+          ],
+          "topic": [
+            "decision_point",
+            "withdrawal",
+            "deposit_refund"
+          ],
+          "risk_code": [
+            "abandonment"
+          ],
+          "claim_class": [
+            "workflow"
+          ]
+        },
+        "text": "5.2.3.\nInterconnection Customer Decision Point I\nOnce the preliminary SIS, including estimated upgrades and costs, is delivered, the IC will pass\nthrough the IC Decision Point I. The IC Decision Point I will last for fifteen (15) Business Days and\nthe IC can either proceed to DPP II or withdraw its IR. During the IC Decision Point I, the IC may\nreduce the size of its IR by as much as one hundred percent (100%), but the required DPP II\nMilestone (M3) calculation will be based on the DPP I results. If the IC decides to withdraw its IR\nduring, or at any time before the end of the IC Decision Point I, then pursuant to Section 7.6 of\nthe GIP, MISO will refund the IC forty percent (40%) of the DPP I Milestone (M2) and any\nremaining study deposits. If the IC decides to proceed to the DPP II, then it will be required to pay\nthe DPP II Milestone (M3), pursuant to Section 7.3.1.4.1 of the GIP."
+      },
+      {
+        "unit_id": "bpm015-r33::5.3.3",
+        "cite": "BPM-015 r33 \u00a75.3.3",
+        "title": "Interconnection Customer Decision Point II",
+        "bpm_section": "5.3.3",
+        "pages": [
+          51,
+          51
+        ],
+        "tags": {
+          "gi_phase": [
+            "dpp2"
+          ],
+          "milestone": [
+            "M4"
+          ],
+          "actor": [
+            "ic",
+            "miso",
+            "to",
+            "affected_system"
+          ],
+          "topic": [
+            "decision_point",
+            "withdrawal"
+          ],
+          "risk_code": [
+            "abandonment"
+          ],
+          "claim_class": [
+            "workflow"
+          ]
+        },
+        "text": "5.3.3.\nInterconnection Customer Decision Point II\nOnce the revised SIS and Affected System analysis, including estimated upgrades and costs, is\ndelivered, the IC will pass through the IC Decision Point II. The IC Decision Point II will last for\nfifteen (15) Business Days, and the IC can either proceed to DPP III or withdraw its IR. During the\nIC Decision Point II, the IC may reduce the size of its IR by as much as ten percent (10%), but\nthe (M4) Milestone calculation will be based on the DPP II results. If the IC decides to proceed to\nthe DPP III, then it will be required to pay the DPP III Milestone (M4), pursuant to Section 7.3.1.4.1\nof the GIP prior to the end of IC Decision Point II."
+      },
+      {
+        "unit_id": "bpm015-r33::6.2.11",
+        "cite": "BPM-015 r33 \u00a76.2.11",
+        "title": "Refunds of Definitive Planning Phase Milestones (M2, M3, M4)",
+        "bpm_section": "6.2.11",
+        "pages": [
+          92,
+          95
+        ],
+        "tags": {
+          "gi_phase": [
+            "dpp1",
+            "dpp2",
+            "dpp3"
+          ],
+          "milestone": [
+            "M2",
+            "M3",
+            "M4"
+          ],
+          "actor": [
+            "ic",
+            "miso",
+            "to",
+            "affected_system"
+          ],
+          "topic": [
+            "withdrawal",
+            "deposit_refund",
+            "decision_point",
+            "cost_allocation"
+          ],
+          "risk_code": [
+            "abandonment"
+          ],
+          "claim_class": [
+            "deposit_rule",
+            "workflow"
+          ]
+        },
+        "text": "6.2.11.   Refunds of Definitive Planning Phase Milestones (M2, M3, M4)\n\nRefunds of Definitive Planning Phase Milestones (M2, M3, M4) \u2013 for the Interconnection\nRequests for which the application deadline to enter the Definitive Planning Phase is on\nor after January 22, 2024\n\nICs are eligible to receive forty percent (40%) refund of the DPP Entry Milestone (M2) only when\nthe IR is withdrawn or deemed withdrawn prior to the end of IC Decision Point I. If the IR is\nwithdrawn any time after the IC Decision Point I, then the DPP Entry Milestone (M2) becomes\none hundred percent (100%) at risk and will be used to fund Study Cost and Network Upgrades\npursuant to Section 7.8 and 7.6.2.1.1 of Attachment X of the GIP.\n\nICs are eligible to receive one hundred percent (100%) refund of the DPP II Milestone (M3) only\nwhen the IR is withdrawn or deemed withdrawn before the end of IC Decision Point II. If the IR is\nwithdrawn any time after the ID Decision Point II, then the DPP II Milestone (M3) becomes at risk\nand will be used to fund Network Upgrades pursuant to Section 7.8 of Attachment X of the GIP.\n\nICs are not eligible to receive any portion of the DPP II Milestone (M4) if the IC decides to withdraw\nits IR any time after entering the DPP III. The DPP II Milestone (M4) will be used to fund Network\nUpgrades pursuant to Section 7.8 of Attachment X of the GIP.\n\n\nMilestone payments will be refunded in the event the IC withdraws because the total Network\nUpgrade cost estimates in the DPP Phase II SIS increased by more than fifty percent (50%) and\nmore than ten thousand dollars ($10,000) per MW over the DPP Phase I SIS as a result of MISO,\nAffected System or TO error.\n\nMilestone payments will be refunded in the event the IC withdraws because the total Network\nUpgrade cost estimates in the DPP Phase III SIS increased by more than thirty-five percent (35%)\nand more than ten thousand dollars ($10,000) per MW over the DPP Phase II SIS as a result of\nMISO, Affected System or TO error.\n\nFor the purposes of Automatic Withdrawal Penalty, an error is any of the following confirmed\nthrough documented correspondence with MISO staff before the final study report is posted, for\nthe phase in which the error was introduced:\n\n\u2022\nIncorrect representation of topology in the MISO footprint\n\u2022\nIncorrect representation of an Interconnection Request in the MISO footprint (or)\n\u2022\nIncorrect implementation of generation dispatch\n\nThe error must also have gone uncorrected and caused an increase to the project\u2019s Network\nUpgrade cost.\n\nThe error is only relevant for withdrawn Interconnection Requests.\n\nMilestone payments less any Automatic Withdrawal Penalty amounts applied pursuant to Section\n7.6.2.1.1 of the Attachment X, will also be refunded in the event the IC withdraws and the total\nNetwork Upgrade cost estimates in the Facilities Study increased by more than thirty-five percent\n(35%) and more than ten thousand dollars ($10,000) per MW over the Network Upgrade cost\nestimates in the DPP Phase III Interconnection SIS.\n\nMilestone payments less any Automatic Withdrawal Penalty amounts applied pursuant to\nSection 7.6.2.1.1 of the Attachment X, will also be refunded in the event the IC withdraws within\nthe later of five (5) Business Days or at the end of an IC Decision Point, if applicable, of results\nindicating designated increases in estimated upgrade costs across the following intervals:\n1. DPP Phase I to DPP Phase II\na. An increase in the combined MISO Network Upgrade costs from Phase I to\nPhase II of at least fifty percent (50%) and more than ten thousand dollars\n($10,000) per MW from the preliminary SIS to the Revised SIS; or\n2. DPP Phase II to DPP Phase III\n\n\na. An increase in combined MISO Network Upgrade and Affected Systems costs\nfrom Phase II to Phase III of at least thirty-five percent (35%) and more than\nfifteen thousand dollars ($15,000) per MW from the Revised SIS to any Final\nSIS.\nRefunds of Definitive Planning Phase Milestones (M2, M3, M4) \u2013 for the Interconn\n\u2026"
+      },
+      {
+        "unit_id": "bpm015-r33::4.2.4.6",
+        "cite": "BPM-015 r33 \u00a74.2.4.6",
+        "title": "Refunds of Study Deposits",
+        "bpm_section": "4.2.4.6",
+        "pages": [
+          34,
+          35
+        ],
+        "tags": {
+          "gi_phase": [
+            "application_review",
+            "dpp1"
+          ],
+          "milestone": [
+            "M2",
+            "D2",
+            "M3",
+            "M4"
+          ],
+          "actor": [
+            "ic",
+            "miso",
+            "to"
+          ],
+          "topic": [
+            "withdrawal",
+            "deposit_refund",
+            "restudy",
+            "decision_point"
+          ],
+          "risk_code": [
+            "abandonment"
+          ],
+          "claim_class": [
+            "deposit_rule",
+            "workflow"
+          ]
+        },
+        "text": "4.2.4.6.\nRefunds of Study Deposits\nFor additional details of the information contained in the following paragraphs regarding\nwithdrawals and any refunds of the (M2), (M3), and (M4) deposits, refer to Section 6.2.11 of this\nBPM and GIP Section 7.6.1, Section 7.6.2, and Section 7.8 of Attachment X.\n\nIf the IC withdraws prior to entry into DPP Phase I, then the remaining (D2) DPP Study Funding\nDeposit pursuant to Section 7.6 of the GIP and the (M2) DPP Entry Deposit will be refunded one\nhundred percent (100%). Any refunds due to the IC will occur once MISO has been notified of the\nwithdrawal.\n\nIf the IC withdraws by the end of IC Decision Point I, then the (D2) DPP Study Funding Deposit\nwill be refunded, less the actual cost of the applicable Interconnection Study performed during\nDPP Phase I. In addition, if this withdrawal occurs, the (M2) DPP Entry Deposit will be refunded\npercent (50%). For Interconnection Requests for which the application deadline to enter the DPP\nis on or after January 22nd, 2024 - if this withdrawal occurs, the (M2) DPP Entry Deposit will be\nrefunded forty percent (40%) An IC withdrawing during DPP Phase I but before IC Decision Point\nI will be responsible for its pro rata portion of the group Interconnection Study costs for DPP Phase\nI. Any refunds due to the IC will be processed after IC Decision Point I. Once the IC pays the (M3)\ndeposit and enters DPP Phase II, the (M2) deposit becomes one hundred percent (100%) at risk.\n\nIf the IC withdraws by the end of IC Decision Point II, then the (M3) Milestone will be refunded\none hundred percent (100%). Any (D2) DPP Study Funding Deposit will be refunded, less the\nactual cost of the applicable Interconnection Study performed during DPP Phase II. An IC\nwithdrawing during DPP Phase II but before IC Decision Point II will be responsible for its pro rata\n\n\nportion of the group Interconnection Study costs for DPP Phase II. Any refunds due to the IC will\nbe processed after IC Decision Point II. Once the IC pays the (M4) deposit and enters DPP Phase\nIII, the (M2), (M3), and (M4) Milestone deposits become at risk.\n\nIf the IC withdraws any time during DPP Phase III, and MISO determines that an Interconnection\nStudy restudy is required, then the withdrawing IC will be responsible to fund all such restudies in\nDPP Phase III, up to the amount of any remaining study deposits. However, if MISO determines\nthat no Interconnection Study restudy is required due to the withdrawal of the ICs IR, then the\nwithdrawing IC will not be responsible to fund any further Interconnection Studies during DPP\nPhase III and MISO shall refund any unused portion of the study deposit paid to enter the DPP."
+      },
+      {
+        "unit_id": "bpm015-r33::7.3",
+        "cite": "BPM-015 r33 \u00a77.3",
+        "title": "Interconnection Customer delays",
+        "bpm_section": "7.3",
+        "pages": [
+          128,
+          129
+        ],
+        "tags": {
+          "gi_phase": [
+            "post_gia"
+          ],
+          "milestone": [],
+          "actor": [
+            "ic",
+            "miso",
+            "to",
+            "affected_system"
+          ],
+          "topic": [
+            "delay_of_study",
+            "cost_allocation",
+            "gia_negotiation"
+          ],
+          "risk_code": [
+            "cod_already_slipped",
+            "gia_execution"
+          ],
+          "claim_class": [
+            "workflow",
+            "timeline_target"
+          ]
+        },
+        "text": "7.3. Interconnection Customer delays\nInterconnection Customer requests to amend GIA milestones are addressed under the terms of\nthe effective GIA.  Article 30.10 of the pro forma GIA requires the consent of all Parties in order\nto amend the terms of the GIA.  Therefore, to the extent that the effective GIA does not otherwise\nprohibit or preclude the Interconnection Customer\u2019s request to amend GIA milestones, consent\nof MISO and the Transmission Owner are required before the Interconnection Customer\u2019s\nproposed amendment may be pursued.\n\nIn order to ensure consistent treatment and efficient review of such requests, MISO requires that\nthe requesting Interconnection Customer satisfy the following criteria to provide MISO with\ncomplete information upon which to determine whether its consent to amendment will be provided\npursuant to GIA Article 30.10.  These criteria are as follows:\n\u2022\n(1) Interconnection Customer to provide a written statement from a Company\nOfficer or authorized agent describing circumstances that require the milestone\nchange;\n\u2022\n(2) Interconnection Customer and Transmission Owner agree on specific\nmilestone changes in writing and in advance of submitting request to MISO;\n\u2022\n(3) Interconnection Customer demonstrates an absence of any significant potential\nfor harm to other queued projects.  Factors that may be considered: whether\nchanges specifically affect Network Upgrades, aside from those at the POI;\nwhether proposed change would satisfy a Qualified Change standard (see\nQualified Change definition in Attachment X of the MISO Tariff for additional\ndetails); whether POI is shared by any downstream projects (i.e., no\ndependencies); whether the particular project is appearing in MTEP models;\nwhether Network Upgrades or affected system upgrades are assigned to the\nproject."
+      },
+      {
+        "unit_id": "bpm015-r33::7.7",
+        "cite": "BPM-015 r33 \u00a77.7",
+        "title": "Commercial Operation",
+        "bpm_section": "7.7",
+        "pages": [
+          129,
+          130
+        ],
+        "tags": {
+          "gi_phase": [
+            "post_gia"
+          ],
+          "milestone": [],
+          "actor": [
+            "ic",
+            "miso",
+            "to"
+          ],
+          "topic": [
+            "commercial_operation",
+            "deposit_refund",
+            "gia_negotiation"
+          ],
+          "risk_code": [
+            "cod_already_slipped",
+            "gia_execution"
+          ],
+          "claim_class": [
+            "workflow"
+          ]
+        },
+        "text": "7.7. Commercial Operation\nThe IC must provide notification to the MISO (email to: ResourceIntegration@misoenergy.org)\nand Transmission Owner after the project achieves Commercial Operation. Such notification is\nprovided in the form of Appendix E to the GIA and must be received by MISO within thirty (30)\nCalendar Days of the actual Commercial Operation Date. The notification should also include as\nbuilt modeling data of the plant. Attachment A of the application can be used to provide such data.\nAfter submitting the required notification of actual Commercial Operation Date, the IC may initiate\nany remaining refund by emailing a request to gifinance@misoenergy.org (including project\nnumbers(s) and date of Commercial Operation). MISO will review the project account for any\napplicable refunds after receipt of the request for refund."
+      },
+      {
+        "unit_id": "bpm015-r33::4.2",
+        "cite": "BPM-015 r33 \u00a74.2",
+        "title": "Initial Screening",
+        "bpm_section": "4.2",
+        "pages": [
+          26,
+          27
+        ],
+        "tags": {
+          "gi_phase": [
+            "application_review"
+          ],
+          "milestone": [],
+          "actor": [
+            "ic",
+            "miso"
+          ],
+          "topic": [
+            "commercial_operation"
+          ],
+          "risk_code": [
+            "cod_already_slipped"
+          ],
+          "claim_class": [
+            "workflow"
+          ]
+        },
+        "text": "4.2\nInitial Screening\nAll IRs will go through a set of screenings before they can enter the DPP, or other planning\nprocesses defined in the GIP. This screening will include verifying the application submitted has\nthe required date information, technical information, met the necessary Milestones, and study\n\n\ndeposits, etc. For IRs submitted for entry into the DPP all original Commercial Operation Dates\nshall be no more than five (5) years beyond the MISO Transmission Expansion Planning (MTEP)\nmodel year in effect for the active Queue cycle. The original Commercial Operation Date and\noriginal In-Service Date set forth in the verified IR upon entering the DPP shall be considered as\nthe dates in the original IR for the purpose of applying requirements in Tariff Attachment X, Section\n4.4.4."
+      },
+      {
+        "unit_id": "bpm015-r33::5.3.5",
+        "cite": "BPM-015 r33 \u00a75.3.5",
+        "title": "Withdrawal from DPP Phase II",
+        "bpm_section": "5.3.5",
+        "pages": [
+          52,
+          52
+        ],
+        "tags": {
+          "gi_phase": [
+            "dpp2"
+          ],
+          "milestone": [
+            "M3",
+            "M4"
+          ],
+          "actor": [
+            "ic",
+            "miso",
+            "to"
+          ],
+          "topic": [
+            "withdrawal",
+            "deposit_refund",
+            "decision_point"
+          ],
+          "risk_code": [
+            "abandonment"
+          ],
+          "claim_class": [
+            "workflow",
+            "deposit_rule"
+          ]
+        },
+        "text": "5.3.5\nWithdrawal from DPP Phase II\nIf MISO does not receive written confirmation from the IC regarding whether it intends to proceed\nto the DPP III or to withdraw its IR during the IC Decision Point II, MISO will deem the IR as\nwithdrawn and refund the IC\u2019s DPP II Milestone (M3) and any remaining study deposits pursuant\nto Section 7.6 of the GIP. After the IC enters the DPP III, the DPP II (M3) Milestone payment\nbecomes one hundred percent (100%) non-refundable, pursuant to Section 7.6.2 of the GIP."
+      },
+      {
+        "unit_id": "bpm015-r33::5.2.5",
+        "cite": "BPM-015 r33 \u00a75.2.5",
+        "title": "Withdrawal from DPP Phase I",
+        "bpm_section": "5.2.5",
+        "pages": [
+          50,
+          50
+        ],
+        "tags": {
+          "gi_phase": [
+            "dpp1"
+          ],
+          "milestone": [
+            "M2",
+            "M3"
+          ],
+          "actor": [
+            "ic",
+            "miso",
+            "to"
+          ],
+          "topic": [
+            "withdrawal",
+            "deposit_refund",
+            "decision_point"
+          ],
+          "risk_code": [
+            "abandonment"
+          ],
+          "claim_class": [
+            "workflow",
+            "deposit_rule"
+          ]
+        },
+        "text": "5.2.5.\nWithdrawal from DPP Phase I\nIf MISO does not receive written confirmation from the IC regarding whether it wants to proceed\nto the DPP II or withdraw its IR, during the IC Decision Point I, MISO will deem the IR as\nwithdrawn. After the IC enters the DPP II, the DPP I (M2) Milestone payment becomes one\nhundred percent (100%) non-refundable, pursuant to Section 7.6.2 of the GIP."
+      },
+      {
+        "unit_id": "bpm015-r33::4.3",
+        "cite": "BPM-015 r33 \u00a74.3",
+        "title": "Determination of Project Linkages and Potential Grouping",
+        "bpm_section": "4.3",
+        "pages": [
+          35,
+          35
+        ],
+        "tags": {
+          "gi_phase": [
+            "application_review"
+          ],
+          "milestone": [],
+          "actor": [
+            "ic",
+            "miso",
+            "to"
+          ],
+          "topic": [
+            "cost_allocation"
+          ],
+          "risk_code": [
+            "system_congestion"
+          ],
+          "claim_class": [
+            "workflow"
+          ]
+        },
+        "text": "4.3\nDetermination of Project Linkages and Potential Grouping\nMISO may perform a power flow analysis and use in-house post processing tools to determine\nproject grouping. Each project will be dispatched against the generation in the MISO footprint and\na DF cut-off of five percent (5%) will be used for the purpose of this analysis. All projects\ncontributing to any common constraint will be grouped together for study. Additionally, the\nfollowing guidelines will be used to form a study group:\ni.\nGroup Studies will not be limited by size. Upgrades for Group Studies will be\ndetermined in incremental blocks of MW capacity. The size of each block will depend\non the factors such as the constrained area, transmission voltage, Right of Way\navailability, room for expansion in the existing substations etc. The blocks of MW (sub-\ngroups) will be selected based on the queue position, the impact of Generation IR on\nthe limiting constraints, loading on the limiting constraint, available study work and\nengineering judgment.\nii.\nOther factors such as number/type of projects, queue position, electrical proximity of\nthe POIs, etc. will be considered when defining a study group."
+      },
+      {
+        "unit_id": "bpm015-r33::3.1.1",
+        "cite": "BPM-015 r33 \u00a73.1.1",
+        "title": "Contour Map",
+        "bpm_section": "3.1.1",
+        "pages": [
+          21,
+          22
+        ],
+        "tags": {
+          "gi_phase": [
+            "pre_queue"
+          ],
+          "milestone": [],
+          "actor": [
+            "ic",
+            "miso",
+            "to"
+          ],
+          "topic": [
+            "scoping"
+          ],
+          "risk_code": [
+            "system_congestion"
+          ],
+          "claim_class": [
+            "workflow"
+          ]
+        },
+        "text": "3.1.1\nContour Map\nMISO will post a contour map presenting an indicative estimate of the transmission capacity\nbased on a relative pattern of incremental injection capability under first contingency conditions\nin the MISO footprint. The intent of this contour map is to provide ICs an indication of the time it\nwould take to study and eventually connect their project at the desired location. Generally, an\narea with a large concentration of IRs will have a low or negative incremental transfer capability.\n\n\nTherefore, studies would take longer to mitigate constraints and construction would take longer\nto build new transmission, thereby prolonging the overall time to interconnect a project in that\narea. Note that the purpose of the contour map is to provide guidance to an IC for making an\ninformed decision. The map should not be treated as a substitute for studies. There may be other\ncomplex and physical limitations on the Transmission System which will be revealed only after\ndetailed planning and engineering studies.\n\nOnce the Base Case for the Definitive Planning Phase (DPP) SIS is finalized, the updated\nassumptions will be used to refresh the contour map. The contour map will be developed for the\nnear term and out year scenario. The contour map represents the incremental injection capacity\nat each bus in the MISO footprint under N-1 condition. The following steps are involved in\ndeveloping the contour map:\n\u2022\nThe power flow model developed for the current SISs will be used for the purpose of\nthis analysis.\n\u2022\nA transfer of 10,000 megawatts (MWs) (subject to change in future as the network\ntopology changes) is simulated from each bus in each MISO Local Balancing Authority\n(LBA) to the whole MISO footprint and a First Contingency Incremental Transfer\nCapability (FCITC) analysis is performed using a load flow software tool. A distribution\nfactor (DF) cutoff of three percent (3%) is used for the purpose of this analysis. This\ngives the incremental injection capacity at each bus.\n\u2022\nThe injection capacity at each bus is decremented by the existing and queued\ngeneration at the bus to obtain the net injection capacity that is available. For this\npurpose, the nameplate rating of the generation (Pmax) is considered.\n\u2022\nThe net injection capacity at each bus is mapped to the Geographical Information\nSystems (GIS) coordinates and the information is fed into the PowerWorld\nCorporation\u2019s PowerWorld Simulator tool to generate the contour map.\n\u2022\nA sample contour map is shown in Appendix A of this BPM."
+      },
+      {
+        "unit_id": "bpm015-r33::5.1.2",
+        "cite": "BPM-015 r33 \u00a75.1.2",
+        "title": "Site Control Requirements Review Detail",
+        "bpm_section": "5.1.2",
+        "pages": [
+          42,
+          47
+        ],
+        "tags": {
+          "gi_phase": [
+            "dpp1"
+          ],
+          "milestone": [],
+          "actor": [
+            "ic",
+            "miso",
+            "to"
+          ],
+          "topic": [
+            "site_control"
+          ],
+          "risk_code": [
+            "abandonment"
+          ],
+          "claim_class": [
+            "workflow"
+          ]
+        },
+        "text": "5.1.2.\nSite Control Requirements Review Detail\n\n1. Except as otherwise provided in Section 5.7 of the GIP, at least ninety (90) Calendar\nDays prior to the scheduled kick-off of DPP Phase I published on the MISO public\nwebsite as of the application deadline for entry into the next Definitive Planning Phase\nCycle, the Interconnection Customer shall submit one of the following to the\nTransmission Provider:  To demonstrate that an Interconnection Customer has Site\nControl in accordance with Section 7.2.1(i)(a) and 7.2.1 (ii) of the GIP, a Geographic\nInformation System (GIS) site plan map, data files, and documentation that shows the\nfollowing information:\na. Sufficient land to meet the acreage requirements set forth in this Generator\nInterconnection Business Practices Manual;\nb. Boundary for the proposed project indicating the boundaries of the\nInterconnection Customer\u2019s leasehold/ownership interests for the site.\n\n\ni. Individual parcel boundaries within the Generating Facility boundary with\na reference back to the lease agreements/ownership interest\ndocumentation should also be included;\nc. The proposed location of each of the following: the Collector Substation, the\nproposed generator tie line, the Point of Interconnection, and the Interconnection\nFacilities based on the Point of Interconnection.\n2. To demonstrate that an Interconnection Customer has obtained Site Control in\naccordance with Section 7.2.1(i)(b) of the GIP, Interconnection Customer must submit a\nGeographic Information System (GIS) site plan map, data files, and documentation that\nmeets the requirements specified in Section 7.2.1.1(i)(b) and (c) of the GIP and show the\nfollowing additional information:\na. Sufficient land to accommodate the proposed Generating Facility based on the\nlocation and approximate land utilization requirements of proposed electrical\ndevices (i.e., turbine, solar panel, battery storage, inverter), local spacing and\nsetback requirements, and the proposed location of the feeder routes to the\nCollector Substation; and\nb. In the event that Interconnection Customer elects to share a site with other\nprojects in accordance with Section 7.2.1(i)(b) of the GIP, Interconnection\nCustomer shall include with its Interconnection Request documentation\ndemonstrating that the project referenced in the Interconnection Request is\nconcurrently feasible with the development of any other projects that will share\nSite Control over all or a portion of the same site. Such proof of concurrent\nfeasibility shall include:\ni. An identification of any other Interconnection Requests or projects that\nwill share all or a portion of the same site; and\nii. Identification of the proposed location and space utilization of all\nprojects that will share the site together with any related technical\ninformation specified in the Generator Interconnection Business\nPractices Manual to enable the Transmission Provider to determine that\ndevelopment of the project referenced in the submitted Interconnection\nRequest is not inconsistent with development of any of the other\nprojects that will share all or a portion of the same site.\n\nAll documentation establishing proof of Site Control under Sections 7.2.1 of the GIP shall be\naccompanied by a signed affidavit from an officer or an agent of the Interconnection Customer.\nSuch affidavit shall adhere to the form specified in Attachment E of Appendix 1 of Attachment X.\n\nSufficient land to meet the acreage requirements\nThe Transmission Provider shall determine the acreage volume of Site Control that is achieved\nby reviewing the documentation submitted in accordance with Section 7.2.1(i)(a) of the GIP.  In\norder to determine the Site Control actually achieved by an Interconnection Customer for a\nGenerating Facility for the purpose of satisfying the requirements of Section 7.2.1(i)(a) of the GIP,\nthe Transmission Provider shall compare the acreage volume of Site Control submitted in\n\n\naccordance with Section 7.2.1(i)(a) of the GIP against the followi\n\u2026"
+      }
+    ],
+    "do_not_claim": [
+      "do not quote months of future COD slip as a model output",
+      "do not claim a MISO Step-Up / Firm Service failure record",
+      "do not treat EIA delayed MW as a complete GIA list (overlay is thin)",
+      "do not treat scenario deltas as causal effects",
+      "do not use FERC-730 as a clean delay source",
+      "do not unseal 2024 test labels or tune on test/score"
+    ],
+    "query": {
+      "schema_version": "query.v1",
+      "question": "What happens at Decision Point II?",
+      "requirements": {
+        "audience": "analyst",
+        "dialect": "bpm_register",
+        "need": [
+          "workflow",
+          "stakeholders",
+          "citations",
+          "do_not_claim"
+        ],
+        "max_units": 12
+      },
+      "has_card": true
+    },
+    "gaps": [],
+    "search_trace": {
+      "algorithms": [
+        {
+          "name": "alg_catalog_route",
+          "n_candidates": 139,
+          "top_ids": [
+            "bpm015-r33::4.2",
+            "bpm015-r33::7.3",
+            "bpm015-r33::7.7",
+            "bpm015-r33::7.3",
+            "bpm015-r33::4.2"
+          ],
+          "elapsed_ms": 0,
+          "error": null
+        },
+        {
+          "name": "alg_lexicon",
+          "n_candidates": 2,
+          "top_ids": [],
+          "tags": {
+            "topic": [
+              "decision_point"
+            ],
+            "milestone": [
+              "M4"
+            ]
+          },
+          "elapsed_ms": 0,
+          "error": null
+        },
+        {
+          "name": "alg_seed_lookup",
+          "n_candidates": 11,
+          "top_ids": [
+            "bpm015-r33::5.2.5",
+            "bpm015-r33::5.3.5",
+            "bpm015-r33::4.2.4.6",
+            "bpm015-r33::6.2.11",
+            "bpm015-r33::5.2.3"
+          ],
+          "elapsed_ms": 0,
+          "error": null
+        },
+        {
+          "name": "alg_inverted_filter",
+          "n_candidates": 93,
+          "top_ids": [
+            "bpm015-r33::2",
+            "bpm015-r33::4.2.2",
+            "bpm015-r33::4.2.2.1",
+            "bpm015-r33::4.2.4.6",
+            "bpm015-r33::5"
+          ],
+          "elapsed_ms": 0,
+          "error": null,
+          "mode": "inverted_or"
+        },
+        {
+          "name": "alg_phrase_match",
+          "n_candidates": 2,
+          "top_ids": [
+            "bpm015-r33::5.2.3",
+            "bpm015-r33::5.3.3"
+          ],
+          "elapsed_ms": 1,
+          "error": null
+        },
+        {
+          "name": "alg_bm25",
+          "n_candidates": 96,
+          "top_ids": [
+            "bpm015-r33::5.2.3",
+            "bpm015-r33::5.3.3",
+            "bpm015-r33::4.2.4.6",
+            "bpm015-r33::6.2.11",
+            "bpm015-r33::app.G"
+          ],
+          "elapsed_ms": 12,
+          "error": null
+        },
+        {
+          "name": "alg_fusion",
+          "n_candidates": 129,
+          "top_ids": [
+            "bpm015-r33::5.2.3",
+            "bpm015-r33::5.3.3",
+            "bpm015-r33::6.2.11",
+            "bpm015-r33::4.2.4.6",
+            "bpm015-r33::7.3"
+          ],
+          "elapsed_ms": 0,
+          "error": null
+        },
+        {
+          "name": "alg_coverage_pass",
+          "n_candidates": 0,
+          "top_ids": [],
+          "elapsed_ms": 0,
+          "error": null,
+          "coverage_repair": []
+        }
+      ],
+      "directives": [
+        {
+          "name": "DIR_EMPTY_INPUT",
+          "ok": true,
+          "reason": "question and/or card present"
+        },
+        {
+          "name": "DIR_REQUIRE_CURRENT_DOC",
+          "ok": true,
+          "reason": "kept status:current r33 units only"
+        },
+        {
+          "name": "DIR_NO_R32",
+          "ok": true,
+          "reason": "r32/redline unit ids never added"
+        },
+        {
+          "name": "DIR_STUB_HONESTY",
+          "ok": true,
+          "reason": "no stub risk in this query"
+        },
+        {
+          "name": "DIR_DROP_LEGAL_OPINION",
+          "ok": true,
+          "reason": "dropped do_not_use_as_legal_opinion"
+        },
+        {
+          "name": "DIR_PREFER_WORKFLOW",
+          "ok": true,
+          "reason": "study_method downranked unless the question is about study method"
+        },
+        {
+          "name": "DIR_AUDIENCE_ACTOR",
+          "ok": true,
+          "reason": "audience=analyst; no ic filter"
+        },
+        {
+          "name": "DIR_FAMILY_CAP",
+          "ok": true,
+          "reason": "max 2 units per section family, 3 if seed"
+        },
+        {
+          "name": "DIR_COVERAGE",
+          "ok": true,
+          "reason": "all lexicon topics/risks have a kept unit"
+        }
+      ],
+      "lexicon_tags": {
+        "topic": [
+          "decision_point"
+        ],
+        "milestone": [
+          "M4"
+        ]
+      },
+      "seed_ids": [
+        "bpm015-r33::3.1.1",
+        "bpm015-r33::4.2",
+        "bpm015-r33::4.2.4.6",
+        "bpm015-r33::4.3",
+        "bpm015-r33::5.2.3",
+        "bpm015-r33::5.2.5",
+        "bpm015-r33::5.3.3",
+        "bpm015-r33::5.3.5",
+        "bpm015-r33::6.2.11",
+        "bpm015-r33::7.3",
+        "bpm015-r33::7.7"
+      ],
+      "kept_unit_ids": [
+        "bpm015-r33::5.2.3",
+        "bpm015-r33::5.3.3",
+        "bpm015-r33::6.2.11",
+        "bpm015-r33::4.2.4.6",
+        "bpm015-r33::7.3",
+        "bpm015-r33::7.7",
+        "bpm015-r33::4.2",
+        "bpm015-r33::5.3.5",
+        "bpm015-r33::5.2.5",
+        "bpm015-r33::4.3",
+        "bpm015-r33::3.1.1",
+        "bpm015-r33::5.1.2"
+      ]
+    },
+    "error_code": null,
+    "graph_slice": {
+      "unit_ids": [
+        "bpm015-r33::5.2.3",
+        "bpm015-r33::5.3.3",
+        "bpm015-r33::6.2.11",
+        "bpm015-r33::4.2.4.6",
+        "bpm015-r33::7.3",
+        "bpm015-r33::7.7",
+        "bpm015-r33::4.2",
+        "bpm015-r33::5.3.5",
+        "bpm015-r33::5.2.5",
+        "bpm015-r33::4.3",
+        "bpm015-r33::3.1.1",
+        "bpm015-r33::5.1.2"
+      ],
+      "nodes": [
+        {
+          "id": "doc:bpm-015-r33-clean",
+          "kind": "doc",
+          "title": "BPM-015 r33 clean",
+          "status": "current"
+        },
+        {
+          "id": "risk:abandonment",
+          "kind": "risk",
+          "stub": false
+        },
+        {
+          "id": "risk:system_congestion",
+          "kind": "risk",
+          "stub": false
+        },
+        {
+          "id": "risk:gia_execution",
+          "kind": "risk",
+          "stub": false
+        },
+        {
+          "id": "risk:cod_already_slipped",
+          "kind": "risk",
+          "stub": false
+        },
+        {
+          "id": "tag:gi_phase:pre_queue",
+          "kind": "tag",
+          "facet": "gi_phase",
+          "value": "pre_queue"
+        },
+        {
+          "id": "tag:gi_phase:application_review",
+          "kind": "tag",
+          "facet": "gi_phase",
+          "value": "application_review"
+        },
+        {
+          "id": "tag:gi_phase:dpp1",
+          "kind": "tag",
+          "facet": "gi_phase",
+          "value": "dpp1"
+        },
+        {
+          "id": "tag:gi_phase:dpp2",
+          "kind": "tag",
+          "facet": "gi_phase",
+          "value": "dpp2"
+        },
+        {
+          "id": "tag:gi_phase:dpp3",
+          "kind": "tag",
+          "facet": "gi_phase",
+          "value": "dpp3"
+        },
+        {
+          "id": "tag:gi_phase:post_gia",
+          "kind": "tag",
+          "facet": "gi_phase",
+          "value": "post_gia"
+        },
+        {
+          "id": "tag:topic:site_control",
+          "kind": "tag",
+          "facet": "topic",
+          "value": "site_control"
+        },
+        {
+          "id": "tag:topic:withdrawal",
+          "kind": "tag",
+          "facet": "topic",
+          "value": "withdrawal"
+        },
+        {
+          "id": "tag:topic:restudy",
+          "kind": "tag",
+          "facet": "topic",
+          "value": "restudy"
+        },
+        {
+          "id": "tag:topic:deposit_refund",
+          "kind": "tag",
+          "facet": "topic",
+          "value": "deposit_refund"
+        },
+        {
+          "id": "tag:topic:delay_of_study",
+          "kind": "tag",
+          "facet": "topic",
+          "value": "delay_of_study"
+        },
+        {
+          "id": "tag:topic:gia_negotiation",
+          "kind": "tag",
+          "facet": "topic",
+          "value": "gia_negotiation"
+        },
+        {
+          "id": "tag:topic:cost_allocation",
+          "kind": "tag",
+          "facet": "topic",
+          "value": "cost_allocation"
+        },
+        {
+          "id": "tag:topic:commercial_operation",
+          "kind": "tag",
+          "facet": "topic",
+          "value": "commercial_operation"
+        },
+        {
+          "id": "tag:topic:scoping",
+          "kind": "tag",
+          "facet": "topic",
+          "value": "scoping"
+        },
+        {
+          "id": "tag:topic:decision_point",
+          "kind": "tag",
+          "facet": "topic",
+          "value": "decision_point"
+        },
+        {
+          "id": "tag:milestone:M2",
+          "kind": "tag",
+          "facet": "milestone",
+          "value": "M2"
+        },
+        {
+          "id": "tag:milestone:M3",
+          "kind": "tag",
+          "facet": "milestone",
+          "value": "M3"
+        },
+        {
+          "id": "tag:milestone:M4",
+          "kind": "tag",
+          "facet": "milestone",
+          "value": "M4"
+        },
+        {
+          "id": "tag:milestone:D2",
+          "kind": "tag",
+          "facet": "milestone",
+          "value": "D2"
+        },
+        {
+          "id": "tag:actor:ic",
+          "kind": "tag",
+          "facet": "actor",
+          "value": "ic"
+        },
+        {
+          "id": "tag:actor:miso",
+          "kind": "tag",
+          "facet": "actor",
+          "value": "miso"
+        },
+        {
+          "id": "tag:actor:to",
+          "kind": "tag",
+          "facet": "actor",
+          "value": "to"
+        },
+        {
+          "id": "tag:actor:affected_system",
+          "kind": "tag",
+          "facet": "actor",
+          "value": "affected_system"
+        },
+        {
+          "id": "tag:claim_class:workflow",
+          "kind": "tag",
+          "facet": "claim_class",
+          "value": "workflow"
+        },
+        {
+          "id": "tag:claim_class:timeline_target",
+          "kind": "tag",
+          "facet": "claim_class",
+          "value": "timeline_target"
+        },
+        {
+          "id": "tag:claim_class:deposit_rule",
+          "kind": "tag",
+          "facet": "claim_class",
+          "value": "deposit_rule"
+        },
+        {
+          "id": "unit:bpm015-r33::3.1",
+          "kind": "unit",
+          "title": "Resources Available",
+          "cite": "BPM-015 r33 \u00a73.1",
+          "pages": [
+            21,
+            21
+          ],
+          "bpm_section": "3.1"
+        },
+        {
+          "id": "unit:bpm015-r33::3.1.1",
+          "kind": "unit",
+          "title": "Contour Map",
+          "cite": "BPM-015 r33 \u00a73.1.1",
+          "pages": [
+            21,
+            22
+          ],
+          "bpm_section": "3.1.1"
+        },
+        {
+          "id": "unit:bpm015-r33::4",
+          "kind": "unit",
+          "title": "Application Review Phase",
+          "cite": "BPM-015 r33 \u00a74",
+          "pages": [
+            25,
+            26
+          ],
+          "bpm_section": "4"
+        },
+        {
+          "id": "unit:bpm015-r33::4.2",
+          "kind": "unit",
+          "title": "Initial Screening",
+          "cite": "BPM-015 r33 \u00a74.2",
+          "pages": [
+            26,
+            27
+          ],
+          "bpm_section": "4.2"
+        },
+        {
+          "id": "unit:bpm015-r33::4.2.1",
+          "kind": "unit",
+          "title": "Application Milestones (M1)",
+          "cite": "BPM-015 r33 \u00a74.2.1",
+          "pages": [
+            27,
+            27
+          ],
+          "bpm_section": "4.2.1"
+        },
+        {
+          "id": "unit:bpm015-r33::4.2.2",
+          "kind": "unit",
+          "title": "Definitive Planning Phase Entry Milestones (M2)",
+          "cite": "BPM-015 r33 \u00a74.2.2",
+          "pages": [
+            29,
+            29
+          ],
+          "bpm_section": "4.2.2"
+        },
+        {
+          "id": "unit:bpm015-r33::4.2.3",
+          "kind": "unit",
+          "title": "Letter of Credit Requirements",
+          "cite": "BPM-015 r33 \u00a74.2.3",
+          "pages": [
+            29,
+            30
+          ],
+          "bpm_section": "4.2.3"
+        },
+        {
+          "id": "unit:bpm015-r33::4.2.4",
+          "kind": "unit",
+          "title": "Study Deposits and Refunds",
+          "cite": "BPM-015 r33 \u00a74.2.4",
+          "pages": [
+            30,
+            30
+          ],
+          "bpm_section": "4.2.4"
+        },
+        {
+          "id": "unit:bpm015-r33::4.2.4.6",
+          "kind": "unit",
+          "title": "Refunds of Study Deposits",
+          "cite": "BPM-015 r33 \u00a74.2.4.6",
+          "pages": [
+            34,
+            35
+          ],
+          "bpm_section": "4.2.4.6"
+        },
+        {
+          "id": "unit:bpm015-r33::4.3",
+          "kind": "unit",
+          "title": "Determination of Project Linkages and Potential Grouping",
+          "cite": "BPM-015 r33 \u00a74.3",
+          "pages": [
+            35,
+            35
+          ],
+          "bpm_section": "4.3"
+        },
+        {
+          "id": "unit:bpm015-r33::5.1",
+          "kind": "unit",
+          "title": "Definitive Planning Phase Entry",
+          "cite": "BPM-015 r33 \u00a75.1",
+          "pages": [
+            42,
+            42
+          ],
+          "bpm_section": "5.1"
+        },
+        {
+          "id": "unit:bpm015-r33::5.1.2",
+          "kind": "unit",
+          "title": "Site Control Requirements Review Detail",
+          "cite": "BPM-015 r33 \u00a75.1.2",
+          "pages": [
+            42,
+            47
+          ],
+          "bpm_section": "5.1.2"
+        },
+        {
+          "id": "unit:bpm015-r33::5.2",
+          "kind": "unit",
+          "title": "Definitive Planning Phase I",
+          "cite": "BPM-015 r33 \u00a75.2",
+          "pages": [
+            47,
+            48
+          ],
+          "bpm_section": "5.2"
+        },
+        {
+          "id": "unit:bpm015-r33::5.2.3",
+          "kind": "unit",
+          "title": "Interconnection Customer Decision Point I",
+          "cite": "BPM-015 r33 \u00a75.2.3",
+          "pages": [
+            48,
+            48
+          ],
+          "bpm_section": "5.2.3"
+        },
+        {
+          "id": "unit:bpm015-r33::5.2.3.1",
+          "kind": "unit",
+          "title": "EMT Model Requirements",
+          "cite": "BPM-015 r33 \u00a75.2.3.1",
+          "pages": [
+            48,
+            49
+          ],
+          "bpm_section": "5.2.3.1"
+        },
+        {
+          "id": "unit:bpm015-r33::5.2.5",
+          "kind": "unit",
+          "title": "Withdrawal from DPP Phase I",
+          "cite": "BPM-015 r33 \u00a75.2.5",
+          "pages": [
+            50,
+            50
+          ],
+          "bpm_section": "5.2.5"
+        },
+        {
+          "id": "unit:bpm015-r33::5.3",
+          "kind": "unit",
+          "title": "Definitive Planning Phase II",
+          "cite": "BPM-015 r33 \u00a75.3",
+          "pages": [
+            50,
+            50
+          ],
+          "bpm_section": "5.3"
+        },
+        {
+          "id": "unit:bpm015-r33::5.3.3",
+          "kind": "unit",
+          "title": "Interconnection Customer Decision Point II",
+          "cite": "BPM-015 r33 \u00a75.3.3",
+          "pages": [
+            51,
+            51
+          ],
+          "bpm_section": "5.3.3"
+        },
+        {
+          "id": "unit:bpm015-r33::5.3.5",
+          "kind": "unit",
+          "title": "Withdrawal from DPP Phase II",
+          "cite": "BPM-015 r33 \u00a75.3.5",
+          "pages": [
+            52,
+            52
+          ],
+          "bpm_section": "5.3.5"
+        },
+        {
+          "id": "unit:bpm015-r33::6.2",
+          "kind": "unit",
+          "title": "Facility Study",
+          "cite": "BPM-015 r33 \u00a76.2",
+          "pages": [
+            81,
+            81
+          ],
+          "bpm_section": "6.2"
+        },
+        {
+          "id": "unit:bpm015-r33::6.2.11",
+          "kind": "unit",
+          "title": "Refunds of Definitive Planning Phase Milestones (M2, M3, M4)",
+          "cite": "BPM-015 r33 \u00a76.2.11",
+          "pages": [
+            92,
+            95
+          ],
+          "bpm_section": "6.2.11"
+        },
+        {
+          "id": "unit:bpm015-r33::7",
+          "kind": "unit",
+          "title": "Post \u2013 GIA Phase",
+          "cite": "BPM-015 r33 \u00a77",
+          "pages": [
+            126,
+            126
+          ],
+          "bpm_section": "7"
+        },
+        {
+          "id": "unit:bpm015-r33::7.3",
+          "kind": "unit",
+          "title": "Interconnection Customer delays",
+          "cite": "BPM-015 r33 \u00a77.3",
+          "pages": [
+            128,
+            129
+          ],
+          "bpm_section": "7.3"
+        },
+        {
+          "id": "unit:bpm015-r33::7.7",
+          "kind": "unit",
+          "title": "Commercial Operation",
+          "cite": "BPM-015 r33 \u00a77.7",
+          "pages": [
+            129,
+            130
+          ],
+          "bpm_section": "7.7"
+        }
+      ],
+      "edges": [
+        {
+          "from": "doc:bpm-015-r33-clean",
+          "to": "unit:bpm015-r33::3.1.1",
+          "rel": "contains"
+        },
+        {
+          "from": "unit:bpm015-r33::3.1.1",
+          "to": "tag:gi_phase:pre_queue",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::3.1.1",
+          "to": "tag:topic:scoping",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::3.1.1",
+          "to": "tag:actor:ic",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::3.1.1",
+          "to": "tag:actor:miso",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::3.1.1",
+          "to": "tag:actor:to",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::3.1.1",
+          "to": "tag:claim_class:workflow",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::3.1",
+          "to": "unit:bpm015-r33::3.1.1",
+          "rel": "parent_of"
+        },
+        {
+          "from": "doc:bpm-015-r33-clean",
+          "to": "unit:bpm015-r33::4.2",
+          "rel": "contains"
+        },
+        {
+          "from": "unit:bpm015-r33::4.2",
+          "to": "tag:gi_phase:application_review",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::4.2",
+          "to": "tag:topic:commercial_operation",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::4.2",
+          "to": "tag:actor:ic",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::4.2",
+          "to": "tag:actor:miso",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::4.2",
+          "to": "tag:claim_class:workflow",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::4",
+          "to": "unit:bpm015-r33::4.2",
+          "rel": "parent_of"
+        },
+        {
+          "from": "unit:bpm015-r33::4.2",
+          "to": "unit:bpm015-r33::4.2.1",
+          "rel": "parent_of"
+        },
+        {
+          "from": "unit:bpm015-r33::4.2",
+          "to": "unit:bpm015-r33::4.2.2",
+          "rel": "parent_of"
+        },
+        {
+          "from": "unit:bpm015-r33::4.2",
+          "to": "unit:bpm015-r33::4.2.3",
+          "rel": "parent_of"
+        },
+        {
+          "from": "unit:bpm015-r33::4.2",
+          "to": "unit:bpm015-r33::4.2.4",
+          "rel": "parent_of"
+        },
+        {
+          "from": "doc:bpm-015-r33-clean",
+          "to": "unit:bpm015-r33::4.2.4.6",
+          "rel": "contains"
+        },
+        {
+          "from": "unit:bpm015-r33::4.2.4.6",
+          "to": "tag:gi_phase:application_review",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::4.2.4.6",
+          "to": "tag:gi_phase:dpp1",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::4.2.4.6",
+          "to": "tag:topic:withdrawal",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::4.2.4.6",
+          "to": "tag:topic:deposit_refund",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::4.2.4.6",
+          "to": "tag:topic:restudy",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::4.2.4.6",
+          "to": "tag:topic:decision_point",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::4.2.4.6",
+          "to": "tag:milestone:M2",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::4.2.4.6",
+          "to": "tag:milestone:D2",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::4.2.4.6",
+          "to": "tag:milestone:M3",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::4.2.4.6",
+          "to": "tag:milestone:M4",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::4.2.4.6",
+          "to": "tag:actor:ic",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::4.2.4.6",
+          "to": "tag:actor:miso",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::4.2.4.6",
+          "to": "tag:actor:to",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::4.2.4.6",
+          "to": "tag:claim_class:deposit_rule",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::4.2.4.6",
+          "to": "tag:claim_class:workflow",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::4.2.4",
+          "to": "unit:bpm015-r33::4.2.4.6",
+          "rel": "parent_of"
+        },
+        {
+          "from": "doc:bpm-015-r33-clean",
+          "to": "unit:bpm015-r33::4.3",
+          "rel": "contains"
+        },
+        {
+          "from": "unit:bpm015-r33::4.3",
+          "to": "tag:gi_phase:application_review",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::4.3",
+          "to": "tag:topic:cost_allocation",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::4.3",
+          "to": "tag:actor:ic",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::4.3",
+          "to": "tag:actor:miso",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::4.3",
+          "to": "tag:actor:to",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::4.3",
+          "to": "tag:claim_class:workflow",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::4",
+          "to": "unit:bpm015-r33::4.3",
+          "rel": "parent_of"
+        },
+        {
+          "from": "doc:bpm-015-r33-clean",
+          "to": "unit:bpm015-r33::5.1.2",
+          "rel": "contains"
+        },
+        {
+          "from": "unit:bpm015-r33::5.1.2",
+          "to": "tag:gi_phase:dpp1",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.1.2",
+          "to": "tag:topic:site_control",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.1.2",
+          "to": "tag:actor:ic",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.1.2",
+          "to": "tag:actor:miso",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.1.2",
+          "to": "tag:actor:to",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.1.2",
+          "to": "tag:claim_class:workflow",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.1",
+          "to": "unit:bpm015-r33::5.1.2",
+          "rel": "parent_of"
+        },
+        {
+          "from": "doc:bpm-015-r33-clean",
+          "to": "unit:bpm015-r33::5.2.3",
+          "rel": "contains"
+        },
+        {
+          "from": "unit:bpm015-r33::5.2.3",
+          "to": "tag:gi_phase:dpp1",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.2.3",
+          "to": "tag:topic:decision_point",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.2.3",
+          "to": "tag:topic:withdrawal",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.2.3",
+          "to": "tag:topic:deposit_refund",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.2.3",
+          "to": "tag:milestone:M3",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.2.3",
+          "to": "tag:milestone:M2",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.2.3",
+          "to": "tag:actor:ic",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.2.3",
+          "to": "tag:actor:miso",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.2.3",
+          "to": "tag:actor:to",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.2.3",
+          "to": "tag:claim_class:workflow",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.2",
+          "to": "unit:bpm015-r33::5.2.3",
+          "rel": "parent_of"
+        },
+        {
+          "from": "unit:bpm015-r33::5.2.3",
+          "to": "unit:bpm015-r33::5.2.3.1",
+          "rel": "parent_of"
+        },
+        {
+          "from": "doc:bpm-015-r33-clean",
+          "to": "unit:bpm015-r33::5.2.5",
+          "rel": "contains"
+        },
+        {
+          "from": "unit:bpm015-r33::5.2.5",
+          "to": "tag:gi_phase:dpp1",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.2.5",
+          "to": "tag:topic:withdrawal",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.2.5",
+          "to": "tag:topic:deposit_refund",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.2.5",
+          "to": "tag:topic:decision_point",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.2.5",
+          "to": "tag:milestone:M2",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.2.5",
+          "to": "tag:milestone:M3",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.2.5",
+          "to": "tag:actor:ic",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.2.5",
+          "to": "tag:actor:miso",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.2.5",
+          "to": "tag:actor:to",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.2.5",
+          "to": "tag:claim_class:workflow",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.2.5",
+          "to": "tag:claim_class:deposit_rule",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.2",
+          "to": "unit:bpm015-r33::5.2.5",
+          "rel": "parent_of"
+        },
+        {
+          "from": "doc:bpm-015-r33-clean",
+          "to": "unit:bpm015-r33::5.3.3",
+          "rel": "contains"
+        },
+        {
+          "from": "unit:bpm015-r33::5.3.3",
+          "to": "tag:gi_phase:dpp2",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.3.3",
+          "to": "tag:topic:decision_point",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.3.3",
+          "to": "tag:topic:withdrawal",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.3.3",
+          "to": "tag:milestone:M4",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.3.3",
+          "to": "tag:actor:ic",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.3.3",
+          "to": "tag:actor:miso",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.3.3",
+          "to": "tag:actor:to",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.3.3",
+          "to": "tag:actor:affected_system",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.3.3",
+          "to": "tag:claim_class:workflow",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.3",
+          "to": "unit:bpm015-r33::5.3.3",
+          "rel": "parent_of"
+        },
+        {
+          "from": "doc:bpm-015-r33-clean",
+          "to": "unit:bpm015-r33::5.3.5",
+          "rel": "contains"
+        },
+        {
+          "from": "unit:bpm015-r33::5.3.5",
+          "to": "tag:gi_phase:dpp2",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.3.5",
+          "to": "tag:topic:withdrawal",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.3.5",
+          "to": "tag:topic:deposit_refund",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.3.5",
+          "to": "tag:topic:decision_point",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.3.5",
+          "to": "tag:milestone:M3",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.3.5",
+          "to": "tag:milestone:M4",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.3.5",
+          "to": "tag:actor:ic",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.3.5",
+          "to": "tag:actor:miso",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.3.5",
+          "to": "tag:actor:to",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.3.5",
+          "to": "tag:claim_class:workflow",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.3.5",
+          "to": "tag:claim_class:deposit_rule",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.3",
+          "to": "unit:bpm015-r33::5.3.5",
+          "rel": "parent_of"
+        },
+        {
+          "from": "doc:bpm-015-r33-clean",
+          "to": "unit:bpm015-r33::6.2.11",
+          "rel": "contains"
+        },
+        {
+          "from": "unit:bpm015-r33::6.2.11",
+          "to": "tag:gi_phase:dpp1",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::6.2.11",
+          "to": "tag:gi_phase:dpp2",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::6.2.11",
+          "to": "tag:gi_phase:dpp3",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::6.2.11",
+          "to": "tag:topic:withdrawal",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::6.2.11",
+          "to": "tag:topic:deposit_refund",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::6.2.11",
+          "to": "tag:topic:decision_point",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::6.2.11",
+          "to": "tag:topic:cost_allocation",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::6.2.11",
+          "to": "tag:milestone:M2",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::6.2.11",
+          "to": "tag:milestone:M3",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::6.2.11",
+          "to": "tag:milestone:M4",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::6.2.11",
+          "to": "tag:actor:ic",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::6.2.11",
+          "to": "tag:actor:miso",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::6.2.11",
+          "to": "tag:actor:to",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::6.2.11",
+          "to": "tag:actor:affected_system",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::6.2.11",
+          "to": "tag:claim_class:deposit_rule",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::6.2.11",
+          "to": "tag:claim_class:workflow",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::6.2",
+          "to": "unit:bpm015-r33::6.2.11",
+          "rel": "parent_of"
+        },
+        {
+          "from": "doc:bpm-015-r33-clean",
+          "to": "unit:bpm015-r33::7.3",
+          "rel": "contains"
+        },
+        {
+          "from": "unit:bpm015-r33::7.3",
+          "to": "tag:gi_phase:post_gia",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::7.3",
+          "to": "tag:topic:delay_of_study",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::7.3",
+          "to": "tag:topic:cost_allocation",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::7.3",
+          "to": "tag:topic:gia_negotiation",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::7.3",
+          "to": "tag:actor:ic",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::7.3",
+          "to": "tag:actor:miso",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::7.3",
+          "to": "tag:actor:to",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::7.3",
+          "to": "tag:actor:affected_system",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::7.3",
+          "to": "tag:claim_class:workflow",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::7.3",
+          "to": "tag:claim_class:timeline_target",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::7",
+          "to": "unit:bpm015-r33::7.3",
+          "rel": "parent_of"
+        },
+        {
+          "from": "doc:bpm-015-r33-clean",
+          "to": "unit:bpm015-r33::7.7",
+          "rel": "contains"
+        },
+        {
+          "from": "unit:bpm015-r33::7.7",
+          "to": "tag:gi_phase:post_gia",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::7.7",
+          "to": "tag:topic:commercial_operation",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::7.7",
+          "to": "tag:topic:deposit_refund",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::7.7",
+          "to": "tag:topic:gia_negotiation",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::7.7",
+          "to": "tag:actor:ic",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::7.7",
+          "to": "tag:actor:miso",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::7.7",
+          "to": "tag:actor:to",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::7.7",
+          "to": "tag:claim_class:workflow",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::7",
+          "to": "unit:bpm015-r33::7.7",
+          "rel": "parent_of"
+        },
+        {
+          "from": "unit:bpm015-r33::5.2.5",
+          "to": "risk:abandonment",
+          "rel": "seed_for"
+        },
+        {
+          "from": "unit:bpm015-r33::5.3.5",
+          "to": "risk:abandonment",
+          "rel": "seed_for"
+        },
+        {
+          "from": "unit:bpm015-r33::4.2.4.6",
+          "to": "risk:abandonment",
+          "rel": "seed_for"
+        },
+        {
+          "from": "unit:bpm015-r33::6.2.11",
+          "to": "risk:abandonment",
+          "rel": "seed_for"
+        },
+        {
+          "from": "unit:bpm015-r33::5.2.3",
+          "to": "risk:abandonment",
+          "rel": "seed_for"
+        },
+        {
+          "from": "unit:bpm015-r33::5.3.3",
+          "to": "risk:abandonment",
+          "rel": "seed_for"
+        },
+        {
+          "from": "unit:bpm015-r33::3.1.1",
+          "to": "risk:system_congestion",
+          "rel": "seed_for"
+        },
+        {
+          "from": "unit:bpm015-r33::4.3",
+          "to": "risk:system_congestion",
+          "rel": "seed_for"
+        },
+        {
+          "from": "unit:bpm015-r33::7.3",
+          "to": "risk:gia_execution",
+          "rel": "seed_for"
+        },
+        {
+          "from": "unit:bpm015-r33::7.7",
+          "to": "risk:gia_execution",
+          "rel": "seed_for"
+        },
+        {
+          "from": "unit:bpm015-r33::4.2",
+          "to": "risk:cod_already_slipped",
+          "rel": "seed_for"
+        },
+        {
+          "from": "unit:bpm015-r33::7.3",
+          "to": "risk:cod_already_slipped",
+          "rel": "seed_for"
+        },
+        {
+          "from": "unit:bpm015-r33::7.7",
+          "to": "risk:cod_already_slipped",
+          "rel": "seed_for"
+        }
+      ],
+      "algorithms": [
+        "alg_catalog_route",
+        "alg_lexicon",
+        "alg_seed_lookup",
+        "alg_inverted_filter",
+        "alg_phrase_match",
+        "alg_bm25",
+        "alg_fusion",
+        "alg_coverage_pass"
+      ]
+    },
+    "wants_diagram": false
+  },
+  "search_trace": {
+    "algorithms": [
+      {
+        "name": "alg_catalog_route",
+        "n_candidates": 139,
+        "top_ids": [
+          "bpm015-r33::4.2",
+          "bpm015-r33::7.3",
+          "bpm015-r33::7.7",
+          "bpm015-r33::7.3",
+          "bpm015-r33::4.2"
+        ],
+        "elapsed_ms": 0,
+        "error": null
+      },
+      {
+        "name": "alg_lexicon",
+        "n_candidates": 2,
+        "top_ids": [],
+        "tags": {
+          "topic": [
+            "decision_point"
+          ],
+          "milestone": [
+            "M4"
+          ]
+        },
+        "elapsed_ms": 0,
+        "error": null
+      },
+      {
+        "name": "alg_seed_lookup",
+        "n_candidates": 11,
+        "top_ids": [
+          "bpm015-r33::5.2.5",
+          "bpm015-r33::5.3.5",
+          "bpm015-r33::4.2.4.6",
+          "bpm015-r33::6.2.11",
+          "bpm015-r33::5.2.3"
+        ],
+        "elapsed_ms": 0,
+        "error": null
+      },
+      {
+        "name": "alg_inverted_filter",
+        "n_candidates": 93,
+        "top_ids": [
+          "bpm015-r33::2",
+          "bpm015-r33::4.2.2",
+          "bpm015-r33::4.2.2.1",
+          "bpm015-r33::4.2.4.6",
+          "bpm015-r33::5"
+        ],
+        "elapsed_ms": 0,
+        "error": null,
+        "mode": "inverted_or"
+      },
+      {
+        "name": "alg_phrase_match",
+        "n_candidates": 2,
+        "top_ids": [
+          "bpm015-r33::5.2.3",
+          "bpm015-r33::5.3.3"
+        ],
+        "elapsed_ms": 1,
+        "error": null
+      },
+      {
+        "name": "alg_bm25",
+        "n_candidates": 96,
+        "top_ids": [
+          "bpm015-r33::5.2.3",
+          "bpm015-r33::5.3.3",
+          "bpm015-r33::4.2.4.6",
+          "bpm015-r33::6.2.11",
+          "bpm015-r33::app.G"
+        ],
+        "elapsed_ms": 12,
+        "error": null
+      },
+      {
+        "name": "alg_fusion",
+        "n_candidates": 129,
+        "top_ids": [
+          "bpm015-r33::5.2.3",
+          "bpm015-r33::5.3.3",
+          "bpm015-r33::6.2.11",
+          "bpm015-r33::4.2.4.6",
+          "bpm015-r33::7.3"
+        ],
+        "elapsed_ms": 0,
+        "error": null
+      },
+      {
+        "name": "alg_coverage_pass",
+        "n_candidates": 0,
+        "top_ids": [],
+        "elapsed_ms": 0,
+        "error": null,
+        "coverage_repair": []
+      }
+    ],
+    "directives": [
+      {
+        "name": "DIR_EMPTY_INPUT",
+        "ok": true,
+        "reason": "question and/or card present"
+      },
+      {
+        "name": "DIR_REQUIRE_CURRENT_DOC",
+        "ok": true,
+        "reason": "kept status:current r33 units only"
+      },
+      {
+        "name": "DIR_NO_R32",
+        "ok": true,
+        "reason": "r32/redline unit ids never added"
+      },
+      {
+        "name": "DIR_STUB_HONESTY",
+        "ok": true,
+        "reason": "no stub risk in this query"
+      },
+      {
+        "name": "DIR_DROP_LEGAL_OPINION",
+        "ok": true,
+        "reason": "dropped do_not_use_as_legal_opinion"
+      },
+      {
+        "name": "DIR_PREFER_WORKFLOW",
+        "ok": true,
+        "reason": "study_method downranked unless the question is about study method"
+      },
+      {
+        "name": "DIR_AUDIENCE_ACTOR",
+        "ok": true,
+        "reason": "audience=analyst; no ic filter"
+      },
+      {
+        "name": "DIR_FAMILY_CAP",
+        "ok": true,
+        "reason": "max 2 units per section family, 3 if seed"
+      },
+      {
+        "name": "DIR_COVERAGE",
+        "ok": true,
+        "reason": "all lexicon topics/risks have a kept unit"
+      }
+    ],
+    "lexicon_tags": {
+      "topic": [
+        "decision_point"
+      ],
+      "milestone": [
+        "M4"
+      ]
+    },
+    "seed_ids": [
+      "bpm015-r33::3.1.1",
+      "bpm015-r33::4.2",
+      "bpm015-r33::4.2.4.6",
+      "bpm015-r33::4.3",
+      "bpm015-r33::5.2.3",
+      "bpm015-r33::5.2.5",
+      "bpm015-r33::5.3.3",
+      "bpm015-r33::5.3.5",
+      "bpm015-r33::6.2.11",
+      "bpm015-r33::7.3",
+      "bpm015-r33::7.7"
+    ],
+    "kept_unit_ids": [
+      "bpm015-r33::5.2.3",
+      "bpm015-r33::5.3.3",
+      "bpm015-r33::6.2.11",
+      "bpm015-r33::4.2.4.6",
+      "bpm015-r33::7.3",
+      "bpm015-r33::7.7",
+      "bpm015-r33::4.2",
+      "bpm015-r33::5.3.5",
+      "bpm015-r33::5.2.5",
+      "bpm015-r33::4.3",
+      "bpm015-r33::3.1.1",
+      "bpm015-r33::5.1.2"
+    ]
+  },
+  "graph_slice": {
+    "unit_ids": [
+      "bpm015-r33::5.2.3",
+      "bpm015-r33::5.3.3",
+      "bpm015-r33::6.2.11",
+      "bpm015-r33::4.2.4.6",
+      "bpm015-r33::7.3",
+      "bpm015-r33::7.7",
+      "bpm015-r33::4.2",
+      "bpm015-r33::5.3.5",
+      "bpm015-r33::5.2.5",
+      "bpm015-r33::4.3",
+      "bpm015-r33::3.1.1",
+      "bpm015-r33::5.1.2"
+    ],
+    "nodes": [
+      {
+        "id": "doc:bpm-015-r33-clean",
+        "kind": "doc",
+        "title": "BPM-015 r33 clean",
+        "status": "current"
+      },
+      {
+        "id": "risk:abandonment",
+        "kind": "risk",
+        "stub": false
+      },
+      {
+        "id": "risk:system_congestion",
+        "kind": "risk",
+        "stub": false
+      },
+      {
+        "id": "risk:gia_execution",
+        "kind": "risk",
+        "stub": false
+      },
+      {
+        "id": "risk:cod_already_slipped",
+        "kind": "risk",
+        "stub": false
+      },
+      {
+        "id": "tag:gi_phase:pre_queue",
+        "kind": "tag",
+        "facet": "gi_phase",
+        "value": "pre_queue"
+      },
+      {
+        "id": "tag:gi_phase:application_review",
+        "kind": "tag",
+        "facet": "gi_phase",
+        "value": "application_review"
+      },
+      {
+        "id": "tag:gi_phase:dpp1",
+        "kind": "tag",
+        "facet": "gi_phase",
+        "value": "dpp1"
+      },
+      {
+        "id": "tag:gi_phase:dpp2",
+        "kind": "tag",
+        "facet": "gi_phase",
+        "value": "dpp2"
+      },
+      {
+        "id": "tag:gi_phase:dpp3",
+        "kind": "tag",
+        "facet": "gi_phase",
+        "value": "dpp3"
+      },
+      {
+        "id": "tag:gi_phase:post_gia",
+        "kind": "tag",
+        "facet": "gi_phase",
+        "value": "post_gia"
+      },
+      {
+        "id": "tag:topic:site_control",
+        "kind": "tag",
+        "facet": "topic",
+        "value": "site_control"
+      },
+      {
+        "id": "tag:topic:withdrawal",
+        "kind": "tag",
+        "facet": "topic",
+        "value": "withdrawal"
+      },
+      {
+        "id": "tag:topic:restudy",
+        "kind": "tag",
+        "facet": "topic",
+        "value": "restudy"
+      },
+      {
+        "id": "tag:topic:deposit_refund",
+        "kind": "tag",
+        "facet": "topic",
+        "value": "deposit_refund"
+      },
+      {
+        "id": "tag:topic:delay_of_study",
+        "kind": "tag",
+        "facet": "topic",
+        "value": "delay_of_study"
+      },
+      {
+        "id": "tag:topic:gia_negotiation",
+        "kind": "tag",
+        "facet": "topic",
+        "value": "gia_negotiation"
+      },
+      {
+        "id": "tag:topic:cost_allocation",
+        "kind": "tag",
+        "facet": "topic",
+        "value": "cost_allocation"
+      },
+      {
+        "id": "tag:topic:commercial_operation",
+        "kind": "tag",
+        "facet": "topic",
+        "value": "commercial_operation"
+      },
+      {
+        "id": "tag:topic:scoping",
+        "kind": "tag",
+        "facet": "topic",
+        "value": "scoping"
+      },
+      {
+        "id": "tag:topic:decision_point",
+        "kind": "tag",
+        "facet": "topic",
+        "value": "decision_point"
+      },
+      {
+        "id": "tag:milestone:M2",
+        "kind": "tag",
+        "facet": "milestone",
+        "value": "M2"
+      },
+      {
+        "id": "tag:milestone:M3",
+        "kind": "tag",
+        "facet": "milestone",
+        "value": "M3"
+      },
+      {
+        "id": "tag:milestone:M4",
+        "kind": "tag",
+        "facet": "milestone",
+        "value": "M4"
+      },
+      {
+        "id": "tag:milestone:D2",
+        "kind": "tag",
+        "facet": "milestone",
+        "value": "D2"
+      },
+      {
+        "id": "tag:actor:ic",
+        "kind": "tag",
+        "facet": "actor",
+        "value": "ic"
+      },
+      {
+        "id": "tag:actor:miso",
+        "kind": "tag",
+        "facet": "actor",
+        "value": "miso"
+      },
+      {
+        "id": "tag:actor:to",
+        "kind": "tag",
+        "facet": "actor",
+        "value": "to"
+      },
+      {
+        "id": "tag:actor:affected_system",
+        "kind": "tag",
+        "facet": "actor",
+        "value": "affected_system"
+      },
+      {
+        "id": "tag:claim_class:workflow",
+        "kind": "tag",
+        "facet": "claim_class",
+        "value": "workflow"
+      },
+      {
+        "id": "tag:claim_class:timeline_target",
+        "kind": "tag",
+        "facet": "claim_class",
+        "value": "timeline_target"
+      },
+      {
+        "id": "tag:claim_class:deposit_rule",
+        "kind": "tag",
+        "facet": "claim_class",
+        "value": "deposit_rule"
+      },
+      {
+        "id": "unit:bpm015-r33::3.1",
+        "kind": "unit",
+        "title": "Resources Available",
+        "cite": "BPM-015 r33 \u00a73.1",
+        "pages": [
+          21,
+          21
+        ],
+        "bpm_section": "3.1"
+      },
+      {
+        "id": "unit:bpm015-r33::3.1.1",
+        "kind": "unit",
+        "title": "Contour Map",
+        "cite": "BPM-015 r33 \u00a73.1.1",
+        "pages": [
+          21,
+          22
+        ],
+        "bpm_section": "3.1.1"
+      },
+      {
+        "id": "unit:bpm015-r33::4",
+        "kind": "unit",
+        "title": "Application Review Phase",
+        "cite": "BPM-015 r33 \u00a74",
+        "pages": [
+          25,
+          26
+        ],
+        "bpm_section": "4"
+      },
+      {
+        "id": "unit:bpm015-r33::4.2",
+        "kind": "unit",
+        "title": "Initial Screening",
+        "cite": "BPM-015 r33 \u00a74.2",
+        "pages": [
+          26,
+          27
+        ],
+        "bpm_section": "4.2"
+      },
+      {
+        "id": "unit:bpm015-r33::4.2.1",
+        "kind": "unit",
+        "title": "Application Milestones (M1)",
+        "cite": "BPM-015 r33 \u00a74.2.1",
+        "pages": [
+          27,
+          27
+        ],
+        "bpm_section": "4.2.1"
+      },
+      {
+        "id": "unit:bpm015-r33::4.2.2",
+        "kind": "unit",
+        "title": "Definitive Planning Phase Entry Milestones (M2)",
+        "cite": "BPM-015 r33 \u00a74.2.2",
+        "pages": [
+          29,
+          29
+        ],
+        "bpm_section": "4.2.2"
+      },
+      {
+        "id": "unit:bpm015-r33::4.2.3",
+        "kind": "unit",
+        "title": "Letter of Credit Requirements",
+        "cite": "BPM-015 r33 \u00a74.2.3",
+        "pages": [
+          29,
+          30
+        ],
+        "bpm_section": "4.2.3"
+      },
+      {
+        "id": "unit:bpm015-r33::4.2.4",
+        "kind": "unit",
+        "title": "Study Deposits and Refunds",
+        "cite": "BPM-015 r33 \u00a74.2.4",
+        "pages": [
+          30,
+          30
+        ],
+        "bpm_section": "4.2.4"
+      },
+      {
+        "id": "unit:bpm015-r33::4.2.4.6",
+        "kind": "unit",
+        "title": "Refunds of Study Deposits",
+        "cite": "BPM-015 r33 \u00a74.2.4.6",
+        "pages": [
+          34,
+          35
+        ],
+        "bpm_section": "4.2.4.6"
+      },
+      {
+        "id": "unit:bpm015-r33::4.3",
+        "kind": "unit",
+        "title": "Determination of Project Linkages and Potential Grouping",
+        "cite": "BPM-015 r33 \u00a74.3",
+        "pages": [
+          35,
+          35
+        ],
+        "bpm_section": "4.3"
+      },
+      {
+        "id": "unit:bpm015-r33::5.1",
+        "kind": "unit",
+        "title": "Definitive Planning Phase Entry",
+        "cite": "BPM-015 r33 \u00a75.1",
+        "pages": [
+          42,
+          42
+        ],
+        "bpm_section": "5.1"
+      },
+      {
+        "id": "unit:bpm015-r33::5.1.2",
+        "kind": "unit",
+        "title": "Site Control Requirements Review Detail",
+        "cite": "BPM-015 r33 \u00a75.1.2",
+        "pages": [
+          42,
+          47
+        ],
+        "bpm_section": "5.1.2"
+      },
+      {
+        "id": "unit:bpm015-r33::5.2",
+        "kind": "unit",
+        "title": "Definitive Planning Phase I",
+        "cite": "BPM-015 r33 \u00a75.2",
+        "pages": [
+          47,
+          48
+        ],
+        "bpm_section": "5.2"
+      },
+      {
+        "id": "unit:bpm015-r33::5.2.3",
+        "kind": "unit",
+        "title": "Interconnection Customer Decision Point I",
+        "cite": "BPM-015 r33 \u00a75.2.3",
+        "pages": [
+          48,
+          48
+        ],
+        "bpm_section": "5.2.3"
+      },
+      {
+        "id": "unit:bpm015-r33::5.2.3.1",
+        "kind": "unit",
+        "title": "EMT Model Requirements",
+        "cite": "BPM-015 r33 \u00a75.2.3.1",
+        "pages": [
+          48,
+          49
+        ],
+        "bpm_section": "5.2.3.1"
+      },
+      {
+        "id": "unit:bpm015-r33::5.2.5",
+        "kind": "unit",
+        "title": "Withdrawal from DPP Phase I",
+        "cite": "BPM-015 r33 \u00a75.2.5",
+        "pages": [
+          50,
+          50
+        ],
+        "bpm_section": "5.2.5"
+      },
+      {
+        "id": "unit:bpm015-r33::5.3",
+        "kind": "unit",
+        "title": "Definitive Planning Phase II",
+        "cite": "BPM-015 r33 \u00a75.3",
+        "pages": [
+          50,
+          50
+        ],
+        "bpm_section": "5.3"
+      },
+      {
+        "id": "unit:bpm015-r33::5.3.3",
+        "kind": "unit",
+        "title": "Interconnection Customer Decision Point II",
+        "cite": "BPM-015 r33 \u00a75.3.3",
+        "pages": [
+          51,
+          51
+        ],
+        "bpm_section": "5.3.3"
+      },
+      {
+        "id": "unit:bpm015-r33::5.3.5",
+        "kind": "unit",
+        "title": "Withdrawal from DPP Phase II",
+        "cite": "BPM-015 r33 \u00a75.3.5",
+        "pages": [
+          52,
+          52
+        ],
+        "bpm_section": "5.3.5"
+      },
+      {
+        "id": "unit:bpm015-r33::6.2",
+        "kind": "unit",
+        "title": "Facility Study",
+        "cite": "BPM-015 r33 \u00a76.2",
+        "pages": [
+          81,
+          81
+        ],
+        "bpm_section": "6.2"
+      },
+      {
+        "id": "unit:bpm015-r33::6.2.11",
+        "kind": "unit",
+        "title": "Refunds of Definitive Planning Phase Milestones (M2, M3, M4)",
+        "cite": "BPM-015 r33 \u00a76.2.11",
+        "pages": [
+          92,
+          95
+        ],
+        "bpm_section": "6.2.11"
+      },
+      {
+        "id": "unit:bpm015-r33::7",
+        "kind": "unit",
+        "title": "Post \u2013 GIA Phase",
+        "cite": "BPM-015 r33 \u00a77",
+        "pages": [
+          126,
+          126
+        ],
+        "bpm_section": "7"
+      },
+      {
+        "id": "unit:bpm015-r33::7.3",
+        "kind": "unit",
+        "title": "Interconnection Customer delays",
+        "cite": "BPM-015 r33 \u00a77.3",
+        "pages": [
+          128,
+          129
+        ],
+        "bpm_section": "7.3"
+      },
+      {
+        "id": "unit:bpm015-r33::7.7",
+        "kind": "unit",
+        "title": "Commercial Operation",
+        "cite": "BPM-015 r33 \u00a77.7",
+        "pages": [
+          129,
+          130
+        ],
+        "bpm_section": "7.7"
+      }
+    ],
+    "edges": [
+      {
+        "from": "doc:bpm-015-r33-clean",
+        "to": "unit:bpm015-r33::3.1.1",
+        "rel": "contains"
+      },
+      {
+        "from": "unit:bpm015-r33::3.1.1",
+        "to": "tag:gi_phase:pre_queue",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::3.1.1",
+        "to": "tag:topic:scoping",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::3.1.1",
+        "to": "tag:actor:ic",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::3.1.1",
+        "to": "tag:actor:miso",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::3.1.1",
+        "to": "tag:actor:to",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::3.1.1",
+        "to": "tag:claim_class:workflow",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::3.1",
+        "to": "unit:bpm015-r33::3.1.1",
+        "rel": "parent_of"
+      },
+      {
+        "from": "doc:bpm-015-r33-clean",
+        "to": "unit:bpm015-r33::4.2",
+        "rel": "contains"
+      },
+      {
+        "from": "unit:bpm015-r33::4.2",
+        "to": "tag:gi_phase:application_review",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::4.2",
+        "to": "tag:topic:commercial_operation",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::4.2",
+        "to": "tag:actor:ic",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::4.2",
+        "to": "tag:actor:miso",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::4.2",
+        "to": "tag:claim_class:workflow",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::4",
+        "to": "unit:bpm015-r33::4.2",
+        "rel": "parent_of"
+      },
+      {
+        "from": "unit:bpm015-r33::4.2",
+        "to": "unit:bpm015-r33::4.2.1",
+        "rel": "parent_of"
+      },
+      {
+        "from": "unit:bpm015-r33::4.2",
+        "to": "unit:bpm015-r33::4.2.2",
+        "rel": "parent_of"
+      },
+      {
+        "from": "unit:bpm015-r33::4.2",
+        "to": "unit:bpm015-r33::4.2.3",
+        "rel": "parent_of"
+      },
+      {
+        "from": "unit:bpm015-r33::4.2",
+        "to": "unit:bpm015-r33::4.2.4",
+        "rel": "parent_of"
+      },
+      {
+        "from": "doc:bpm-015-r33-clean",
+        "to": "unit:bpm015-r33::4.2.4.6",
+        "rel": "contains"
+      },
+      {
+        "from": "unit:bpm015-r33::4.2.4.6",
+        "to": "tag:gi_phase:application_review",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::4.2.4.6",
+        "to": "tag:gi_phase:dpp1",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::4.2.4.6",
+        "to": "tag:topic:withdrawal",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::4.2.4.6",
+        "to": "tag:topic:deposit_refund",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::4.2.4.6",
+        "to": "tag:topic:restudy",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::4.2.4.6",
+        "to": "tag:topic:decision_point",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::4.2.4.6",
+        "to": "tag:milestone:M2",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::4.2.4.6",
+        "to": "tag:milestone:D2",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::4.2.4.6",
+        "to": "tag:milestone:M3",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::4.2.4.6",
+        "to": "tag:milestone:M4",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::4.2.4.6",
+        "to": "tag:actor:ic",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::4.2.4.6",
+        "to": "tag:actor:miso",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::4.2.4.6",
+        "to": "tag:actor:to",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::4.2.4.6",
+        "to": "tag:claim_class:deposit_rule",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::4.2.4.6",
+        "to": "tag:claim_class:workflow",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::4.2.4",
+        "to": "unit:bpm015-r33::4.2.4.6",
+        "rel": "parent_of"
+      },
+      {
+        "from": "doc:bpm-015-r33-clean",
+        "to": "unit:bpm015-r33::4.3",
+        "rel": "contains"
+      },
+      {
+        "from": "unit:bpm015-r33::4.3",
+        "to": "tag:gi_phase:application_review",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::4.3",
+        "to": "tag:topic:cost_allocation",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::4.3",
+        "to": "tag:actor:ic",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::4.3",
+        "to": "tag:actor:miso",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::4.3",
+        "to": "tag:actor:to",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::4.3",
+        "to": "tag:claim_class:workflow",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::4",
+        "to": "unit:bpm015-r33::4.3",
+        "rel": "parent_of"
+      },
+      {
+        "from": "doc:bpm-015-r33-clean",
+        "to": "unit:bpm015-r33::5.1.2",
+        "rel": "contains"
+      },
+      {
+        "from": "unit:bpm015-r33::5.1.2",
+        "to": "tag:gi_phase:dpp1",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.1.2",
+        "to": "tag:topic:site_control",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.1.2",
+        "to": "tag:actor:ic",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.1.2",
+        "to": "tag:actor:miso",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.1.2",
+        "to": "tag:actor:to",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.1.2",
+        "to": "tag:claim_class:workflow",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.1",
+        "to": "unit:bpm015-r33::5.1.2",
+        "rel": "parent_of"
+      },
+      {
+        "from": "doc:bpm-015-r33-clean",
+        "to": "unit:bpm015-r33::5.2.3",
+        "rel": "contains"
+      },
+      {
+        "from": "unit:bpm015-r33::5.2.3",
+        "to": "tag:gi_phase:dpp1",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.2.3",
+        "to": "tag:topic:decision_point",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.2.3",
+        "to": "tag:topic:withdrawal",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.2.3",
+        "to": "tag:topic:deposit_refund",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.2.3",
+        "to": "tag:milestone:M3",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.2.3",
+        "to": "tag:milestone:M2",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.2.3",
+        "to": "tag:actor:ic",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.2.3",
+        "to": "tag:actor:miso",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.2.3",
+        "to": "tag:actor:to",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.2.3",
+        "to": "tag:claim_class:workflow",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.2",
+        "to": "unit:bpm015-r33::5.2.3",
+        "rel": "parent_of"
+      },
+      {
+        "from": "unit:bpm015-r33::5.2.3",
+        "to": "unit:bpm015-r33::5.2.3.1",
+        "rel": "parent_of"
+      },
+      {
+        "from": "doc:bpm-015-r33-clean",
+        "to": "unit:bpm015-r33::5.2.5",
+        "rel": "contains"
+      },
+      {
+        "from": "unit:bpm015-r33::5.2.5",
+        "to": "tag:gi_phase:dpp1",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.2.5",
+        "to": "tag:topic:withdrawal",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.2.5",
+        "to": "tag:topic:deposit_refund",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.2.5",
+        "to": "tag:topic:decision_point",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.2.5",
+        "to": "tag:milestone:M2",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.2.5",
+        "to": "tag:milestone:M3",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.2.5",
+        "to": "tag:actor:ic",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.2.5",
+        "to": "tag:actor:miso",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.2.5",
+        "to": "tag:actor:to",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.2.5",
+        "to": "tag:claim_class:workflow",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.2.5",
+        "to": "tag:claim_class:deposit_rule",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.2",
+        "to": "unit:bpm015-r33::5.2.5",
+        "rel": "parent_of"
+      },
+      {
+        "from": "doc:bpm-015-r33-clean",
+        "to": "unit:bpm015-r33::5.3.3",
+        "rel": "contains"
+      },
+      {
+        "from": "unit:bpm015-r33::5.3.3",
+        "to": "tag:gi_phase:dpp2",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.3.3",
+        "to": "tag:topic:decision_point",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.3.3",
+        "to": "tag:topic:withdrawal",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.3.3",
+        "to": "tag:milestone:M4",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.3.3",
+        "to": "tag:actor:ic",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.3.3",
+        "to": "tag:actor:miso",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.3.3",
+        "to": "tag:actor:to",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.3.3",
+        "to": "tag:actor:affected_system",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.3.3",
+        "to": "tag:claim_class:workflow",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.3",
+        "to": "unit:bpm015-r33::5.3.3",
+        "rel": "parent_of"
+      },
+      {
+        "from": "doc:bpm-015-r33-clean",
+        "to": "unit:bpm015-r33::5.3.5",
+        "rel": "contains"
+      },
+      {
+        "from": "unit:bpm015-r33::5.3.5",
+        "to": "tag:gi_phase:dpp2",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.3.5",
+        "to": "tag:topic:withdrawal",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.3.5",
+        "to": "tag:topic:deposit_refund",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.3.5",
+        "to": "tag:topic:decision_point",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.3.5",
+        "to": "tag:milestone:M3",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.3.5",
+        "to": "tag:milestone:M4",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.3.5",
+        "to": "tag:actor:ic",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.3.5",
+        "to": "tag:actor:miso",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.3.5",
+        "to": "tag:actor:to",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.3.5",
+        "to": "tag:claim_class:workflow",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.3.5",
+        "to": "tag:claim_class:deposit_rule",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.3",
+        "to": "unit:bpm015-r33::5.3.5",
+        "rel": "parent_of"
+      },
+      {
+        "from": "doc:bpm-015-r33-clean",
+        "to": "unit:bpm015-r33::6.2.11",
+        "rel": "contains"
+      },
+      {
+        "from": "unit:bpm015-r33::6.2.11",
+        "to": "tag:gi_phase:dpp1",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::6.2.11",
+        "to": "tag:gi_phase:dpp2",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::6.2.11",
+        "to": "tag:gi_phase:dpp3",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::6.2.11",
+        "to": "tag:topic:withdrawal",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::6.2.11",
+        "to": "tag:topic:deposit_refund",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::6.2.11",
+        "to": "tag:topic:decision_point",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::6.2.11",
+        "to": "tag:topic:cost_allocation",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::6.2.11",
+        "to": "tag:milestone:M2",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::6.2.11",
+        "to": "tag:milestone:M3",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::6.2.11",
+        "to": "tag:milestone:M4",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::6.2.11",
+        "to": "tag:actor:ic",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::6.2.11",
+        "to": "tag:actor:miso",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::6.2.11",
+        "to": "tag:actor:to",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::6.2.11",
+        "to": "tag:actor:affected_system",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::6.2.11",
+        "to": "tag:claim_class:deposit_rule",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::6.2.11",
+        "to": "tag:claim_class:workflow",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::6.2",
+        "to": "unit:bpm015-r33::6.2.11",
+        "rel": "parent_of"
+      },
+      {
+        "from": "doc:bpm-015-r33-clean",
+        "to": "unit:bpm015-r33::7.3",
+        "rel": "contains"
+      },
+      {
+        "from": "unit:bpm015-r33::7.3",
+        "to": "tag:gi_phase:post_gia",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::7.3",
+        "to": "tag:topic:delay_of_study",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::7.3",
+        "to": "tag:topic:cost_allocation",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::7.3",
+        "to": "tag:topic:gia_negotiation",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::7.3",
+        "to": "tag:actor:ic",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::7.3",
+        "to": "tag:actor:miso",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::7.3",
+        "to": "tag:actor:to",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::7.3",
+        "to": "tag:actor:affected_system",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::7.3",
+        "to": "tag:claim_class:workflow",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::7.3",
+        "to": "tag:claim_class:timeline_target",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::7",
+        "to": "unit:bpm015-r33::7.3",
+        "rel": "parent_of"
+      },
+      {
+        "from": "doc:bpm-015-r33-clean",
+        "to": "unit:bpm015-r33::7.7",
+        "rel": "contains"
+      },
+      {
+        "from": "unit:bpm015-r33::7.7",
+        "to": "tag:gi_phase:post_gia",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::7.7",
+        "to": "tag:topic:commercial_operation",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::7.7",
+        "to": "tag:topic:deposit_refund",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::7.7",
+        "to": "tag:topic:gia_negotiation",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::7.7",
+        "to": "tag:actor:ic",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::7.7",
+        "to": "tag:actor:miso",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::7.7",
+        "to": "tag:actor:to",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::7.7",
+        "to": "tag:claim_class:workflow",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::7",
+        "to": "unit:bpm015-r33::7.7",
+        "rel": "parent_of"
+      },
+      {
+        "from": "unit:bpm015-r33::5.2.5",
+        "to": "risk:abandonment",
+        "rel": "seed_for"
+      },
+      {
+        "from": "unit:bpm015-r33::5.3.5",
+        "to": "risk:abandonment",
+        "rel": "seed_for"
+      },
+      {
+        "from": "unit:bpm015-r33::4.2.4.6",
+        "to": "risk:abandonment",
+        "rel": "seed_for"
+      },
+      {
+        "from": "unit:bpm015-r33::6.2.11",
+        "to": "risk:abandonment",
+        "rel": "seed_for"
+      },
+      {
+        "from": "unit:bpm015-r33::5.2.3",
+        "to": "risk:abandonment",
+        "rel": "seed_for"
+      },
+      {
+        "from": "unit:bpm015-r33::5.3.3",
+        "to": "risk:abandonment",
+        "rel": "seed_for"
+      },
+      {
+        "from": "unit:bpm015-r33::3.1.1",
+        "to": "risk:system_congestion",
+        "rel": "seed_for"
+      },
+      {
+        "from": "unit:bpm015-r33::4.3",
+        "to": "risk:system_congestion",
+        "rel": "seed_for"
+      },
+      {
+        "from": "unit:bpm015-r33::7.3",
+        "to": "risk:gia_execution",
+        "rel": "seed_for"
+      },
+      {
+        "from": "unit:bpm015-r33::7.7",
+        "to": "risk:gia_execution",
+        "rel": "seed_for"
+      },
+      {
+        "from": "unit:bpm015-r33::4.2",
+        "to": "risk:cod_already_slipped",
+        "rel": "seed_for"
+      },
+      {
+        "from": "unit:bpm015-r33::7.3",
+        "to": "risk:cod_already_slipped",
+        "rel": "seed_for"
+      },
+      {
+        "from": "unit:bpm015-r33::7.7",
+        "to": "risk:cod_already_slipped",
+        "rel": "seed_for"
+      }
+    ],
+    "algorithms": [
+      "alg_catalog_route",
+      "alg_lexicon",
+      "alg_seed_lookup",
+      "alg_inverted_filter",
+      "alg_phrase_match",
+      "alg_bm25",
+      "alg_fusion",
+      "alg_coverage_pass"
+    ]
+  },
+  "critic": {
+    "claims": [
+      {
+        "text": "Once MISO delivers the revised System Impact Study (SIS) and Affected System analysis, including estimated upgrades and costs, the Interconnection Customer (IC) enters Decision Point II (BPM-015 r33 \u00a75.3.3).",
+        "supported": true,
+        "cite": "BPM-015 r33 \u00a75.3.3",
+        "problem": null
+      },
+      {
+        "text": "The IC shall have fifteen (15) Business Days to decide whether to proceed to Definitive Planning Phase III (DPP III) or withdraw its interconnection request (IR).",
+        "supported": true,
+        "cite": "BPM-015 r33 \u00a75.3.3",
+        "problem": null
+      },
+      {
+        "text": "During Decision Point II, the IC may reduce the size of its IR by up to ten percent (10%), but the DPP III Milestone (M4) calculation will be based on the DPP II results.",
+        "supported": true,
+        "cite": "BPM-015 r33 \u00a75.3.3",
+        "problem": null
+      },
+      {
+        "text": "If the IC decides to proceed, it must pay the DPP III Milestone (M4) before the end of Decision Point II (BPM-015 r33 \u00a75.3.3).",
+        "supported": true,
+        "cite": "BPM-015 r33 \u00a75.3.3",
+        "problem": null
+      },
+      {
+        "text": "If MISO does not receive written confirmation from the IC regarding its intent to proceed or withdraw during Decision Point II, MISO shall deem the IR withdrawn and refund the DPP II Milestone (M3) and any remaining study deposits pursuant to Section 7.6 of the GIP (BPM-015 r33 \u00a75.3.5).",
+        "supported": true,
+        "cite": "BPM-015 r33 \u00a75.3.5",
+        "problem": null
+      },
+      {
+        "text": "After the IC enters DPP III, the DPP II Milestone (M3) becomes one hundred percent (100%) non-refundable (BPM-015 r33 \u00a75.3.5).",
+        "supported": true,
+        "cite": "BPM-015 r33 \u00a75.3.5",
+        "problem": null
+      },
+      {
+        "text": "The IC is eligible to receive a one hundred percent (100%) refund of the DPP II Milestone (M3) only if the IR is withdrawn or deemed withdrawn before the end of Decision Point II (BPM-015 r33 \u00a76.2.11).",
+        "supported": true,
+        "cite": "BPM-015 r33 \u00a76.2.11",
+        "problem": null
+      },
+      {
+        "text": "If the IR is withdrawn after Decision Point II, the DPP II Milestone (M3) becomes at risk and will be used to fund Network Upgrades.",
+        "supported": true,
+        "cite": "BPM-015 r33 \u00a76.2.11",
+        "problem": null
+      },
+      {
+        "text": "The Interconnection Customer (IC) must decide whether to proceed or withdraw, may reduce IR size by up to ten percent (10%), and is responsible for milestone payments and potential withdrawal.",
+        "supported": true,
+        "cite": "BPM-015 r33 \u00a75.3.3",
+        "problem": null
+      },
+      {
+        "text": "MISO (Transmission Provider) delivers the revised SIS and Affected System analysis, receives the IC's decision, and processes withdrawals and refunds as required.",
+        "supported": true,
+        "cite": "BPM-015 r33 \u00a75.3.3, \u00a75.3.5, \u00a76.2.11",
+        "problem": null
+      },
+      {
+        "text": "The Transmission Owner (TO) and Affected System operators may be involved in the analysis and coordination of upgrades and impacts.",
+        "supported": true,
+        "cite": "BPM-015 r33 \u00a75.3.3",
+        "problem": null
+      },
+      {
+        "text": "No BPM-015 clause was retrieved for Decision Point II exceptions based on local hazard, energy community status, or developer serial withdrawal.",
+        "supported": true,
+        "cite": null,
+        "problem": null
+      }
+    ],
+    "invented_cites": [
+      "BPM-015 r33 \u00a74.2.4.6"
+    ],
+    "style_violations": []
+  },
+  "passes": [
+    {
+      "name": "pass1_draft",
+      "ok": true,
+      "elapsed_ms": 4782,
+      "tokens": {
+        "prompt_tokens": 7256,
+        "completion_tokens": 789,
+        "total_tokens": 8045,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model": "gpt-4.1"
+    },
+    {
+      "name": "pass2_critic",
+      "ok": true,
+      "elapsed_ms": 6566,
+      "tokens": {
+        "prompt_tokens": 7215,
+        "completion_tokens": 1008,
+        "total_tokens": 8223,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "dirty": true,
+      "model": "gpt-4.1"
+    },
+    {
+      "name": "pass3_repair",
+      "ok": true,
+      "elapsed_ms": 4907,
+      "tokens": {
+        "prompt_tokens": 9598,
+        "completion_tokens": 854,
+        "total_tokens": 10452,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model": "gpt-4.1"
+    },
+    {
+      "name": "pass4_postcheck",
+      "ok": true,
+      "elapsed_ms": 1,
+      "flags": [],
+      "model": "gpt-4.1"
+    }
+  ],
+  "compose_mode": "gpt-4.1",
+  "error_code": "packet_too_large",
+  "ok": true
+}

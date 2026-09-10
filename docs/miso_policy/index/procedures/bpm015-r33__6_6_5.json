@@ -1,0 +1,44 @@
+{
+  "unit_id": "bpm015-r33::6.6.5",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.6.5",
+    "title": "Exit from Annual ERIS and Annual Interim Deliverability Studies",
+    "pages": [
+      114,
+      114
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [],
+    "milestone": [],
+    "actor": [
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "delay_of_study",
+      "deliverability",
+      "gia_negotiation"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.6.5.\nExit from Annual ERIS and Annual Interim Deliverability Studies\nAny Interconnection Project with explicit conditionality associated with MTEP Appendix A projects,\nlisted in their existing GIA based on the A10 process (Section 6.2.4), will exit the Annual ERIS\nand Annual Interim Deliverability Studies when those explicit conditions have been met and when\nthe obligations to direct assigned upgrades to the GI project(s) have been met.  For purposes of\nthis section, the following situations shall not prevent the exit from the Annual ERIS and Annual\nInterim Deliverability Studies if the affected Transmission Owner(s) and MISO do not see a\nreliability issue after a review:\n1) Incomplete conditions associated with the A10 process which have the MTEP\nclassification of “Other” and which have in-service dates delayed for five (5) years or longer\nfrom their initially proposed in-service dates in MTEP\n2) Incomplete conditions associated with the A10 process which have been cancelled and\nnot replaced in the MTEP process, or if replaced but the replacement project is not to fix\nan overload issue contributed by the generator according to the A10 study threshold\ncriteria.",
+  "cite": "BPM-015 r33 §6.6.5"
+}

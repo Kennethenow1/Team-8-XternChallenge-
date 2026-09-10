@@ -1,0 +1,45 @@
+{
+  "unit_id": "bpm015-r33::6.5",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.5",
+    "title": "Coordination of Studies between Manitoba Hydro (MH), Minnkota / Application of Governing Agreements / Governing Agreement for MPC and MISO Coordination / Governing Agreement for MH and MISO Coordination / Governing Agreement for MPC and MH Coordination",
+    "pages": [
+      102,
+      103
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [],
+    "milestone": [],
+    "actor": [
+      "miso",
+      "to",
+      "neighboring_rto"
+    ],
+    "topic": [],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    },
+    {
+      "actor": "neighboring_rto",
+      "impact": "Neighboring RTO (PJM/SPP/MH): affected-system studies and limits."
+    }
+  ],
+  "text": "6.5 Coordination of Studies between Manitoba Hydro (MH), Minnkota\nPower Cooperative (MPC), and MISO\n\n6.5.1.\nApplication of Governing Agreements\n\n6.5.1.1.\nGoverning Agreement for MPC and MISO Coordination\nThis coordination procedure is established between MPC and MISO pursuant to sections 9.1 and\n14.1 of the MISO-MPC Coordination Agreement.\n\n6.5.1.2.\nGoverning Agreement for MH and MISO Coordination\nThis coordination procedure is established between MH and MISO pursuant to section 5.4 of the\nMISO-MH Coordination Agreement.\n\n6.5.1.3.\nGoverning Agreement for MPC and MH Coordination\nThis coordination procedure is established between MPC and MH pursuant to sections 9.011,\n9.02, and 9.022 of the Interconnection, Facilities and Coordinating Agreement respecting\nRidgeway-Shannon 230 kV Interconnection.",
+  "cite": "BPM-015 r33 §6.5"
+}

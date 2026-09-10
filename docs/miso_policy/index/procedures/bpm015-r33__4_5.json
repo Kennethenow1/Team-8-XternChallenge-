@@ -1,0 +1,54 @@
+{
+  "unit_id": "bpm015-r33::4.5",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "4.5",
+    "title": "Applicable Reliability Criteria",
+    "pages": [
+      36,
+      36
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "application_review"
+    ],
+    "milestone": [],
+    "actor": [
+      "miso",
+      "to",
+      "lse",
+      "ferc"
+    ],
+    "topic": [
+      "scoping"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    },
+    {
+      "actor": "lse",
+      "impact": "Load-serving entity: reliability criteria coordination where FAC-002 / Attachment FF apply."
+    },
+    {
+      "actor": "ferc",
+      "impact": "FERC: GIA filing / unexecuted filing; not a compliance score on this card."
+    }
+  ],
+  "text": "4.5\nApplicable Reliability Criteria\nNERC Standard FAC-002-2 requires a reliability impact assessment of a new or materially\nmodified generating facility on the transmission system, which is to be undertaken and results\ncoordinated with TOs, Load Serving Entities, Transmission Providers, and other Affected\nSystems. Attachment FF of the Tariff provides that the Transmission Provider shall evaluate the\ntransmission system to address transmission issues to meet applicable planning criteria, including\naccepted NERC reliability standards, reliability standards adopted by Regional Entities, local\ntransmission planning criteria of the TO, transmission planning criteria required by State or local\nauthorities, and any applicable laws and regulations.\n\nTo ensure compliance with the latest NERC reliability standards, Attachment FF of the Tariff,\nFERC Form 715, and additional applicable laws and regulations, all applicable Regional, sub-\nRegional, and individual system local transmission planning criteria will be used to ensure that\nthe assessment includes steady state, short circuit, and dynamic studies as necessary to evaluate\nsystem performance under both normal and contingency conditions. The Transmission Provider,\nin applying the local transmission planning criteria, will comply with the Tariff, ISO Agreement and\napplicable FERC orders governing the provision of access to and use of the Transmission System\non terms that are open, transparent, comparable, and not unduly discriminatory.\n\nEach inverter-based resource must adhere to the requirements set forth in the latest effective\nversion of NERC PRC-024. This ensures the generating units remain connected during defined\nfrequency and voltage excursions.",
+  "cite": "BPM-015 r33 §4.5"
+}

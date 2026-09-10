@@ -1,0 +1,40 @@
+{
+  "unit_id": "bpm015-r33::6.5.2",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.5.2",
+    "title": "Purpose",
+    "pages": [
+      103,
+      103
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [],
+    "milestone": [],
+    "actor": [
+      "to",
+      "affected_system"
+    ],
+    "topic": [],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    },
+    {
+      "actor": "affected_system",
+      "impact": "Affected System / neighboring TO: coordination and restudy of impacts."
+    }
+  ],
+  "text": "6.5.2\nPurpose\nThe purpose of this coordination procedure is to coordinate Generation IRs and Long-Term Firm\nTransmission Service Requests where one of the three parties may be an Affected System. Each\nparty will implement this procedure through Tariff and/or Business Practices under each party’s\nrespective tariff(s).",
+  "cite": "BPM-015 r33 §6.5.2"
+}

@@ -1,0 +1,47 @@
+{
+  "unit_id": "bpm015-r33::5.4.3",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "5.4.3",
+    "title": "Final Interconnection Facilities Study",
+    "pages": [
+      55,
+      55
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp3"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "5.4.3.\nFinal Interconnection Facilities Study\nThe second portion of the Interconnection Facilities Study shall start after the final Interconnection\nSIS is complete. This study will estimate the cost and time required to build necessary Network\nUpgrades that are identified in the final Interconnection SIS in accordance with Good Utility\nPractice to physically and electrically connect the Interconnection Facilities to the Transmission\nor Distribution System, as applicable, as well as that equipment, to the extent known and available\nin accordance with Section 3.5 of the GIP. MISO shall use reasonable efforts to complete this\nportion of the Interconnection Facilities Study within ninety (90) Calendar Days.",
+  "cite": "BPM-015 r33 §5.4.3"
+}

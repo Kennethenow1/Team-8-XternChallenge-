@@ -1,0 +1,49 @@
+{
+  "unit_id": "bpm015-r33::4.4",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "4.4",
+    "title": "Queue Position",
+    "pages": [
+      35,
+      36
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "application_review"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "cost_allocation"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "4.4\nQueue Position\nThe initial queue position for the DPP will be based on the date and time that the IC satisfies all\nof the requirements to enter the DPP cycle. MISO will record the dates Milestones are received\nfor each project. Within a study group, the queue positions for projects will be determined based\non the date they met the last Milestone in the process. The queue position will be used to\ndetermine the cost responsibility of Network Upgrades for a project, except if the project was part\nof a Group Study, in which case cost responsibility will be determined according to Section\n6.1.1.1.10 of this BPM.",
+  "cite": "BPM-015 r33 §4.4"
+}

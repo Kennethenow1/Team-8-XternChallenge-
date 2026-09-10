@@ -1,0 +1,53 @@
+{
+  "unit_id": "bpm015-r33::5.4.4",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "5.4.4",
+    "title": "Delays to the Phase III Final Interconnection Facilities Study Timeline",
+    "pages": [
+      55,
+      55
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp3"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "delay_of_study",
+      "gia_negotiation",
+      "withdrawal",
+      "deposit_refund"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "timeline_target",
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "5.4.4\nDelays to the Phase III Final Interconnection Facilities Study Timeline\nAt the request of the IC, or at any time MISO determines that it will not meet the required time\nframe for completing the final Interconnection Facilities Study, MISO shall notify the IC as to the\nschedule status of the Interconnection Facilities Study. If MISO is unable to complete the\nInterconnection Facilities Study and issue a draft GIA appendices and, as applicable, associated\ndraft appendices for the related Facility Construction Agreement (FCA(s)) and/or Multi Party\nFacility Construction Agreement(s) (MPFCA(s)), along with supporting documentation, within the\ntime required, it shall notify the IC and provide an estimated completion date and an explanation\nof the reasons why additional time is required. If MISO is unable to complete the Interconnection\nFacilities Study with the study deposit provided by the IC, MISO shall notify the IC and provide a\nrevised cost estimate with an explanation of the reasons why. The IC shall provide an additional\ndeposit equal to the difference between the initial and revised cost estimate within fifteen (15)\nCalendar Days of MISO’s notice. Failure of the IC to provide this additional deposit will result in\nthe withdrawal of the IR pursuant to Section 3.6 of the GIP.",
+  "cite": "BPM-015 r33 §5.4.4"
+}

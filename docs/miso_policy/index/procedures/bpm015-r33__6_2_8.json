@@ -1,0 +1,56 @@
+{
+  "unit_id": "bpm015-r33::6.2.8",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.2.8",
+    "title": "Submittal of GIA/FCA for Execution / Filing Unexecuted",
+    "pages": [
+      86,
+      86
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "gia"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to",
+      "ferc"
+    ],
+    "topic": [
+      "gia_negotiation"
+    ],
+    "risk_code": [
+      "gia_execution"
+    ],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    },
+    {
+      "actor": "ferc",
+      "impact": "FERC: GIA filing / unexecuted filing; not a compliance score on this card."
+    }
+  ],
+  "text": "6.2.8.\nSubmittal of GIA/FCA for Execution / Filing Unexecuted\nCompliant with Attachment X, Section 11.3, MISO will circulate the final GIA and FCA (if\napplicable) to all parties for execution. If there is a deviation in pro-forma Agreement, the GIA/FCA\nwill be filed with FERC after execution by all parties. Otherwise, the MISO will maintain the\nexecuted agreement and notify FERC via its next Electric Quarterly Report (EQR). If the GIA\nnegotiations result in an impasse, MISO will file the Agreement unexecuted with FERC no later\nthan ten (10) Business Days from the date of party(ies) declaring an impasse.",
+  "cite": "BPM-015 r33 §6.2.8"
+}

@@ -1,0 +1,52 @@
+{
+  "unit_id": "bpm015-r33::6.1.1.2",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.1.1.2",
+    "title": "Steady State Voltage Analysis",
+    "pages": [
+      75,
+      76
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp1",
+      "dpp2",
+      "dpp3"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "cost_allocation",
+      "deliverability"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "study_method"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.1.1.2.\nSteady State Voltage Analysis\nVoltage analysis will be performed on the selected contingencies generated from the DC screen\nor contingencies deemed relevant to the analysis. Bus voltages outside of the defined limits\n(based on the LBA criteria) in the post case will be recorded and compared to the Base Case\n\n\nvalues. Bus voltages will be considered voltage constraints if, for a given contingency, the bus\nvoltage is outside of the allowed voltage range for the post case and is at least 0.01 per unit worse\nthan the Base Case voltage for the same contingency.",
+  "cite": "BPM-015 r33 §6.1.1.2"
+}

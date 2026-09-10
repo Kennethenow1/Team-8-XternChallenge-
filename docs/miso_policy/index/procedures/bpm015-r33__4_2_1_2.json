@@ -1,0 +1,56 @@
+{
+  "unit_id": "bpm015-r33::4.2.1.2",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "4.2.1.2",
+    "title": "Technical Requirements",
+    "pages": [
+      27,
+      29
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "application_review"
+    ],
+    "milestone": [
+      "M1"
+    ],
+    "actor": [
+      "ic",
+      "miso",
+      "to",
+      "ferc"
+    ],
+    "topic": [
+      "scoping"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    },
+    {
+      "actor": "ferc",
+      "impact": "FERC: GIA filing / unexecuted filing; not a compliance score on this card."
+    }
+  ],
+  "text": "4.2.1.2\nTechnical Requirements\n•\nDefinitive gross and net generator output (MW) as measured at the POI.\n•\nDefinitive non-zero Interconnection Service request for a proposed new Generating Facility\n•\nDefinitive POI\no Only one POI may enter into DPP, unless required by State regulations to take two\nPOI’s.\n•\nDefinitive one-line diagram for the POI\no Information shall include:\n▪\nBreaker layout and bus configuration (if available)\n▪\nNumber of generators\n▪\nThe zero-sequence impedance for the generators (if available)\n▪\nDistance from the collector substation to the POI, referenced in miles, including\nline impedance.\n▪\nIf the POI is a line tap: the distance from the tap to the endpoints of the existing\nline, referenced in miles.\n▪\nGenerator step up (GSU) transformer data and the collector substation\ntransformer data (if applicable)\n\n\n▪\nFor inverter-based generators, FERC Order 8271 requires:\n•\nLocation and size of any dynamic and/or static VAR compensation\ndevices\n•\nEquivalent collector system impedance\n•\nAll Generator Types: Library Stability Model representing the dynamics of the Generating\nFacility in a .dyr format. Models submitted must be acceptable and recommended in the\nNERC Acceptable Model List2 and also comply with MISO’s Model Data Requirements and\nReporting Procedures3.\no FERC Order 8424 requires newly interconnecting units to install, maintain and operate\nequipment capable of providing primary frequency response as a condition of\ninterconnection. Accordingly, ICs should provide a plant controller for inverter-based\ngeneration or a governor model for thermal units in the dynamics model submitted to\nMISO.\no For inverter based/non-synchronous generators, FERC Order 8275 requires:\n▪\nDemonstration that the plant can meet a Power Factor (PF) of 0.95 lead/lag at\nthe high side of the main Generator Step Up Transformer (The TO’s Local\nPlanning Criteria6 will supersede if they require a more stringent PF)\n▪\nBase turbine or inverter reactive capability\no For inverter based (wind or solar) generators, the IC shall provide the short circuit\nmodeling instruction manual and associated model data.\n• All Generator Types: A Power Flow model describing the generator in an IDEV or PSSE raw\nthe format which comply with MISO’s Model Data Requirements and Reporting Procedures7\nmay be requested to clarify the Interconnection Request.\n• All Generator Types: All applicable information requested in Attachment A, Appendix 1\n\n*The IC must submit one application for each site. Additionally, multiple IRs can be submitted\nfor a single site (each application will require a separate deposit in this case and each\napplication for a proposed new Generating Facility will result in a separate Generator\nInterconnection Agreement for each application).\n\n\n1 https://cdn.misoenergy.org/2016-08-30%20Docket%20No.%20ER16-2374-00150851.pdf\n2 https://www.nerc.com/comm/PC/Pages/System-Analysis-and-Modeling-Subcommittee-(SAMS)-2013.aspx\n3 https://www.misoenergy.org/planning/planning-modeling/mod-032-1/\n4 https://cdn.misoenergy.org/2018-02-15%20162%20FERC%20¶%2061,128%20Docket%20No.%20RM16-6-\n000133298.pdf\n\n5 https://cdn.misoenergy.org/2016-08-30%20Docket%20No.%20ER16-2374-00150851.pdf\n6 https://www.misoenergy.org/planning/transmission-planning/\n\n7  https://www.misoenergy.org/planning/planning-modeling/mod-032-1/\n\n\n•\nFinancial Milestones:\nThere are no financial Milestones attached to the Milestone (M1) submission. (However, there\nare the (D1) Application fee and (D2) DPP Study Funding deposit which occur at the same\ntime; please refer to Section 4.2.4).",
+  "cite": "BPM-015 r33 §4.2.1.2"
+}

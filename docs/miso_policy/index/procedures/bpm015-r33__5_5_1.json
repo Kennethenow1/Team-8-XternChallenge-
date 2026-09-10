@@ -1,0 +1,45 @@
+{
+  "unit_id": "bpm015-r33::5.5.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "5.5.1",
+    "title": "Transfer of Ownership Required Documents",
+    "pages": [
+      57,
+      57
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp3",
+      "gia"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso"
+    ],
+    "topic": [
+      "transfer_of_ownership"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    }
+  ],
+  "text": "5.5.1 Transfer of Ownership Required Documents\nAll documents must be submitted by the representative of the seller, included in the\nAttachment C NDA list.\n\nMISO will not accept a request sent by someone not included in the Attachment C NDA\nlist.\n\nThe Interconnection Customer must document the connection between the original owner\nand the new owner. If the Interconnection Customer listed in the transfer documents\nbelow as the original owner doesn’t match what MISO currently has on file, the request will\nbe rejected. The names must be consistent along with all the documents provided.",
+  "cite": "BPM-015 r33 §5.5.1"
+}

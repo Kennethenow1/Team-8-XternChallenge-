@@ -1,0 +1,59 @@
+{
+  "unit_id": "bpm015-r33::4.2.4.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "4.2.4.1",
+    "title": "Deliverability Only Study",
+    "pages": [
+      30,
+      30
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "application_review"
+    ],
+    "milestone": [
+      "M2",
+      "D1",
+      "D2"
+    ],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "deposit_refund",
+      "deliverability",
+      "commercial_operation",
+      "gia_negotiation"
+    ],
+    "risk_code": [
+      "cost_pressure"
+    ],
+    "claim_class": [
+      "deposit_rule",
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "4.2.4.1.\nDeliverability Only Study\nDeposit for a deliverability only study – The study funding deposit for an IR to change ER\nInterconnection Service (ERIS) to NR Interconnection Service (NRIS) for a Generating Facility in\nCommercial Operation or with an executed GIA shall be the same as for a new IR, per Section\n3.3 of the GIP. The (D1) Application Fee and (D2) DPP Study Funding deposit is also required at\nthe time of application for a deliverability only study request. The (M2) DPP Entry Milestone\ndeposit is required as well, in the form of eight thousand dollars ($8,000) per MW, and it must be\nreceived no later than the application deadline published on the Transmission Provider website.",
+  "cite": "BPM-015 r33 §4.2.4.1"
+}

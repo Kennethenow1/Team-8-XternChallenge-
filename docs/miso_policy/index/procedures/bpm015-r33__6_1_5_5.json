@@ -1,0 +1,52 @@
+{
+  "unit_id": "bpm015-r33::6.1.5.5",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.1.5.5",
+    "title": "Shared Network Upgrade Cost Allocation Treatment",
+    "pages": [
+      80,
+      80
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp1",
+      "dpp2",
+      "dpp3"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "cost_allocation",
+      "deliverability"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "study_method"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.1.5.5\nShared Network Upgrade Cost Allocation Treatment\nPursuant to Section III(A)(2)(a) of Attachment FF, a MP or a group of MPs are allowed assume\ncost responsibility to fund a network Upgrade on the Transmission System. However, any\nupgrade that is funded by the IC that was not identified as a required Network upgrade, during\nthe Generation Interconnection Study process, will not qualify for the Shared Network Upgrade\ntreatment as noted in Section 6.1.1.1.9.",
+  "cite": "BPM-015 r33 §6.1.5.5"
+}

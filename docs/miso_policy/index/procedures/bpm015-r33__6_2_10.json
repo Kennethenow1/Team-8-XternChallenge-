@@ -1,0 +1,59 @@
+{
+  "unit_id": "bpm015-r33::6.2.10",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.2.10",
+    "title": "Use of Multi Party Facility Construction Agreement (MPFCA)",
+    "pages": [
+      91,
+      92
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp3",
+      "gia"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to",
+      "ferc"
+    ],
+    "topic": [
+      "gia_negotiation",
+      "cost_allocation"
+    ],
+    "risk_code": [
+      "cost_pressure",
+      "gia_execution"
+    ],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    },
+    {
+      "actor": "ferc",
+      "impact": "FERC: GIA filing / unexecuted filing; not a compliance score on this card."
+    }
+  ],
+  "text": "6.2.10. Use of Multi Party Facility Construction Agreement (MPFCA)\nA MPFCA will be developed in the event multiple IRs share the responsibility for a common\nNetwork Upgrade or System Protection Facility on the TO’s Transmission System (“Common Use\nUpgrade” or “CUU”). A separate MPFCA will be developed for a CUU on each TOs’ Transmission\nSystem. A CUU may consist of multiple Network Upgrades and/or System Protection Facilities.\n\nThe Network Upgrades and System Protection Facilities required solely for a single IR on the\ndirect-connect TO’s Transmission System will continue to be included in the GIA for that IR.\nFurther, any Network Upgrades or System Protection Facilities that are not a CUU on the\nTransmission System of a TO which is not a party to the GIA will continue to be included in the\nFCA.\n\n\nThe IC’s GIA will include in Appendix A and Appendix B the facilities that are required under\nseparate FCA(s) and/or MPFCA(s) and corresponding Milestones that must be completed prior\nto commencement of service under the GIA.\n\nICs with IR that require a CUU will be held responsible to execute and provide irrevocable security\nfor their respective shares of a MPFCA (or in the case of an unexecuted MPFCA, provide\nirrevocable security after acceptance of the unexecuted MPFCA by FERC) in the event that:\ni.\nA constraint is identified in the DPP SIS, that meets the criteria to require mitigation,\nand\nii.\nOne or more of the following:\na. More than one IR contributes to that constraint, and/or\nb. Other IR(s) contribute to a different constraint(s) requiring mitigation before\ncommencement of their Interconnection Service, and where:\ni.\nThe constraint(s) is resolved by the same upgrade (i.e., CUU); and\nii.\nThe CUU is determined to be the most prudent upgrade to resolve the\nconstraint(s) to such a level that the CUU enables the interconnection\nof multiple IRs.",
+  "cite": "BPM-015 r33 §6.2.10"
+}

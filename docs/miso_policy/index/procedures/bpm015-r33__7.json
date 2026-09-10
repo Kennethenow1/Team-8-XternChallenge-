@@ -1,0 +1,55 @@
+{
+  "unit_id": "bpm015-r33::7",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "7",
+    "title": "Post – GIA Phase",
+    "pages": [
+      126,
+      126
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "post_gia",
+      "gia"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "gia_negotiation",
+      "commercial_operation",
+      "delay_of_study",
+      "cost_allocation"
+    ],
+    "risk_code": [
+      "gia_execution"
+    ],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "7.\nPost – GIA Phase\nThe following sections describe various activities in project development after the Generator\nInterconnection Agreement is executed.\nInitial Payment\nThe IC is required to pay the initial payment or provide security as outlined in its executed GIA,\nTCA, or applicable MPFCA. The IC should provide verification to MISO after payment is\nconfirmed by the Transmission Owner via email to gifinance@misoenergy.org. Failure to\nprovide the initial payment as required will be considered to be a Breach of Agreement and may\nalso delay completion of required Transmission Owner Interconnection Facilities, Network\nUpgrades, System Protection Facilities, etc.\nLimited Operation\nIf any of the TO’s Interconnection Facilities, Network Upgrades, or TO’s System Protection\nFacilities, Distribution Upgrades or Generator Upgrades are not reasonably expected to be\ncompleted prior to the Commercial Operation Date of the Generating Facility, Transmission\nProvider shall, upon the request and at the expense of IC, perform operating studies on a timely\nbasis to determine the extent to which the Generating Facility and the IC’s Interconnection\nFacilities may operate prior to the completion of the TO’s Interconnection Facilities, Network\nUpgrades, TO’s System Protection Facilities, Distribution Upgrades or Generator Upgrades\nconsistent with Applicable Laws and Regulations, Applicable Reliability Standards, Good Utility\nPractice, and the GIA. The maximum permissible output of the Generating Facility will be\nupdated on a quarterly basis if the Network Upgrades necessary for the interconnection of the\nGenerating Facility pursuant to the GIA are not in service within six (6) months following the\nCommercial Operation Date of the Generating Facility as specified in Appendix E of the GIA\n(refer to BPM-015 Section 7.7).These quarterly studies will be performed using the same\nmethodology set forth Section 6.2.9 of this BPM for Provisional GIAs. These quarterly updates\nwill end when all Network Upgrades necessary for the interconnection of the Generating Facility\npursuant to this GIA are in service.",
+  "cite": "BPM-015 r33 §7"
+}

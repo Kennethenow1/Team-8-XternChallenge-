@@ -1,0 +1,36 @@
+{
+  "model": "arima",
+  "status": "skipped",
+  "reason": "ARIMA did not identify / all-NaN forecasts",
+  "split": "val",
+  "target": "delayed_mw",
+  "rmse": NaN,
+  "mae": NaN,
+  "mape": NaN,
+  "rmse_h3": NaN,
+  "mape_h3": NaN,
+  "n_folds_h12": 4,
+  "n_folds_h3": 3,
+  "beats_seasonal_naive": false,
+  "horizons": {
+    "3": {
+      "n": 0.0,
+      "rmse": NaN,
+      "mae": NaN,
+      "mape": NaN,
+      "seasonal_naive_rmse": 15646.660918121373,
+      "beats_seasonal_naive": false,
+      "n_folds": 3
+    },
+    "12": {
+      "n": 0.0,
+      "rmse": NaN,
+      "mae": NaN,
+      "mape": NaN,
+      "seasonal_naive_rmse": 14864.23891139402,
+      "beats_seasonal_naive": false,
+      "n_folds": 4
+    }
+  },
+  "n_snapshots": 18
+}

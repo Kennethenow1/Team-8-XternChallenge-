@@ -1,0 +1,58 @@
+{
+  "unit_id": "bpm015-r33::6.3.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.3.1",
+    "title": "Study of PJM Interconnection Request Impacts on MISO",
+    "pages": [
+      96,
+      97
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp1",
+      "dpp2",
+      "dpp3"
+    ],
+    "milestone": [],
+    "actor": [
+      "miso",
+      "neighboring_rto",
+      "affected_system",
+      "to"
+    ],
+    "topic": [
+      "delay_of_study",
+      "withdrawal",
+      "deliverability"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "neighboring_rto",
+      "impact": "Neighboring RTO (PJM/SPP/MH): affected-system studies and limits."
+    },
+    {
+      "actor": "affected_system",
+      "impact": "Affected System / neighboring TO: coordination and restudy of impacts."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.3.1.\nStudy of PJM Interconnection Request Impacts on MISO\nTransmission\nDuring the course of its interconnection feasibility studies, PJM shall monitor the MISO\ntransmission system and provide to MISO the draft results of the potential impacts to the MISO\ntransmission system. This monitoring will include an examination of the potential for projects to\nimpact the MISO system by determining whether the project under study has a ≥ 3 percent\ndistribution factor on MISO facilities that operate below 500 kV or ≥ 10 percent distribution factor\non MISO facilities that operate at or above 500 kV under system intact conditions.\n\nFollowing the completion of the PJM Feasibility Study and after the execution of the PJM SIS\nAgreement by the customer, PJM shall forward to MISO, at a minimum of twice per year (March\n15 and September 15), information necessary for MISO and the MISO TOs to study the impact\nof the PJM IRs on the MISO transmission system.\n\nMISO and the MISO TOs shall study the impact of the PJM Interconnection on the MISO\ntransmission system and provide draft results to PJM by:\n•\nFebruary 1 for PJM IRs provided to MISO on or before September 15 of the previous\nyear,\n•\nAugust 1 for PJM IRs provided to MISO on or before March 15 of the same year.\nDuring the course of MISO’s affected system interconnection study for PJM interconnection\nrequests, MISO shall apply Energy Resource Interconnection Service (ERIS) criteria to all of\nPJM’s interconnection request(s).  These impacts will be studied using methodology and criteria\nspecified in Section 0 of the MISO BPM and may include thermal analysis and other analysis as\nnecessary. These impacts identified by MISO shall include a description of the required system\nreinforcement(s), an estimated planning level cost and construction schedule estimates of the\nsystem reinforcement(s). The results received from MISO, including any required transmission\nsystem reinforcements, shall be included in the PJM System Impact Study or Facilities Study\nreport consistent with the PJM OATT. At times PJM may identify to MISO the need to perform\nstudies associated with an IR other than the times identified above. MISO shall endeavor to study\nthese requests at the earliest time that is feasible, but not later than the times as specified above\n(commencing after March 15 and September 15).\n\nIn the event of project withdrawals in the PJM queue, MISO may perform additional reliability\nanalysis during the PJM Facilities Study phase and revise the affected system study results that\nwere provided during the PJM SIS phase.\n\n\nIf MISO identifies required Network Upgrades on the MISO transmission system, due to a PJM\nIR, the PJM IC(s) shall be required to follow all provisions, delineated under Attachment X of the\nMISO tariff, related to Facilities Study funding and appropriate Network Upgrade FCA.\n\nCost allocation for required Network Upgrades on the MISO transmission system, for PJM\nInterconnection projects, shall be governed by and subject to MISO Tariff and BPMs.",
+  "cite": "BPM-015 r33 §6.3.1"
+}

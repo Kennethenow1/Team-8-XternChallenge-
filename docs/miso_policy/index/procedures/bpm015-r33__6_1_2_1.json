@@ -1,0 +1,52 @@
+{
+  "unit_id": "bpm015-r33::6.1.2.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.1.2.1",
+    "title": "Base Case Assumptions / Applicable Reliability Criteria",
+    "pages": [
+      77,
+      78
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp1",
+      "dpp2",
+      "dpp3"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "cost_allocation",
+      "deliverability"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "study_method"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.1.2.1.\nBase Case Assumptions\n\n6.1.2.1.1.\nLoad Levels\nThe Stability Study will be performed using a season and load level that traditionally represents\nthe most limiting conditions for system stability in the region.\n\n6.1.2.1.2.\nGeneration to Include\nRefer to Section 6.1.1.1.1.2.\n\nFor the short circuit analysis, queued generation will be added only in the area close to where the\nproposed generation is being added. Since the fault current contribution from a generator decays\nquickly the deeper you go into the system, the network changes electrically remote from the POI\nmay be ignored for the purpose of short circuit analysis.\n\n6.1.2.2.\nApplicable Reliability Criteria\nRefer to Section 6.1.1.1.2.",
+  "cite": "BPM-015 r33 §6.1.2.1"
+}

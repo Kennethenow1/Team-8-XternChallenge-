@@ -1,0 +1,38 @@
+{
+  "unit_id": "bpm015-r33::6.6.3.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.6.3.1",
+    "title": "Methodology",
+    "pages": [
+      113,
+      113
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [],
+    "milestone": [],
+    "actor": [
+      "to"
+    ],
+    "topic": [
+      "deliverability",
+      "gia_negotiation"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.6.3.1.\nMethodology\nThe Annual ERIS evaluation will include the following suite of reliability analyses that will be\ncarried out on both the Summer Peak and Shoulder Peak cases:\ni.\nThermal Analysis,\nii.\nSteady State Voltage Analysis (to be completed per Transmission Owner request if\nvoltage constraints were identified in the DPP studies and the mitigation projects are\nnot yet in place),\niii.\nTransient Stability Analysis (to be completed per Transmission Owner request if\nstability constraints were identified in the DPP studies and the mitigation projects are\nnot yet in place)\n\nThe constraint criteria for the above analyses will be consistent with the Generator SIS criteria as\nlaid out in Sections 6.1.1.1.6, 6.1.1.2 and 6.1.2.4. This study will not identify any Network\nUpgrades on the Transmission System. The injection limit from this analysis will be determined\non a pro rata basis based on the nameplate of the generators under evaluation. A constraint\nshould not be considered as a limit if the LODF (Line Outage Distribution Factor) between the\noverloaded element and the unfinished contingent facility from the project’s GIA is less than 20%.\nThis LODF screening does not apply if the overloaded element in this analysis, or the unfinished\ncontingent facility, is directly connected at the generator’s POI.",
+  "cite": "BPM-015 r33 §6.6.3.1"
+}

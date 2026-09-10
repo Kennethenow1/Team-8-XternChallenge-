@@ -1,0 +1,58 @@
+{
+  "unit_id": "bpm015-r33::4.2.4",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "4.2.4",
+    "title": "Study Deposits and Refunds",
+    "pages": [
+      30,
+      30
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "application_review"
+    ],
+    "milestone": [
+      "M2",
+      "D1",
+      "D2"
+    ],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "deposit_refund",
+      "restudy",
+      "gia_negotiation"
+    ],
+    "risk_code": [
+      "cost_pressure"
+    ],
+    "claim_class": [
+      "deposit_rule",
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "4.2.4\nStudy Deposits and Refunds\nStudy deposits are those deposits from the IC that are put towards the cost of performing the\ninterconnection studies. As depicted in Figure 4-2 and described in the following Sections, there\nis the (D1) Application Fee, (D2) Study Funding deposit, and (M2) DPP Entry deposit required for\nan IR to proceed through the process.\n\nThirty (30) Calendar Days after the execution of a permanent GIA with conditions, IC may replace\nany non-encumbered balance of the study deposits with an irrevocable Letter of Credit reasonably\nacceptable to MISO. After MISO acceptance of the Letter of Credit, MISO will refund the cash\nremaining in the IC’s study deposits.\n\nIn the event of restudy, MISO shall notify the IC providing the option to submit the cash equivalent\nof the Letter of Credit within thirty (30) Calendar Days; thereby reducing the Letter of Credit in the\namount of their deposit. Should the IC fail to respond within the requested timeframe, MISO shall\ndraw upon the Letter of Credit as necessary to cover incurred restudy expenses.\nAdditional studies available for projects:",
+  "cite": "BPM-015 r33 §4.2.4"
+}

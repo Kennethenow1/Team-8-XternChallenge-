@@ -1,0 +1,35 @@
+{
+  "unit_id": "bpm015-r33::6.6.4",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.6.4",
+    "title": "Annual Interim Deliverability Study",
+    "pages": [
+      114,
+      114
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [],
+    "milestone": [],
+    "actor": [],
+    "topic": [
+      "deliverability"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    }
+  ],
+  "text": "6.6.4.\nAnnual Interim Deliverability Study\nThe maximum amount of conditional NRIS available, for the next Planning Year, will be identified.\nIn addition, the Annual conditional NRIS value will be capped at the lower of a) Annual ERIS value\nor b) Annual Interim Deliverability study NRIS value.",
+  "cite": "BPM-015 r33 §6.6.4"
+}

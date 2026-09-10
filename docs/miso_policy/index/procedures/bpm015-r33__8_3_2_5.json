@@ -1,0 +1,50 @@
+{
+  "unit_id": "bpm015-r33::8.3.2.5",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "8.3.2.5",
+    "title": "Voltage and Thermal Analysis and Constraint Criteria",
+    "pages": [
+      139,
+      140
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "der_afs"
+    ],
+    "milestone": [],
+    "actor": [
+      "miso",
+      "to",
+      "affected_system"
+    ],
+    "topic": [
+      "deliverability"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow",
+      "study_method"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    },
+    {
+      "actor": "affected_system",
+      "impact": "Affected System / neighboring TO: coordination and restudy of impacts."
+    }
+  ],
+  "text": "8.3.2.5.\nVoltage and Thermal Analysis and Constraint Criteria\nMISO will perform thermal and voltage analysis that include each DER Substation qualifying for\na DER AFS.\n\nMISO shall use the same thermal analysis and constraints outlined in Sections 6.1.1.1 and\n6.1.1.1.8 in this BPM, respectively. The deliverability analysis in Section 6.1.1.1.9 of this BPM is\nnot included in the DER AFS study.\n\nMISO will use the same voltage analysis and constraints outlined in Section 6.1.1.2 of this BPM,\nwhich references Local Balancing Authority criteria.\n\n\nMISO plans to use PSSE and TARA to perform steady state powerflow analysis, aligned with\nthe current business practice in Section 6.1.1.1.7 of this BPM.",
+  "cite": "BPM-015 r33 §8.3.2.5"
+}

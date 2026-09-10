@@ -1,4 +1,3 @@
 {
-  "batch_size": 64,
-  "source": "config_skip_probe"
+  "batch_size": 16
 }

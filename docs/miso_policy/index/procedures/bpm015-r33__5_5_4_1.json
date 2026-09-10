@@ -1,0 +1,46 @@
+{
+  "unit_id": "bpm015-r33::5.5.4.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "5.5.4.1",
+    "title": "DPP / GIA",
+    "pages": [
+      60,
+      60
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp3",
+      "gia"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso"
+    ],
+    "topic": [
+      "transfer_of_ownership",
+      "gia_negotiation"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    }
+  ],
+  "text": "5.5.4.1 DPP\nThe Interconnection Customer may submit a transfer of ownership and name change\nrequest at any point in the queue process, but before the start of GIA negotiations. The name\nof the Interconnection Customer on file, at the time of the negotiation start, will be used in\nthe draft GIA.\n\nTransfer of ownership and name change requests will not be accepted after the GIA\nnegotiation window has started.\n\n5.5.4.2 GIA\nThe Interconnection Customer can request transfer and GIA assignment any time after GIA\nis executed.",
+  "cite": "BPM-015 r33 §5.5.4.1"
+}

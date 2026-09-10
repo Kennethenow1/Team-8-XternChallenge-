@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from typing import Any, Sequence
 
+import numpy as np
 import pandas as pd
 
 from src.modeling.eval_protocol import SELECTION_SPLIT, assert_selection_split, full_eval_metrics
@@ -13,6 +14,7 @@ from src.modeling.model_registry import (
     load_xy,
     save_run_artifacts,
 )
+from src.modeling.train_catboost import _capacity_sample_weight
 
 
 def fit_xgboost_eval(
@@ -22,6 +24,8 @@ def fit_xgboost_eval(
     model_name: str = "xgboost",
     save: bool = True,
     matrix_prefix: str = "tree_v1",
+    sample_weight: np.ndarray | Sequence[float] | None = None,
+    sample_weight_from: str | None = None,
 ) -> dict[str, Any]:
     assert_selection_split(SELECTION_SPLIT)
     try:
@@ -29,12 +33,13 @@ def fit_xgboost_eval(
     except ImportError as e:
         return {"model": model_name, "status": "skipped", "reason": f"xgboost not installed: {e}"}
 
-    X_tr, y_tr, _ = load_xy(matrix_prefix, "train")
+    X_tr, y_tr, meta_tr = load_xy(matrix_prefix, "train")
     X_va, y_va, meta_va = load_xy(matrix_prefix, SELECTION_SPLIT)
     y_tr = pd.to_numeric(y_tr, errors="coerce")
     y_va = pd.to_numeric(y_va, errors="coerce")
     mask = y_tr.notna()
     X_tr, y_tr = X_tr.loc[mask].copy(), y_tr.loc[mask]
+    meta_tr = meta_tr.loc[mask]
     drop = [c for c in (drop_cols or []) if c in X_tr.columns]
     if drop:
         X_tr = X_tr.drop(columns=drop)
@@ -42,6 +47,12 @@ def fit_xgboost_eval(
     X_tr = X_tr.apply(pd.to_numeric, errors="coerce")
     X_va = X_va.apply(pd.to_numeric, errors="coerce")
     capacity = load_capacity_mw(meta_va)
+
+    weight: np.ndarray | None = None
+    if sample_weight is not None:
+        weight = np.asarray(sample_weight, dtype=float)
+    elif sample_weight_from == "capacity_mw":
+        weight = _capacity_sample_weight(meta_tr)
 
     base = {
         "objective": "binary:logistic",
@@ -51,7 +62,7 @@ def fit_xgboost_eval(
         "max_depth": 4,
         "subsample": 0.8,
         "colsample_bytree": 0.8,
-        "eval_metric": "logloss",
+        "eval_metric": ["error", "logloss"],
         "random_state": 42,
         "n_jobs": 4,
     }
@@ -59,12 +70,13 @@ def fit_xgboost_eval(
         base.update(params)
     early = int(base.pop("early_stopping_rounds", 100))
     model = XGBClassifier(**base, early_stopping_rounds=early)
-    model.fit(
-        X_tr,
-        y_tr.astype(int),
-        eval_set=[(X_va, y_va.astype(int))],
-        verbose=False,
-    )
+    fit_kw: dict[str, Any] = {
+        "eval_set": [(X_tr, y_tr.astype(int)), (X_va, y_va.astype(int))],
+        "verbose": False,
+    }
+    if weight is not None:
+        fit_kw["sample_weight"] = weight
+    model.fit(X_tr, y_tr.astype(int), **fit_kw)
     proba = model.predict_proba(X_va)[:, 1]
     metrics = full_eval_metrics(y_va.astype(float), proba, capacity)
     metrics.update(
@@ -74,8 +86,34 @@ def fit_xgboost_eval(
             "split": SELECTION_SPLIT,
             "best_iteration": int(getattr(model, "best_iteration", base.get("n_estimators", 0))),
             "n_features": int(X_tr.shape[1]),
+            "sample_weight_from": sample_weight_from,
         }
     )
+    history: list[dict[str, float]] = []
+    try:
+        ev = model.evals_result()
+        keys = list(ev.keys())
+        tr = ev.get(keys[0], {}) if keys else {}
+        va = ev.get(keys[1], {}) if len(keys) > 1 else ev.get(keys[0], {})
+        tr_loss = tr.get("logloss") or []
+        va_loss = va.get("logloss") or []
+        tr_err = tr.get("error") or []
+        va_err = va.get("error") or []
+        n = max(len(tr_loss), len(va_loss), 0)
+        for i in range(n):
+            row: dict[str, float] = {"step": float(i)}
+            if i < len(tr_loss):
+                row["train_loss"] = float(tr_loss[i])
+            if i < len(tr_err):
+                row["train_acc"] = float(1.0 - tr_err[i])
+            if i < len(va_loss):
+                row["val_loss"] = float(va_loss[i])
+            if i < len(va_err):
+                row["val_acc"] = float(1.0 - va_err[i])
+            history.append(row)
+    except Exception:
+        history = []
+    metrics["history"] = history
     if save:
         preds = meta_va.copy()
         preds["y_true"] = y_va.to_numpy()
@@ -104,6 +142,7 @@ def fit_xgboost_eval(
         metrics["_meta_va"] = meta_va
         metrics["_y_va"] = y_va
         metrics["_capacity"] = capacity
+        metrics["_history"] = history
     return metrics
 
 

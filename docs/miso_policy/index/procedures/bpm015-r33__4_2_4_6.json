@@ -1,0 +1,61 @@
+{
+  "unit_id": "bpm015-r33::4.2.4.6",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "4.2.4.6",
+    "title": "Refunds of Study Deposits",
+    "pages": [
+      34,
+      35
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "application_review",
+      "dpp1"
+    ],
+    "milestone": [
+      "M2",
+      "D2",
+      "M3",
+      "M4"
+    ],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "withdrawal",
+      "deposit_refund",
+      "restudy",
+      "decision_point"
+    ],
+    "risk_code": [
+      "abandonment"
+    ],
+    "claim_class": [
+      "deposit_rule",
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "4.2.4.6.\nRefunds of Study Deposits\nFor additional details of the information contained in the following paragraphs regarding\nwithdrawals and any refunds of the (M2), (M3), and (M4) deposits, refer to Section 6.2.11 of this\nBPM and GIP Section 7.6.1, Section 7.6.2, and Section 7.8 of Attachment X.\n\nIf the IC withdraws prior to entry into DPP Phase I, then the remaining (D2) DPP Study Funding\nDeposit pursuant to Section 7.6 of the GIP and the (M2) DPP Entry Deposit will be refunded one\nhundred percent (100%). Any refunds due to the IC will occur once MISO has been notified of the\nwithdrawal.\n\nIf the IC withdraws by the end of IC Decision Point I, then the (D2) DPP Study Funding Deposit\nwill be refunded, less the actual cost of the applicable Interconnection Study performed during\nDPP Phase I. In addition, if this withdrawal occurs, the (M2) DPP Entry Deposit will be refunded\npercent (50%). For Interconnection Requests for which the application deadline to enter the DPP\nis on or after January 22nd, 2024 - if this withdrawal occurs, the (M2) DPP Entry Deposit will be\nrefunded forty percent (40%) An IC withdrawing during DPP Phase I but before IC Decision Point\nI will be responsible for its pro rata portion of the group Interconnection Study costs for DPP Phase\nI. Any refunds due to the IC will be processed after IC Decision Point I. Once the IC pays the (M3)\ndeposit and enters DPP Phase II, the (M2) deposit becomes one hundred percent (100%) at risk.\n\nIf the IC withdraws by the end of IC Decision Point II, then the (M3) Milestone will be refunded\none hundred percent (100%). Any (D2) DPP Study Funding Deposit will be refunded, less the\nactual cost of the applicable Interconnection Study performed during DPP Phase II. An IC\nwithdrawing during DPP Phase II but before IC Decision Point II will be responsible for its pro rata\n\n\nportion of the group Interconnection Study costs for DPP Phase II. Any refunds due to the IC will\nbe processed after IC Decision Point II. Once the IC pays the (M4) deposit and enters DPP Phase\nIII, the (M2), (M3), and (M4) Milestone deposits become at risk.\n\nIf the IC withdraws any time during DPP Phase III, and MISO determines that an Interconnection\nStudy restudy is required, then the withdrawing IC will be responsible to fund all such restudies in\nDPP Phase III, up to the amount of any remaining study deposits. However, if MISO determines\nthat no Interconnection Study restudy is required due to the withdrawal of the ICs IR, then the\nwithdrawing IC will not be responsible to fund any further Interconnection Studies during DPP\nPhase III and MISO shall refund any unused portion of the study deposit paid to enter the DPP.",
+  "cite": "BPM-015 r33 §4.2.4.6"
+}

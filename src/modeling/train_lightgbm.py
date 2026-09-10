@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from typing import Any, Sequence
 
+import numpy as np
 import pandas as pd
 
 from src.modeling.eval_protocol import SELECTION_SPLIT, assert_selection_split, full_eval_metrics
@@ -13,6 +14,7 @@ from src.modeling.model_registry import (
     load_xy,
     save_run_artifacts,
 )
+from src.modeling.train_catboost import _capacity_sample_weight
 
 
 def fit_lightgbm_eval(
@@ -23,6 +25,8 @@ def fit_lightgbm_eval(
     model_name: str = "lightgbm",
     save: bool = True,
     matrix_prefix: str = "tree_v1",
+    sample_weight: np.ndarray | Sequence[float] | None = None,
+    sample_weight_from: str | None = None,
 ) -> dict[str, Any]:
     assert_selection_split(SELECTION_SPLIT)
     try:
@@ -61,6 +65,12 @@ def fit_lightgbm_eval(
     X_va = X_va.apply(pd.to_numeric, errors="coerce")
     capacity = load_capacity_mw(meta_va)
 
+    weight: np.ndarray | None = None
+    if sample_weight is not None:
+        weight = np.asarray(sample_weight, dtype=float)
+    elif sample_weight_from == "capacity_mw":
+        weight = _capacity_sample_weight(meta_tr)
+
     base = {
         "objective": "binary",
         "metric": "binary_logloss",
@@ -81,12 +91,14 @@ def fit_lightgbm_eval(
         base.update(params)
     early = int(base.pop("early_stopping_rounds", 100))
     model = lgb.LGBMClassifier(**base)
-    model.fit(
-        X_tr,
-        y_tr.astype(int),
-        eval_set=[(X_va, y_va.astype(int))],
-        callbacks=[lgb.early_stopping(early, verbose=False), lgb.log_evaluation(period=0)],
-    )
+    fit_kw: dict[str, Any] = {
+        "eval_set": [(X_tr, y_tr.astype(int)), (X_va, y_va.astype(int))],
+        "eval_names": ["train", "val"],
+        "callbacks": [lgb.early_stopping(early, verbose=False), lgb.log_evaluation(period=0)],
+    }
+    if weight is not None:
+        fit_kw["sample_weight"] = weight
+    model.fit(X_tr, y_tr.astype(int), **fit_kw)
     proba = model.predict_proba(X_va)[:, 1]
     metrics = full_eval_metrics(y_va.astype(float), proba, capacity)
     metrics.update({
@@ -97,7 +109,30 @@ def fit_lightgbm_eval(
         "added_features": list(add_cols or []),
         "join_note": join_note,
         "n_features": int(X_tr.shape[1]),
+        "sample_weight_from": sample_weight_from,
     })
+    history: list[dict[str, float]] = []
+    try:
+        ev = model.evals_result_
+        tr_loss = ev.get("train", {}).get("binary_logloss") or []
+        va_loss = ev.get("val", {}).get("binary_logloss") or ev.get("valid_1", {}).get("binary_logloss") or []
+        tr_err = ev.get("train", {}).get("binary_error") or []
+        va_err = ev.get("val", {}).get("binary_error") or ev.get("valid_1", {}).get("binary_error") or []
+        n = max(len(tr_loss), len(va_loss), 0)
+        for i in range(n):
+            row: dict[str, float] = {"step": float(i)}
+            if i < len(tr_loss):
+                row["train_loss"] = float(tr_loss[i])
+            if i < len(tr_err):
+                row["train_acc"] = float(1.0 - tr_err[i])
+            if i < len(va_loss):
+                row["val_loss"] = float(va_loss[i])
+            if i < len(va_err):
+                row["val_acc"] = float(1.0 - va_err[i])
+            history.append(row)
+    except Exception:
+        history = []
+    metrics["history"] = history
     if save:
         preds = meta_va.copy()
         preds["y_true"] = y_va.to_numpy()
@@ -120,6 +155,15 @@ def fit_lightgbm_eval(
             val_predictions=preds,
             model_obj=model,
         )
+    else:
+        metrics["_proba"] = proba
+        metrics["_model"] = model
+        metrics["_params"] = {**base, "early_stopping_rounds": early}
+        metrics["_feature_list"] = feature_list_from_X(X_tr)
+        metrics["_meta_va"] = meta_va
+        metrics["_y_va"] = y_va
+        metrics["_capacity"] = capacity
+        metrics["_history"] = history
     return metrics
 
 

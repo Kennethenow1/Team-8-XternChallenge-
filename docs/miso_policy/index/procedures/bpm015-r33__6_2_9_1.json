@@ -1,0 +1,52 @@
+{
+  "unit_id": "bpm015-r33::6.2.9.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.2.9.1",
+    "title": "Provisional Interconnection Agreement Limit Methodology / Microsoft Excel Help Files Solver Description",
+    "pages": [
+      87,
+      91
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "gia"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "gia_negotiation",
+      "deliverability"
+    ],
+    "risk_code": [
+      "gia_execution"
+    ],
+    "claim_class": [
+      "study_method"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.2.9.1.\nProvisional Interconnection Agreement Limit Methodology\nThe MISO methodology for calculating operating limits for all generators requesting\ninterconnection service by executing a PGIA uses a two-pronged approach as follows:\ni.\nA MUST DC transfer analysis will calculate DFs of all generators that have greater\nthan 20% (OTDF) and a 5% (PTDF) impacts on all constraints.\nii.\nThese DFs will be used to calculate the operating limits, in addition to other constraints\nas demonstrated in the examples that follow, by utilizing Microsoft Excel Solver\noptimization tool. Examples are shown in Section 6.2.9.1.3.\nexcept that a constraint should not be considered as a limit if the LODF (Line Outage Distribution\nFactor) value between the overloaded element and the unfinished contingent facility from GIA\nExhibit A10 is less than 20%. This LODF screening does not apply if the overloaded element in\nthis analysis, or the unfinished contingent facility, is directly connected at the generator’s POI.\n\nIn order to implement this methodology, there are several inputs and assumptions that must be\naddressed that are outlined below.\n6.2.9.1.1\nPSSE Base Case Assumptions\ni. MISO will use a seasonal near-term MTEP model and adjusted to match the study horizon.\nThe adjustments will be strictly limited to the dispatch of QOL units to the Annual ERIS\nlevel and the change in generation will be offset based on their merit order within the same\nLBA. Transmission and generation outages lasting ≥ 60% of the study quarter will be\nincluded only in the binding quarter. Approved retirements and suspensions will be\nmodeled offline.\nii. No changes will be made to the load pattern in the case.\niii. No changes will be made to any other generator dispatch.\niv. No changes will be made to the case topology.\n\n6.2.9.1.2\nInput Files and Analysis Assumptions\ni.\nMISO will use N-1 Contingencies to evaluate the DFs for each unit on all constraints.\nii.\nMISO will use monitored files for all facilities above 34 kV.\niii.\nMISO will use the most current available generator information and use the Pmax and\nPmin based on the generator limits provided.\n\n\n6.2.9.1.3\nGenerator Output Optimization Equations\nThe main concept behind this technique is to optimize the summation of Initial Flow of each\nconstraint and the individual MW impact of each PIA generator on that constraint, such that the\noptimized flow on the monitored element is less than or equal to the Emergency rating of the line\nunder the key contingencies being studied. Also, while optimizing the flow on constrained\nfacilities, the generator limits are used as constraints such that the generation output is maximized\nfor each optimized constrained flow. In other words, the desired solution would try to maximize\nthe output of each unit such that the flow on the constrained element will be equal to or less than\nthe rating of the monitored element.\n\n\nEQUATION SETUP WITH CONSTANTS AND VARIABLES\n\nY1 = Unit 1\nY2 = Unit 2\nC1 = Total flow on Monitored element of Constraint 1\nC2 = Total flow on Monitored element of Constraint 2\nC3 = Total flow on Monitored element of Constraint 3\nC4 = Total flow on Monitored element of Constraint 4\nCn = Total flow on Monitored element of Constraint n\nYgen1 = Output of Unit 1\nYgen2 = Output of Unit 2\nYmax1 = Maximum Output of Unit 1\nYmax2 = Maximum Output of Unit 2\nYmin1 = Minimum Output of Unit 1 (Set to Zero for analysis)\nYmin2 = Minimum Output of Unit 2 (Set to Zero for analysis)\nα 1 = Initial MW Flow on Monitored Element of Constraint 1\nα 2 = Initial MW Flow on Monitored Element of Constraint 2\nα 3 = Initial MW Flow on Monitored Element of Constraint 3\nα 4 = Initial MW Flow on Monitored Element of Constraint 4\nα n = Initial MW Flow on Monitored Element of Constraint n\nβ 1,1 = DF of Unit 1 on constraint 1\nβ 1,2 = DF of Unit 1 on constraint 2\nβ 1, n = DF of Unit 1 on constraint n\nβ 2,1 = DF of Unit 2 on constraint 1\nβ 2,2 = DF of Unit 2 on constraint 2\nβ 2,n = DF of Unit 2 on constraint n\nβ k,1 = DF of Unit k on constraint 1\nβ k,n = DF of Unit k on constraint n\n\n\nIf we try to calculate the total constraint flow on Monitored Element of Constraint C1 with two\nunits Y1 and Y2, then the equation is as follows:\n\nC1 = α1 + Ygen1 * β1,1 + Ygen2 * β2,1 + Ygenk * βk,1\nIf instead of using two units (Y1 and Y2), we used k units (all the units with provisional and\nconditional GIAs) then the above equation would change to the following equation and capture\nthe DFs of all units (Y1 to Yk) on Constraint C1 as follows:\n\nC1 = α1 + Ygen1 * β1,1 + Ygen2 * β2,1 ……. + Ygenk * βk,1\n\nSimilarly, we can extend the same concept for all constraints as follows:\n\nC2 = α2 + Ygen1 * β1,2 + Ygen2 * β2,2 ……. + Ygenk * βk,2\nC3 = α3 + Ygen1 * β1,3 + Ygen2 * β2,3 ……. + Ygenk * βk,3\nC4 = α4 + Ygen1 * β1,4 + Ygen2 * β2,4 ……. + Ygenk * βk,4\n.\n.\n.\nCn = αn + Ygen1 * β1,n + Ygen2 * β2,n ……. + Ygenk * βk,n\n\n\n6.2.9.1.4.\nOptimization Technique using EXCEL SOLVER\nThe optimization process needs two sets of critical data:\na. The DFs for each unit for all constraints that are obtained from the results of a MUST\nFirst Contingency Incremental Transfer Capability DC transfer analysis. Therefore, the\nMUST output will provide β 1,1, β 2,1 etc. values.\nb. The Pmax and Pmin for each generator that has signed a provisional or conditional\nGIA. From equations above, we will need Ymax1, Ymin1 etc.\n\nOnce the data from 6.2.9.1.4.a and 6.2.9.1.4.b is obtained, then the Excel Solver tool will be used\nto calculate the operating limits with the following set of constraints:\n\n\nMaximize the output of all Units Y1- Yn such that the constrained flows for C1 to Cn are optimized\nto the rating of the line. In other words, The Excel Solver will solve and come up with the optimized\nvalue for all Unit outputs within the following constraints:\n\nMaximize Σ Ygen (1 to k) within the following constrained parameter values:\n\nYmax1>=Ygen1>Ymin1\nYmax2>=Ygen2>Ymin2\nYmaxk>=Ygenk>Ymink\nAND\n\nOptimize C1 = Rating of the monitored element of C1\nOptimize C2 = Rating of the monitored element of C2\nOptimize Cn = Rating of the monitored element of Cn\n\n6.2.9.1.5.\nFrequency of these studies\nMISO will perform this analysis every planning year quarter and post the results on MISO OASIS\nunder the following link:\n\nhttp://www.oasis.oati.com/woa/docs/MISO/MISOdocs/OASIS_report_Page_for_TIAs.mht\n\n6.2.9.2.\nMicrosoft Excel Help Files Solver Description\nFurther description of the Excel Solver function can be found at the following link:\n\nhttps://support.office.com/en-au/article/An-introduction-to-optimization-with-the-Excel-Solver-\ntool-1f178a70-8e8d-41c8-8a16-44a97ce99f60",
+  "cite": "BPM-015 r33 §6.2.9.1"
+}

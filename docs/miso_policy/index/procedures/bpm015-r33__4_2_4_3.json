@@ -1,0 +1,56 @@
+{
+  "unit_id": "bpm015-r33::4.2.4.3",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "4.2.4.3",
+    "title": "Optional Interconnection Study",
+    "pages": [
+      31,
+      33
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "application_review"
+    ],
+    "milestone": [
+      "D1"
+    ],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "deposit_refund",
+      "delay_of_study",
+      "gia_negotiation"
+    ],
+    "risk_code": [
+      "cost_pressure"
+    ],
+    "claim_class": [
+      "deposit_rule",
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "4.2.4.3.\nOptional Interconnection Study\nThe IC can request an Optional Interconnection Study for their project solely to get additional\ninformation/results to help them in making business decisions on their project. Request for a study\ncan be made on a standalone basis or in parallel with an ongoing Interconnection Study. The\nstudies will be performed based on the assumptions outlined by the IC. Results of such\ninformational studies will be non-binding. IC shall execute the Optional Interconnection Study\nAgreement Appendix 5 of the GIP within ten (10) Business Days from receipt and deliver the\nOptional Interconnection Study Agreement Appendix 5 of the MISO Tariff, the technical data, and\na deposit of sixty thousand dollars ($60,000) to MISO. MISO will use reasonable efforts to\ncomplete the Optional Interconnection Study within a mutually agreed upon time period specified\nwithin the Optional Interconnection Study Agreement.\n\nIf MISO determines that it will not meet the required time frame for completing the Optional\nInterconnection Study, MISO shall notify the IC regarding:\ni.\nThe schedule status of the Optional Interconnection Study,\nii.\nAn estimated completion date and an explanation of the reasons why additional time\nis required, and\niii.\nA revised cost estimate of study deposits with an explanation of the reasons why the\ncost estimates were revised.\n\n\nFigure 0-5 Application Fee and Study Deposits – for the Interconnection Requests for which\nthe application deadline to enter the Definitive Planning Phase is before January 22,\n2024.\n\n Note 2: Without a written request from the Interconnection Customer prior to DPP SIS release to delay\nnegotiations, GIA negotiations will begin with Final DPP SIS release.\n\n.\n\n\nFigure 0-6a Application Fee and Study Deposits – for the Interconnection Requests for\nwhich the application deadline to enter the Definitive Planning Phase is on or after\nJanuary 22, 2024.\n\n Note 2: Without a written request from the Interconnection Customer prior to DPP SIS release to delay\nnegotiations, GIA negotiations will begin with Final DPP SIS release",
+  "cite": "BPM-015 r33 §4.2.4.3"
+}

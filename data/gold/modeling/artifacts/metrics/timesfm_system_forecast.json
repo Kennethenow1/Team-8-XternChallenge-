@@ -15,8 +15,8 @@
       "mape": NaN
     },
     "timesfm": {
-      "rmse": 477.83889686195647,
-      "mape": 40.52118181968888
+      "rmse": 477.8389546976592,
+      "mape": 40.521129086583926
     }
   },
   "folds": [
@@ -31,7 +31,7 @@
         "arima": NaN,
         "timesfm": NaN
       },
-      "arima_note": "series too short for ARIMA",
+      "arima_note": "statsmodels unavailable: No module named 'statsmodels'",
       "timesfm_note": "series too short for TimesFM"
     },
     {
@@ -43,9 +43,9 @@
         "naive": 226.0,
         "ma3": 135.0,
         "arima": NaN,
-        "timesfm": 203.13404846191406
+        "timesfm": 203.1341552734375
       },
-      "arima_note": "series too short for ARIMA",
+      "arima_note": "statsmodels unavailable: No module named 'statsmodels'",
       "timesfm_note": "backend=timesfm-3.0"
     },
     {
@@ -57,9 +57,9 @@
         "naive": 69.0,
         "ma3": 115.66666666666667,
         "arima": NaN,
-        "timesfm": 101.4684066772461
+        "timesfm": 101.46831512451172
       },
-      "arima_note": "series too short for ARIMA",
+      "arima_note": "statsmodels unavailable: No module named 'statsmodels'",
       "timesfm_note": "backend=timesfm-3.0"
     },
     {
@@ -71,9 +71,9 @@
         "naive": 922.0,
         "ma3": 405.6666666666667,
         "arima": NaN,
-        "timesfm": 561.8502197265625
+        "timesfm": 561.850341796875
       },
-      "arima_note": "series too short for ARIMA",
+      "arima_note": "statsmodels unavailable: No module named 'statsmodels'",
       "timesfm_note": "backend=timesfm-3.0"
     },
     {
@@ -85,9 +85,9 @@
         "naive": 117.0,
         "ma3": 369.3333333333333,
         "arima": NaN,
-        "timesfm": 156.44866943359375
+        "timesfm": 156.44845581054688
       },
-      "arima_note": "series too short for ARIMA",
+      "arima_note": "statsmodels unavailable: No module named 'statsmodels'",
       "timesfm_note": "backend=timesfm-3.0"
     }
   ]

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from typing import Any, Sequence
 
+import numpy as np
 import pandas as pd
 
 from src.modeling.eval_protocol import SELECTION_SPLIT, assert_selection_split, full_eval_metrics
@@ -15,6 +16,58 @@ from src.modeling.model_registry import (
     load_xy,
     save_run_artifacts,
 )
+
+# Freeze / trial-149 deploy recipe (docs/final_model_freeze.md). No scaler, no PCA.
+CATBOOST_TRIAL_149: dict[str, Any] = {
+    "depth": 5,
+    "learning_rate": 0.1324314134827593,
+    "l2_leaf_reg": 1.9470294574701563,
+    "random_strength": 2.900625533346776,
+    "bagging_temperature": 3.703566521912387,
+    "border_count": 214,
+    "min_data_in_leaf": 32,
+    "iterations": 5000,
+    "early_stopping_rounds": 100,
+    "random_seed": 2026,
+}
+
+
+def _evals_to_history(evals: dict[str, Any]) -> list[dict[str, float]]:
+    """Map CatBoost get_evals_result() into electrum history rows."""
+    learn = evals.get("learn") or evals.get("training") or {}
+    valid = evals.get("validation") or evals.get("val") or {}
+    train_loss = learn.get("Logloss") or learn.get("logloss") or []
+    val_loss = valid.get("Logloss") or valid.get("logloss") or []
+    train_acc = learn.get("Accuracy") or learn.get("accuracy")
+    val_acc = valid.get("Accuracy") or valid.get("accuracy")
+    val_pr = valid.get("PRAUC") or valid.get("PRAUC:type=Classic")
+    n = max(len(train_loss), len(val_loss), 0)
+    rows: list[dict[str, float]] = []
+    for i in range(n):
+        row: dict[str, float] = {"step": float(i)}
+        if i < len(train_loss):
+            row["train_loss"] = float(train_loss[i])
+        if train_acc is not None and i < len(train_acc):
+            row["train_acc"] = float(train_acc[i])
+        if i < len(val_loss):
+            row["val_loss"] = float(val_loss[i])
+        if val_acc is not None and i < len(val_acc):
+            row["val_acc"] = float(val_acc[i])
+        if val_pr is not None and i < len(val_pr):
+            row["val_pr_auc"] = float(val_pr[i])
+        rows.append(row)
+    return rows
+
+
+def _capacity_sample_weight(meta: pd.DataFrame) -> np.ndarray:
+    w = pd.to_numeric(load_capacity_mw(meta), errors="coerce").to_numpy(dtype=float)
+    w = np.where(np.isfinite(w) & (w > 0), w, np.nan)
+    med = float(np.nanmedian(w)) if np.isfinite(w).any() else 1.0
+    if not np.isfinite(med) or med <= 0:
+        med = 1.0
+    w = np.where(np.isfinite(w), w, med)
+    mean = float(w.mean()) or 1.0
+    return w / mean
 
 
 def _prep_cats(X_tr: pd.DataFrame, X_va: pd.DataFrame) -> list[str]:
@@ -35,6 +88,9 @@ def fit_catboost_eval(
     model_name: str = "catboost",
     save: bool = True,
     matrix_prefix: str = "catboost_native_v1",
+    sample_weight: np.ndarray | Sequence[float] | None = None,
+    sample_weight_from: str | None = None,
+    monotone_constraints: dict[str, int] | None = None,
 ) -> dict[str, Any]:
     """Train CatBoost on train, evaluate on val with full metric bundle (+ ops)."""
     assert_selection_split(SELECTION_SPLIT)
@@ -92,6 +148,12 @@ def fit_catboost_eval(
     cat_cols = _prep_cats(X_tr, X_va)
     capacity = load_capacity_mw(meta_va)
 
+    weight: np.ndarray | None = None
+    if sample_weight is not None:
+        weight = np.asarray(sample_weight, dtype=float)
+    elif sample_weight_from == "capacity_mw":
+        weight = _capacity_sample_weight(meta_tr)
+
     base_params: dict[str, Any] = {
         "loss_function": "Logloss",
         "eval_metric": "Logloss",
@@ -112,20 +174,45 @@ def fit_catboost_eval(
                 if base_params[k] is None:
                     base_params.pop(k)
 
-    task = str(base_params.get("task_type", "GPU")).upper()
-    # PRAUC/AUC custom metrics are not implemented on GPU and can distort early stopping.
-    fit_kwargs: dict[str, Any] = {}
-    if task != "GPU":
-        fit_kwargs["custom_metric"] = ["PRAUC", "AUC"]
+    if monotone_constraints:
+        mono = [int(monotone_constraints.get(c, 0)) for c in X_tr.columns]
+        if any(v != 0 for v in mono):
+            base_params["monotone_constraints"] = mono
 
-    model = CatBoostClassifier(**base_params, **fit_kwargs)
-    model.fit(
-        X_tr,
-        y_tr.astype(int),
-        cat_features=cat_cols,
-        eval_set=(X_va, y_va.astype(int)),
-        use_best_model=True,
-    )
+    def _cpu_params(p: dict[str, Any]) -> dict[str, Any]:
+        out = dict(p)
+        out["task_type"] = "CPU"
+        out.pop("devices", None)
+        for k in list(out):
+            if out[k] is None:
+                out.pop(k)
+        return out
+
+    def _fit(p: dict[str, Any]):
+        task = str(p.get("task_type", "GPU")).upper()
+        # PRAUC/AUC/Accuracy custom metrics are not implemented on GPU.
+        extra: dict[str, Any] = {}
+        if task != "GPU":
+            extra["custom_metric"] = ["PRAUC", "AUC", "Accuracy"]
+        clf = CatBoostClassifier(**p, **extra)
+        fit_kw: dict[str, Any] = {
+            "cat_features": cat_cols,
+            "eval_set": (X_va, y_va.astype(int)),
+            "use_best_model": True,
+        }
+        if weight is not None:
+            fit_kw["sample_weight"] = weight
+        clf.fit(X_tr, y_tr.astype(int), **fit_kw)
+        return clf
+
+    try:
+        model = _fit(base_params)
+    except Exception:
+        if str(base_params.get("task_type", "")).upper() == "GPU":
+            base_params = _cpu_params(base_params)
+            model = _fit(base_params)
+        else:
+            raise
     proba = model.predict_proba(X_va)[:, 1]
     metrics = full_eval_metrics(y_va.astype(float), proba, capacity)
     metrics.update(
@@ -138,8 +225,16 @@ def fit_catboost_eval(
             "added_features": added_features,
             "join_note": join_note,
             "n_features": int(X_tr.shape[1]),
+            "sample_weight_from": sample_weight_from,
+            "task_type": str(base_params.get("task_type")),
         }
     )
+    history: list[dict[str, float]] = []
+    try:
+        history = _evals_to_history(model.get_evals_result())
+    except Exception:
+        history = []
+    metrics["history"] = history
     if save:
         preds = meta_va.copy()
         preds["y_true"] = y_va.to_numpy()
@@ -173,6 +268,9 @@ def fit_catboost_eval(
         metrics["_y_va"] = y_va
         metrics["_capacity"] = capacity
         metrics["_X_tr"] = X_tr
+        metrics["_X_va"] = X_va
+        metrics["_history"] = history
+        metrics["_cat_cols"] = cat_cols
     return metrics
 
 

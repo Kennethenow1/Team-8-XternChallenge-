@@ -1,0 +1,51 @@
+{
+  "unit_id": "bpm015-r33::5.5.1.2",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "5.5.1.2",
+    "title": "GIA Assignment Requirements",
+    "pages": [
+      58,
+      59
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp3",
+      "gia"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "transfer_of_ownership",
+      "gia_negotiation"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "5.5.1.2 GIA Assignment Requirements\n1. Consent Assignment\na. If transfer takes place after a GIA is executed, a Consent to Assignment might\nhave to be executed by all parties to the GIA - per Article 19 of the GIA. A\nConsent to Assignment template can be found on the MISO public website.\nMISO legal can review the draft as needed.\nb. Transfer Notice is not required for transfer post GIA.\n\n2. Legal Documentation\na. A legally binding, executed document that demonstrates proof of ownership\nfor a transfer. The document must show the new entity name and show\nevidence that a sale/transfer/assignment has taken place.\n\nAccepted Documents\nNotice of Sale\nPurchase Agreement\nAssignment of Interest Agreement\n\n\nNot Accepted Documents\nLetter of Intent\nOther non-binding or non-exclusive agreement\n3. Updated W-9 Form\na. Customers are required to update their W-9 form to reflect the new entity\nname\nb. The correct customer’s name and parent company must be accurately listed.\n\n4. Attachment C NDA\na. Customers must update the Attachment C NDA list in online tool. If the\nproject is older and not available on the online tool, customers must submit\nan updated Attachment C NDA list.\nb. A fillable Attachment C NDA document can be found on the MISO public\nwebsite.",
+  "cite": "BPM-015 r33 §5.5.1.2"
+}

@@ -1,0 +1,59 @@
+{
+  "unit_id": "bpm015-r33::4.2.2.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "4.2.2.1",
+    "title": "Requirements",
+    "pages": [
+      29,
+      29
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "application_review",
+      "dpp1"
+    ],
+    "milestone": [
+      "M2",
+      "M1"
+    ],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "deposit_refund",
+      "withdrawal",
+      "decision_point"
+    ],
+    "risk_code": [
+      "abandonment",
+      "cost_pressure"
+    ],
+    "claim_class": [
+      "deposit_rule",
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "4.2.2.1\nRequirements\n•\n(M2) DPP Entry Milestone Deposit\no Cash or irrevocable Letter of Credit in the amount of eight thousand dollars ($8,000)\nper MW for the project.\n\n*(M2) cash deposit or irrevocable Letter of Credit would be fifty percent (50%) refundable upon\nwithdrawal prior to IC Decision Point I. Please see section 6.2.11 for more information. For details\non Letter of Credit requirements, see Section 4.2.3.\n\n**For Interconnection Requests for which the application deadline to enter the DPP is on or after\nJanuary 22nd, 2024 - (M2) cash deposit or irrevocable Letter of Credit would be forty percent (40%)\nrefundable upon withdrawal prior to IC Decision Point I. Please see section 6.2.11 for more\ninformation. For details on Letter of Credit requirements, see Section 4.2.3.\n\nWhen the (M1) and (M2) Milestones are received and validated, a project will be placed in the\nDPP active Queue cycle.",
+  "cite": "BPM-015 r33 §4.2.2.1"
+}

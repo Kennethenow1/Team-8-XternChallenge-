@@ -1,0 +1,58 @@
+{
+  "unit_id": "bpm015-r33::6.4.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.4.1",
+    "title": "Requirements Applicable to All Clusters, Interconnection Customers",
+    "pages": [
+      99,
+      99
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp1",
+      "dpp2",
+      "dpp3"
+    ],
+    "milestone": [],
+    "actor": [
+      "miso",
+      "neighboring_rto",
+      "affected_system",
+      "to"
+    ],
+    "topic": [
+      "delay_of_study",
+      "cost_allocation",
+      "gia_negotiation"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "neighboring_rto",
+      "impact": "Neighboring RTO (PJM/SPP/MH): affected-system studies and limits."
+    },
+    {
+      "actor": "affected_system",
+      "impact": "Affected System / neighboring TO: coordination and restudy of impacts."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.4.1.\nRequirements Applicable to All Clusters, Interconnection Customers\nand Interconnection Requests\n\nThe requirements listed in Section 9.4.1 of MISO-SPP JOA shall apply to all clusters,\ninterconnection customers, and interconnection requests regardless of whether such clusters,\ninterconnection customers, or interconnection requests are included in the Joint Targeted\nInterconnection Queue (“JTIQ”) Screening Group:\n (a) Consistent with the data exchange provisions of this Agreement, the Parties will\nexchange modeling data as necessary for the study and coordination of interconnection requests.\nThis will include associated updates to modeling data as necessary to reflect the other Party’s\nrelevant queue requests, contingency elements, monitored elements, planned upgrades, and\nother data as may be required.\n  (b)  The identification of all impacts on the Parties’ transmission systems shall include a\ndescription of the required Network Upgrade(s), and corresponding planning level cost estimates\nand construction schedule estimates.\n (c) Construction of any Network Upgrades on the Affected System will be subject to the\nterms of the impacted Party’s OATT and agreement among owners of transmission facilities\nsubject to the control of the impacted Party and will be consistent with applicable federal, state or\nprovincial regulatory policy.\n (d)  In the event that Network Upgrades are required on the potentially impacted Party’s\nsystem, then such Network Upgrades shall be documented as a condition for full Interconnection\nService in the interconnection agreement executed by the direct connect system. Additionally, the\nParties will mutually agree on milestones with respect to the Network Upgrade construction and\nthe amount of service that can commence after each milestone.\n  (e) Each Party will maintain a separate interconnection queue. The Parties will maintain\na listing of interconnection requests for all interconnection projects that have been identified as\npotentially impacting the systems of the other Party. This information will be publicly posted on\nthe Parties’ respective websites",
+  "cite": "BPM-015 r33 §6.4.1"
+}

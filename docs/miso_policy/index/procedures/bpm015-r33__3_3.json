@@ -1,0 +1,49 @@
+{
+  "unit_id": "bpm015-r33::3.3",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "3.3",
+    "title": "Ad Hoc Information Sessions",
+    "pages": [
+      23,
+      25
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "pre_queue"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "scoping"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "3.3\nAd Hoc Information Sessions\nThe IC can request an ad hoc information session with MISO and likely affected TOs the following\ncircumstances:\ni.\nIC has identified a site location for a potential project.\nii.\nIC has questions unique to his situation.\niii.\nIC wants to get a better understanding of the available Points of Interconnection (POI)\nnear their project site and any known issues on the local Transmission System\niv.\nIf IC’s questions or concerns were not addressed in the monthly update calls or during\nthe on-the-road workshops\n\nTo request an ad hoc information session, the IC will submit an online request. The request will\nentail filling out a form which would include a tentative agenda for the meeting and specific\nquestions. MISO will review the request for a meeting and decide which TOs to invite for the\nmeeting. Within five (5) Business Days of receiving the request, MISO will send an email\nnotification to IC with earliest available dates/times for the meeting, which will be scheduled within\nthirty (30) Calendar Days of receiving the request, unless another date is agreed upon by MISO\nand IC. An example of the template form to request a meeting is included in Appendix B of this\nmanual.\n\nMISO may review the following information in the meeting with the IC:\ni.\nContour map details in the area\nii.\nExisting loadings on the transmission outlet from the project site\niii.\nGeneral stability and short circuit issues in the area\niv.\nGeneral voltage issues including the ride through capabilities of the Generating Facility\nv.\nGeneral power quality issues including voltage flicker and harmonics.\nvi.\nGeneral local and regional reliability issues\nvii.\nResults of any previously completed study at or near the same location.\nviii.\nEstimated timing of request proceeding to the DPP\n\n\nix.\nEstimated in-service date for the IR.\nx.\nAny other existing information which could be helpful for the IC",
+  "cite": "BPM-015 r33 §3.3"
+}

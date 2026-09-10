@@ -1,0 +1,55 @@
+{
+  "unit_id": "bpm015-r33::6.7.4",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.7.4",
+    "title": "Qualified Change Evaluation Criteria",
+    "pages": [
+      124,
+      126
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to",
+      "ferc"
+    ],
+    "topic": [
+      "withdrawal",
+      "deposit_refund",
+      "deliverability",
+      "gia_negotiation"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    },
+    {
+      "actor": "ferc",
+      "impact": "FERC: GIA filing / unexecuted filing; not a compliance score on this card."
+    }
+  ],
+  "text": "6.7.4.\nQualified Change Evaluation Criteria\nFor Generator Facility Modification evaluation, MISO may perform steady-state (thermal/voltage),\nreactive power, short circuit/fault duty, and stability analyses, as necessary, using the applicable\nreliability criteria consistent with DPP study as set forth in Section 6.1.1.1.4 of this BPM to ensure\nthat required reliability conditions are studied. The type of contingencies used for this evaluation\nwill be consistent with DPP study as set forth in Section 6.1 of this BPM. Upon receipt of the\nQualified Change evaluation from the IC, MISO will notify the impacted TO(s) and will coordinate\nwith the impacted TO(s) during the study process.\nMISO will tender a draft GIA after Final Facility Study Report is provided\nto the IC\n(30 Calendar Days)\nInterconnection Facility Study (if needed)\n(90 Calendar Days)\nIf there are no material adverse impacts, IC can decide to proceed or\nwithdraw**\n(30 Calendar Days)\nWithin 30 Calendar Days, MISO will commence Interconnection Study for\nSurplus Interconnection Service\n(90 Calendar Days)\nIC submits Surplus Interconnection Request to MISO*\n(Study Deposit = $150,000)\n\n\nThe following criteria will be used to determine whether the change to an Existing Generating\nFacility is a Qualified Change:\n\n•\nAny change in expected output of the Generating Facility that is higher than what was\nstudied in the interconnection process unless a control scheme is employed to limit the\ninjection at the POI to ERIS limit.\n•\nAn increase in short circuit current that degrades transmission system reliability.\n•\nAngular stability performance and dynamic response that degrades transmission system\nreliability.\n•\nViolation of steady-state thermal or voltage limits caused by the planned change utilizing\nthe DPP criteria as set forth in Sections 6.1.1.1.8 and 6.1.1.2 of this BPM.\n•\nAny worsening of a pre-existing adverse condition — including thermal overloads,\nvoltage deviations, or stability margins — relative to the pre-modification baseline,\nregardless of whether such condition predates the proposed modification.\n•\nNon-compliance with applicable FERC Order requirements, including but not limited to\nFERC Orders 827, 661/661-A, and 842, where the modified or replaced component was\nidentified in prior interconnection studies as a contributing factor to such non-\ncompliance. The IC shall demonstrate that the replacement component meets all\napplicable FERC Order requirements in effect at the time of the modification request.",
+  "cite": "BPM-015 r33 §6.7.4"
+}

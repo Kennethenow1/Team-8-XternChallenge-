@@ -1,0 +1,55 @@
+{
+  "unit_id": "bpm015-r33::8.3.2.2",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "8.3.2.2",
+    "title": "Deposit Amount and Payment Methods",
+    "pages": [
+      138,
+      138
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "der_afs"
+    ],
+    "milestone": [],
+    "actor": [
+      "miso",
+      "to",
+      "affected_system",
+      "ic"
+    ],
+    "topic": [
+      "deposit_refund"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow",
+      "study_method"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    },
+    {
+      "actor": "affected_system",
+      "impact": "Affected System / neighboring TO: coordination and restudy of impacts."
+    },
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    }
+  ],
+  "text": "8.3.2.2.\nDeposit Amount and Payment Methods\nThe TO shall provide a DER AFS deposit for $60,000 per DER Substation within the timeframes\ndefined in this document. MISO shall track study expenses and refund any unused DER AFS\ndeposit amount. While MISO anticipates the requested amount covers most DER AFS\nsituations, there may be instances where MISO needs to request additional funding from the\nTransmission Owner to complete the study. Consistent with other MISO Generator\nInterconnection practices, the interconnection customer is charged actual study costs. The TO\nmay be reimbursed for any DER AFS Costs consistent with RERRA regulatory requirements\n(e.g., applicable tariff) and TO utility structures.  MISO will reconcile study costs with deposits\nupon completion of each quarterly cycle. The deposit amount is independent of the number of\nDER requesting interconnection at a given DER Substation.\n\nAutomated Clearing House (ACH) payments and wire transfers are MISO’s required methods\nfor receiving deposits and refunding unused deposit portions.",
+  "cite": "BPM-015 r33 §8.3.2.2"
+}

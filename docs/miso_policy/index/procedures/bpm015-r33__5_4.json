@@ -1,0 +1,51 @@
+{
+  "unit_id": "bpm015-r33::5.4",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "5.4",
+    "title": "Definitive Planning Phase III",
+    "pages": [
+      54,
+      54
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp3"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "withdrawal",
+      "decision_point",
+      "cost_allocation"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "5.4. Definitive Planning Phase III\nThe DPP III will start the next Business Day after the IC Decision Point II window expires. Phase\nIII is designed to provide ICs a final, detailed analysis of their Interconnection Project’s impact on\nthe reliability of the Transmission System after incorporating updated generation assumptions\ndue to potential withdrawal of IRs during DPP II and will be approximately sixty (60) Calendar\nDays in length. MISO will perform an update to the Model Building and Review results done in\nDPP II, scheduled for six (6) Business Days. Following this, MISO will conduct a final SIS,\nscheduled for fifty (50) Calendar Days.  MISO will perform an update to the Phase II model to\nincorporate any withdrawals and reduction to the ER/NR sizes of the projects allowed at Decision\nPoint 2 and this is scheduled to take six (6) Business Day upon which MISO will post the Final\nSIS model. The day after the final model posting, MISO will begin the Final SIS during the Phase\nIII study period, scheduled to last for fifty (50) Calendar Days. Upon completion of the Final SIS,\nMISO will then conduct any necessary Network Upgrade Facilities Studies (NU FaS) identified in\nthe Final SIS. NU FaS studies can take up to ninety (90) Calendar Days to complete.",
+  "cite": "BPM-015 r33 §5.4"
+}

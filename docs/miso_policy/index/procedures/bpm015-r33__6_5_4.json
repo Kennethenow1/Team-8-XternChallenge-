@@ -1,0 +1,35 @@
+{
+  "unit_id": "bpm015-r33::6.5.4",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.5.4",
+    "title": "Scope",
+    "pages": [
+      104,
+      104
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [],
+    "milestone": [],
+    "actor": [
+      "to"
+    ],
+    "topic": [],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.5.4.\nScope\nThis section defines the GIRs and TSRs that are deemed in scope for this procedure. A\nGIR or TSR that is deemed in scope will be subject to the coordination procedures\nbelow. If the GIR or TSR is not deemed in scope, it is not subject to the coordination\nprocedures below.",
+  "cite": "BPM-015 r33 §6.5.4"
+}

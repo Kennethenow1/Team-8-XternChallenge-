@@ -1,0 +1,9 @@
+{
+  "model": "nasnet_cnn",
+  "status": "ok",
+  "reason": "WSL TF GPU: 2 frozen epochs (NASNetLarge); Windows kernel reloaded history (no CPU train). Finetune stopped after frozen checkpoint.",
+  "split": "val",
+  "pr_auc": 0.04294005036354065,
+  "roc_auc": 0.5034212470054626,
+  "log_loss": 0.633906900882721
+}

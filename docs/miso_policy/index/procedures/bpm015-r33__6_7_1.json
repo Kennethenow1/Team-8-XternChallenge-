@@ -1,0 +1,47 @@
+{
+  "unit_id": "bpm015-r33::6.7.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.7.1",
+    "title": "Generating Facility Modification Process",
+    "pages": [
+      115,
+      116
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "gia_negotiation"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.7.1.\nGenerating Facility Modification Process\nGenerating Facility Modification shall mean modification to an Existing Generating Facility,\nincluding comparable replacement of only a portion of the equipment at the Existing Generating\nFacility. If a planned modification to an Existing Generating Facility (with unsuspended\ninterconnection rights) is expected by the IC (or generator owner) to have material (adverse)\nimpact on the Transmission System with respect to: i) steady-state thermal or voltage limits, or ii)\ndynamic system stability and response, or iii) short-circuit capability limit; the IC shall submit a\nrequest in writing to MISO for a Generating Facility Modification prior to performing any\npermanent21 modification22,23 to an Existing Generating Facility. The request shall be in the form\nof a letter describing the planned changes to the Existing Generating Facility and all relevant data\nand analysis. The request shall be submitted to MISO at the following address:\nDirector, Resource Utilization\nMISO\n720 West City Center Drive\nCarmel, IN 46032\n\nGenerating Facility maintenance that requires replacement of components with newer\ncomparable components to ensure continued or enhanced reliable operation of the Generating\nFacility will generally be considered to have de minimis impact on the transmission system. It is\nthe IC’s responsibility to support any determination that the planned modification is not expected\n\n\n21 Temporary modifications do not require changes to the GIA. Temporary modifications made while waiting on the comparable\npart to be delivered and modifications made as a result of equipment failure to support continued reliability may not be\n“comparable.” However, such modifications do not require changes to the GIA, as they are a part of an owner’s routine\nmaintenance and/or equipment failure processes and are not subject to MISO review.\n22 Any modification that may result in an increase in net injection above the existing Interconnection Service will require a new\nInterconnection Request to be submitted to MISO prior to an increase in actual injection at the POI.\n23 Generating Facility modification for complete fuel conversion that does not involve complete tear down of an existing\nGenerating Facility will be eligible for generator modification process.\n\n\nto result in degradation of transmission system reliability. The evidence to support this engineering\njudgment may be an assessment that is performed by the IC, TO, or a third party.\n\nFor on-going generator maintenance, where the replacement components are comparable and\nimpacts are expected to be de minimis, there is no need for the submission of information to MISO\nfor determination of material (adverse) impacts. In cases where replacement components are not\ncomparable, MISO will determine if the change is a Qualitied Change.\n\nA determination of whether a planned change has a de minimis impact on the transmission system\nshall be made using good engineering judgment and shall be based on the decision made or\nopinion rendered by a qualified engineer. In making this determination, the qualified engineer shall\ntake into account all available data and rely on his or her experience with the generation\ntechnology and transmission system and knowledge of NERC standards. Additionally, the IC may\nrequest a meeting with MISO and the TO prior to submitting a request for Generating Facility\nModification evaluation to discuss the planned change and any need for additional studies.\n\nIf the IC is certain that the planned change to the Existing Generating Facility would constitute a\nQualified Change, the IC can enter the DPP cycle in MISO’s Generator Interconnection queue by\nsubmitting a new IR.",
+  "cite": "BPM-015 r33 §6.7.1"
+}

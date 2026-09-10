@@ -1,0 +1,910 @@
+{
+  "model": "gpt-4.1",
+  "dialect": "auto",
+  "shape": "short",
+  "question": "Who pays for that, and how many Business Days does the IC have to answer?",
+  "project_key": null,
+  "searched": false,
+  "plan": {
+    "need_search": false,
+    "reuse_unit_ids": [
+      "bpm015-r33::5.4.6",
+      "bpm015-r33::7.3"
+    ],
+    "search_focus": "restudy cost allocation and IC response deadlines",
+    "response_shape": "short",
+    "want_diagram": false,
+    "reason": "The held units already cover who pays for a restudy after a peer withdrawal and address IC responsibilities and timelines.",
+    "source": "gpt-4.1",
+    "elapsed_ms": 1698,
+    "tokens": {
+      "prompt_tokens": 1570,
+      "completion_tokens": 97,
+      "total_tokens": 1667,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "model": "gpt-4.1"
+  },
+  "packet": {
+    "schema_version": "bot.v1",
+    "card": {
+      "project_key": null,
+      "observation_date": null,
+      "study_phase": null,
+      "scenario": null,
+      "p_quit_12m": null,
+      "flags": null,
+      "risks": null
+    },
+    "workflow": {
+      "gi_phase_guess": [],
+      "next_steps": [
+        "BPM-015 r33 \u00a75.4.6: Interconnection Study Restudy",
+        "BPM-015 r33 \u00a77.3: Interconnection Customer delays"
+      ],
+      "note": "GIQ study_phase is coarser than DPP 1/2/3. Phase guess is best-effort."
+    },
+    "stakeholders": [
+      {
+        "actor": "ic",
+        "why": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution.",
+        "unit_ids": [
+          "bpm015-r33::5.4.6",
+          "bpm015-r33::7.3"
+        ]
+      },
+      {
+        "actor": "miso",
+        "why": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing.",
+        "unit_ids": [
+          "bpm015-r33::5.4.6",
+          "bpm015-r33::7.3"
+        ]
+      },
+      {
+        "actor": "to",
+        "why": "Transmission Owner: scoping, facilities, local criteria, construction.",
+        "unit_ids": [
+          "bpm015-r33::5.4.6",
+          "bpm015-r33::7.3"
+        ]
+      },
+      {
+        "actor": "ferc",
+        "why": "FERC: GIA filing / unexecuted filing; not a compliance score on this card.",
+        "unit_ids": [
+          "bpm015-r33::5.4.6"
+        ]
+      },
+      {
+        "actor": "affected_system",
+        "why": "Affected System / neighboring TO: coordination and restudy of impacts.",
+        "unit_ids": [
+          "bpm015-r33::7.3"
+        ]
+      }
+    ],
+    "mitigation": [],
+    "compliance": {
+      "status": "not_determined",
+      "meaning": "We do not score legal compliance of a COD slip. Retrieved delay/restudy/withdrawal clauses only."
+    },
+    "retrieved": [
+      {
+        "unit_id": "bpm015-r33::5.4.6",
+        "cite": "BPM-015 r33 \u00a75.4.6",
+        "title": "Interconnection Study Restudy",
+        "bpm_section": "5.4.6",
+        "pages": [
+          56,
+          56
+        ],
+        "tags": {
+          "gi_phase": [
+            "dpp3"
+          ],
+          "milestone": [],
+          "actor": [
+            "ic",
+            "miso",
+            "to",
+            "ferc"
+          ],
+          "topic": [
+            "restudy",
+            "delay_of_study",
+            "withdrawal",
+            "cost_allocation",
+            "gia_negotiation"
+          ],
+          "risk_code": [
+            "restudy_friction",
+            "abandonment"
+          ],
+          "claim_class": [
+            "workflow",
+            "timeline_target"
+          ]
+        },
+        "text": "5.4.6.\nInterconnection Study Restudy\nIf MISO determines restudy is required because one of the contingencies in Article 11.3.1 of the\nGIA has occurred, or at MISO\u2019s discretion, MISO will reevaluate the need for the Common Use\nUpgrade and/or Shared Network Upgrade, and if still required, reallocate the cost and\nresponsibility for any Common Use Upgrade and/or Shared Network Upgrade, without a restudy\nwhen possible, or with a restudy if MISO deems it necessary in order to ensure reliability of the\nTransmission System.\n\nIf a restudy of any Interconnection Study is required because an IR withdraws or is deemed to\nhave withdrawn prior to all GIAs, FCAs, and/or MPFCAs, as applicable, for each respective DPP\ncycle have been executed or filed unexecuted with the FERC, MISO shall provide notice of a\nrestudy as necessary. MISO will include in the notice of restudy a preliminary analysis supporting\nthe need for an Interconnection Study restudy, an explanation of why an Interconnection Study\nrestudy is required, and a good faith estimate of the cost to perform the Interconnection Study\nrestudy. The Interconnection Study restudy will be performed according to the GIP and the BPMs\nin effect at the time the notice is given by MISO. The IC shall notify MISO within five (5) Business\nDays whether the IC wishes to proceed with the Interconnection Study restudy or withdraw its IR.\nMISO will deem a failure to notify MISO to proceed to perform the Interconnection Study restudy\nas the ICs withdrawal of its IR in accordance with Section 3.6 of the GIP. MISO will use reasonable\nefforts to complete the Interconnection Study restudy within sixty (60) Calendar Days from the\ndate of notice. MISO may perform the Interconnection Study restudy of Network Upgrades\ncommon to more than one IR as a Group Study."
+      },
+      {
+        "unit_id": "bpm015-r33::7.3",
+        "cite": "BPM-015 r33 \u00a77.3",
+        "title": "Interconnection Customer delays",
+        "bpm_section": "7.3",
+        "pages": [
+          128,
+          129
+        ],
+        "tags": {
+          "gi_phase": [
+            "post_gia"
+          ],
+          "milestone": [],
+          "actor": [
+            "ic",
+            "miso",
+            "to",
+            "affected_system"
+          ],
+          "topic": [
+            "delay_of_study",
+            "cost_allocation",
+            "gia_negotiation"
+          ],
+          "risk_code": [
+            "cod_already_slipped",
+            "gia_execution"
+          ],
+          "claim_class": [
+            "workflow",
+            "timeline_target"
+          ]
+        },
+        "text": "7.3. Interconnection Customer delays\nInterconnection Customer requests to amend GIA milestones are addressed under the terms of\nthe effective GIA.  Article 30.10 of the pro forma GIA requires the consent of all Parties in order\nto amend the terms of the GIA.  Therefore, to the extent that the effective GIA does not otherwise\nprohibit or preclude the Interconnection Customer\u2019s request to amend GIA milestones, consent\nof MISO and the Transmission Owner are required before the Interconnection Customer\u2019s\nproposed amendment may be pursued.\n\nIn order to ensure consistent treatment and efficient review of such requests, MISO requires that\nthe requesting Interconnection Customer satisfy the following criteria to provide MISO with\ncomplete information upon which to determine whether its consent to amendment will be provided\npursuant to GIA Article 30.10.  These criteria are as follows:\n\u2022\n(1) Interconnection Customer to provide a written statement from a Company\nOfficer or authorized agent describing circumstances that require the milestone\nchange;\n\u2022\n(2) Interconnection Customer and Transmission Owner agree on specific\nmilestone changes in writing and in advance of submitting request to MISO;\n\u2022\n(3) Interconnection Customer demonstrates an absence of any significant potential\nfor harm to other queued projects.  Factors that may be considered: whether\nchanges specifically affect Network Upgrades, aside from those at the POI;\nwhether proposed change would satisfy a Qualified Change standard (see\nQualified Change definition in Attachment X of the MISO Tariff for additional\ndetails); whether POI is shared by any downstream projects (i.e., no\ndependencies); whether the particular project is appearing in MTEP models;\nwhether Network Upgrades or affected system upgrades are assigned to the\nproject."
+      }
+    ],
+    "do_not_claim": [
+      "do not quote months of future COD slip as a model output",
+      "do not claim a MISO Step-Up / Firm Service failure record",
+      "do not treat EIA delayed MW as a complete GIA list (overlay is thin)",
+      "do not treat scenario deltas as causal effects",
+      "do not use FERC-730 as a clean delay source",
+      "do not unseal 2024 test labels or tune on test/score"
+    ],
+    "query": {
+      "schema_version": "query.v1",
+      "question": "Who pays for that, and how many Business Days does the IC have to answer?",
+      "requirements": {
+        "audience": "analyst",
+        "dialect": "auto",
+        "need": [
+          "workflow",
+          "stakeholders",
+          "citations",
+          "do_not_claim"
+        ],
+        "max_units": 12
+      },
+      "has_card": false
+    },
+    "gaps": [],
+    "search_trace": {
+      "algorithms": [
+        {
+          "name": "alg_history_reuse",
+          "n_candidates": 2,
+          "top_ids": [
+            "bpm015-r33::5.4.6",
+            "bpm015-r33::7.3"
+          ],
+          "elapsed_ms": 0,
+          "error": null,
+          "reason": "The held units already cover who pays for a restudy after a peer withdrawal and address IC responsibilities and timelines."
+        }
+      ],
+      "directives": [
+        {
+          "name": "DIR_HISTORY_REUSE",
+          "ok": true,
+          "reason": "The held units already cover who pays for a restudy after a peer withdrawal and address IC responsibilities and timelines."
+        }
+      ],
+      "lexicon_tags": {},
+      "seed_ids": [],
+      "kept_unit_ids": [
+        "bpm015-r33::5.4.6",
+        "bpm015-r33::7.3"
+      ]
+    },
+    "error_code": null,
+    "wants_diagram": false,
+    "reused_from_history": true,
+    "graph_slice": {
+      "unit_ids": [
+        "bpm015-r33::5.4.6",
+        "bpm015-r33::7.3"
+      ],
+      "nodes": [
+        {
+          "id": "doc:bpm-015-r33-clean",
+          "kind": "doc",
+          "title": "BPM-015 r33 clean",
+          "status": "current"
+        },
+        {
+          "id": "risk:gia_execution",
+          "kind": "risk",
+          "stub": false
+        },
+        {
+          "id": "risk:cod_already_slipped",
+          "kind": "risk",
+          "stub": false
+        },
+        {
+          "id": "risk:restudy_friction",
+          "kind": "risk",
+          "stub": false
+        },
+        {
+          "id": "tag:gi_phase:dpp3",
+          "kind": "tag",
+          "facet": "gi_phase",
+          "value": "dpp3"
+        },
+        {
+          "id": "tag:gi_phase:post_gia",
+          "kind": "tag",
+          "facet": "gi_phase",
+          "value": "post_gia"
+        },
+        {
+          "id": "tag:topic:withdrawal",
+          "kind": "tag",
+          "facet": "topic",
+          "value": "withdrawal"
+        },
+        {
+          "id": "tag:topic:restudy",
+          "kind": "tag",
+          "facet": "topic",
+          "value": "restudy"
+        },
+        {
+          "id": "tag:topic:delay_of_study",
+          "kind": "tag",
+          "facet": "topic",
+          "value": "delay_of_study"
+        },
+        {
+          "id": "tag:topic:gia_negotiation",
+          "kind": "tag",
+          "facet": "topic",
+          "value": "gia_negotiation"
+        },
+        {
+          "id": "tag:topic:cost_allocation",
+          "kind": "tag",
+          "facet": "topic",
+          "value": "cost_allocation"
+        },
+        {
+          "id": "tag:actor:ic",
+          "kind": "tag",
+          "facet": "actor",
+          "value": "ic"
+        },
+        {
+          "id": "tag:actor:miso",
+          "kind": "tag",
+          "facet": "actor",
+          "value": "miso"
+        },
+        {
+          "id": "tag:actor:to",
+          "kind": "tag",
+          "facet": "actor",
+          "value": "to"
+        },
+        {
+          "id": "tag:actor:affected_system",
+          "kind": "tag",
+          "facet": "actor",
+          "value": "affected_system"
+        },
+        {
+          "id": "tag:actor:ferc",
+          "kind": "tag",
+          "facet": "actor",
+          "value": "ferc"
+        },
+        {
+          "id": "tag:claim_class:workflow",
+          "kind": "tag",
+          "facet": "claim_class",
+          "value": "workflow"
+        },
+        {
+          "id": "tag:claim_class:timeline_target",
+          "kind": "tag",
+          "facet": "claim_class",
+          "value": "timeline_target"
+        },
+        {
+          "id": "unit:bpm015-r33::5.4",
+          "kind": "unit",
+          "title": "Definitive Planning Phase III",
+          "cite": "BPM-015 r33 \u00a75.4",
+          "pages": [
+            54,
+            54
+          ],
+          "bpm_section": "5.4"
+        },
+        {
+          "id": "unit:bpm015-r33::5.4.6",
+          "kind": "unit",
+          "title": "Interconnection Study Restudy",
+          "cite": "BPM-015 r33 \u00a75.4.6",
+          "pages": [
+            56,
+            56
+          ],
+          "bpm_section": "5.4.6"
+        },
+        {
+          "id": "unit:bpm015-r33::7",
+          "kind": "unit",
+          "title": "Post \u2013 GIA Phase",
+          "cite": "BPM-015 r33 \u00a77",
+          "pages": [
+            126,
+            126
+          ],
+          "bpm_section": "7"
+        },
+        {
+          "id": "unit:bpm015-r33::7.3",
+          "kind": "unit",
+          "title": "Interconnection Customer delays",
+          "cite": "BPM-015 r33 \u00a77.3",
+          "pages": [
+            128,
+            129
+          ],
+          "bpm_section": "7.3"
+        }
+      ],
+      "edges": [
+        {
+          "from": "doc:bpm-015-r33-clean",
+          "to": "unit:bpm015-r33::5.4.6",
+          "rel": "contains"
+        },
+        {
+          "from": "unit:bpm015-r33::5.4.6",
+          "to": "tag:gi_phase:dpp3",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.4.6",
+          "to": "tag:topic:restudy",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.4.6",
+          "to": "tag:topic:delay_of_study",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.4.6",
+          "to": "tag:topic:withdrawal",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.4.6",
+          "to": "tag:topic:cost_allocation",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.4.6",
+          "to": "tag:topic:gia_negotiation",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.4.6",
+          "to": "tag:actor:ic",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.4.6",
+          "to": "tag:actor:miso",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.4.6",
+          "to": "tag:actor:to",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.4.6",
+          "to": "tag:actor:ferc",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.4.6",
+          "to": "tag:claim_class:workflow",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.4.6",
+          "to": "tag:claim_class:timeline_target",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::5.4",
+          "to": "unit:bpm015-r33::5.4.6",
+          "rel": "parent_of"
+        },
+        {
+          "from": "doc:bpm-015-r33-clean",
+          "to": "unit:bpm015-r33::7.3",
+          "rel": "contains"
+        },
+        {
+          "from": "unit:bpm015-r33::7.3",
+          "to": "tag:gi_phase:post_gia",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::7.3",
+          "to": "tag:topic:delay_of_study",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::7.3",
+          "to": "tag:topic:cost_allocation",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::7.3",
+          "to": "tag:topic:gia_negotiation",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::7.3",
+          "to": "tag:actor:ic",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::7.3",
+          "to": "tag:actor:miso",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::7.3",
+          "to": "tag:actor:to",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::7.3",
+          "to": "tag:actor:affected_system",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::7.3",
+          "to": "tag:claim_class:workflow",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::7.3",
+          "to": "tag:claim_class:timeline_target",
+          "rel": "tagged_with"
+        },
+        {
+          "from": "unit:bpm015-r33::7",
+          "to": "unit:bpm015-r33::7.3",
+          "rel": "parent_of"
+        },
+        {
+          "from": "unit:bpm015-r33::7.3",
+          "to": "risk:gia_execution",
+          "rel": "seed_for"
+        },
+        {
+          "from": "unit:bpm015-r33::7.3",
+          "to": "risk:cod_already_slipped",
+          "rel": "seed_for"
+        },
+        {
+          "from": "unit:bpm015-r33::5.4.6",
+          "to": "risk:restudy_friction",
+          "rel": "seed_for"
+        }
+      ],
+      "algorithms": [
+        "alg_history_reuse"
+      ]
+    }
+  },
+  "search_trace": {
+    "algorithms": [
+      {
+        "name": "alg_history_reuse",
+        "n_candidates": 2,
+        "top_ids": [
+          "bpm015-r33::5.4.6",
+          "bpm015-r33::7.3"
+        ],
+        "elapsed_ms": 0,
+        "error": null,
+        "reason": "The held units already cover who pays for a restudy after a peer withdrawal and address IC responsibilities and timelines."
+      }
+    ],
+    "directives": [
+      {
+        "name": "DIR_HISTORY_REUSE",
+        "ok": true,
+        "reason": "The held units already cover who pays for a restudy after a peer withdrawal and address IC responsibilities and timelines."
+      }
+    ],
+    "lexicon_tags": {},
+    "seed_ids": [],
+    "kept_unit_ids": [
+      "bpm015-r33::5.4.6",
+      "bpm015-r33::7.3"
+    ]
+  },
+  "graph_slice": {
+    "unit_ids": [
+      "bpm015-r33::5.4.6",
+      "bpm015-r33::7.3"
+    ],
+    "nodes": [
+      {
+        "id": "doc:bpm-015-r33-clean",
+        "kind": "doc",
+        "title": "BPM-015 r33 clean",
+        "status": "current"
+      },
+      {
+        "id": "risk:gia_execution",
+        "kind": "risk",
+        "stub": false
+      },
+      {
+        "id": "risk:cod_already_slipped",
+        "kind": "risk",
+        "stub": false
+      },
+      {
+        "id": "risk:restudy_friction",
+        "kind": "risk",
+        "stub": false
+      },
+      {
+        "id": "tag:gi_phase:dpp3",
+        "kind": "tag",
+        "facet": "gi_phase",
+        "value": "dpp3"
+      },
+      {
+        "id": "tag:gi_phase:post_gia",
+        "kind": "tag",
+        "facet": "gi_phase",
+        "value": "post_gia"
+      },
+      {
+        "id": "tag:topic:withdrawal",
+        "kind": "tag",
+        "facet": "topic",
+        "value": "withdrawal"
+      },
+      {
+        "id": "tag:topic:restudy",
+        "kind": "tag",
+        "facet": "topic",
+        "value": "restudy"
+      },
+      {
+        "id": "tag:topic:delay_of_study",
+        "kind": "tag",
+        "facet": "topic",
+        "value": "delay_of_study"
+      },
+      {
+        "id": "tag:topic:gia_negotiation",
+        "kind": "tag",
+        "facet": "topic",
+        "value": "gia_negotiation"
+      },
+      {
+        "id": "tag:topic:cost_allocation",
+        "kind": "tag",
+        "facet": "topic",
+        "value": "cost_allocation"
+      },
+      {
+        "id": "tag:actor:ic",
+        "kind": "tag",
+        "facet": "actor",
+        "value": "ic"
+      },
+      {
+        "id": "tag:actor:miso",
+        "kind": "tag",
+        "facet": "actor",
+        "value": "miso"
+      },
+      {
+        "id": "tag:actor:to",
+        "kind": "tag",
+        "facet": "actor",
+        "value": "to"
+      },
+      {
+        "id": "tag:actor:affected_system",
+        "kind": "tag",
+        "facet": "actor",
+        "value": "affected_system"
+      },
+      {
+        "id": "tag:actor:ferc",
+        "kind": "tag",
+        "facet": "actor",
+        "value": "ferc"
+      },
+      {
+        "id": "tag:claim_class:workflow",
+        "kind": "tag",
+        "facet": "claim_class",
+        "value": "workflow"
+      },
+      {
+        "id": "tag:claim_class:timeline_target",
+        "kind": "tag",
+        "facet": "claim_class",
+        "value": "timeline_target"
+      },
+      {
+        "id": "unit:bpm015-r33::5.4",
+        "kind": "unit",
+        "title": "Definitive Planning Phase III",
+        "cite": "BPM-015 r33 \u00a75.4",
+        "pages": [
+          54,
+          54
+        ],
+        "bpm_section": "5.4"
+      },
+      {
+        "id": "unit:bpm015-r33::5.4.6",
+        "kind": "unit",
+        "title": "Interconnection Study Restudy",
+        "cite": "BPM-015 r33 \u00a75.4.6",
+        "pages": [
+          56,
+          56
+        ],
+        "bpm_section": "5.4.6"
+      },
+      {
+        "id": "unit:bpm015-r33::7",
+        "kind": "unit",
+        "title": "Post \u2013 GIA Phase",
+        "cite": "BPM-015 r33 \u00a77",
+        "pages": [
+          126,
+          126
+        ],
+        "bpm_section": "7"
+      },
+      {
+        "id": "unit:bpm015-r33::7.3",
+        "kind": "unit",
+        "title": "Interconnection Customer delays",
+        "cite": "BPM-015 r33 \u00a77.3",
+        "pages": [
+          128,
+          129
+        ],
+        "bpm_section": "7.3"
+      }
+    ],
+    "edges": [
+      {
+        "from": "doc:bpm-015-r33-clean",
+        "to": "unit:bpm015-r33::5.4.6",
+        "rel": "contains"
+      },
+      {
+        "from": "unit:bpm015-r33::5.4.6",
+        "to": "tag:gi_phase:dpp3",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.4.6",
+        "to": "tag:topic:restudy",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.4.6",
+        "to": "tag:topic:delay_of_study",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.4.6",
+        "to": "tag:topic:withdrawal",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.4.6",
+        "to": "tag:topic:cost_allocation",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.4.6",
+        "to": "tag:topic:gia_negotiation",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.4.6",
+        "to": "tag:actor:ic",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.4.6",
+        "to": "tag:actor:miso",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.4.6",
+        "to": "tag:actor:to",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.4.6",
+        "to": "tag:actor:ferc",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.4.6",
+        "to": "tag:claim_class:workflow",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.4.6",
+        "to": "tag:claim_class:timeline_target",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::5.4",
+        "to": "unit:bpm015-r33::5.4.6",
+        "rel": "parent_of"
+      },
+      {
+        "from": "doc:bpm-015-r33-clean",
+        "to": "unit:bpm015-r33::7.3",
+        "rel": "contains"
+      },
+      {
+        "from": "unit:bpm015-r33::7.3",
+        "to": "tag:gi_phase:post_gia",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::7.3",
+        "to": "tag:topic:delay_of_study",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::7.3",
+        "to": "tag:topic:cost_allocation",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::7.3",
+        "to": "tag:topic:gia_negotiation",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::7.3",
+        "to": "tag:actor:ic",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::7.3",
+        "to": "tag:actor:miso",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::7.3",
+        "to": "tag:actor:to",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::7.3",
+        "to": "tag:actor:affected_system",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::7.3",
+        "to": "tag:claim_class:workflow",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::7.3",
+        "to": "tag:claim_class:timeline_target",
+        "rel": "tagged_with"
+      },
+      {
+        "from": "unit:bpm015-r33::7",
+        "to": "unit:bpm015-r33::7.3",
+        "rel": "parent_of"
+      },
+      {
+        "from": "unit:bpm015-r33::7.3",
+        "to": "risk:gia_execution",
+        "rel": "seed_for"
+      },
+      {
+        "from": "unit:bpm015-r33::7.3",
+        "to": "risk:cod_already_slipped",
+        "rel": "seed_for"
+      },
+      {
+        "from": "unit:bpm015-r33::5.4.6",
+        "to": "risk:restudy_friction",
+        "rel": "seed_for"
+      }
+    ],
+    "algorithms": [
+      "alg_history_reuse"
+    ]
+  },
+  "passes": [
+    {
+      "name": "write",
+      "ok": true,
+      "elapsed_ms": 1674,
+      "tokens": {
+        "prompt_tokens": 3095,
+        "completion_tokens": 163,
+        "total_tokens": 3258,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "model": "gpt-4.1"
+    },
+    {
+      "name": "code_postcheck",
+      "ok": true,
+      "elapsed_ms": 1,
+      "flags": [],
+      "model": "gpt-4.1"
+    }
+  ],
+  "compose_mode": "gpt-4.1",
+  "error_code": "packet_too_large",
+  "ok": true,
+  "n_history_turns": 2
+}

@@ -1,0 +1,10 @@
+{
+  "family": "logistic",
+  "n_trials": 8,
+  "best_mae": 12.112649898194226,
+  "best_params": {
+    "alpha": 0.06736434911673836,
+    "l1_ratio": 0.9
+  },
+  "best_companion_pr_auc": 0.3967085857428414
+}

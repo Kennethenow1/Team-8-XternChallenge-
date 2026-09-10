@@ -1,0 +1,57 @@
+{
+  "unit_id": "bpm015-r33::5.3.5",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "5.3.5",
+    "title": "Withdrawal from DPP Phase II",
+    "pages": [
+      52,
+      52
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp2"
+    ],
+    "milestone": [
+      "M3",
+      "M4"
+    ],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "withdrawal",
+      "deposit_refund",
+      "decision_point"
+    ],
+    "risk_code": [
+      "abandonment"
+    ],
+    "claim_class": [
+      "workflow",
+      "deposit_rule"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "5.3.5\nWithdrawal from DPP Phase II\nIf MISO does not receive written confirmation from the IC regarding whether it intends to proceed\nto the DPP III or to withdraw its IR during the IC Decision Point II, MISO will deem the IR as\nwithdrawn and refund the IC’s DPP II Milestone (M3) and any remaining study deposits pursuant\nto Section 7.6 of the GIP. After the IC enters the DPP III, the DPP II (M3) Milestone payment\nbecomes one hundred percent (100%) non-refundable, pursuant to Section 7.6.2 of the GIP.",
+  "cite": "BPM-015 r33 §5.3.5"
+}

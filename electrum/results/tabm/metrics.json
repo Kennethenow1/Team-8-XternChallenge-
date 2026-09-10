@@ -1,0 +1,5 @@
+{
+  "model": "tabm_electrum",
+  "status": "skipped",
+  "reason": "tabm/torch not installed: No module named 'tabm'"
+}

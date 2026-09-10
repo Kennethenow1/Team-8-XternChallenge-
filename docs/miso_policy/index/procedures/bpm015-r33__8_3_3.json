@@ -1,0 +1,61 @@
+{
+  "unit_id": "bpm015-r33::8.3.3",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "8.3.3",
+    "title": "Report",
+    "pages": [
+      140,
+      141
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "der_afs"
+    ],
+    "milestone": [],
+    "actor": [
+      "miso",
+      "to",
+      "affected_system",
+      "ferc",
+      "neighboring_rto"
+    ],
+    "topic": [
+      "deposit_refund",
+      "cost_allocation"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow",
+      "study_method"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    },
+    {
+      "actor": "affected_system",
+      "impact": "Affected System / neighboring TO: coordination and restudy of impacts."
+    },
+    {
+      "actor": "ferc",
+      "impact": "FERC: GIA filing / unexecuted filing; not a compliance score on this card."
+    },
+    {
+      "actor": "neighboring_rto",
+      "impact": "Neighboring RTO (PJM/SPP/MH): affected-system studies and limits."
+    }
+  ],
+  "text": "8.3.3.\nReport\nMISO will prepare two versions of the DER AFS report:\n\n•\nA Public version of the draft DER AFS report will be posted on MISO’s public-facing\nwebsite for the TO, EDC, DER Customer(s), and other interested parties (e.g., RERRA)\nto view high-level results. This version will document any system impacts found along\nwith indicative estimates for any Network Upgrades needed to mitigate the impacts.\n•\nA Confidential version of the DER AFS report with Critical Energy/Electric\nInfrastructure Information33 (CEII) will be available to the TO, EDC, and DER\nCustomer(s), as appropriate, with restricted access.\na. CEII version is only needed if network upgrades are required.\nb. Parties with access could view detailed study contingency and network upgrade\ninformation which would be shared with the EDCs as needed.\n\nSince the DER AFS consider cumulative DER at the substation level, MISO does not attribute\nimpacts to specific DER. The entity responsible for managing the RERRA-jurisdictional\ninterconnection process (e.g., EDC) would be responsible for disaggregating the results, when\nrelevant, to assign impacts and Facilities Study deposit funding.\n\nThe DER AFS report will provide information needed to disaggregate DER Substation impact\nresults. The thermal impacts can be disaggregated using simple linear impacts and cost\nassignment methodology, applying a dollars per kilowatt ($/kW) of DER capacity. Voltage\nimpacts will be shown in a table, similar to MISO’s SPP study Steady State Voltage Violations\ntables in Appendix B of the MISO-SPP study34, to allow for impacts assignment. If cumulative\nimpacts are 1% or greater, study report impacts are assigned per DER Substation based on\nvoltage impact contributions.\n\nIf the DER AFS finds constraints, MISO will contact the Transmission Owner to collaborate on\nmitigations and planning-level estimates before the DER AFS draft report is posted.\n\n\n33 FERC, Critical Energy/Electric Infrastructure Information (CEII). Accessed 10/12/22. Information available at: https://www.ferc.gov/ceii\n34 MISO, Leidos, MISO Affected Systems Studies for SPP Projects Phase II April 2021. Available at:\nhttps://opsportal.spp.org/documents/studies/files/2017_Generation_Studies/FinalReport-MISO_AFS-2017-DISIS_v2.0.pdf\n\n\nMISO will hold a 10-business day comment period for affected TOs, EDCs, RERRAs, and/or\nDER Customers to share comments. Affected parties are invited to send feedback to MISO via\nemail with the unique DER Substation study identifier in the subject line. MISO will respond to\nall feedback prior to finalizing the study.\n\nWhen impacts are identified that require a Facilities Study, the DER Substation has 10 business\ndays from the time of study finalization to fund the Facilities Study deposit in order to remain\nactive in that cycle of MISO’s DER AFS process. Should the DER Substation not fund the\nFacilities Study deposit, the DER at the DER Substation may be submitted to the next DER AFS\ncycle.",
+  "cite": "BPM-015 r33 §8.3.3"
+}

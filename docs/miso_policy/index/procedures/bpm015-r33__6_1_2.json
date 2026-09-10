@@ -1,0 +1,57 @@
+{
+  "unit_id": "bpm015-r33::6.1.2",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.1.2",
+    "title": "Short Circuit and Stability Analysis",
+    "pages": [
+      76,
+      77
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp1",
+      "dpp2",
+      "dpp3"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to",
+      "ferc"
+    ],
+    "topic": [
+      "cost_allocation",
+      "deliverability"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "study_method"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    },
+    {
+      "actor": "ferc",
+      "impact": "FERC: GIA filing / unexecuted filing; not a compliance score on this card."
+    }
+  ],
+  "text": "6.1.2.\nShort Circuit and Stability Analysis\nShort circuit analysis will generally include determining the fault current contribution from the new\nGenerating Facility and its Network Upgrades under three-phase fault and single line to ground\nfault conditions. The study will identify any circuit breaker(s) that would need to be replaced to\naccommodate fault currents from the proposed Generating Facility.\n\n\nThe stability study will include the evaluation of the impact of the new Generating Facility on\ntransient stability performance of the system by adhering to the reliability standards under\n6.1.1.1.2. The stability study may also consider other scenarios to assess system transient\nstability in accordance with the local transmission planning criteria and Section 4.5 of this BPM.\n\nAdditionally, based on engineering judgement, MISO may include other scenarios to assess\nsystem transient stability when all generators in the same electrical area (local area) as the study\ngenerator(s) are at their full ERIS level. The IC will only be responsible for mitigating constraints\nwhich are caused by the study generators.\n\nExample:\nThe base case used for the stability study will be dispatched with all generators local to\nthe study generator(s) to their full ERIS injection capacity.\n\nThe study case will be created by adding the study generator(s) to the base case.\n\nThe IC will only be responsible for constraints which appear in the study case but do not\nappear in the base case.\n\nFor wind turbine generators LVRT analysis would be done according to FERC Orders 661 and\n661-A.",
+  "cite": "BPM-015 r33 §6.1.2"
+}

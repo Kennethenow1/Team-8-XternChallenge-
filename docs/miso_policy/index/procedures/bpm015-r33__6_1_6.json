@@ -1,0 +1,64 @@
+{
+  "unit_id": "bpm015-r33::6.1.6",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.1.6",
+    "title": "External Network Resource Interconnection Service Study",
+    "pages": [
+      80,
+      81
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp1",
+      "dpp2",
+      "dpp3"
+    ],
+    "milestone": [
+      "M2",
+      "D1",
+      "D2"
+    ],
+    "actor": [
+      "ic",
+      "miso",
+      "to",
+      "ferc"
+    ],
+    "topic": [
+      "cost_allocation",
+      "deliverability",
+      "deposit_refund",
+      "commercial_operation",
+      "gia_negotiation"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "study_method"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    },
+    {
+      "actor": "ferc",
+      "impact": "FERC: GIA filing / unexecuted filing; not a compliance score on this card."
+    }
+  ],
+  "text": "6.1.6.\nExternal Network Resource Interconnection Service Study\nThis product gives Generating Facilities external to MISO the ability to procure NRIS under the\nMISO Tariff as long as it meets certain conditions.\n\nTo be eligible for study, the Generating Facility must have a signed Interconnection Agreement\nwith the interconnecting Transmission Provider or be in commercial operation at the time of the\nrequest. Additionally, the Application Fee (D1), DPP Study Funding deposit (D2) and the DPP\nEntry (M2) Milestone deposit are required at the time of application for an external NRIS study\nrequest. Upon the receipt of a valid application, the request will be placed in the next applicable\nDPP cycle.\n\nDeliverability studies will be processed in the same manner as any other Generating Facility\nrequesting NRIS under MISO’s tariff. MISO will perform all applicable ERIS reliability analysis as\noutlined in Section 6.1.1.1.2 to ensure system reliability for the injection from the Generating\nFacility external to MISO. In conjunction, a deliverability study will also be performed as outlined\nin Section 6.1.1.1.6.\n\n\nThe qualifying NRIS amounts will be memorialized through a MISO Service Agreement that will\nbe filed at FERC. If any conditional service is granted, such service will be subjected to the annual\ninterim studies outlined in Section 6.6. Generating Facilities requesting external NRIS must also\nprocure firm Transmission Service to the MISO border through the host interconnecting\nTransmission Provider prior to the execution of a Service Agreement and such firm Transmission\nService should be maintained for the duration of the Service Agreement.",
+  "cite": "BPM-015 r33 §6.1.6"
+}

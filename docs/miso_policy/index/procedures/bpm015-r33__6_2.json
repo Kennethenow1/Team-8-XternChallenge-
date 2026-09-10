@@ -1,0 +1,54 @@
+{
+  "unit_id": "bpm015-r33::6.2",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.2",
+    "title": "Facility Study",
+    "pages": [
+      81,
+      81
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp3",
+      "gia"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "gia_negotiation",
+      "cost_allocation"
+    ],
+    "risk_code": [
+      "cost_pressure",
+      "gia_execution"
+    ],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.2. Facility Study\nThe Facility Study will determine the cost and time estimate to construct the Network Upgrades\nand TO’s Interconnection Facilities necessary to physically and electrically interconnect the\nproposed Generating Facility to the Transmission System.\n\nThe Facilities Study will be broken down into two stages, the Interconnection Facility facilities\nstudy and Network Upgrade facilities study. The Interconnection Facility facilities study will be\ndone in parallel with the DPP Phase II SIS and the Network Upgrade facilities study will be done\nafter the DPP III SIS is complete. The combination of the two facilities studies will determine the\ncost and construction schedule of identified Network Upgrades and Interconnection Facilities for\neach project in the DPP.",
+  "cite": "BPM-015 r33 §6.2"
+}

@@ -1,0 +1,50 @@
+{
+  "unit_id": "bpm015-r33::5.5.1.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "5.5.1.1",
+    "title": "Standard Requirements",
+    "pages": [
+      57,
+      58
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp3",
+      "gia"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "transfer_of_ownership"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "5.5.1.1 Standard Requirements\n1. A Transfer Notice\na. A MISO Transfer Notice must be filled out and executed.\nb. The correct customer’s name (seller) and buyer company (new customer\nname) must be accurately listed\nc. The MISO Transfer Notice template can be found on the MISO public\nwebsite.\n\n2. Legal Documentation\na.  A legally binding, executed document that demonstrates proof of the\nownership for a transfer. The document must show the new entity name and\nshow evidence that a sale/transfer/assignment has taken place.\n\nAccepted Documents\nNotice of Sale\nPurchase Agreement\nAssignment of Interest Agreement\n\n\nNot Accepted Documents\nLetter of Intent\n3. Other non-binding or non-exclusive agreement Updated W-9 Form\na. Customers are required to update their W-9 form to reflect new\nInterconnection Customer entity name\nb. The correct customer’s name and parent company must be accurately listed.\n\n4. Attachment C NDA\na. Customers must update the Attachment C NDA list in online tool. If the\nproject is older and not available on the online tool, customers must submit\nan updated Attachment C NDA list.\nb. A fillable Attachment C NDA document can be found on the MISO public\nwebsite.",
+  "cite": "BPM-015 r33 §5.5.1.1"
+}

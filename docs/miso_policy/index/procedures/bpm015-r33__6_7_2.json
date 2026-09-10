@@ -1,0 +1,50 @@
+{
+  "unit_id": "bpm015-r33::6.7.2",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.7.2",
+    "title": "Generating Facility Replacement Process",
+    "pages": [
+      117,
+      118
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [],
+    "milestone": [
+      "D1"
+    ],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "deposit_refund",
+      "gia_negotiation"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.7.2.\nGenerating Facility Replacement Process\nGenerating Facility Replacement process (pursuant to Section 3.7 of Attachment X to MISO Tariff)\ncan be used if an IC is planning to replace one or more generating units and/or storage devices\nat an Existing Generating Facility with one or more new generating units or storage devices at the\nsame electrical Point of Interconnection (i.e., same voltage level at the interconnecting substation)\nas the Existing Generating Facility.\nNo\nYes\nProcess\nRequest\nAmend GIA, as\nnecessary\n Generating Facility Review\n Is the\nmodification a\nQualified\nSubmit a new IR\nfor MM\nevaluation\n\n\nTo initiate the Generating Facility Replacement process, an IC can submit an Interconnection\nRequest (Appendix 1 to Attachment X) to MISO accompanied by a Non-Refundable Deposit 1\n(D1) and a study deposit in the amount of 150,000. The request can be submitted at any time if it\nmeets all the requirements as described in Section 3.7 of Attachment X to MISO Tariff. ICs must\ninitiate Replacement IRs through the online application tool. ICs must establish a profile on the\nMISO website prior to requesting access to the online application tool via the MISO Generator\nInterconnection page. The online application tool, instructions for establishing a profile, and an IC\ntraining\nmodule\nmay\nbe\naccessed\nthrough\nMISO’s\nwebsite\nat:\nhttps://www.misoenergy.org/planning/resource-utilization/generator-interconnection/. The online\napplication tool contains all data required by Tariff Attachment X, Appendix 1 and enables ICs to\nsubmit data to MISO in the form of Appendix 1. MISO will only accept Replacement IRs completed\nusing the online application tool. In the event that MISO experiences an outage or other technical\ndifficulty that prevents Interconnection Customers from completing and submitting Replacement\nIRs, MISO will communicate an alternative method for affected Interconnection Customers to\nsubmit their Replacement IR. Once the complete application is received, MISO will assign a\nqueue number for the replacement request and will post them publicly on MISO’s Generator\nInterconnection queue webpage.\n\nIf the existing generating unit has a shared legacy GIA with other generating units that are not\npart of the replacement request, the IC shall request MISO to convert existing shared legacy GIA\nto current pro forma GIA, representing the shared generators, prior to submitting the replacement\nrequest. As part of a Generator Replacement request, IC may request to split a shared legacy\nGIA to multiple GIAs.",
+  "cite": "BPM-015 r33 §6.7.2"
+}

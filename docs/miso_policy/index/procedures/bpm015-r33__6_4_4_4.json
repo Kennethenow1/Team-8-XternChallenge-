@@ -1,0 +1,58 @@
+{
+  "unit_id": "bpm015-r33::6.4.4.4",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.4.4.4",
+    "title": "Limitations on MISO Generators with Impacts on the PJM System",
+    "pages": [
+      102,
+      102
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp1",
+      "dpp2",
+      "dpp3"
+    ],
+    "milestone": [],
+    "actor": [
+      "miso",
+      "neighboring_rto",
+      "affected_system",
+      "to"
+    ],
+    "topic": [
+      "delay_of_study",
+      "cost_allocation",
+      "gia_negotiation"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "neighboring_rto",
+      "impact": "Neighboring RTO (PJM/SPP/MH): affected-system studies and limits."
+    },
+    {
+      "actor": "affected_system",
+      "impact": "Affected System / neighboring TO: coordination and restudy of impacts."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.4.4.4.\nLimitations on MISO Generators with Impacts on the PJM System\nMISO Generation Interconnection projects that come into service prior to completion of required\nNetwork Upgrades on the PJM transmission system will be subject to PJM’s yearly process until\nrequired Network Upgrades on the PJM transmission system have been completed. PJM updates\nthe output limits on all Interconnection Service agreements on a yearly basis, at a minimum, to\naccount for changing transmission and generation assumptions. Any significant changes to the\nassumptions of the study may be reviewed on a more frequent basis. PJM will coordinate project\noutput limitations with MISO on a yearly basis, and PJM will provide MISO with the list of\nconditions that will be added to MISO Generator Interconnection Agreement.",
+  "cite": "BPM-015 r33 §6.4.4.4"
+}

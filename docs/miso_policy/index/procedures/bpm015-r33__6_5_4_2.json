@@ -1,0 +1,40 @@
+{
+  "unit_id": "bpm015-r33::6.5.4.2",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.5.4.2",
+    "title": "Small Generator Interconnections",
+    "pages": [
+      106,
+      106
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [],
+    "milestone": [],
+    "actor": [
+      "miso",
+      "to"
+    ],
+    "topic": [],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.5.4.2.\nSmall Generator Interconnections\nIf it is determined by the Host TSP that a GIR is potentially eligible for accelerated processing\nunder the Host TSP’s interconnection procedures due to its small size, the GIR will be deemed in\nscope for this coordination procedure as follows:\n•\nAll GIR for MISO interconnecting in the following LBAs: GRE, MDU, MP, NSP, OTP\n•\nAll GIR for MPC\n\nMH does not differentiate between small generator and large generator interconnections and\ntherefore does not offer accelerated processing for small generator interconnections.",
+  "cite": "BPM-015 r33 §6.5.4.2"
+}

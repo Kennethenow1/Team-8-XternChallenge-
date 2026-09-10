@@ -1,0 +1,53 @@
+{
+  "unit_id": "bpm015-r33::6.7.2.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.7.2.1",
+    "title": "Evaluation Process for Generating Facility Replacement",
+    "pages": [
+      118,
+      122
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to",
+      "ferc"
+    ],
+    "topic": [
+      "cost_allocation",
+      "commercial_operation"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    },
+    {
+      "actor": "ferc",
+      "impact": "FERC: GIA filing / unexecuted filing; not a compliance score on this card."
+    }
+  ],
+  "text": "6.7.2.1.\nEvaluation Process for Generating Facility Replacement\nRequests\nGenerating Facility Replacement evaluation will consist of two studies: (i) Replacement Impact\nStudy, and (ii) Reliability Assessment Study.\n\nReplacement Impact Study\nReplacement Impact study is an engineering study that evaluates the impact of a proposed\nGenerating Facility Replacement on the reliability of the Transmission System when compared to\nthe Existing Generating Facility. This study will use the models from the latest DPP cycle for which\nthe DPP Phase 3 System Impact Study is completed. These models will correspond to the MISO\nregion applicable to the replacement request and will include the Network Upgrades from the\n\n\ncorresponding DPP study. The dispatch assumptions for the study are detailed in Table 6-1. This\nstudy will utilize Material Modification evaluation criteria as set forth in Section 6.7.4 of this BPM.\nIf MISO determines that the replacement request is not a Qualified Change, the IC can move\nforward with the requested replacement provided that Reliability Assessment Study also shows\nno reliability concerns or that mitigations will be in place for the issues identified. The replacement\nunit shall meet FERC Order 827, FERC Order 661/661-A, and FERC Order 842 requirements, as\napplicable.\n\nTable 6-1: Dispatch Assumptions for Replacement Impact Study\n\nBenchmark Case\nStudy Case\nRetiring Unit\nON\nOFF\nReplacement Unit\nOFF\nON\n•\nDispatch of the Retiring Unit and Replacement Unit is by fuel type as set forth in\nSection 6.1.1.1.2 of this BPM.\n•\nFor those replacement requests where the Interconnection Service (IS) requested for\nthe Replacement Unit is less than that of the Retiring Unit, the Retiring Unit and\nReplacement Unit is dispatched by fuel type and in accordance with the IS requested\nin the replacement request.\n\nReliability Assessment Study\nReliability Assessment Study is an engineering study that evaluates the impact of a proposed\nGenerating Facility Replacement on the reliability of Transmission System during the time period\nbetween the date that the Existing Generating Facility ceases commercial operations and the\nCommercial Operation Date of the Replacement Generating Facility. The Reliability Assessment\nStudy assumptions will be similar to Attachment Y (Suspension/Retirement) study as set forth in\nSection 6.2 of MISO BPM-020. In no case will the existing unit be eligible as a System Support\nResource (SSR) through the Generating Facility Replacement process. The study year of the\nbase model will reflect the date of cessation of operation of Existing Generating Facility. The\ndispatch assumptions for the study are detailed in Table 6-2. The Existing Generating Facility\nshall be responsible for mitigating any reliability violation identified in the Reliability Assessment\nStudy and may not cease operations until all mitigations are implemented or are in service.\nMitigation for this interim period may, as applicable, include: (i) redispatch/reconfiguration through\noperator instruction; and (ii) remedial action scheme or any other operating steps depending upon\nthe type of reliability violation identified. If there are no reliability concerns or if all identified\n\n\nreliability concerns will have mitigations in place, the IC can move forward with the requested\nreplacement provided that Replacement Impact Study also shows no material adverse impact\n(not a Qualified Change).\n\nTable 6-2: Dispatch Assumptions for Reliability Assessment Study\n\nBenchmark Case\nStudy Case\nRetiring Unit\nON\nOFF\nReplacement Unit\nOFF\nOFF\n\nReliability Assessment Study will not be performed: (1) if there is no gap period between the date\nthat the Existing Generating Facility ceases commercial operations and the Commercial\nOperation Date of the Replacement Generating Facility, or (2) if the Existing Generating Facility\nis in Forced Outage or has an approved Attachment Y suspension per MISO Tariff.\n\n\nFigure 6-4 Flow Diagram describing Generating Facility Replacement Process\n*Request will be evaluated in the order they are received\n** If the Replacement Impact Study identifies material adverse impacts and/or the Reliability Assessment Study identifies reliability\nconcerns that cannot be mitigated, the Generating Facility Replacement process cannot be utilized.  To continue with the\nreplacement, the IC will need to submit a new Interconnection Request to the Interconnection Queue, follow the 3-phase DPP\nprocess for the replacement unit, and submit an Attachment Y request for retirement of the Existing Generating Facility, as\nappropriate. Alternatively, the IC can withdraw the replacement request.\n\nMISO will tender a draft/amend GIA after Final Facility Study Report is\nprovided to the IC\n(30 Calendar Days)\nInterconnection Facility Study (if needed)\n(90 Calendar Days)\nIf there are no material adverse impacts or reliability concerns, IC can\ndecide to proceed or withdraw**\n(30 Calendar Days)\nReplacement Impact Study & Reliability Assessment Study\n(180 Calendar Days)\nIC submits Replacement Request to MISO*\n(Study Deposit = $150,000)",
+  "cite": "BPM-015 r33 §6.7.2.1"
+}

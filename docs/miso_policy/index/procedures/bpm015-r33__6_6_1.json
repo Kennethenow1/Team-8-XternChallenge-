@@ -1,0 +1,38 @@
+{
+  "unit_id": "bpm015-r33::6.6.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.6.1",
+    "title": "Scope",
+    "pages": [
+      112,
+      112
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [],
+    "milestone": [],
+    "actor": [
+      "to"
+    ],
+    "topic": [
+      "deliverability",
+      "gia_negotiation"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.6.1 Scope\nFor all permanent GIAs with conditions and Provisional GIAs, an Annual ERIS evaluation will be\nperformed which will identify the maximum level of injection available for the next Resource\nAdequacy Planning Year. Further, for all permanent GIAs with conditional ERIS that will\neventually convert to ERIS and NRIS, an Annual Interim Deliverability analysis will be performed\nwhich will identify the maximum level of conditional NRIS available for the next Resource\nAdequacy Planning Year, up to the level of eventual NRIS. If a project has explicit conditions\nassociated with MTEP Appendix A projects, listed in their existing GIA, the Annual ERIS and\nAnnual Interim Deliverability Studies will be applicable from the time of their Commercial\nOperation Date (as declared under BPM-015 Section 7.7 requirements) until those explicit\nconditions are met.",
+  "cite": "BPM-015 r33 §6.6.1"
+}

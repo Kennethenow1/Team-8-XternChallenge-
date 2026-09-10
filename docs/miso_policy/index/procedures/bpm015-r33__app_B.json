@@ -1,0 +1,47 @@
+{
+  "unit_id": "bpm015-r33::app.B",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "app.B",
+    "title": "Appendix B",
+    "pages": [
+      145,
+      147
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "site_control"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "study_method"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "Appendix B\nGenerator Interconnection Ad Hoc Information Session Request Form\n\nI. Interconnection Customer\n\nName: ______________________________\nTitle: ______________________________\nCompany Name: _______________________\nAddress: ______________________________\nPhone No._____________________________\nEmail address _______________________\n\nII. Project Details\nProject Size (MW) ______________\nNo. of units/rating_______________\nFuel type: ____________________\nDesired ISD: __________________\nAnticipated date to enter the Queue____________\n\nIII. Site\nCounty: ______\nState: ________\nArea Transmission Owner(s) _________________\nPOI: ______________________________________________________________\n(If not identified, list all options that are being considered)\nDistance from the nearest substation or transmission line______________________\nAvailable Connection Voltage(s) ___________________________\nSite Control _________ (Yes/No)\nROW Required for Interconnection Facilities? _____________ (Yes/No)\nIV. Specific Questions for the Transmission Provider/Transmission Owner (use a\nseparate sheet, if required)\n1.\n\n2.\n\n\n3.\n\n4.\nV. Information Session is requested by\nSignature: ______________________________\nName (print or type):____________________________\nTitle: ______________________________\nCompany Name: _______________________\nAddress: ______________________________\nPhone No._____________________________\nEmail address _______________________\n\n\nThis form can be faxed or mailed to the following address:\n\nMidcontinent Independent System Operator, Inc.\nAttn: Transmission Access Planning\n720 West City Center Drive\nCarmel, IN 46032\nFax 317-249-5358",
+  "cite": "BPM-015 r33 Appendix B"
+}

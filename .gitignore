@@ -15,6 +15,8 @@ artifacts/nasnet/*.keras
 artifacts/nasnet/*.h5
 artifacts/nasnet/numeric_scaler.joblib
 artifacts/nasnet/checkpoints/
+platinum/results/nasnet_cnn/models/*.keras
+platinum/results/nasnet_cnn/models/*.joblib
 
 # Raw GDELT GKG zips are re-downloadable (~1GB); keep Silver news_events + ingest summaries
 data/bronze/enrichment/gdelt_news/*.gkg.csv.zip
@@ -39,3 +41,6 @@ data/gold/modeling/artifacts/models/
 data/bronze/enrichment/noaa_storm_events/*.csv.gz
 data/gold/modeling/artifacts/hpo/**/study.db
 data/gold/modeling/artifacts/hpo/**/*.log
+
+# Full GPT dumps (regenerate with scripts/run_platinum3_risk_cards.py)
+platinum3/results/*.jsonl

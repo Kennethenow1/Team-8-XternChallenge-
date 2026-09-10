@@ -1,0 +1,232 @@
+{
+  "schema_version": "session.v1",
+  "turns": [
+    {
+      "question": "Who funds a restudy if a peer withdraws?",
+      "response_shape": "short",
+      "unit_ids": [
+        "bpm015-r33::5.4.6",
+        "bpm015-r33::7.3",
+        "bpm015-r33::7.7",
+        "bpm015-r33::4.2",
+        "bpm015-r33::4.2.4.6",
+        "bpm015-r33::7.1",
+        "bpm015-r33::6.2.8",
+        "bpm015-r33::6.2.7",
+        "bpm015-r33::6.2.11",
+        "bpm015-r33::4.3",
+        "bpm015-r33::5.2.3",
+        "bpm015-r33::5.2.5"
+      ],
+      "cites": [
+        "BPM-015 r33 §5.4.6",
+        "BPM-015 r33 §7.3",
+        "BPM-015 r33 §7.7",
+        "BPM-015 r33 §4.2",
+        "BPM-015 r33 §4.2.4.6",
+        "BPM-015 r33 §7.1",
+        "BPM-015 r33 §6.2.8",
+        "BPM-015 r33 §6.2.7",
+        "BPM-015 r33 §6.2.11",
+        "BPM-015 r33 §4.3",
+        "BPM-015 r33 §5.2.3",
+        "BPM-015 r33 §5.2.5"
+      ],
+      "topics": [
+        "restudy",
+        "delay_of_study",
+        "withdrawal",
+        "cost_allocation",
+        "gia_negotiation",
+        "commercial_operation",
+        "deposit_refund",
+        "decision_point"
+      ],
+      "excerpt": "If a restudy is required because a peer Interconnection Request (IR) withdraws, MISO (the Transmission Provider) will reevaluate and, if necessary, reallocate the cost and responsibility for any Common Use Upgrade and/or Shared Network Upgrade among the remaining Interconnection Customers (ICs). The ICs that remain in the study group may be responsible for funding the restudy and any resulting upgrades, as determined by MISO (BPM-015 r33 §5.4.6). ## Citations - BPM-015 r33 §5",
+      "need_search": true
+    },
+    {
+      "question": "Who pays for that, and how many Business Days does the IC have to answer?",
+      "response_shape": "short",
+      "unit_ids": [
+        "bpm015-r33::5.4.6",
+        "bpm015-r33::7.3"
+      ],
+      "cites": [
+        "BPM-015 r33 §5.4.6",
+        "BPM-015 r33 §7.3"
+      ],
+      "topics": [
+        "restudy",
+        "delay_of_study",
+        "withdrawal",
+        "cost_allocation",
+        "gia_negotiation"
+      ],
+      "excerpt": "The Interconnection Customer (IC) may be responsible for funding the restudy and any resulting upgrades, as determined by MISO (the Transmission Provider) (BPM-015 r33 §5.4.6). The IC must notify MISO within five (5) Business Days whether it wishes to proceed with the Interconnection Study restudy or withdraw its interconnection request (IR) (BPM-015 r33 §5.4.6). ## Citations - BPM-015 r33 §5.4.6 - Interconnection Study Restudy (pages 56-56) ## Must not claim - do not quote m",
+      "need_search": false
+    }
+  ],
+  "held": [
+    {
+      "unit_id": "bpm015-r33::5.4.6",
+      "cite": "BPM-015 r33 §5.4.6",
+      "title": "Interconnection Study Restudy",
+      "topics": [
+        "restudy",
+        "delay_of_study",
+        "withdrawal",
+        "cost_allocation",
+        "gia_negotiation"
+      ],
+      "risk_code": [
+        "restudy_friction",
+        "abandonment"
+      ]
+    },
+    {
+      "unit_id": "bpm015-r33::7.3",
+      "cite": "BPM-015 r33 §7.3",
+      "title": "Interconnection Customer delays",
+      "topics": [
+        "delay_of_study",
+        "cost_allocation",
+        "gia_negotiation"
+      ],
+      "risk_code": [
+        "cod_already_slipped",
+        "gia_execution"
+      ]
+    },
+    {
+      "unit_id": "bpm015-r33::7.7",
+      "cite": "BPM-015 r33 §7.7",
+      "title": "Commercial Operation",
+      "topics": [
+        "commercial_operation",
+        "deposit_refund",
+        "gia_negotiation"
+      ],
+      "risk_code": [
+        "cod_already_slipped",
+        "gia_execution"
+      ]
+    },
+    {
+      "unit_id": "bpm015-r33::4.2",
+      "cite": "BPM-015 r33 §4.2",
+      "title": "Initial Screening",
+      "topics": [
+        "commercial_operation"
+      ],
+      "risk_code": [
+        "cod_already_slipped"
+      ]
+    },
+    {
+      "unit_id": "bpm015-r33::4.2.4.6",
+      "cite": "BPM-015 r33 §4.2.4.6",
+      "title": "Refunds of Study Deposits",
+      "topics": [
+        "withdrawal",
+        "deposit_refund",
+        "restudy",
+        "decision_point"
+      ],
+      "risk_code": [
+        "abandonment"
+      ]
+    },
+    {
+      "unit_id": "bpm015-r33::7.1",
+      "cite": "BPM-015 r33 §7.1",
+      "title": "Suspension",
+      "topics": [
+        "delay_of_study",
+        "restudy",
+        "deposit_refund",
+        "cost_allocation",
+        "gia_negotiation"
+      ],
+      "risk_code": [
+        "gia_execution"
+      ]
+    },
+    {
+      "unit_id": "bpm015-r33::6.2.8",
+      "cite": "BPM-015 r33 §6.2.8",
+      "title": "Submittal of GIA/FCA for Execution / Filing Unexecuted",
+      "topics": [
+        "gia_negotiation"
+      ],
+      "risk_code": [
+        "gia_execution"
+      ]
+    },
+    {
+      "unit_id": "bpm015-r33::6.2.7",
+      "cite": "BPM-015 r33 §6.2.7",
+      "title": "Submittal of IA for Appendix Review",
+      "topics": [
+        "gia_negotiation",
+        "decision_point",
+        "delay_of_study",
+        "commercial_operation"
+      ],
+      "risk_code": [
+        "gia_execution"
+      ]
+    },
+    {
+      "unit_id": "bpm015-r33::6.2.11",
+      "cite": "BPM-015 r33 §6.2.11",
+      "title": "Refunds of Definitive Planning Phase Milestones (M2, M3, M4)",
+      "topics": [
+        "withdrawal",
+        "deposit_refund",
+        "decision_point",
+        "cost_allocation"
+      ],
+      "risk_code": [
+        "abandonment"
+      ]
+    },
+    {
+      "unit_id": "bpm015-r33::4.3",
+      "cite": "BPM-015 r33 §4.3",
+      "title": "Determination of Project Linkages and Potential Grouping",
+      "topics": [
+        "cost_allocation"
+      ],
+      "risk_code": [
+        "system_congestion"
+      ]
+    },
+    {
+      "unit_id": "bpm015-r33::5.2.3",
+      "cite": "BPM-015 r33 §5.2.3",
+      "title": "Interconnection Customer Decision Point I",
+      "topics": [
+        "decision_point",
+        "withdrawal",
+        "deposit_refund"
+      ],
+      "risk_code": [
+        "abandonment"
+      ]
+    },
+    {
+      "unit_id": "bpm015-r33::5.2.5",
+      "cite": "BPM-015 r33 §5.2.5",
+      "title": "Withdrawal from DPP Phase I",
+      "topics": [
+        "withdrawal",
+        "deposit_refund",
+        "decision_point"
+      ],
+      "risk_code": [
+        "abandonment"
+      ]
+    }
+  ]
+}

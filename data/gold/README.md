@@ -14,6 +14,7 @@
 | `withdrawal_panel_enriched.parquet` | Annual panel + all usable enrichment | ★ Full feature table for research |
 | `current_miso_scoring_enriched.parquet` | Same joins for live queue | Score today’s projects |
 | `modeling/model_ready_train.parquet` | Train-only engineered numeric matrix | ★ **Live matrix for model experiments** |
+| `delay/` | COD-slip panel + delay matrices | Platinum: `cod_slip_months_next_12m` (does not replace withdrawal gold) |
 | `split_manifest.json` | train / val / test / score years | Leakage-safe time split |
 
 Base tables are **directories**; enriched panels are **flat** parquet(+csv) next to them. That is intentional (older builders vs enrichment writer) — see [`../../docs/data_layout.md`](../../docs/data_layout.md).

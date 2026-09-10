@@ -34,6 +34,9 @@ def ensure_layer_dirs() -> None:
         GOLD_DIR / "annual_withdrawal_training",
         GOLD_DIR / "survival_training",
         GOLD_DIR / "current_miso_scoring",
+        GOLD_DIR / "delay",
+        GOLD_DIR / "delay" / "modeling",
+        GOLD_DIR / "delay" / "platinum2",
         QUALITY_DIR,
     ]:
         p.mkdir(parents=True, exist_ok=True)

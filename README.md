@@ -138,6 +138,32 @@ python scripts/run_enrichment.py gaps
 python scripts/analyze_features.py
 ```
 
+### Windows
+
+PowerShell (CPU, local `.venv`):
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+python scripts/run_pipeline.py
+```
+
+Native Windows TensorFlow / the local `.venv` cannot use CUDA. For GPU (PyTorch + TensorFlow on the NVIDIA card), run through **WSL2 Ubuntu**:
+
+```powershell
+.\scripts\wsl-python.cmd scripts\check_cuda.py
+.\scripts\wsl-python.cmd scripts\run_pipeline.py
+```
+
+Or inside Ubuntu:
+
+```bash
+source ~/venvs/team8-miso/bin/activate
+cd /mnt/c/Users/<you>/Documents/Team-8-XternChallenge-
+python scripts/check_cuda.py
+```
+
+In Cursor / Jupyter, pick the **Python 3.12 (WSL CUDA)** kernel for GPU notebooks. The Windows `.venv` kernel stays CPU-only.
+
 See [docs/pipeline.md](docs/pipeline.md), [docs/data_catalog.md](docs/data_catalog.md), [data/README.md](data/README.md).  
 Intake downloads live in **`data/intake/`** (not the old capital-`Data/` folder).
 

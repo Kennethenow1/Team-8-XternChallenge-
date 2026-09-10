@@ -1,0 +1,54 @@
+{
+  "unit_id": "bpm015-r33::7.7",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "7.7",
+    "title": "Commercial Operation",
+    "pages": [
+      129,
+      130
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "post_gia"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "commercial_operation",
+      "deposit_refund",
+      "gia_negotiation"
+    ],
+    "risk_code": [
+      "cod_already_slipped",
+      "gia_execution"
+    ],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "7.7. Commercial Operation\nThe IC must provide notification to the MISO (email to: ResourceIntegration@misoenergy.org)\nand Transmission Owner after the project achieves Commercial Operation. Such notification is\nprovided in the form of Appendix E to the GIA and must be received by MISO within thirty (30)\nCalendar Days of the actual Commercial Operation Date. The notification should also include as\nbuilt modeling data of the plant. Attachment A of the application can be used to provide such data.\nAfter submitting the required notification of actual Commercial Operation Date, the IC may initiate\nany remaining refund by emailing a request to gifinance@misoenergy.org (including project\nnumbers(s) and date of Commercial Operation). MISO will review the project account for any\napplicable refunds after receipt of the request for refund.",
+  "cite": "BPM-015 r33 §7.7"
+}

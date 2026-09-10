@@ -1,0 +1,51 @@
+{
+  "unit_id": "bpm015-r33::4.3",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "4.3",
+    "title": "Determination of Project Linkages and Potential Grouping",
+    "pages": [
+      35,
+      35
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "application_review"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "cost_allocation"
+    ],
+    "risk_code": [
+      "system_congestion"
+    ],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "4.3\nDetermination of Project Linkages and Potential Grouping\nMISO may perform a power flow analysis and use in-house post processing tools to determine\nproject grouping. Each project will be dispatched against the generation in the MISO footprint and\na DF cut-off of five percent (5%) will be used for the purpose of this analysis. All projects\ncontributing to any common constraint will be grouped together for study. Additionally, the\nfollowing guidelines will be used to form a study group:\ni.\nGroup Studies will not be limited by size. Upgrades for Group Studies will be\ndetermined in incremental blocks of MW capacity. The size of each block will depend\non the factors such as the constrained area, transmission voltage, Right of Way\navailability, room for expansion in the existing substations etc. The blocks of MW (sub-\ngroups) will be selected based on the queue position, the impact of Generation IR on\nthe limiting constraints, loading on the limiting constraint, available study work and\nengineering judgment.\nii.\nOther factors such as number/type of projects, queue position, electrical proximity of\nthe POIs, etc. will be considered when defining a study group.",
+  "cite": "BPM-015 r33 §4.3"
+}

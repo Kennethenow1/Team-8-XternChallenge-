@@ -1,0 +1,54 @@
+{
+  "unit_id": "bpm015-r33::6.2.7",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.2.7",
+    "title": "Submittal of IA for Appendix Review",
+    "pages": [
+      85,
+      86
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "gia"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "gia_negotiation",
+      "decision_point",
+      "delay_of_study",
+      "commercial_operation"
+    ],
+    "risk_code": [
+      "gia_execution"
+    ],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.2.7.\nSubmittal of IA for Appendix Review\n MISO recommends early negotiation requests after Decision Point II and issuance of the draft\nPhase II Interconnection Facilities Study under Attachment X, Section 11.1 to allow ample time\nfor negotiations. Except when IC requests early or delayed negotiation or, when further Facilities\nStudies are required (FCA/MPFCA), MISO will tender to the IC and TO a draft GIA and, as\napplicable, draft FCA(s) and/or MPFCA(s), together with draft appendices completed to the extent\npracticable, within five (5) Business Days after issuance of the applicable first portion of the\nInterconnection Facilities Study report and final System Impact Study report: Negotiation Meeting:\nThe purpose of this meeting will be to discuss the Appendices to the GIA/FCA/MPFCA. MISO will\nprovide these documents for review at least five (5) Business days prior to the date comments\nare due. The participants are expected to review the technical information in the draft appendices\nto the GIA/FCA/MPFCA and provide any comments to MISO at least two (2) Business Days prior\nto the meeting. If required, additional negotiations will be handled primarily outside of a formal\n\n\nmeeting. Follow Up Meeting: If requested, MISO will host an additional formal meeting to discuss\nany remaining details requiring person to person communications.\nFive (5) Business Days after the start of negotiations, the IC shall provide:\ni.\nIts initial payment option pursuant to Article 11.5 of the GIA, and\nii.\nIC’s desired, In-Service Date, Initial Synchronization Date, and Commercial Operation\nDate, if different from the dates in the Facility Study Report.\n\nThese dates will be used to complete the cash flow payments and Milestones in Appendix B of\nthe GIA.",
+  "cite": "BPM-015 r33 §6.2.7"
+}

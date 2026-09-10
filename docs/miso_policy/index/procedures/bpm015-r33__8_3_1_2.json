@@ -1,0 +1,50 @@
+{
+  "unit_id": "bpm015-r33::8.3.1.2",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "8.3.1.2",
+    "title": "Transmission Owner Screening",
+    "pages": [
+      135,
+      136
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "der_afs"
+    ],
+    "milestone": [],
+    "actor": [
+      "miso",
+      "to",
+      "affected_system"
+    ],
+    "topic": [
+      "cost_allocation"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow",
+      "study_method"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    },
+    {
+      "actor": "affected_system",
+      "impact": "Affected System / neighboring TO: coordination and restudy of impacts."
+    }
+  ],
+  "text": "8.3.1.2.\nTransmission Owner Screening\nWhen an EDC approaches a TO with information on potential DER Transmission System\nimpacts, the TO shall perform a screen for DER Net Injections exceeding one megawatt (1 MW)\nusing the screening assumptions outlined in Section 8.2.1.1. DER Net Injection screening shall\nuse the applicable model(s) load and assume full injection of all DER at the DER Substation.\n\n\n32 Hybrid Exception: a combination of only diesel, solar, combustion turbine, or oil would only be dispatched for summer peak. Otherwise, the\nfull amount of DER is dispatched under both shoulder peak and summer peak conditions. As a simplifying assumption, the full hybrid\ncapacity would be dispatched during each condition for screening. The dispatch allocation would be more granular for affected system\nstudies, in accordance with BPM-15 practices.\n\n\nIf TO screening of a DER Substation indicates DER Net Injections exceeding one megawatt (1\nMW), the TO shall submit to MISO the information outlined in Section 8.3.2.3, categorized by\nthe fuel types shown in Table 0-1. The information shall be submitted by the screening deadline\nmilestone for consideration in the next DER AFS cycle.\n\nOnce a DER Substation has exceeded the Net Injection screening threshold, and a DER AFS\ncompleted showing no impacts, MISO will not perform an additional DER AFS on that\nsubstation until the DER Net Injection at the DER Substation goes up by one megawatt (1 MW)\nor greater. Similarly, if a DER AFS-identified Network Upgrade is completed at a DER\nSubstation, MISO will not perform an additional DER AFS on that substation until the DER Net\nInjection at the DER Substation goes up by one megawatt (1 MW) or greater. Should an\nidentified Network Upgrade not be funded, any incremental DER Net Injection will trigger\nanother MISO DER AFS. An example of this process can be found in Appendix F.",
+  "cite": "BPM-015 r33 §8.3.1.2"
+}

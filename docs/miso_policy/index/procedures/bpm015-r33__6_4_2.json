@@ -1,0 +1,57 @@
+{
+  "unit_id": "bpm015-r33::6.4.2",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.4.2",
+    "title": "Requirements for Interconnection Requests Included in JTIQ",
+    "pages": [
+      99,
+      100
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp1",
+      "dpp2",
+      "dpp3"
+    ],
+    "milestone": [],
+    "actor": [
+      "miso",
+      "neighboring_rto",
+      "affected_system",
+      "to"
+    ],
+    "topic": [
+      "delay_of_study",
+      "cost_allocation"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "neighboring_rto",
+      "impact": "Neighboring RTO (PJM/SPP/MH): affected-system studies and limits."
+    },
+    {
+      "actor": "affected_system",
+      "impact": "Affected System / neighboring TO: coordination and restudy of impacts."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.4.2.\nRequirements for Interconnection Requests Included in JTIQ\nParticipation Group and/or for Expanded Scope Analysis\n\nThe rules and procedures contained in MISO-SPP JOA Section 9.4.2 shall apply to\ninterconnection customers with interconnection requests, including MISO DPP, MISO ERAS,\nSPP DISIS, or SPP ERAS, that have been designated for inclusion in a JTIQ Participation Group\nand/or for the Expanded Scope Analysis identified in Section 9.4.2.d.iv.a. To the extent any\nprovision in Section 9.4 and related subsections conflicts with the provisions pursuant to Section\n\n\n9.4.2 as applicable to JTIQ Upgrades, the provisions pursuant to Section 9.4.2 shall govern for\nJTIQ Upgrades:\n(a) Adoption of JTIQ Portfolio\n(b) Cost allocation for JTIQ Portfolios\n(c) Responsibility to Construct\n(d) Identification of JTIQ Screening Group, JTIQ Participation Group and JTIQ\nCommitment Group\n(e) Closing Subscription to the JTIQ Portfolio; Addressing Oversubscription and\nUndersubscription\n(f) Cost Recovery from the JTIQ Commitment Group and Backstop Funding\n(g) Calculation, Collection and Distribution of JTIQ Generator Charge (h) Security\nrequirements",
+  "cite": "BPM-015 r33 §6.4.2"
+}

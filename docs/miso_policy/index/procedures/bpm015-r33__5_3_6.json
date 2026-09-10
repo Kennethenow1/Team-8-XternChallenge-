@@ -1,0 +1,47 @@
+{
+  "unit_id": "bpm015-r33::5.3.6",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "5.3.6",
+    "title": "Initial Interconnection Facilities Study",
+    "pages": [
+      52,
+      52
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp2"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "5.3.6\nInitial Interconnection Facilities Study\nThe first portion of the Interconnection Facilities Study will begin the first day of DPP II. This\nportion will focus on identifying cost estimates and the time required to construct the\nInterconnection Facilities. MISO shall use reasonable efforts to complete this portion of the\nInterconnection Facilities Study within ninety (90) Calendar Days.",
+  "cite": "BPM-015 r33 §5.3.6"
+}

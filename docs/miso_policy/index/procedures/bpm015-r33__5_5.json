@@ -1,0 +1,50 @@
+{
+  "unit_id": "bpm015-r33::5.5",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "5.5",
+    "title": "Transfer of Ownership",
+    "pages": [
+      56,
+      57
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp3",
+      "gia"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "transfer_of_ownership"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "5.5 Transfer of Ownership\nThe Interconnection Customer may transfer an existing project in the MISO Queue to a new\nowner. This can occur when the Interconnection Customer transfers the project to a newly\nformed subsidiary LLC (an internal transfer) or when the project entity is sold to another\ncompany (an external transfer).\n\n\nThe Interconnection Customer may also request to change the legal name of their project\nwith a Name Change request - only applicable when the TAX ID is not changing.",
+  "cite": "BPM-015 r33 §5.5"
+}

@@ -1,0 +1,52 @@
+{
+  "unit_id": "bpm015-r33::6.5.5.2",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.5.5.2",
+    "title": "Compensation for Affected System Analysis (Applicable to",
+    "pages": [
+      112,
+      112
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to",
+      "affected_system"
+    ],
+    "topic": [
+      "deposit_refund"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    },
+    {
+      "actor": "affected_system",
+      "impact": "Affected System / neighboring TO: coordination and restudy of impacts."
+    }
+  ],
+  "text": "6.5.5.2.\n\nCompensation for Affected System Analysis (Applicable to\nMPC and MISO Only)\nThe IC will be responsible for the costs incurred by the Neighbouring TSP for performing affected\nsystem analysis associated with SISs with the help of engineering consultants. A Host TSP will\nreimburse the Neighbouring TSP using IC’s study deposit funds upon receipt of an invoice from\nthe Neighbouring TSP. Only the direct costs of the engineering consultants will be included in the\ninvoice.",
+  "cite": "BPM-015 r33 §6.5.5.2"
+}

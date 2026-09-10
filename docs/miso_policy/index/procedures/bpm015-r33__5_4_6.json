@@ -1,0 +1,62 @@
+{
+  "unit_id": "bpm015-r33::5.4.6",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "5.4.6",
+    "title": "Interconnection Study Restudy",
+    "pages": [
+      56,
+      56
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp3"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to",
+      "ferc"
+    ],
+    "topic": [
+      "restudy",
+      "delay_of_study",
+      "withdrawal",
+      "cost_allocation",
+      "gia_negotiation"
+    ],
+    "risk_code": [
+      "restudy_friction",
+      "abandonment"
+    ],
+    "claim_class": [
+      "workflow",
+      "timeline_target"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    },
+    {
+      "actor": "ferc",
+      "impact": "FERC: GIA filing / unexecuted filing; not a compliance score on this card."
+    }
+  ],
+  "text": "5.4.6.\nInterconnection Study Restudy\nIf MISO determines restudy is required because one of the contingencies in Article 11.3.1 of the\nGIA has occurred, or at MISO’s discretion, MISO will reevaluate the need for the Common Use\nUpgrade and/or Shared Network Upgrade, and if still required, reallocate the cost and\nresponsibility for any Common Use Upgrade and/or Shared Network Upgrade, without a restudy\nwhen possible, or with a restudy if MISO deems it necessary in order to ensure reliability of the\nTransmission System.\n\nIf a restudy of any Interconnection Study is required because an IR withdraws or is deemed to\nhave withdrawn prior to all GIAs, FCAs, and/or MPFCAs, as applicable, for each respective DPP\ncycle have been executed or filed unexecuted with the FERC, MISO shall provide notice of a\nrestudy as necessary. MISO will include in the notice of restudy a preliminary analysis supporting\nthe need for an Interconnection Study restudy, an explanation of why an Interconnection Study\nrestudy is required, and a good faith estimate of the cost to perform the Interconnection Study\nrestudy. The Interconnection Study restudy will be performed according to the GIP and the BPMs\nin effect at the time the notice is given by MISO. The IC shall notify MISO within five (5) Business\nDays whether the IC wishes to proceed with the Interconnection Study restudy or withdraw its IR.\nMISO will deem a failure to notify MISO to proceed to perform the Interconnection Study restudy\nas the ICs withdrawal of its IR in accordance with Section 3.6 of the GIP. MISO will use reasonable\nefforts to complete the Interconnection Study restudy within sixty (60) Calendar Days from the\ndate of notice. MISO may perform the Interconnection Study restudy of Network Upgrades\ncommon to more than one IR as a Group Study.",
+  "cite": "BPM-015 r33 §5.4.6"
+}

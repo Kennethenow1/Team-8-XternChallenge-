@@ -95,6 +95,12 @@ Detail: [`data/gold/modeling/artifacts/metrics/calibration_phase1_decision.md`](
 Closed negative experiment. Report: [`reports/models/nasnet/nasnet_experiment.md`](../reports/models/nasnet/nasnet_experiment.md).  
 Config `experiment_status: closed` blocks new training.
 
+## Retrain / ameliorations (locked)
+
+Val-only retrain notes: [`data/quality_reports/modeling/retrain_notes.md`](../data/quality_reports/modeling/retrain_notes.md). Comparison report: [`data/quality_reports/modeling/retrain_val_compare.md`](../data/quality_reports/modeling/retrain_val_compare.md). Runnable family notebooks: [`electrum/`](../electrum/).
+
+Do **not** PCA-rotate trees. Do **not** reshuffle calendar splits. Do **not** 50/50-resample quitters. Test stays sealed until this freeze is re-approved.
+
 ## Seals
 
 - **test**: sealed  

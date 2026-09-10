@@ -1,0 +1,57 @@
+{
+  "unit_id": "bpm015-r33::6.3.2",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.3.2",
+    "title": "Study of MISO Interconnection Request Impacts on PJM",
+    "pages": [
+      97,
+      98
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp1",
+      "dpp2",
+      "dpp3"
+    ],
+    "milestone": [],
+    "actor": [
+      "miso",
+      "neighboring_rto",
+      "affected_system",
+      "to"
+    ],
+    "topic": [
+      "delay_of_study",
+      "deliverability"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "neighboring_rto",
+      "impact": "Neighboring RTO (PJM/SPP/MH): affected-system studies and limits."
+    },
+    {
+      "actor": "affected_system",
+      "impact": "Affected System / neighboring TO: coordination and restudy of impacts."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.3.2.\nStudy of MISO Interconnection Request Impacts on PJM\nTransmission\nAfter each MISO DPP cycle application deadline and at least thirty (30) days prior to the\ncommencement of the DPP Phase I of the DPP for such cycle, MISO shall perform screening\nanalysis on all Interconnection Requests in such study cycle to monitor for impacts to the PJM\ntransmission system and provide to PJM the draft results of the potential impacts to the PJM\ntransmission system. This monitoring will include an examination of the potential projects to\nimpact the PJM system through determination if the project under study has a ≥3 percent\ndistribution factor or ≥ 5 MW impact or ≥ 1 percent of facility rating on any PJM facilities under\nnormal and contingency conditions.\n\nNo later than five (5) Business Days after the commencement of the MISO DPP Phase I study,\nMISO shall forward to PJM information necessary for PJM and the PJM TOs to study the impact\non the PJM transmission system of the MISO Interconnection Request(s) in such cycle that\nentered DPP Phase I. PJM and the PJM TOs may study the impact of the MISO Interconnection\nRequest(s) on the PJM transmission system and provide any available preliminary results to\nMISO within 100 days following commencement of DPP Phase I.\n\nPrior to commencing the MISO DPP Phase II study, MISO shall forward to PJM the latest available\ninformation necessary for PJM and the PJM TOs to study the impact on the PJM transmission\nsystem of the MISO Interconnection Request(s) included in such study. PJM and the PJM TOs\nshall study the impact of the MISO Interconnection Request(s) on the PJM transmission system\nand provide the study results to MISO no later than 30 days prior to the completion of DPP Phase\nII.\n\nPrior to commencing the MISO DPP Phase III study, MISO shall forward to PJM the latest\navailable information necessary for PJM and the PJM TOs to study the impact on the PJM\ntransmission system of the MISO Interconnection Request(s). PJM and the PJM TOs may study\nthe impact of the MISO Interconnection Request(s) on the PJM transmission system and provide\nthe study results to MISO no later than 30 days prior to the completion of DPP Phase III.\n\n\nDuring the course of PJM’s affected interconnection study for MISO interconnection projects, PJM\nshall model all MISO interconnection projects that have requested Network Resource\nInterconnection Service (NRIS) under the MISO OATT as a Capacity Resource under the PJM\nOATT and all MISO interconnection projects that have requested ERIS under the MISO OATT as\nan Energy Resource under the PJM OATT. All projects will be modeled and studied using the\ncriteria and methodology described in PJM Manual 14B.\nThese impacts identified by PJM shall include a description of the required reinforcements on\nPJM’s transmission system, an estimated planning level cost and construction schedule estimates\nof the system reinforcement. The results received from PJM, including any required transmission\nsystem reinforcements, shall be included in the MISO System Impact Study report.  At times MISO\nmay identify to PJM the need to perform studies associated with an Interconnection other than\nthe times identified above. PJM shall endeavor to study these requests at the earliest time that is\nfeasible.\n\nIf PJM identifies required Network Upgrades on the PJM transmission system, due to a MISO R,\nthen the MISO IC(s) shall be required to follow all provisions delineated under the PJM Tariff\nrelated to Facilities Study funding and appropriate Network Upgrade FCA obligations.\n\nCost allocation for Network Upgrades necessary on the PJM transmission system due to MISO\nInterconnection projects shall be governed by and subject to the PJM Tariff and related Manuals.",
+  "cite": "BPM-015 r33 §6.3.2"
+}

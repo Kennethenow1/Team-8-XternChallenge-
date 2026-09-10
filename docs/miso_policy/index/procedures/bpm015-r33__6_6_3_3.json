@@ -1,0 +1,37 @@
+{
+  "unit_id": "bpm015-r33::6.6.3.3",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.6.3.3",
+    "title": "Load Levels and Generation Dispatch",
+    "pages": [
+      113,
+      114
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [],
+    "milestone": [],
+    "actor": [
+      "miso"
+    ],
+    "topic": [
+      "deliverability"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    }
+  ],
+  "text": "6.6.3.3.\nLoad Levels and Generation Dispatch\nThe Summer Peak and Shoulder Peak case Load Levels and Generation Dispatch will be\nconsistent with Load Level and Dispatch assumptions used for the respective MTEP Cases as\nper Section 3.3 of MISO Transmission Planning BPM 020. The Generator IRs under consideration\nfor Annual Interim ERIS evaluation would be dispatched consistent with the existing Section\n6.1.1.1.1.1.",
+  "cite": "BPM-015 r33 §6.6.3.3"
+}

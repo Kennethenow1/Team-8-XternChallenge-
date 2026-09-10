@@ -1,0 +1,79 @@
+{
+  "split": "val",
+  "n": 1054.0,
+  "mae": 12.039560702226007,
+  "rmse": 21.0627905014444,
+  "median_ae": 7.317897003597533e-07,
+  "pinball50": 6.0197803511130035,
+  "pinball80": 9.357125356370437,
+  "mean_y": 11.146110056925997,
+  "mean_pred": 0.021626706067889738,
+  "companion_pr_auc": 0.5519748860631689,
+  "companion_roc_auc": 0.6545393141137821,
+  "companion_log_loss": 5.2210537228927505,
+  "companion_prevalence": 0.3757115749525617,
+  "delayed_mw_capture_at_10pct": 0.19375526428560874,
+  "baselines": {
+    "zero_slip": {
+      "n": 1054.0,
+      "mae": 12.053130929791271,
+      "rmse": 21.08724085211762,
+      "median_ae": 0.0,
+      "pinball50": 6.0265654648956355,
+      "pinball80": 9.370398481973433,
+      "mean_y": 11.146110056925997,
+      "mean_pred": 0.0
+    },
+    "train_mean": {
+      "n": 1054.0,
+      "mae": 14.375978021740618,
+      "rmse": 17.90072505107297,
+      "median_ae": 11.146110056925997,
+      "pinball50": 7.187989010870309,
+      "pinball80": 7.187989010870309,
+      "mean_y": 11.146110056925997,
+      "mean_pred": 11.146110056925997
+    },
+    "persist_last_shift": {
+      "n": 1054.0,
+      "mae": 12.053130929791271,
+      "rmse": 21.08724085211762,
+      "median_ae": 0.0,
+      "pinball50": 6.0265654648956355,
+      "pinball80": 9.370398481973433,
+      "mean_y": 11.146110056925997,
+      "mean_pred": 0.0
+    },
+    "train_mean_value": 11.146110056925997
+  },
+  "beats_persist_mae": true,
+  "beats_mean_pinball80": false,
+  "gia": {
+    "n": 284.0,
+    "mae": 21.558092817415133,
+    "rmse": 26.146921193417825,
+    "median_ae": 23.0000004465619,
+    "pinball50": 10.779046408707567,
+    "pinball80": 16.808654804970267,
+    "mean_y": 20.140845070422536,
+    "mean_pred": 0.04215041621353522
+  },
+  "model": "catboost",
+  "status": "ok",
+  "n_features": 62,
+  "best_iteration": 130,
+  "params": {
+    "depth": 5,
+    "learning_rate": 0.08,
+    "l2_leaf_reg": 2.0,
+    "random_strength": 1.0,
+    "bagging_temperature": 1.0,
+    "border_count": 128,
+    "min_data_in_leaf": 32,
+    "iterations": 5000,
+    "early_stopping_rounds": 100,
+    "random_seed": 42,
+    "loss_function": "MAE",
+    "eval_metric": "MAE"
+  }
+}

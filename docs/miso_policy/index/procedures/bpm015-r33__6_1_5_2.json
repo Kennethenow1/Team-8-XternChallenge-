@@ -1,0 +1,52 @@
+{
+  "unit_id": "bpm015-r33::6.1.5.2",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.1.5.2",
+    "title": "Network Upgrade Funding and Facilities Studies",
+    "pages": [
+      79,
+      80
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp1",
+      "dpp2",
+      "dpp3"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "cost_allocation",
+      "deliverability"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "study_method"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.1.5.2.\nNetwork Upgrade Funding and Facilities Studies\nIf the IC(s) decide to fund the network upgrades, to mitigate the identified constraints identified in\nthe Optional Interconnection Study, MISO will then facilitate the coordination with applicable TO.\nWith applicable agreements between IC and TO(s) in place, MISO will include these network\n\n\nupgrades within its MISO Transmission Expansion Plan (MTEP) as “Other – MP Funded” project.\nMISO will work with applicable TOs to conduct a Facility Study. Facility Study timelines and cost\nwould be consistent with Section 6.2 of this BPM.",
+  "cite": "BPM-015 r33 §6.1.5.2"
+}

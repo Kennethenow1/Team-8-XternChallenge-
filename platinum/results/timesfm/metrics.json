@@ -1,0 +1,11 @@
+{
+  "model": "timesfm",
+  "status": "ok",
+  "split": "val",
+  "mae": NaN,
+  "rmse": 0.0,
+  "mape": 0.0,
+  "n_folds": 5,
+  "pr_auc": null,
+  "note": "system series \u2014 not row MAE"
+}

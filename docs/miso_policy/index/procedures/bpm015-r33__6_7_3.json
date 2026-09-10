@@ -1,0 +1,51 @@
+{
+  "unit_id": "bpm015-r33::6.7.3",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.7.3",
+    "title": "Surplus Interconnection Service",
+    "pages": [
+      122,
+      124
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [],
+    "milestone": [
+      "D1"
+    ],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "deposit_refund",
+      "commercial_operation",
+      "gia_negotiation"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.7.3.\nSurplus Interconnection Service\nSurplus Interconnection Service (pursuant to Attachment X to MISO Tariff) shall mean any\nInterconnection Service that is derived from the unneeded portion of Interconnection Service\nestablished in a GIA or in agreement with, or under the tariff of, a Transmission Owner prior to\nintegration into MISO, such that if Surplus Interconnection Service is utilized the total amount of\nInterconnection Service at the Point of Interconnection would remain the same.\n\nTo request for Surplus Interconnection Service, an IC can submit an Interconnection Request\n(Appendix 1 to Attachment X) to MISO accompanied by a Non-Refundable Deposit 1 (D1) and a\nstudy deposit in the amount of $150,000. The request can be submitted at any time with the\nCommercial Operation Date at least one year after the submission date of the Surplus\nInterconnection Request if it meets all the requirements described in Attachment X to MISO Tariff.\nICs must initiate Surplus IRs through the online application tool. ICs must establish a profile on\nthe MISO website prior to requesting access to the online application tool via the MISO Generator\nInterconnection page. The online application tool, instructions for establishing a profile, and an IC\ntraining\nmodule\nmay\nbe\naccessed\nthrough\nMISO’s\nwebsite\nat:\nhttps://www.misoenergy.org/planning/resource-utilization/generator-interconnection/. The online\napplication tool contains all data required by Tariff Attachment X, Appendix 1 and enables ICs to\nsubmit data to MISO in the form of Appendix 1. MISO will only accept Surplus IRs completed\nusing the online application tool. In the event that MISO experiences an outage or other technical\ndifficulty that prevents Interconnection Customers from completing and submitting Surplus IRs,\nMISO will communicate an alternative method for affected Interconnection Customers to submit\ntheir Surplus IR. As part of the Interconnection Request, the IC must notify MISO whether the\nsole operation of the Surplus Interconnection Service Generating Facility at the Point of\nInterconnection should also be included as a part of Interconnection Study for the Surplus\nInterconnection Service. Such studies will identify whether the Surplus Interconnection Service\nGenerating Facility can be solely and reliably operated after the retirement of the Existing\nGenerating Facility, if applicable. If this scenario shows no material adverse impact in the\nInterconnection Study, then this can be used to satisfy one of the requirements for continuation\nof Surplus Interconnection Service after retirement or cessation of commercial operation of an\nExisting Generating Facility for a limited period not to exceed one (1) year (Section 3.3.1.3 of\nAttachment X to MISO Tariff). Once the complete application is received, MISO will assign a\nSurplus Interconnection Service request number for the Surplus Interconnection Request and will\npost them publicly on MISO’s Generator Interconnection queue webpage.\n\n\nThe Interconnection Study for Surplus Interconnection Service consists of reactive power, short\ncircuit/fault duty, and stability analyses. If MISO is unable to verify that the Existing Generating\nFacility was previously studied for the granted level of Interconnection Service, MISO may perform\nsteady state analyses to demonstrate reliable operation of the Surplus Interconnection. For\nidentified applicable studies, MISO will utilize Qualified Change evaluation criteria as set forth in\nSection 6.7.4 of this BPM. The study will use the regional DPP Phase 3 models from the latest\nDPP cycle for which the Interconnection Customer Decision Point II is completed. These models\nwill correspond to the MISO region applicable to the Surplus Interconnection Request and will\ninclude the Network Upgrades from the corresponding DPP study. The study will use fuel type\ndispatch assumptions as set forth in Section 6.1.1.1.2 of this BPM, as applicable24. If MISO\ndetermines that the Surplus Interconnection Service proposed in the Surplus Interconnection\nRequest would not result in material adverse impact on the Transmission System and/or Affected\nSystems, as compared to the impacts that are created by the Existing Generating Facility without\nthe inclusion of the proposed Surplus Interconnection Service, the IC can move forward with the\nrequested Surplus Interconnection Service.\n\n\n\n24 Default fuel type dispatch assumptions may change depending on the application and agreement, details to be finalized during the study\nscope preparation.\n\n\nFigure 6-5 Flow Diagram Describing Surplus Interconnection Process\n\n* Request will be evaluated in the order they are received\n** If the Interconnection Study for Surplus Interconnection Service identifies material adverse impacts on the Transmission System\nand/or Affected System, the IC shall proceed through Definitive Planning Phase cycle similar to a request for interconnection of a\nnew Generating Facility. Alternatively, the IC can withdraw the Surplus Interconnection Request.",
+  "cite": "BPM-015 r33 §6.7.3"
+}

@@ -1,0 +1,49 @@
+{
+  "unit_id": "bpm015-r33::3",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "3",
+    "title": "Pre-Queue Phase",
+    "pages": [
+      21,
+      21
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "pre_queue"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "scoping"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "3.\nPre-Queue Phase\nThe Pre-Queue Phase is designed to provide the ICs an overview of the process, timeline, and\nexpectations pertaining to the output of the Generator Interconnection process. The goal of the\nPre-Queue Phase is to provide various channels for communication between the IC and MISO\nso that the IC is well informed about the queue process and requirements in every phase of the\nprocess. Figure 3-1 outlines the steps involved in the Pre-Queue Phase.\n\nFigure 0-3 Overview of Pre-Queue Phase",
+  "cite": "BPM-015 r33 §3"
+}

@@ -1,0 +1,53 @@
+{
+  "unit_id": "bpm015-r33::8.3.5",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "8.3.5",
+    "title": "Tracking and Reporting Information",
+    "pages": [
+      141,
+      144
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "der_afs"
+    ],
+    "milestone": [],
+    "actor": [
+      "miso",
+      "to",
+      "affected_system",
+      "ferc"
+    ],
+    "topic": [],
+    "risk_code": [],
+    "claim_class": [
+      "workflow",
+      "study_method"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    },
+    {
+      "actor": "affected_system",
+      "impact": "Affected System / neighboring TO: coordination and restudy of impacts."
+    },
+    {
+      "actor": "ferc",
+      "impact": "FERC: GIA filing / unexecuted filing; not a compliance score on this card."
+    }
+  ],
+  "text": "8.3.5.\nTracking and Reporting Information\nMISO will make reporting information to be publicly available and updated with each DER AFS\ncycle. The information made publicly available will be consistent with data confidentiality\n\n\n35 MISO, Tariff Attachment X: Appendix 9, Multi-Party Facilities Construction Agreement. Available at:\nhttps://docs.misoenergy.org/legalcontent/Attachment_X-Appendix_9_-_Multi-\nParty_Facilities_Construction_Agreement_%28MPFCA%29.pdf\n36 MISO, Tariff Attachment X: Appendix 8, Facilities Construction Agreement. Available at:\nhttps://docs.misoenergy.org/legalcontent/Attachment_X-Appendix_8_-_Facilities_Construction_Agreement_%28FCA%29.pdf\n\n\npractices outline in Section 8.3.3. The following information will be reported for each DER\nSubstation included in screening or study activities:\n\n•\nTransmission Owner\n•\nTotal Connected DER\n•\nDate of last MISO Screen\na. 1% Screen (Pass/Fail)\nb. Net Injection (1 – 5 MW) Screen (Pass/Fail)\nc. Net Injection (greater than 5 MW) Screen (Pass/Fail)\n•\nOngoing AFS (Y/N)\n•\nTotal Pending DER in current DER AFS\n•\nNumber of completed DER AFS Studies\n•\nUpgrades Identified (Y/N)\n\n\n9. Expedite Resource Addition Study (ERAS)\n\nThe ERAS process was approved by FERC on June 21, 2025.  It is a short-term solution with\nstrict eligibility requirements, designed to expedite the study and approval of generation needed\nto address the region’s resource adequacy and/or reliability needs. Implementation of ERAS is\noutlined in Attachment X and ERAS Informational Guide, posted on MISO website. ERAS will\nsunset on the earlier of the completion of the 68th ERAS Interconnection Requests or on August\n31, 2027.\n\n10 . Non-binding Dispute Resolution\nAll disputes arising under section 13.5.2 of Attachment X are initially subject to the informal\ndispute resolution process described in 13.5.1 of Attachment X. All requests that proceed to Non-\nbinding Dispute Resolution shall be initiated through the submission of a properly completed\nRequest\nfor\nNon-binding\nDispute\nResolution\nform\n(Appendix\nF\nhereto)\nto\nthe\n[ginterconnection@misoenergy.org] email address. The Party initiating a dispute shall provide the\nfollowing information at the time of dispute initiation:\n•\nThe identity of the party making the request;\n•\nThe identity of the party with whom the dispute is being raised;\n•\nThe identity, if known, of any other parties who may be impacted by the outcome of the\ndispute being raised;\n•\nA summary of the factual information giving rise to the dispute, including steps taken to\nresolve the dispute;\n•\nCitations to any authority governing the dispute (i.e., applicable sections of the Tariff,\nMISO Agreement, Business Practices Manuals and/or any other applicable authority);\n•\nThe desired outcome of the Non-binding dispute resolution process; and\n•\nContact information as specified in Appendix F.",
+  "cite": "BPM-015 r33 §8.3.5"
+}

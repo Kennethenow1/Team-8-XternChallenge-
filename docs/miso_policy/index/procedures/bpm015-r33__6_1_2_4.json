@@ -1,0 +1,57 @@
+{
+  "unit_id": "bpm015-r33::6.1.2.4",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.1.2.4",
+    "title": "Criteria Used to Determine Stability and Short Circuit Constraints",
+    "pages": [
+      78,
+      78
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp1",
+      "dpp2",
+      "dpp3"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to",
+      "ferc"
+    ],
+    "topic": [
+      "cost_allocation",
+      "deliverability"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "study_method"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    },
+    {
+      "actor": "ferc",
+      "impact": "FERC: GIA filing / unexecuted filing; not a compliance score on this card."
+    }
+  ],
+  "text": "6.1.2.4.\nCriteria Used to Determine Stability and Short Circuit Constraints\nStability Study\nAll conditions/disturbances leading to the Generating Facility or system instability in compliance\nwith the applicable reliability standards in 6.1.1.1.2 will be documented as a constraint. If there is\nregional or TO’s FERC filed planning criteria for transient period voltages or post transient voltage\nrecovery, it will be monitored and, any violation caused by the proposed interconnection will be\nflagged as a constraint.\n\nShort Circuit Study\nAll breakers over-dutied (underrated) after the addition of the proposed Generating Facility will be\nflagged.",
+  "cite": "BPM-015 r33 §6.1.2.4"
+}

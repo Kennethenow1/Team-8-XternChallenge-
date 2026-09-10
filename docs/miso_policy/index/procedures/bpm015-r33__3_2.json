@@ -1,0 +1,49 @@
+{
+  "unit_id": "bpm015-r33::3.2",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "3.2",
+    "title": "Regularly Scheduled Information Sessions",
+    "pages": [
+      22,
+      23
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "pre_queue"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "scoping"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "3.2\nRegularly Scheduled Information Sessions\nMISO conducts on-the-road workshops on a periodic basis for ICs with a desire to participate and\nbecome familiar with the interconnection process and/or ask questions. All workshops are open\nto any potential or existing ICs, TOs, Affected Systems, and other RTOs/ISOs wishing to learn\n\n\nabout the MISO Generator Interconnection process. The workshops will address topics such as\nMilestones in the process, study timelines, IC inputs, requirements to enter each phase, estimated\ncosts, IC responsibilities, etc. The schedule for all workshops will be posted in advance on the\nMISO website, at the Generator Interconnection page.\n\nThe workshops will be conducted in either the Carmel, IN or Eagan, MN MISO offices or be held\nvirtually and will move based on an alternating schedule or at the request of the potential\nparticipants. Depending on interest and requests in the queue, locations may be revised in the\nfuture to include locations outside MISO offices.",
+  "cite": "BPM-015 r33 §3.2"
+}

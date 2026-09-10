@@ -1,0 +1,54 @@
+{
+  "unit_id": "bpm015-r33::6.2.4",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.2.4",
+    "title": "Conditions to GIA (Appendix A10)",
+    "pages": [
+      83,
+      84
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp3",
+      "gia"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "gia_negotiation",
+      "cost_allocation"
+    ],
+    "risk_code": [
+      "cost_pressure",
+      "gia_execution"
+    ],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.2.4.\nConditions to GIA (Appendix A10)\nThe Facilities Study report identifies the cost and schedule of Network Upgrades that are identified\nfor Interconnection projects. In addition to these upgrades, MISO may identify other conditions\nwhich may include other higher or similarly queued IRs, other MTEP assumptions embedded in\nthe study case, Distribution Upgrades, or System Protection Upgrades for higher or similarly\nqueued projects.\ni.\nExhibit A10: MISO will perform analysis on the GI study case and monitor upcoming\nMTEP upgrades that are not yet in service based on the following Criteria:\na. DF ≥ 5% AND\nb. MW Impact ≥ 5 MW, AND\nc. MW Impact ≥ 1% of the Facility Rating\n\n\nAll Network Upgrades identified in the SIS, required to mitigate Voltage and Stability related\nissues, will be included in the Appendix 10 to the GIA.\n\nUpcoming MTEP projects applicable to study GI project(s), proposed for voltage & stability\npurpose, will be listed.",
+  "cite": "BPM-015 r33 §6.2.4"
+}

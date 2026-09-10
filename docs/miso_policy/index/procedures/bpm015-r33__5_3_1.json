@@ -1,0 +1,47 @@
+{
+  "unit_id": "bpm015-r33::5.3.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "5.3.1",
+    "title": "Revised Model Building and Revised System Impact Study",
+    "pages": [
+      50,
+      50
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp2"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "5.3.1.\nRevised Model Building and Revised System Impact Study\nPrior to starting the revised SIS, MISO will update the study models built during Phase I by\nremoving all the IRs that did not proceed to the DPP II. MISO will distribute the study models to\nthe IC and the TO for final review. Any comments or corrections from the TO or IC to the revised\nstudy models must be submitted to MISO within five (5) Business Days after receipt of the revised\nstudy models. Should the TO or the IC fail to provide feedback on the revised study models within\nfive (5) Business Days after receipt of the revised study models, MISO shall deem the models\nacceptable. After this point, the revised SIS can begin.",
+  "cite": "BPM-015 r33 §5.3.1"
+}

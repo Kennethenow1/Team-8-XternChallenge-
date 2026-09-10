@@ -1,0 +1,42 @@
+{
+  "unit_id": "bpm015-r33::6.7.1.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.7.1.1",
+    "title": "Milestones",
+    "pages": [
+      116,
+      116
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "to"
+    ],
+    "topic": [
+      "deposit_refund"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.7.1.1.\nMilestones\nA deposit is not required if the IC submits engineering studies supporting a determination that the\nplanned change is not a Qualified Change. However, a fee may be required at a later date to\nreflect the cost of review, or a study deposit may be collected if the analysis submitted by the IC\nis incomplete or does not demonstrate that the planned change is not Qualified Change.",
+  "cite": "BPM-015 r33 §6.7.1.1"
+}

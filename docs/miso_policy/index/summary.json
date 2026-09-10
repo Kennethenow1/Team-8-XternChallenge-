@@ -1,0 +1,10 @@
+{
+  "schema_version": "policy_index.v1",
+  "n_units": 170,
+  "n_with_risk": 40,
+  "stub_risks": [
+    "developer_serial_quit",
+    "hazard_exposure",
+    "policy_incentive"
+  ]
+}

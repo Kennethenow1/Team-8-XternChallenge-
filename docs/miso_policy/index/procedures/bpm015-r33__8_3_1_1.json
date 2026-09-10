@@ -1,0 +1,53 @@
+{
+  "unit_id": "bpm015-r33::8.3.1.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "8.3.1.1",
+    "title": "Screening Assumptions",
+    "pages": [
+      134,
+      135
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "der_afs"
+    ],
+    "milestone": [],
+    "actor": [
+      "miso",
+      "to",
+      "affected_system",
+      "lse"
+    ],
+    "topic": [],
+    "risk_code": [],
+    "claim_class": [
+      "workflow",
+      "study_method"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    },
+    {
+      "actor": "affected_system",
+      "impact": "Affected System / neighboring TO: coordination and restudy of impacts."
+    },
+    {
+      "actor": "lse",
+      "impact": "Load-serving entity: reliability criteria coordination where FAC-002 / Attachment FF apply."
+    }
+  ],
+  "text": "8.3.1.1.\nScreening Assumptions\nThe TO and MISO shall assume full injection of all DER resources when applying DER screens.\nFull injection could mean the full DER nameplate or be a lesser value should operational\ncapacity limitations be proposed. The TO, in concert with the EDC, determines the DER\ninjection level submitted to MISO for screening.\n\nThe TO and MISO shall select summer peak and/or shoulder peak load conditions, drawing\nfrom MISO’s fuel dispatch philosophy in Section 6.1.1.1.2 of this BPM for DPP studies.  Table\n0-1 shows an adaptation of summer peak and shoulder peak selection for DERs from Table 6-1.\nShould the DPP study fuel dispatch philosophy change, MISO will update the DER AFS\nscreening approach to align with the DPP study dispatch assumptions. All DER in the study\ncase is dispatched according to Table 8-1.\n\nTable 0-1 DER AFS screening adaptation for summer peak and shoulder peak selection\nDER Fuel Type for\nScreening\nSummer Peak\nDispatch\nShoulder Peak\nDispatch\nSolar\n100%\n0%\n\n\nStorage\n100%\n100%\nWind\n100%\n100%\nHybrid32\n100%\n100%\nDiesel Engines\n100%\n0%\nCombustion Turbine\n100%\n0%\nWaste Heat\n100%\n100%\nOil\n100%\n0%\nHydro\n100%\n100%\n\n\nThe load considered in the summer peak and shoulder peak conditions shall be consistent with\nthe most current Load Serving Entity (LSE) information submitted for MTEP modeling.\n\nExamples in Table 0-2 illustrate the application of the screening model selection concepts. The\nexamples assume levels of DER Net Injection that would require screening.\n\nTable 0-2 Example applications of DER screening model selection\nExample situation at a given DER Substation\nModel selection\n5 MW solar only\nSummer Peak\n4 MW solar and 1 MW battery storage\nSummer Peak and Shoulder Peak\n10 MW hybrid (solar and combustion turbine)\nSummer Peak\n10 MW hybrid (solar, wind, and storage)\nSummer Peak and Shoulder Peak",
+  "cite": "BPM-015 r33 §8.3.1.1"
+}

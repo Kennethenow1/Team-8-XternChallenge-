@@ -1,0 +1,55 @@
+{
+  "unit_id": "bpm015-r33::7.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "7.1",
+    "title": "Suspension",
+    "pages": [
+      126,
+      127
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "post_gia"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "delay_of_study",
+      "restudy",
+      "deposit_refund",
+      "cost_allocation",
+      "gia_negotiation"
+    ],
+    "risk_code": [
+      "gia_execution"
+    ],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "7.1. Suspension\nAfter the execution of the Interconnection Agreement, the IC is expected to meet the Milestones\nand construction schedule as established in the Interconnection Agreement. In certain conditions,\nIC has the option to suspend the construction of the Network Upgrades and Interconnection\n\n\nFacilities based on narrowly defined criteria. The following rules and conditions will govern the\nsuspension of a project in the post-IA phase.\n•\nPermitted only for Force Majeure reasons: “Any act of God, labor disturbance, act of\nthe public enemy, war, insurrection, riot, fire, storm or flood, explosion, breakage or\naccident to machinery or equipment, any order, regulation, or restriction imposed by\ngovernmental, military or lawfully established civilian authorities, or any other cause\nbeyond a Party’s control. A Force Majeure event does not include an act of negligence\nor intentional wrongdoing by the Party claiming Force Majeure.”\n•\nWhen coming out of suspension with only partial construction resulting in reduced\nproject capacity, recovery eligibility is reduced on a pro-rata basis relative to the new\nsize of the project.\n•\nWill require an up-front payment equivalent to greater of Network Upgrade costs or $5\nmillion.\n•\nSuspended IRs may be revisited periodically to ensure IC is working toward coming\nout of suspension.\n\nWhen emerging from suspension, the IC must provide written notice to MISO noting the date as\nof which the request is no longer suspended along with notice of any changes to the\nInterconnection Facilities and/or Generating Facility as compared to the description in the\nInterconnection Agreement, or the studies performed in support of the Interconnection\nAgreement. MISO will restudy the project coming out of suspension with the transmission\nassumptions that exist on the day it receives such notice. MISO will require a reasonable study\ndeposit to perform such studies. Failure to provide the needed data and deposit at the time of\nnotice may lead to the IC being declared in Breach of Agreement.",
+  "cite": "BPM-015 r33 §7.1"
+}

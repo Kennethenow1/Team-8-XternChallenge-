@@ -1,0 +1,51 @@
+{
+  "unit_id": "bpm015-r33::4.2.3",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "4.2.3",
+    "title": "Letter of Credit Requirements",
+    "pages": [
+      29,
+      30
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "application_review"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "deposit_refund",
+      "withdrawal",
+      "gia_negotiation"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "deposit_rule"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "4.2.3\nLetter of Credit Requirements\nThe Letter of Credit should clearly specify the “Issuer,” the “Account Party”, “Beneficiary (MISO),”\nthe term for which the Letter of Credit will remain open, and the dollar amount available. It should\nalso include a statement as to the instructions and terms for funds disbursement. The party issuing\n\n\nthe Letter of Credit must have a minimum corporate debt rating of “A-” by S&P, “A3” by Moody’s,\nand “A-” by Fitch. All costs associated with obtaining the Letter of Credit will be the responsibility\nof the IC. If the Letter of Credit option is chosen to fulfill the DPP Entry Milestone it would need to\nremain open until submission of the first GIA Milestone payment or withdrawal.",
+  "cite": "BPM-015 r33 §4.2.3"
+}

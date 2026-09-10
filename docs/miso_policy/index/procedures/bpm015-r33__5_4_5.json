@@ -1,0 +1,49 @@
+{
+  "unit_id": "bpm015-r33::5.4.5",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "5.4.5",
+    "title": "Facilities Studies",
+    "pages": [
+      55,
+      56
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp3"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "gia_negotiation"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "5.4.5.\nFacilities Studies\nThe IC and TO may, within fifteen (15) Calendar Days after receipt of the draft Interconnection\nFacilities report, which information will be incorporated into the GIA appendices, and, as\napplicable, associated draft appendices for the related FCA(s) and/or MPFCA(s) and supporting\ndocumentation, provide written comments to be included in the final Interconnection Facilities\nreport. As described above, MISO shall issue the final Interconnection Facility Study within ten\n(10) Calendar Days of receiving the IC’s comments or promptly upon receiving the IC’s statement\nthat it will not provide comments. MISO may reasonably extend the fifteen (15) Calendar Days\nperiod upon notice to the IC if the IC’s comments require MISO to perform additional analysis or\n\n\nmake other significant revisions prior to the issuance of the final Interconnection Facilities Study\nreport. Upon request, MISO shall provide the IC with supporting documentation, work papers, and\ndatabases or data developed in the preparation of the Interconnection Facilities Study, subject to\nconfidentiality arrangements provided in Section 13.1 of the GIP.\n\nWithin ten (10) Business Days of providing the draft Interconnection Facilities Study report and\nsupporting documentation to the IC, MISO and the IC may meet to discuss the results of the\nInterconnection Facilities Study.",
+  "cite": "BPM-015 r33 §5.4.5"
+}

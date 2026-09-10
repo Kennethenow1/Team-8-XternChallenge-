@@ -1,0 +1,50 @@
+{
+  "unit_id": "bpm015-r33::app.G",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "app.G",
+    "title": "Appendix G",
+    "pages": [
+      157,
+      158
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to",
+      "ferc"
+    ],
+    "topic": [],
+    "risk_code": [],
+    "claim_class": [
+      "study_method"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    },
+    {
+      "actor": "ferc",
+      "impact": "FERC: GIA filing / unexecuted filing; not a compliance score on this card."
+    }
+  ],
+  "text": "Appendix G\nREQUEST FOR NON-BINDING DISPUTE RESOLUTION\n(Please forward to: ginterconnection@misoenergy.org)\n\nClaimant Company Information:\nClaimant Company Name: ______________________________\nBusiness Address: ____________________________________\nCity: ______________ State: __________ Zip: _____________\n\nDesignated Contact for Non-Binding Dispute Resolution:\nFull Name: ____________________ Title: _________________\nContact’s Firm or Company Name: _________________________\nBusiness Address: _____________________________________\nCity: ______________ State: __________ Zip: ______________\nTelephone No.: (   ) _______ E-mail Address: ______________\n\nDescription of Dispute:\n\nName of Opposing Party or Parties: _______________________________________________\n____________________________________________________\n\nPlease attach to this form a detailed statement of facts explaining the nature of your dispute.\nYour explanation (in any format) should address:\n(a) How has the dispute developed;\n(b) What is causing the dispute;\n(c) Who are the parties affected by the dispute;\n(d) Does the dispute involve a single event or a series of repetitive events;\n(e) What you have done to resolve the dispute;\n(f)  What is the desired outcome;\n(g) Citation to any authority governing the dispute (i.e., applicable sections of the Tariff, MISO\nTransmission Owners Agreement, Business Practices Manuals and/or any other applicable\nauthority);\n(h) Whether a decision in this dispute affects matters subject to FERC’s jurisdiction under either\nsection 205 or 206 of the Federal Power Act; and\n(i) Whether a decision in this dispute affects matters subject to the jurisdiction of any state\nauthority.",
+  "cite": "BPM-015 r33 Appendix G"
+}

@@ -1,0 +1,54 @@
+{
+  "unit_id": "bpm015-r33::6.2.6",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.2.6",
+    "title": "Interconnection and Operating Guidelines",
+    "pages": [
+      84,
+      85
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp3",
+      "gia"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "gia_negotiation",
+      "cost_allocation"
+    ],
+    "risk_code": [
+      "cost_pressure",
+      "gia_execution"
+    ],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.2.6.\nInterconnection and Operating Guidelines\n\n\nThe study report should include any “project specific” guidelines or requirements for the\ninterconnection and/or operation of the Facility that go beyond the generic and universal\nrequirement of “Good Utility Practice.” These requirements/guidelines may include topics such as\nSystem Protection Facilities, communication requirements, metering requirement(s), grounding\nrequirements, transmission line and substation connection configurations, unit stability\nrequirements, equipment ratings, short circuit requirements, synchronizing requirements,\ngeneration and operation control requirements, data provisions, energization inspection and\ntesting requirements (if applicable), the unique requirements (if any), of the Transmission Owner\nto which the facility will be physically interconnected, switching and tagging, data reporting\nrequirements, training, capacity determination and verification (including Ancillary Services and\ncertification), emergency operations, including system restoration and black start arrangements,\nidentified must-run conditions, provision of Ancillary Services, specific transmission requirements\nof nuclear units to abide by all NRC requirements and regulations, stability requirements, including\ngeneration short circuit ratio considerations, limitations of operations in support of emergency\nresponse, maintenance and testing, and any other specific requirements not listed above.\n\nAll such Interconnection and Operating Guidelines must be included in Appendix C to the GIA.",
+  "cite": "BPM-015 r33 §6.2.6"
+}

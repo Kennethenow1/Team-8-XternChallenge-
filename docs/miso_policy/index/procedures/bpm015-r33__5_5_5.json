@@ -1,0 +1,45 @@
+{
+  "unit_id": "bpm015-r33::5.5.5",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "5.5.5",
+    "title": "Request Deliverables",
+    "pages": [
+      60,
+      60
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp3",
+      "gia"
+    ],
+    "milestone": [],
+    "actor": [
+      "ic",
+      "miso"
+    ],
+    "topic": [
+      "transfer_of_ownership"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    }
+  ],
+  "text": "5.5.5 Request Deliverables\nOnce the Interconnection Customer submits a transfer of ownership or name change\nrequest, MISO will review and either accept or deny that request within 15 Business Days -\nhowever if there is an issue, missing documents, or clarification needed with the\nInterconnection Customer, the timeframe may be extended.",
+  "cite": "BPM-015 r33 §5.5.5"
+}

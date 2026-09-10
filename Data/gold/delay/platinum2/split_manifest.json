@@ -1,0 +1,44 @@
+{
+  "task": "gia_delayed_mw_next_year",
+  "primary_target": "delayed_mw",
+  "overlay": "gia_delayed_mw",
+  "grain": "EIA-860M quarterly (Mar/Jun/Sep/Dec)",
+  "horizons_months": [
+    3,
+    12
+  ],
+  "horizon_steps": {
+    "3": 1,
+    "12": 4
+  },
+  "val_3m": "origins in 2023 whose target year <= 2023",
+  "val_12m": "origins whose target year <= 2023 (typically 2022-q \u2192 2023-q)",
+  "test_sealed": 2024,
+  "n_snapshots": 18,
+  "counts_by_origin_split": {
+    "score": 6,
+    "train": 4,
+    "val": 4,
+    "test": 4
+  },
+  "year_months": [
+    "2022-03",
+    "2022-06",
+    "2022-09",
+    "2022-12",
+    "2023-03",
+    "2023-06",
+    "2023-09",
+    "2023-12",
+    "2024-03",
+    "2024-06",
+    "2024-09",
+    "2024-12",
+    "2025-03",
+    "2025-06",
+    "2025-09",
+    "2025-12",
+    "2026-03",
+    "2026-06"
+  ]
+}

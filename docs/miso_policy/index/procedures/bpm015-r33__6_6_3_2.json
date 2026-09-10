@@ -1,0 +1,37 @@
+{
+  "unit_id": "bpm015-r33::6.6.3.2",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.6.3.2",
+    "title": "Base Case Assumptions",
+    "pages": [
+      113,
+      113
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [],
+    "milestone": [],
+    "actor": [
+      "to"
+    ],
+    "topic": [
+      "deliverability"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "6.6.3.2.\nBase Case Assumptions\nThe Summer Peak and Shoulder Peak Base Cases for the Annual Interim ERIS evaluation will\nbe reflective of the Generation and Transmission System expected to be in service at the start of\nthe Planning Year. The individual cases for the following years will be reflective of the\nTransmission and Generation that is expected to be in service at the start of those individual\nPlanning Years.",
+  "cite": "BPM-015 r33 §6.6.3.2"
+}

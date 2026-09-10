@@ -1,0 +1,41 @@
+{
+  "unit_id": "bpm015-r33::1.2",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "1.2",
+    "title": "Purpose of this Business Practices Manual",
+    "pages": [
+      18,
+      18
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [],
+    "milestone": [],
+    "actor": [
+      "miso",
+      "to"
+    ],
+    "topic": [],
+    "risk_code": [],
+    "claim_class": [
+      "do_not_use_as_legal_opinion",
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "1.2\nPurpose of this Business Practices Manual\nThis BPM for Generator Interconnection contains the business practices of MISO in implementing\nAttachment X of its Open Access Transmission, Energy and Operating Reserves Markets Tariff\n(Tariff). These practices are intended to supplement the Tariff, and to the extent that there is a\nconflict between the Tariff and these practices, the Tariff controls.",
+  "cite": "BPM-015 r33 §1.2"
+}

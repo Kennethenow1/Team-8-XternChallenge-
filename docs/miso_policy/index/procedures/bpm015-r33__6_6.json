@@ -1,0 +1,35 @@
+{
+  "unit_id": "bpm015-r33::6.6",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.6",
+    "title": "Annual ERIS Evaluation and Annual Interim Deliverability Study",
+    "pages": [
+      112,
+      112
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [],
+    "milestone": [],
+    "actor": [],
+    "topic": [
+      "deliverability"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    }
+  ],
+  "text": "6.6\nAnnual ERIS Evaluation and Annual Interim Deliverability Study",
+  "cite": "BPM-015 r33 §6.6"
+}

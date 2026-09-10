@@ -1,0 +1,50 @@
+{
+  "unit_id": "bpm015-r33::8.3",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "8.3",
+    "title": "Procedure / Screening",
+    "pages": [
+      133,
+      134
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "der_afs"
+    ],
+    "milestone": [],
+    "actor": [
+      "miso",
+      "to",
+      "affected_system"
+    ],
+    "topic": [
+      "cost_allocation"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow",
+      "study_method"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    },
+    {
+      "actor": "affected_system",
+      "impact": "Affected System / neighboring TO: coordination and restudy of impacts."
+    }
+  ],
+  "text": "8.3. Procedure\nMISO is aware that some RERRAs define transmission studies and affected systems studies\nwithin RERRA-jurisdictional interconnection rules. MISO considers the MISO DER AFS to be a\ntype of affected system studies and recognizes that other TO studies may be appropriate based\non TO Local Planning Criteria and applicable RERRA rules.\n\nThe MISO DER AFS process starts with screening, carried out jointly by MISO and the TO,\nwhich leads to a DER AFS should screening results show violations in technical criteria found in\nSections 8.3.1.2 and 8.3.1.3. MISO will conduct quarterly DER AFS cycles to efficiently manage\nthe expected growing volume of DER in coming years.\n\nMISO will issue a DER AFS report at the conclusion of the DER AFS, should one ultimately be\nperformed, showing steady state analysis results for voltage and thermal impacts. The DER\nCustomer, EDC, and TO will have an opportunity to share feedback on the draft study report,\nper Section 8.3.3. If study results indicate DER-caused impacts exceeding defined thresholds,\nindicative cost estimates for Network Upgrades will be provided in advance of kicking off a more\ndetailed Facilities Study. Figure 0-2 illustrates key DER AFS milestones and timeframes.\n\nDER AFS\nscreening\nDER AFS and\nreport\nFacilities Studies\nand Network\nUpgrades\n\n\nFigure 0-2 Illustration of DER AFS timeline view\n\n8.3.1.\nScreening",
+  "cite": "BPM-015 r33 §8.3"
+}

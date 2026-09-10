@@ -1,0 +1,52 @@
+{
+  "task": "cod_slip_months_next_12m",
+  "companion": "cod_slip_ge_12m",
+  "train_years": [
+    2020,
+    2021,
+    2022
+  ],
+  "validation_year": 2023,
+  "test_year": 2024,
+  "score_years": [
+    2025,
+    2026
+  ],
+  "followup_months": 24,
+  "counts_by_split": {
+    "train": 3277,
+    "score": 2676,
+    "test": 2205,
+    "val": 1669
+  },
+  "labeled_by_split": {
+    "train": 2648,
+    "score": 1411,
+    "val": 1054,
+    "test": 945
+  },
+  "complete_followup_by_split": {
+    "score": 0.5713751868460388,
+    "test": 0.9963718820861678,
+    "train": 1.0,
+    "val": 0.9982025164769323
+  },
+  "neural_nets_ok": true,
+  "excluded_outcome_columns": [
+    "cod_slip_months_next_12m",
+    "cod_slip_ge_12m",
+    "event_type",
+    "complete_followup",
+    "delay_from_original_months",
+    "future_cod",
+    "cod_at_t",
+    "cod_at_entry"
+  ],
+  "note": "Berkeley 2024 service dates are empty; follow-up uses the next non-null COD within 24 months (typically year-end t -> t+2). MISO operational_date is Appl In Service Date, not proven COD.",
+  "audit": {
+    "val_labeled": 1054,
+    "train_labeled": 2648,
+    "gia_val_labeled": 284,
+    "neural_nets_ok": true
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "unit_id": "bpm015-r33::4.2.4.5",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "4.2.4.5",
+    "title": "DPP Study Funding Deposit (D2)",
+    "pages": [
+      33,
+      34
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "application_review"
+    ],
+    "milestone": [
+      "D2"
+    ],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "deposit_refund",
+      "withdrawal"
+    ],
+    "risk_code": [
+      "cost_pressure"
+    ],
+    "claim_class": [
+      "deposit_rule"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "4.2.4.5.\nDPP Study Funding Deposit (D2)\nDeposit amounts to fund the DPP studies will be the same for projects in a certain MW range (i.e.,\n< 6, 7-20 …), which are shown in Figure 4-2 and in Table 4-1 below. The amount of the study\ndeposit is representative of the expected costs associated with completing the study for projects\nin those ranges. Prior to entry into the DPP, the IC will have to select a single POI, unless they\n\n\nare required by a state regulatory body to take two POIs through the study process, in which case\nthey will have to submit study deposits for each POI. Failure to pay the (D2) DPP Study Funding\ndeposit will result in withdrawal of the IR.\n\nTable 4-1: D2 Definitive Planning Phase Study Funding Deposit Amounts\nD2 DPP Study Funding Deposit\n< 6 MW\n$50,000\n≥ 6 but ≤ 20 MW\n$120,000\n> 20 but ≤ 50 MW\n$180,000\n> 50 but ≤ 100 MW\n$270,000\n> 100 but ≤ 200 MW\n$320,000\n> 200 but ≤ 500 MW\n$420,000\n> 500 but < 1000 MW\n$530,000\n≥ 1000 MW\n$640,000",
+  "cite": "BPM-015 r33 §4.2.4.5"
+}

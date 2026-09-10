@@ -1,0 +1,48 @@
+{
+  "unit_id": "bpm015-r33::8.1",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "8.1",
+    "title": "Definitions",
+    "pages": [
+      130,
+      131
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "der_afs"
+    ],
+    "milestone": [],
+    "actor": [
+      "miso",
+      "to",
+      "affected_system"
+    ],
+    "topic": [],
+    "risk_code": [],
+    "claim_class": [
+      "workflow",
+      "study_method"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    },
+    {
+      "actor": "affected_system",
+      "impact": "Affected System / neighboring TO: coordination and restudy of impacts."
+    }
+  ],
+  "text": "8.1  Definitions\nDistributed Energy Resource (DER): Any source of electric power located on the distribution\nsystem.25\n\nDER Affected Systems Study (DER AFS): The MISO process to evaluate Transmission\nSystem impacts from DER interconnection requests.\n\nDER Customer: The person or entity requesting RERRA-jurisdictional interconnection.\n\nDER Net Injection: The DER Substation net injection, which is calculated by taking the DER\nSubstation generation (cumulative amount) minus applicable substation loading (peak or\nshoulder peak) as viewed at the high side of the distribution substation transformers.\n\nDER Substation: Shorthand for the substation represented in MISO Transmission Expansion\nPlanning (MTEP) models at which one or more DER will inject into the transmission grid. This is\nthe most granular level that MISO reviews DER impacts.\n\nDistribution System: All electric facilities owned by a Distribution Provider, as defined by the\nNorth American Electric Reliability Corporation (NERC), regardless of how such facilities are\nclassified by the Distribution Provider that: (1) are connected to the Transmission System; (2)\nare not a part of the Transmission System, and (3) are not connected to the Transmission\nSystem solely through facilities under the control of another transmission provider.26\n\nElectric Distribution Company (EDC): A company that distributes electricity to retail\ncustomers through distribution substations and/or lines owned by the company, as defined in\nMISO’s tariff Module A.\n\nFacilities Study: An engineering study conducted by the Transmission Provider or Independent\nTransmission Company in collaboration with the affected Transmission Owner(s) and\n\n\n25 NERC SPIDERWG Terms and Definitions Working Document. Last Updated: June 2020. Available at:\nhttps://www.nerc.com/comm/RSTC/SPIDERWG/SPIDERWG%20Terms%20and%20Definitions%20Working%20Document.pdf\n26 MISO, Re: Midcontinent Independent System Operator, Inc. Order No. 2222 Compliance Filing Docket No. ER22-___-000. Available at:\nhttps://cdn.misoenergy.org/2022-04-14%20Docket%20No.%20ER22-1640-000624051.pdf\n\n\nIndependent Transmission Company Participant(s) to determine the required modifications to\nthe Transmission System, including the cost and scheduled completion date for such\nmodifications, that will be required to provide the requested Transmission Service. The\nTransmission Provider shall have the final determination and ultimate responsibility for any such\nstudies. Facilities Studies for any transmission facilities not under the operational control of the\nTransmission Provider shall be performed by the Transmission Owner, or Independent\nTransmission Company, or any entity it designates to perform the studies, as defined in MISO’s\ntariff Module A.\n\nNetwork Upgrade: All or a portion of the modifications or additions to transmission related\nfacilities that are integrated with and support the Transmission Provider’s overall Transmission\nSystem for the general benefit of all Users of such Transmission System, as defined in MISO’s\ntariff Module A.\n\nTransmission Owner: Each member of the Independent System Operator whose transmission\nfacilities (in whole or in part) make up the Transmission Provider Transmission System, as\ndefined in MISO’s tariff Module A.\n\nRelevant Electric Retail Regulatory Authority (RERRA): An entity that has jurisdiction over\nand establishes prices and/or policies for providers of retail electric service to end-customers,\nsuch as the city council for a municipal utility, the governing board of a cooperative utility, the\nstate public utility commission or any other such entity.",
+  "cite": "BPM-015 r33 §8.1"
+}

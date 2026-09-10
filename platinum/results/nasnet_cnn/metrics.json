@@ -1,0 +1,73 @@
+{
+  "split": "val",
+  "n": 1054.0,
+  "mae": 12.185008248752531,
+  "rmse": 20.77063946095056,
+  "median_ae": 0.8489167392253876,
+  "pinball50": 6.092504124376266,
+  "pinball80": 9.249698829176557,
+  "mean_y": 11.146110056925997,
+  "mean_pred": 0.6221277075916868,
+  "companion_pr_auc": 0.36968415416910183,
+  "companion_roc_auc": 0.46776081483528287,
+  "companion_log_loss": 1.4336311958470966,
+  "companion_prevalence": 0.3757115749525617,
+  "delayed_mw_capture_at_10pct": 0.10858097025401564,
+  "baselines": {
+    "zero_slip": {
+      "n": 1054.0,
+      "mae": 12.053130929791271,
+      "rmse": 21.08724085211762,
+      "median_ae": 0.0,
+      "pinball50": 6.0265654648956355,
+      "pinball80": 9.370398481973433,
+      "mean_y": 11.146110056925997,
+      "mean_pred": 0.0
+    },
+    "train_mean": {
+      "n": 1054.0,
+      "mae": 14.375978021740618,
+      "rmse": 17.90072505107297,
+      "median_ae": 11.146110056925997,
+      "pinball50": 7.187989010870309,
+      "pinball80": 7.187989010870309,
+      "mean_y": 11.146110056925997,
+      "mean_pred": 11.146110056925997
+    },
+    "persist_last_shift": {
+      "n": 1054.0,
+      "mae": 12.053130929791271,
+      "rmse": 21.08724085211762,
+      "median_ae": 0.0,
+      "pinball50": 6.0265654648956355,
+      "pinball80": 9.370398481973433,
+      "mean_y": 11.146110056925997,
+      "mean_pred": 0.0
+    },
+    "train_mean_value": 11.146110056925997
+  },
+  "beats_persist_mae": false,
+  "beats_mean_pinball80": false,
+  "gia": {
+    "n": 284.0,
+    "mae": 21.27295516948806,
+    "rmse": 25.767397303762642,
+    "median_ae": 22.993629842996597,
+    "pinball50": 10.63647758474403,
+    "pinball80": 16.51133039917692,
+    "mean_y": 20.140845070422536,
+    "mean_pred": 0.5580023556462371
+  },
+  "model": "nasnet_cnn",
+  "status": "ok",
+  "n_features": 92,
+  "n_frozen_epochs": 9,
+  "hardware": {
+    "tensorflow_version": "2.21.0",
+    "gpus": [
+      "/physical_device:GPU:0"
+    ],
+    "n_gpus": 1
+  },
+  "note": "unfroze 96 layers"
+}

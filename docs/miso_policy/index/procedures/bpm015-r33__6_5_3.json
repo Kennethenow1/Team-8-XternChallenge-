@@ -1,0 +1,50 @@
+{
+  "unit_id": "bpm015-r33::6.5.3",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "6.5.3",
+    "title": "Definitions",
+    "pages": [
+      103,
+      104
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [],
+    "milestone": [
+      "M2"
+    ],
+    "actor": [
+      "miso",
+      "to",
+      "affected_system"
+    ],
+    "topic": [
+      "cost_allocation",
+      "gia_negotiation"
+    ],
+    "risk_code": [],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    },
+    {
+      "actor": "affected_system",
+      "impact": "Affected System / neighboring TO: coordination and restudy of impacts."
+    }
+  ],
+  "text": "6.5.3\nDefinitions\n•\nAffected System: a non-Host TSP whose transmission system may be reasonably expected\nto experience a non-trivial loading impact due to a TSR or GIR on a Host TSP’s transmission\nsystem.\n•\nAffected System Upgrades: upgrades required to the Confirmed Affected System\ntransmission system to accommodate the Host TSP GIR or TSR. The need for the Affected\nSystem Upgrade will be identified in the impact study and further defined in the Affected\nSystem facilities study.\n•\nBusiness Practices: a (set of) document(s) that implement certain obligations of the\nrespective party and its tariff customer.\n•\nConfirmed Affected System: An Affected System that has been confirmed through either\nthe Host TSP or the Affected System impact analysis that the Affected System has an\nimpacted facility due to a TSR or GIR on a Host TSP’s transmission system as shown in the\nHost TSP impact study report\n•\nGeneration Interconnection Request or GIR: a request to interconnect or modify generation\nunder the respective TSP’s policies and procedures (MISO’s tariff Attachment X (Generator\nInterconnection Procedures (GIP)), MPC’s Large Generator Interconnection Procedures\n(LGIP) or Small Generator Interconnection Procedures (SGIP), or MH’s Open Access\nInterconnection Tariff (OAIT))\n•\nGenerator Interconnection Agreement or GIA: an agreement documenting the terms of\ninterconnection service between a TSP and its customer.\n•\nHost TSP: MH, MPC, or MISO that receives the GIR or TSR\n•\nImpact Study Agreement: the agreements under each party’s respective policies and\nprocedures to evaluate the impact of the TSR or GIR\n•\nLong Term Firm Transmission Service Request (TSR): a request for long term firm\ntransmission service across the TSP’s transmission system under the respective party’s tariff\n(MISO’s tariff, MPC’s Open Access Transmission Tariff (OATT), or MH’s OATT)\n•\nMISO Definitive Planning Phase or DPP: the final impact study phase for MISO GIRs as\ndefined by the Business Practices under MISO’s Tariff.\n•\nMISO M2 Milestone: the MISO DPP entry milestone as defined by the Business Practices\nunder MISO’s Tariff.\n\n\n•\nNeighbouring TSP(s): MH, MPC, and/or MISO that does not receive the GIR or TSR.\nGeneral reference to any or all of the parties to this coordination language.\n•\nNetwork Upgrade: upgrade required on the Host TSP transmission system to accommodate\nthe GIR or TSR as defined by the parties’ respective tariffs, policies, or procedures.\n•\nPOR/POD: Point of Receipt/Point of Delivery as defined by each party’s respective tariffs.\n•\nRemedial Action Scheme: as defined by NERC standards.\n\nTransmission Service Provider or TSP – as defined by NERC standards.",
+  "cite": "BPM-015 r33 §6.5.3"
+}

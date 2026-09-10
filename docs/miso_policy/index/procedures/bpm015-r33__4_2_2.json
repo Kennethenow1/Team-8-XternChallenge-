@@ -1,0 +1,57 @@
+{
+  "unit_id": "bpm015-r33::4.2.2",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "4.2.2",
+    "title": "Definitive Planning Phase Entry Milestones (M2)",
+    "pages": [
+      29,
+      29
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "application_review",
+      "dpp1"
+    ],
+    "milestone": [
+      "M2",
+      "M1"
+    ],
+    "actor": [
+      "ic",
+      "miso",
+      "to"
+    ],
+    "topic": [
+      "deposit_refund"
+    ],
+    "risk_code": [
+      "abandonment",
+      "cost_pressure"
+    ],
+    "claim_class": [
+      "deposit_rule",
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    }
+  ],
+  "text": "4.2.2\nDefinitive Planning Phase Entry Milestones (M2)\nThe requirements for the DPP Entry Milestone (M2) are comprised of the items that\nfollow. At the (M2) Milestone submission stage, the IC must meet all of the (M1)\nrequirements, plus the DPP Entry Milestone in the form of a cash deposit or an\nirrevocable Letter of Credit in the amount of eight thousand dollars ($8,000) per MW. If\nan IC is required by a state regulatory body to take two POIs through the study process,\nsatisfaction of the non-technical Milestones is not required for the second IR. All\ntechnical and non-technical Milestones and study deposits must be received by MISO no\nlater than the application deadline published on the Transmission Provider website.",
+  "cite": "BPM-015 r33 §4.2.2"
+}

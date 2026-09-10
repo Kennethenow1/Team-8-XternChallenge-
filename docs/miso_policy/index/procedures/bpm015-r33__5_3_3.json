@@ -1,0 +1,59 @@
+{
+  "unit_id": "bpm015-r33::5.3.3",
+  "source": {
+    "doc_id": "bpm-015-r33-clean",
+    "pdf": "01_bpm-015-r33_generator_interconnection_clean.pdf",
+    "bpm_section": "5.3.3",
+    "title": "Interconnection Customer Decision Point II",
+    "pages": [
+      51,
+      51
+    ],
+    "effective_date": "2026-07-01",
+    "status": "current"
+  },
+  "tags": {
+    "gi_phase": [
+      "dpp2"
+    ],
+    "milestone": [
+      "M4"
+    ],
+    "actor": [
+      "ic",
+      "miso",
+      "to",
+      "affected_system"
+    ],
+    "topic": [
+      "decision_point",
+      "withdrawal"
+    ],
+    "risk_code": [
+      "abandonment"
+    ],
+    "claim_class": [
+      "workflow"
+    ]
+  },
+  "stakeholders": [
+    {
+      "actor": "ic",
+      "impact": "Interconnection Customer: milestones, deposits, withdrawal, restudy funding, site control, GIA execution."
+    },
+    {
+      "actor": "miso",
+      "impact": "MISO (Transmission Provider): study cycles, notices, restudies, GIA filing."
+    },
+    {
+      "actor": "to",
+      "impact": "Transmission Owner: scoping, facilities, local criteria, construction."
+    },
+    {
+      "actor": "affected_system",
+      "impact": "Affected System / neighboring TO: coordination and restudy of impacts."
+    }
+  ],
+  "text": "5.3.3.\nInterconnection Customer Decision Point II\nOnce the revised SIS and Affected System analysis, including estimated upgrades and costs, is\ndelivered, the IC will pass through the IC Decision Point II. The IC Decision Point II will last for\nfifteen (15) Business Days, and the IC can either proceed to DPP III or withdraw its IR. During the\nIC Decision Point II, the IC may reduce the size of its IR by as much as ten percent (10%), but\nthe (M4) Milestone calculation will be based on the DPP II results. If the IC decides to proceed to\nthe DPP III, then it will be required to pay the DPP III Milestone (M4), pursuant to Section 7.3.1.4.1\nof the GIP prior to the end of IC Decision Point II.",
+  "cite": "BPM-015 r33 §5.3.3"
+}

@@ -1,0 +1,51 @@
+{
+  "n_train_labeled": 2648,
+  "n_val_labeled": 1054,
+  "n_test_labeled": 945,
+  "n_features_numeric": 55,
+  "n_features_cat": 7,
+  "paths": {
+    "logistic": {
+      "train": "C:\\Users\\Magjun\\Documents\\Team-8-XternChallenge-\\data\\gold\\delay\\modeling\\delay_logistic_v1_train.parquet",
+      "val": "C:\\Users\\Magjun\\Documents\\Team-8-XternChallenge-\\data\\gold\\delay\\modeling\\delay_logistic_v1_val.parquet",
+      "test": "C:\\Users\\Magjun\\Documents\\Team-8-XternChallenge-\\data\\gold\\delay\\modeling\\delay_logistic_v1_test.parquet",
+      "score": "C:\\Users\\Magjun\\Documents\\Team-8-XternChallenge-\\data\\gold\\delay\\modeling\\delay_logistic_v1_score.parquet"
+    },
+    "tree": {
+      "train": "C:\\Users\\Magjun\\Documents\\Team-8-XternChallenge-\\data\\gold\\delay\\modeling\\delay_tree_v1_train.parquet",
+      "val": "C:\\Users\\Magjun\\Documents\\Team-8-XternChallenge-\\data\\gold\\delay\\modeling\\delay_tree_v1_val.parquet",
+      "test": "C:\\Users\\Magjun\\Documents\\Team-8-XternChallenge-\\data\\gold\\delay\\modeling\\delay_tree_v1_test.parquet",
+      "score": "C:\\Users\\Magjun\\Documents\\Team-8-XternChallenge-\\data\\gold\\delay\\modeling\\delay_tree_v1_score.parquet"
+    },
+    "catboost": {
+      "train": "C:\\Users\\Magjun\\Documents\\Team-8-XternChallenge-\\data\\gold\\delay\\modeling\\delay_catboost_native_v1_train.parquet",
+      "val": "C:\\Users\\Magjun\\Documents\\Team-8-XternChallenge-\\data\\gold\\delay\\modeling\\delay_catboost_native_v1_val.parquet",
+      "test": "C:\\Users\\Magjun\\Documents\\Team-8-XternChallenge-\\data\\gold\\delay\\modeling\\delay_catboost_native_v1_test.parquet",
+      "score": "C:\\Users\\Magjun\\Documents\\Team-8-XternChallenge-\\data\\gold\\delay\\modeling\\delay_catboost_native_v1_score.parquet"
+    },
+    "foundation": {
+      "train": "C:\\Users\\Magjun\\Documents\\Team-8-XternChallenge-\\data\\gold\\delay\\modeling\\delay_foundation_v1_train.parquet",
+      "val": "C:\\Users\\Magjun\\Documents\\Team-8-XternChallenge-\\data\\gold\\delay\\modeling\\delay_foundation_v1_val.parquet",
+      "test": "C:\\Users\\Magjun\\Documents\\Team-8-XternChallenge-\\data\\gold\\delay\\modeling\\delay_foundation_v1_test.parquet",
+      "score": "C:\\Users\\Magjun\\Documents\\Team-8-XternChallenge-\\data\\gold\\delay\\modeling\\delay_foundation_v1_score.parquet"
+    },
+    "tabm": {
+      "train": "C:\\Users\\Magjun\\Documents\\Team-8-XternChallenge-\\data\\gold\\delay\\modeling\\delay_tabm_v1_train.parquet",
+      "val": "C:\\Users\\Magjun\\Documents\\Team-8-XternChallenge-\\data\\gold\\delay\\modeling\\delay_tabm_v1_val.parquet",
+      "test": "C:\\Users\\Magjun\\Documents\\Team-8-XternChallenge-\\data\\gold\\delay\\modeling\\delay_tabm_v1_test.parquet",
+      "score": "C:\\Users\\Magjun\\Documents\\Team-8-XternChallenge-\\data\\gold\\delay\\modeling\\delay_tabm_v1_score.parquet"
+    },
+    "ftt": {
+      "train": "C:\\Users\\Magjun\\Documents\\Team-8-XternChallenge-\\data\\gold\\delay\\modeling\\delay_ftt_v1_train.parquet",
+      "val": "C:\\Users\\Magjun\\Documents\\Team-8-XternChallenge-\\data\\gold\\delay\\modeling\\delay_ftt_v1_val.parquet",
+      "test": "C:\\Users\\Magjun\\Documents\\Team-8-XternChallenge-\\data\\gold\\delay\\modeling\\delay_ftt_v1_test.parquet",
+      "score": "C:\\Users\\Magjun\\Documents\\Team-8-XternChallenge-\\data\\gold\\delay\\modeling\\delay_ftt_v1_score.parquet"
+    },
+    "seq": {
+      "train": "C:\\Users\\Magjun\\Documents\\Team-8-XternChallenge-\\data\\gold\\delay\\modeling\\delay_seq_v1_train.npz",
+      "val": "C:\\Users\\Magjun\\Documents\\Team-8-XternChallenge-\\data\\gold\\delay\\modeling\\delay_seq_v1_val.npz",
+      "test": "C:\\Users\\Magjun\\Documents\\Team-8-XternChallenge-\\data\\gold\\delay\\modeling\\delay_seq_v1_test.npz",
+      "score": "C:\\Users\\Magjun\\Documents\\Team-8-XternChallenge-\\data\\gold\\delay\\modeling\\delay_seq_v1_score.npz"
+    }
+  }
+}

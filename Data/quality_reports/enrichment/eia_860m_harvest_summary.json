@@ -1,0 +1,230 @@
+{
+  "status": "ok",
+  "n_monthly": 11505,
+  "n_matched_giq": 1575,
+  "snapshots": [
+    [
+      2022,
+      3
+    ],
+    [
+      2022,
+      6
+    ],
+    [
+      2022,
+      9
+    ],
+    [
+      2022,
+      12
+    ],
+    [
+      2023,
+      3
+    ],
+    [
+      2023,
+      6
+    ],
+    [
+      2023,
+      9
+    ],
+    [
+      2023,
+      12
+    ],
+    [
+      2024,
+      3
+    ],
+    [
+      2024,
+      6
+    ],
+    [
+      2024,
+      9
+    ],
+    [
+      2024,
+      12
+    ],
+    [
+      2025,
+      3
+    ],
+    [
+      2025,
+      6
+    ],
+    [
+      2025,
+      9
+    ],
+    [
+      2025,
+      12
+    ],
+    [
+      2026,
+      3
+    ],
+    [
+      2026,
+      6
+    ]
+  ],
+  "inventory": [
+    {
+      "year": 2022,
+      "month": 3,
+      "source": "https://www.eia.gov/electricity/data/eia860m/archive/xls/march_generator2022.xlsx",
+      "bytes": 8962358,
+      "rows": 382,
+      "url": "https://www.eia.gov/electricity/data/eia860m/archive/xls/march_generator2022.xlsx"
+    },
+    {
+      "year": 2022,
+      "month": 6,
+      "source": "https://www.eia.gov/electricity/data/eia860m/archive/xls/june_generator2022.xlsx",
+      "bytes": 9214420,
+      "rows": 359,
+      "url": "https://www.eia.gov/electricity/data/eia860m/archive/xls/june_generator2022.xlsx"
+    },
+    {
+      "year": 2022,
+      "month": 9,
+      "source": "https://www.eia.gov/electricity/data/eia860m/archive/xls/september_generator2022.xlsx",
+      "bytes": 9288676,
+      "rows": 405,
+      "url": "https://www.eia.gov/electricity/data/eia860m/archive/xls/september_generator2022.xlsx"
+    },
+    {
+      "year": 2022,
+      "month": 12,
+      "source": "https://www.eia.gov/electricity/data/eia860m/archive/xls/december_generator2022.xlsx",
+      "bytes": 9373381,
+      "rows": 416,
+      "url": "https://www.eia.gov/electricity/data/eia860m/archive/xls/december_generator2022.xlsx"
+    },
+    {
+      "year": 2023,
+      "month": 3,
+      "source": "bronze:march_generator2023.xlsx",
+      "bytes": 9530125,
+      "rows": 488
+    },
+    {
+      "year": 2023,
+      "month": 6,
+      "source": "bronze:june_generator2023.xlsx",
+      "bytes": 9632502,
+      "rows": 513
+    },
+    {
+      "year": 2023,
+      "month": 9,
+      "source": "bronze:september_generator2023.xlsx",
+      "bytes": 9716365,
+      "rows": 548
+    },
+    {
+      "year": 2023,
+      "month": 12,
+      "source": "bronze:december_generator2023.xlsx",
+      "bytes": 10097123,
+      "rows": 516
+    },
+    {
+      "year": 2024,
+      "month": 3,
+      "source": "bronze:march_generator2024.xlsx",
+      "bytes": 10241064,
+      "rows": 525
+    },
+    {
+      "year": 2024,
+      "month": 6,
+      "source": "bronze:june_generator2024.xlsx",
+      "bytes": 10055311,
+      "rows": 606
+    },
+    {
+      "year": 2024,
+      "month": 9,
+      "source": "bronze:september_generator2024.xlsx",
+      "bytes": 12282503,
+      "rows": 653
+    },
+    {
+      "year": 2024,
+      "month": 12,
+      "source": "bronze:december_generator2024.xlsx",
+      "bytes": 12520937,
+      "rows": 755
+    },
+    {
+      "year": 2025,
+      "month": 3,
+      "source": "bronze:march_generator2025.xlsx",
+      "bytes": 12704674,
+      "rows": 794
+    },
+    {
+      "year": 2025,
+      "month": 6,
+      "source": "bronze:june_generator2025.xlsx",
+      "bytes": 12798251,
+      "rows": 796
+    },
+    {
+      "year": 2025,
+      "month": 9,
+      "source": "bronze:september_generator2025.xlsx",
+      "bytes": 12885889,
+      "rows": 793
+    },
+    {
+      "year": 2025,
+      "month": 12,
+      "source": "bronze:december_generator2025.xlsx",
+      "bytes": 13463993,
+      "rows": 838
+    },
+    {
+      "year": 2026,
+      "month": 3,
+      "source": "bronze:march_generator2026.xlsx",
+      "bytes": 13696844,
+      "rows": 1069
+    },
+    {
+      "year": 2026,
+      "month": 6,
+      "source": "bronze:june_generator2026.xlsx",
+      "bytes": 13860880,
+      "rows": 1049
+    },
+    {
+      "year": 2026,
+      "month": 9,
+      "source": null,
+      "bytes": 55723,
+      "rows": 0,
+      "url": "https://www.eia.gov/electricity/data/eia860m/archive/xls/september_generator2026.xlsx",
+      "note": "missing or stub"
+    },
+    {
+      "year": 2026,
+      "month": 12,
+      "source": null,
+      "bytes": 55723,
+      "rows": 0,
+      "url": "https://www.eia.gov/electricity/data/eia860m/archive/xls/december_generator2026.xlsx",
+      "note": "missing or stub"
+    }
+  ],
+  "retrieved_at": "2026-09-10T07:28:23Z"
+}
