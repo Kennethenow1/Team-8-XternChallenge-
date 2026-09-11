@@ -1,23 +1,36 @@
 {
   "model": "gpt-4.1",
   "dialect": "auto",
-  "shape": "standard",
-  "question": "Who funds a restudy if a peer withdraws?",
-  "project_key": "P::B::E291",
-  "searched": true,
+  "shape": "short",
+  "question": "Who pays for that?",
+  "project_key": null,
+  "searched": false,
   "plan": {
-    "need_search": true,
-    "reuse_unit_ids": [],
-    "search_focus": "restudy funding after peer withdrawal",
-    "response_shape": "standard",
+    "need_search": false,
+    "reuse_unit_ids": [
+      "bpm015-r33::5.4.6",
+      "bpm015-r33::7.3",
+      "bpm015-r33::7.7",
+      "bpm015-r33::4.2",
+      "bpm015-r33::4.2.4.6",
+      "bpm015-r33::7.1",
+      "bpm015-r33::6.2.8",
+      "bpm015-r33::6.2.7",
+      "bpm015-r33::6.2.11",
+      "bpm015-r33::4.3",
+      "bpm015-r33::5.2.3",
+      "bpm015-r33::5.2.5"
+    ],
+    "search_focus": "Who pays for that?",
+    "response_shape": "short",
     "want_diagram": false,
-    "reason": "The question concerns a specific BPM procedure (restudy funding after a peer withdrawal) that is not already present in held_units or history, so a search for the relevant BPM clause is required.",
+    "reason": "The user's follow-up ('Who pays for that?') refers directly to the prior restudy funding answer, so all relevant BPM-015 units are already held and no new search is needed.",
     "source": "gpt-4.1",
-    "elapsed_ms": 1113,
+    "elapsed_ms": 1911,
     "tokens": {
-      "prompt_tokens": 1081,
-      "completion_tokens": 88,
-      "total_tokens": 1169,
+      "prompt_tokens": 1803,
+      "completion_tokens": 243,
+      "total_tokens": 2046,
       "prompt_tokens_details": {
         "cached_tokens": 0,
         "audio_tokens": 0
@@ -34,64 +47,16 @@
   "packet": {
     "schema_version": "bot.v1",
     "card": {
-      "project_key": "P::B::E291",
-      "observation_date": "2023-12-31",
-      "study_phase": "IA Executed",
-      "scenario": {
-        "name": "baseline",
-        "note": "Observed state; no overlay."
-      },
-      "p_quit_12m": 0.06997304936030217,
-      "flags": {
-        "high_quit_risk": false,
-        "medium_quit_risk": true,
-        "is_gia": true,
-        "cod_already_slipped": true,
-        "developer_serial": true,
-        "restudy_on_record": false,
-        "hazard_high": false,
-        "upgrade_cost_high": false,
-        "pile_crowded": true,
-        "energy_community": false
-      },
-      "risks": [
-        {
-          "code": "system_congestion",
-          "severity": "high",
-          "evidence": "Delayed-MW pile at/above PIT 75th percentile (or scenario override).",
-          "meaning": "The planned delayed-MW pile is large versus history (system crowding)."
-        },
-        {
-          "code": "cod_already_slipped",
-          "severity": "high",
-          "evidence": "service_date_passed or months_until_service < 0 (current fact).",
-          "meaning": "Planned service date is already at or before the as-of date."
-        },
-        {
-          "code": "abandonment",
-          "severity": "medium",
-          "evidence": "P(quit 12m)=0.070 \u2265 0.05",
-          "meaning": "Project is at elevated chance of leaving the queue in ~12 months."
-        },
-        {
-          "code": "gia_execution",
-          "severity": "medium",
-          "evidence": "GIA / IA as-of this observation.",
-          "meaning": "Project is in GIA / IA \u2014 execution and offtake risk, not just study-queue risk."
-        },
-        {
-          "code": "developer_serial_quit",
-          "severity": "medium",
-          "evidence": "developer_prior_withdrawal_rate \u2265 train p75 (0.522).",
-          "meaning": "This sponsor\u2019s prior projects withdrew at a high rate."
-        }
-      ]
+      "project_key": null,
+      "observation_date": null,
+      "study_phase": null,
+      "scenario": null,
+      "p_quit_12m": null,
+      "flags": null,
+      "risks": null
     },
     "workflow": {
-      "gi_phase_guess": [
-        "gia",
-        "post_gia"
-      ],
+      "gi_phase_guess": [],
       "next_steps": [
         "BPM-015 r33 \u00a75.4.6: Interconnection Study Restudy",
         "BPM-015 r33 \u00a77.3: Interconnection Customer delays",
@@ -162,95 +127,7 @@
         ]
       }
     ],
-    "mitigation": [
-      {
-        "risk_code": "system_congestion",
-        "actions": [
-          "Use the pile as regime context (everyone late), not this plant\u2019s COD.",
-          "Stress study / construction calendars against a larger delayed stock 3 and 12 months out.",
-          "Do not convert pile RMSE into a project-level month slip."
-        ],
-        "citations": [
-          "BPM-015 r33 \u00a73.1.1",
-          "BPM-015 r33 \u00a74.3"
-        ],
-        "playbook_id": "pb_system_congestion",
-        "source": "bpm015_index",
-        "bpm_note": null
-      },
-      {
-        "risk_code": "cod_already_slipped",
-        "actions": [
-          "The date has already moved (fact). Do not ask the model for additional months of slip.",
-          "Re-baseline offtake and interconnection milestones against the last known ISD."
-        ],
-        "citations": [
-          "BPM-015 r33 \u00a74.2",
-          "BPM-015 r33 \u00a77.3",
-          "BPM-015 r33 \u00a77.7"
-        ],
-        "playbook_id": "pb_cod_already_slipped",
-        "source": "bpm015_index",
-        "bpm_note": null
-      },
-      {
-        "risk_code": "abandonment",
-        "actions": [
-          "Treat P(quit) as a ranking input, not a guaranteed outcome.",
-          "Check milestone security, offtake, and financing against the 12-month window.",
-          "If the sponsor is serial-high, require extra diligence before restudy spend."
-        ],
-        "citations": [
-          "BPM-015 r33 \u00a75.2.5",
-          "BPM-015 r33 \u00a75.3.5",
-          "BPM-015 r33 \u00a74.2.4.6",
-          "BPM-015 r33 \u00a76.2.11"
-        ],
-        "playbook_id": "pb_abandonment",
-        "source": "bpm015_index",
-        "bpm_note": null
-      },
-      {
-        "risk_code": "gia_execution",
-        "actions": [
-          "Switch the playbook from queue-entry screening to GIA milestone tracking.",
-          "Confirm offtake, site control, and construction start vs the current ISD."
-        ],
-        "citations": [
-          "BPM-015 r33 \u00a76.2.7",
-          "BPM-015 r33 \u00a76.2.8",
-          "BPM-015 r33 \u00a76.2.9",
-          "BPM-015 r33 \u00a77.3"
-        ],
-        "playbook_id": "pb_gia_execution",
-        "source": "bpm015_index",
-        "bpm_note": null
-      },
-      {
-        "risk_code": "developer_serial_quit",
-        "actions": [
-          "Weight sponsor track record in credit / collateral discussions.",
-          "Compare this project\u2019s P(quit) to the sponsor\u2019s prior withdrawal rate; do not double-count blindly."
-        ],
-        "citations": [],
-        "playbook_id": "pb_developer_serial",
-        "source": "stub_until_policy_rag",
-        "bpm_note": "No BPM-015 clause. Keep company/stub playbook only. Do not invent a MISO rule."
-      },
-      {
-        "risk_code": "restudy_friction",
-        "actions": [
-          "Flag restudy cost and delay as already-realized process risk.",
-          "Scenario overlay `restudy` shows how P(quit) moves if another restudy is recorded \u2014 sensitivity, not physics."
-        ],
-        "citations": [
-          "BPM-015 r33 \u00a75.4.6"
-        ],
-        "playbook_id": "pb_restudy",
-        "source": "bpm015_index",
-        "bpm_note": null
-      }
-    ],
+    "mitigation": [],
     "compliance": {
       "status": "not_determined",
       "meaning": "We do not score legal compliance of a COD slip. Retrieved delay/restudy/withdrawal clauses only."
@@ -691,117 +568,9 @@
       "do not use FERC-730 as a clean delay source",
       "do not unseal 2024 test labels or tune on test/score"
     ],
-    "gold_stack": {
-      "schema_version": "gold_stack.v1",
-      "project": {
-        "project_key": "P::B::E291",
-        "observation_date": "2023-12-31",
-        "capacity_mw": 27.0,
-        "study_phase": "IA Executed",
-        "technology_primary": "hydro",
-        "state_code": "TX",
-        "poi_name": "Rich 138 kV substation"
-      },
-      "catboost": {
-        "model": "catboost",
-        "artifact": "catboost_tuned",
-        "p_quit_12m": 0.07,
-        "p_quit_12m_raw": 0.07,
-        "p_quit_under_scenario": 0.07,
-        "delta_p_quit": 0.0,
-        "freeze_on_disk": false,
-        "label": "CatBoost (gold freeze catboost_tuned / trial-149)",
-        "honest_use": "12-month quit probability from the gold CatBoost freeze (trial-149). Use for ranking. Do not treat as a BPM duty or a months-of-slip forecast."
-      },
-      "platinum2": {
-        "engine": "holt_damped",
-        "delayed_mw_now": 25299.4,
-        "delayed_mw_h3": 27748.5,
-        "delayed_mw_h12": 37044.3,
-        "gia_delayed_mw_now": 0.0,
-        "pile_percentile_pit": 1.0,
-        "pile_asof": "2023-12-01",
-        "n_history": 8,
-        "honest_use": "EIA planned delayed MW (delay \u226512m vs first seen). 3m/12m are Holt from history \u2264 as-of, not 2024 actuals. System stock, not this IR's commercial operation date."
-      },
-      "platinum3": {
-        "scenario": "baseline",
-        "scenario_note": "Observed state; no overlay.",
-        "flags": {
-          "high_quit_risk": false,
-          "medium_quit_risk": true,
-          "is_gia": true,
-          "cod_already_slipped": true,
-          "developer_serial": true,
-          "restudy_on_record": false,
-          "hazard_high": false,
-          "upgrade_cost_high": false,
-          "pile_crowded": true,
-          "energy_community": false
-        },
-        "risks_bpm": [
-          {
-            "code": "system_congestion",
-            "severity": "high",
-            "evidence": "Delayed-MW pile at/above PIT 75th percentile (or scenario override).",
-            "meaning": "The planned delayed-MW pile is large versus history (system crowding)."
-          },
-          {
-            "code": "cod_already_slipped",
-            "severity": "high",
-            "evidence": "service_date_passed or months_until_service < 0 (current fact).",
-            "meaning": "Planned service date is already at or before the as-of date."
-          },
-          {
-            "code": "abandonment",
-            "severity": "medium",
-            "evidence": "P(quit 12m)=0.070 \u2265 0.05",
-            "meaning": "Project is at elevated chance of leaving the queue in ~12 months."
-          },
-          {
-            "code": "gia_execution",
-            "severity": "medium",
-            "evidence": "GIA / IA as-of this observation.",
-            "meaning": "Project is in GIA / IA \u2014 execution and offtake risk, not just study-queue risk."
-          }
-        ],
-        "risks_stub": [
-          {
-            "code": "developer_serial_quit",
-            "severity": "medium",
-            "evidence": "developer_prior_withdrawal_rate \u2265 train p75 (0.522).",
-            "meaning": "This sponsor\u2019s prior projects withdrew at a high rate."
-          }
-        ],
-        "playbook_ids": [
-          "pb_system_congestion",
-          "pb_cod_already_slipped",
-          "pb_abandonment",
-          "pb_gia_execution",
-          "pb_developer_serial"
-        ]
-      },
-      "how_to_use": [
-        "CatBoost P(quit 12m) is a ranking score, not a BPM trigger and not a withdrawal verdict.",
-        "Platinum 2 delayed MW is system crowding (EIA planned pile + Holt). It is not this plant's COD.",
-        "The GIA-matched delayed-MW slice is a thin overlay. Do not treat it as the full GIA pile.",
-        "Platinum 3 scenario delta is a sensitivity (if this state were on the row), not a causal law.",
-        "Flags are current as-of facts. They do not create BPM duties by themselves.",
-        "Only retrieved BPM-015 r33 units may be cited as procedure. Stubs stay under Gaps.",
-        "Do not quote months of future COD slip. Platinum 1 delay-months CatBoost is not an input."
-      ],
-      "do_not_claim": [
-        "do not quote months of future COD slip as a model output",
-        "do not claim a MISO Step-Up / Firm Service failure record",
-        "do not treat EIA delayed MW as a complete GIA list (overlay is thin)",
-        "do not treat scenario deltas as causal effects",
-        "do not use FERC-730 as a clean delay source",
-        "do not unseal 2024 test labels or tune on test/score"
-      ]
-    },
     "query": {
       "schema_version": "query.v1",
-      "question": "Who funds a restudy if a peer withdraws?",
+      "question": "Who pays for that?",
       "requirements": {
         "audience": "analyst",
         "dialect": "auto",
@@ -813,93 +582,14 @@
         ],
         "max_units": 12
       },
-      "has_card": true
+      "has_card": false
     },
-    "gaps": [
-      "developer_serial_quit has no BPM-015 clause"
-    ],
+    "gaps": [],
     "search_trace": {
       "algorithms": [
         {
-          "name": "alg_catalog_route",
-          "n_candidates": 128,
-          "top_ids": [
-            "bpm015-r33::7.3",
-            "bpm015-r33::7.7",
-            "bpm015-r33::7.3",
-            "bpm015-r33::7.7",
-            "bpm015-r33::7.3"
-          ],
-          "elapsed_ms": 0,
-          "error": null
-        },
-        {
-          "name": "alg_lexicon",
-          "n_candidates": 4,
-          "top_ids": [],
-          "tags": {
-            "topic": [
-              "restudy",
-              "withdrawal"
-            ],
-            "risk_code": [
-              "restudy_friction",
-              "abandonment"
-            ]
-          },
-          "elapsed_ms": 0,
-          "error": null
-        },
-        {
-          "name": "alg_seed_lookup",
-          "n_candidates": 15,
-          "top_ids": [
-            "bpm015-r33::3.1.1",
-            "bpm015-r33::4.3",
-            "bpm015-r33::4.2",
-            "bpm015-r33::7.3",
-            "bpm015-r33::7.7"
-          ],
-          "elapsed_ms": 1,
-          "error": null
-        },
-        {
-          "name": "alg_inverted_filter",
-          "n_candidates": 106,
-          "top_ids": [
-            "bpm015-r33::5.5",
-            "bpm015-r33::5.5.1",
-            "bpm015-r33::5.5.1.1",
-            "bpm015-r33::5.5.1.2",
-            "bpm015-r33::5.5.2"
-          ],
-          "elapsed_ms": 0,
-          "error": null,
-          "mode": "inverted_or"
-        },
-        {
-          "name": "alg_phrase_match",
-          "n_candidates": 0,
-          "top_ids": [],
-          "elapsed_ms": 2,
-          "error": null
-        },
-        {
-          "name": "alg_bm25",
-          "n_candidates": 77,
-          "top_ids": [
-            "bpm015-r33::5.4.6",
-            "bpm015-r33::4.2.4.6",
-            "bpm015-r33::6.1.5",
-            "bpm015-r33::4.2.4",
-            "bpm015-r33::6.2.11"
-          ],
-          "elapsed_ms": 13,
-          "error": null
-        },
-        {
-          "name": "alg_fusion",
-          "n_candidates": 120,
+          "name": "alg_history_reuse",
+          "n_candidates": 12,
           "top_ids": [
             "bpm015-r33::5.4.6",
             "bpm015-r33::7.3",
@@ -908,91 +598,19 @@
             "bpm015-r33::4.2.4.6"
           ],
           "elapsed_ms": 0,
-          "error": null
-        },
-        {
-          "name": "alg_coverage_pass",
-          "n_candidates": 0,
-          "top_ids": [],
-          "elapsed_ms": 0,
           "error": null,
-          "coverage_repair": []
+          "reason": "The user's follow-up ('Who pays for that?') refers directly to the prior restudy funding answer, so all relevant BPM-015 units are already held and no new search is needed."
         }
       ],
       "directives": [
         {
-          "name": "DIR_EMPTY_INPUT",
+          "name": "DIR_HISTORY_REUSE",
           "ok": true,
-          "reason": "question and/or card present"
-        },
-        {
-          "name": "DIR_REQUIRE_CURRENT_DOC",
-          "ok": true,
-          "reason": "kept status:current r33 units only"
-        },
-        {
-          "name": "DIR_NO_R32",
-          "ok": true,
-          "reason": "r32/redline unit ids never added"
-        },
-        {
-          "name": "DIR_STUB_HONESTY",
-          "ok": true,
-          "reason": "stub risks retrieved nothing; gaps recorded"
-        },
-        {
-          "name": "DIR_DROP_LEGAL_OPINION",
-          "ok": true,
-          "reason": "dropped do_not_use_as_legal_opinion"
-        },
-        {
-          "name": "DIR_PREFER_WORKFLOW",
-          "ok": true,
-          "reason": "study_method downranked unless the question is about study method"
-        },
-        {
-          "name": "DIR_AUDIENCE_ACTOR",
-          "ok": true,
-          "reason": "audience=analyst; no ic filter"
-        },
-        {
-          "name": "DIR_FAMILY_CAP",
-          "ok": true,
-          "reason": "max 2 units per section family, 3 if seed; required seeds locked"
-        },
-        {
-          "name": "DIR_COVERAGE",
-          "ok": true,
-          "reason": "all lexicon topics/risks have a kept unit"
+          "reason": "The user's follow-up ('Who pays for that?') refers directly to the prior restudy funding answer, so all relevant BPM-015 units are already held and no new search is needed."
         }
       ],
-      "lexicon_tags": {
-        "topic": [
-          "restudy",
-          "withdrawal"
-        ],
-        "risk_code": [
-          "restudy_friction",
-          "abandonment"
-        ]
-      },
-      "seed_ids": [
-        "bpm015-r33::3.1.1",
-        "bpm015-r33::4.2",
-        "bpm015-r33::4.2.4.6",
-        "bpm015-r33::4.3",
-        "bpm015-r33::5.2.3",
-        "bpm015-r33::5.2.5",
-        "bpm015-r33::5.3.3",
-        "bpm015-r33::5.3.5",
-        "bpm015-r33::5.4.6",
-        "bpm015-r33::6.2.11",
-        "bpm015-r33::6.2.7",
-        "bpm015-r33::6.2.8",
-        "bpm015-r33::6.2.9",
-        "bpm015-r33::7.3",
-        "bpm015-r33::7.7"
-      ],
+      "lexicon_tags": {},
+      "seed_ids": [],
       "kept_unit_ids": [
         "bpm015-r33::5.4.6",
         "bpm015-r33::7.3",
@@ -1009,6 +627,8 @@
       ]
     },
     "error_code": null,
+    "wants_diagram": false,
+    "reused_from_history": true,
     "graph_slice": {
       "unit_ids": [
         "bpm015-r33::5.4.6",
@@ -2263,100 +1883,15 @@
         }
       ],
       "algorithms": [
-        "alg_catalog_route",
-        "alg_lexicon",
-        "alg_seed_lookup",
-        "alg_inverted_filter",
-        "alg_phrase_match",
-        "alg_bm25",
-        "alg_fusion",
-        "alg_coverage_pass"
+        "alg_history_reuse"
       ]
-    },
-    "wants_diagram": false
+    }
   },
   "search_trace": {
     "algorithms": [
       {
-        "name": "alg_catalog_route",
-        "n_candidates": 128,
-        "top_ids": [
-          "bpm015-r33::7.3",
-          "bpm015-r33::7.7",
-          "bpm015-r33::7.3",
-          "bpm015-r33::7.7",
-          "bpm015-r33::7.3"
-        ],
-        "elapsed_ms": 0,
-        "error": null
-      },
-      {
-        "name": "alg_lexicon",
-        "n_candidates": 4,
-        "top_ids": [],
-        "tags": {
-          "topic": [
-            "restudy",
-            "withdrawal"
-          ],
-          "risk_code": [
-            "restudy_friction",
-            "abandonment"
-          ]
-        },
-        "elapsed_ms": 0,
-        "error": null
-      },
-      {
-        "name": "alg_seed_lookup",
-        "n_candidates": 15,
-        "top_ids": [
-          "bpm015-r33::3.1.1",
-          "bpm015-r33::4.3",
-          "bpm015-r33::4.2",
-          "bpm015-r33::7.3",
-          "bpm015-r33::7.7"
-        ],
-        "elapsed_ms": 1,
-        "error": null
-      },
-      {
-        "name": "alg_inverted_filter",
-        "n_candidates": 106,
-        "top_ids": [
-          "bpm015-r33::5.5",
-          "bpm015-r33::5.5.1",
-          "bpm015-r33::5.5.1.1",
-          "bpm015-r33::5.5.1.2",
-          "bpm015-r33::5.5.2"
-        ],
-        "elapsed_ms": 0,
-        "error": null,
-        "mode": "inverted_or"
-      },
-      {
-        "name": "alg_phrase_match",
-        "n_candidates": 0,
-        "top_ids": [],
-        "elapsed_ms": 2,
-        "error": null
-      },
-      {
-        "name": "alg_bm25",
-        "n_candidates": 77,
-        "top_ids": [
-          "bpm015-r33::5.4.6",
-          "bpm015-r33::4.2.4.6",
-          "bpm015-r33::6.1.5",
-          "bpm015-r33::4.2.4",
-          "bpm015-r33::6.2.11"
-        ],
-        "elapsed_ms": 13,
-        "error": null
-      },
-      {
-        "name": "alg_fusion",
-        "n_candidates": 120,
+        "name": "alg_history_reuse",
+        "n_candidates": 12,
         "top_ids": [
           "bpm015-r33::5.4.6",
           "bpm015-r33::7.3",
@@ -2365,91 +1900,19 @@
           "bpm015-r33::4.2.4.6"
         ],
         "elapsed_ms": 0,
-        "error": null
-      },
-      {
-        "name": "alg_coverage_pass",
-        "n_candidates": 0,
-        "top_ids": [],
-        "elapsed_ms": 0,
         "error": null,
-        "coverage_repair": []
+        "reason": "The user's follow-up ('Who pays for that?') refers directly to the prior restudy funding answer, so all relevant BPM-015 units are already held and no new search is needed."
       }
     ],
     "directives": [
       {
-        "name": "DIR_EMPTY_INPUT",
+        "name": "DIR_HISTORY_REUSE",
         "ok": true,
-        "reason": "question and/or card present"
-      },
-      {
-        "name": "DIR_REQUIRE_CURRENT_DOC",
-        "ok": true,
-        "reason": "kept status:current r33 units only"
-      },
-      {
-        "name": "DIR_NO_R32",
-        "ok": true,
-        "reason": "r32/redline unit ids never added"
-      },
-      {
-        "name": "DIR_STUB_HONESTY",
-        "ok": true,
-        "reason": "stub risks retrieved nothing; gaps recorded"
-      },
-      {
-        "name": "DIR_DROP_LEGAL_OPINION",
-        "ok": true,
-        "reason": "dropped do_not_use_as_legal_opinion"
-      },
-      {
-        "name": "DIR_PREFER_WORKFLOW",
-        "ok": true,
-        "reason": "study_method downranked unless the question is about study method"
-      },
-      {
-        "name": "DIR_AUDIENCE_ACTOR",
-        "ok": true,
-        "reason": "audience=analyst; no ic filter"
-      },
-      {
-        "name": "DIR_FAMILY_CAP",
-        "ok": true,
-        "reason": "max 2 units per section family, 3 if seed; required seeds locked"
-      },
-      {
-        "name": "DIR_COVERAGE",
-        "ok": true,
-        "reason": "all lexicon topics/risks have a kept unit"
+        "reason": "The user's follow-up ('Who pays for that?') refers directly to the prior restudy funding answer, so all relevant BPM-015 units are already held and no new search is needed."
       }
     ],
-    "lexicon_tags": {
-      "topic": [
-        "restudy",
-        "withdrawal"
-      ],
-      "risk_code": [
-        "restudy_friction",
-        "abandonment"
-      ]
-    },
-    "seed_ids": [
-      "bpm015-r33::3.1.1",
-      "bpm015-r33::4.2",
-      "bpm015-r33::4.2.4.6",
-      "bpm015-r33::4.3",
-      "bpm015-r33::5.2.3",
-      "bpm015-r33::5.2.5",
-      "bpm015-r33::5.3.3",
-      "bpm015-r33::5.3.5",
-      "bpm015-r33::5.4.6",
-      "bpm015-r33::6.2.11",
-      "bpm015-r33::6.2.7",
-      "bpm015-r33::6.2.8",
-      "bpm015-r33::6.2.9",
-      "bpm015-r33::7.3",
-      "bpm015-r33::7.7"
-    ],
+    "lexicon_tags": {},
+    "seed_ids": [],
     "kept_unit_ids": [
       "bpm015-r33::5.4.6",
       "bpm015-r33::7.3",
@@ -3719,27 +3182,20 @@
       }
     ],
     "algorithms": [
-      "alg_catalog_route",
-      "alg_lexicon",
-      "alg_seed_lookup",
-      "alg_inverted_filter",
-      "alg_phrase_match",
-      "alg_bm25",
-      "alg_fusion",
-      "alg_coverage_pass"
+      "alg_history_reuse"
     ]
   },
   "passes": [
     {
       "name": "write",
       "ok": true,
-      "elapsed_ms": 2016,
+      "elapsed_ms": 1535,
       "tokens": {
-        "prompt_tokens": 8395,
-        "completion_tokens": 305,
-        "total_tokens": 8700,
+        "prompt_tokens": 7988,
+        "completion_tokens": 162,
+        "total_tokens": 8150,
         "prompt_tokens_details": {
-          "cached_tokens": 8192,
+          "cached_tokens": 0,
           "audio_tokens": 0
         },
         "completion_tokens_details": {
@@ -3754,7 +3210,7 @@
     {
       "name": "code_postcheck",
       "ok": true,
-      "elapsed_ms": 3,
+      "elapsed_ms": 2,
       "flags": [],
       "model": "gpt-4.1"
     }
@@ -3762,5 +3218,5 @@
   "compose_mode": "gpt-4.1",
   "error_code": "packet_too_large",
   "ok": true,
-  "n_history_turns": 1
+  "n_history_turns": 2
 }

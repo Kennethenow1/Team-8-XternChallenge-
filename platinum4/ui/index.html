@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Interconnection briefing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=8" />
+</head>
+<body class="setup">
+  <header class="top">
+    <div class="brand">
+      <p class="kicker">Platinum 4</p>
+      <h1>Interconnection briefing</h1>
+      <p class="lede">
+        Pick a sample project, write one procedure briefing, then ask questions about that text.
+        Questions never start a new search on their own.
+      </p>
+    </div>
+    <label class="tech-toggle">
+      <input type="checkbox" id="tech-toggle" />
+      Technical details
+    </label>
+  </header>
+
+  <div class="summary-bar" id="summary-bar" hidden>
+    <p id="summary-text"></p>
+    <div class="summary-actions">
+      <button type="button" class="ghost" id="edit-setup-btn">Change setup</button>
+      <button type="button" class="ghost" id="format-btn" disabled>Change layout</button>
+    </div>
+  </div>
+
+  <section class="setup-panel" id="setup-panel">
+    <section class="guide">
+      <h2>1. Choose a project</h2>
+      <p id="guide-project">These are three 2023 sample interconnection requests, not the full queue.</p>
+      <div class="picks" id="project-picks"></div>
+    </section>
+
+    <section class="guide">
+      <h2>2. Choose a what-if</h2>
+      <p id="guide-what-if">
+        A what-if changes the numbers on this sample card so you can ask what the procedure
+        would look like if something were already true. It is not a new MISO restudy, and it
+        is not a prediction that the event will happen.
+      </p>
+      <div class="picks stacked" id="scenario-picks"></div>
+    </section>
+
+    <section class="guide">
+      <h2>3. Choose a briefing shape</h2>
+      <p id="guide-format">
+        The shape only changes how the same BPM text is written. It does not search again.
+        After a briefing exists, Change layout rewrites the same document in another shape.
+      </p>
+      <div class="picks" id="format-picks"></div>
+      <label class="check" id="map-wrap">
+        <input type="checkbox" id="want-diagram" checked />
+        Include a flowchart of who acts and when
+      </label>
+    </section>
+
+    <section class="numbers">
+      <h2>Numbers for this choice</h2>
+      <p class="gloss">Ranking context only. These figures are not a BPM trigger and not this plant's COD.</p>
+      <div id="scoreboard"></div>
+    </section>
+
+    <form class="write" id="setup-form">
+      <details class="narrow">
+        <summary>Narrow this briefing (optional)</summary>
+        <input id="focus" type="text" placeholder="Example: restudy funding and the customer clock" />
+      </details>
+      <div class="write-row">
+        <button type="submit" id="study-btn">Write briefing</button>
+        <span class="status" id="status"></span>
+      </div>
+    </form>
+  </section>
+
+  <details class="help" id="help-panel" hidden>
+    <summary>Help: what each choice means</summary>
+    <div id="help-body"></div>
+  </details>
+
+  <main class="reading-col" id="reading">
+    <article class="briefing" id="result">
+      <p class="empty-study" id="study-empty">
+        No briefing yet. Read the three sections above, make a choice in each, then click Write briefing.
+      </p>
+      <div class="limits" id="limits" hidden></div>
+      <div class="map-panel" id="map-panel" hidden>
+        <h3>Procedure map</h3>
+        <div class="map-canvas" id="map-canvas"></div>
+      </div>
+      <div class="note" id="note" hidden></div>
+      <details class="raw tech-only" id="raw-wrap" hidden>
+        <summary>Markdown source</summary>
+        <pre id="raw-md"></pre>
+      </details>
+    </article>
+  </main>
+
+  <aside class="dock" id="dock" data-size="mid" hidden>
+    <div class="dock-bar">
+      <h2>Ask about this briefing</h2>
+      <div class="dock-tools">
+        <button type="button" class="ghost" id="dock-min">Collapse</button>
+        <button type="button" class="ghost" id="dock-mid">Default</button>
+        <button type="button" class="ghost" id="dock-max">Expand</button>
+      </div>
+    </div>
+    <p class="dock-hint">Questions refer to the briefing above. They do not write a new one.</p>
+    <div class="suggestions" id="suggestions"></div>
+    <ol class="messages" id="messages"></ol>
+    <form class="composer" id="chat-form">
+      <textarea id="followup" rows="2" placeholder="Ask about clocks, funding, or who acts" disabled></textarea>
+      <button type="submit" id="chat-btn" disabled>Send</button>
+    </form>
+  </aside>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked@15.0.7/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
+  <script type="module" src="app.js?v=8"></script>
+</body>
+</html>

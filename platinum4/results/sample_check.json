@@ -1,0 +1,211 @@
+{
+  "n": 5,
+  "n_full_hit": 5,
+  "n_compliance": 5,
+  "n_invented": 0,
+  "n_followup_no_search": 1,
+  "rows": [
+    {
+      "name": "restudy_funding",
+      "question": "Who funds a restudy if a peer withdraws?",
+      "project_key": "P::B::E291",
+      "searched": true,
+      "shape": "standard",
+      "compose_mode": "gpt-4.1",
+      "compliance": "not_determined",
+      "expected": [
+        "bpm015-r33::5.4.6"
+      ],
+      "hit": [
+        "bpm015-r33::5.4.6"
+      ],
+      "miss": [],
+      "hit_rate": 1.0,
+      "n_retrieved": 12,
+      "top_ids": [
+        "bpm015-r33::5.4.6",
+        "bpm015-r33::7.3",
+        "bpm015-r33::7.7",
+        "bpm015-r33::4.2",
+        "bpm015-r33::4.2.4.6",
+        "bpm015-r33::7.1"
+      ],
+      "invented_cites": [],
+      "error_code": "packet_too_large",
+      "has_compliance_line": true,
+      "mentions_ic": true,
+      "mentions_miso": true,
+      "n_sentences": 6,
+      "timing_ms": {
+        "write": 1814,
+        "code_postcheck": 3,
+        "plan": 864
+      },
+      "plan_reason": "The question introduces a new BPM topic (restudy funding after a peer withdrawal) that is not present in held_units or history, so a search is required to retrieve the relevant BPM-015 procedure.",
+      "plan_source": "gpt-4.1",
+      "excerpt": "# Interconnection procedure note ## Situation You asked who funds a restudy if a peer Interconnection Request (IR) withdraws. This restates BPM-015 r33 and is not a legal opinion. ## Workflow If MISO (the Transmission Provider) determines that a restudy is required due to a peer IR withdrawal before all Generator Interconnection Agreements (GIAs) are execute"
+    },
+    {
+      "name": "restudy_followup",
+      "question": "Who pays for that, and how many Business Days does the IC have to answer?",
+      "project_key": null,
+      "searched": false,
+      "shape": "short",
+      "compose_mode": "gpt-4.1",
+      "compliance": "not_determined",
+      "expected": [
+        "bpm015-r33::5.4.6"
+      ],
+      "hit": [
+        "bpm015-r33::5.4.6"
+      ],
+      "miss": [],
+      "hit_rate": 1.0,
+      "n_retrieved": 12,
+      "top_ids": [
+        "bpm015-r33::5.4.6",
+        "bpm015-r33::7.3",
+        "bpm015-r33::7.7",
+        "bpm015-r33::4.2",
+        "bpm015-r33::4.2.4.6",
+        "bpm015-r33::7.1"
+      ],
+      "invented_cites": [],
+      "error_code": "packet_too_large",
+      "has_compliance_line": true,
+      "mentions_ic": true,
+      "mentions_miso": true,
+      "n_sentences": 4,
+      "timing_ms": {
+        "write": 1613,
+        "code_postcheck": 0,
+        "plan": 2256
+      },
+      "plan_reason": "The user's follow-up ('Who pays for that, and how many Business Days does the IC have to answer?') refers directly to the restudy funding and process already covered in the previous answer and held units.",
+      "plan_source": "gpt-4.1",
+      "excerpt": "MISO (the Transmission Provider) will provide a good faith estimate of the cost to perform the Interconnection Study restudy, and the Interconnection Customer (IC) is responsible for funding the restudy as noticed. The IC must notify MISO within five (5) Business Days whether it wishes to proceed with the restudy or withdraw its interconnection request (IR) "
+    },
+    {
+      "name": "decision_point_ii",
+      "question": "What happens at Decision Point II?",
+      "project_key": "P::J2280",
+      "searched": true,
+      "shape": "standard",
+      "compose_mode": "gpt-4.1",
+      "compliance": "not_determined",
+      "expected": [
+        "bpm015-r33::5.3.3"
+      ],
+      "hit": [
+        "bpm015-r33::5.3.3"
+      ],
+      "miss": [],
+      "hit_rate": 1.0,
+      "n_retrieved": 12,
+      "top_ids": [
+        "bpm015-r33::5.3.3",
+        "bpm015-r33::5.2.3",
+        "bpm015-r33::6.2.11",
+        "bpm015-r33::4.2.4.6",
+        "bpm015-r33::7.3",
+        "bpm015-r33::7.7"
+      ],
+      "invented_cites": [],
+      "error_code": "packet_too_large",
+      "has_compliance_line": true,
+      "mentions_ic": true,
+      "mentions_miso": true,
+      "n_sentences": 20,
+      "timing_ms": {
+        "write": 2889,
+        "code_postcheck": 2,
+        "plan": 911
+      },
+      "plan_reason": "The user is asking about the process and outcomes at Decision Point II, which is a new BPM topic not present in held_units or history, so a search is required.",
+      "plan_source": "gpt-4.1",
+      "excerpt": "# Interconnection procedure note ## 1. Risk results - CatBoost P(quit 12m): 0.898. This is a ranking score, not a BPM trigger and not a withdrawal verdict. - Platinum 2 delayed MW (system crowding): 25,299.4 MW (EIA planned pile + Holt). This is not this IR's Commercial Operation Date (COD). - The GIA-matched delayed-MW slice is a thin overlay and does not r"
+    },
+    {
+      "name": "gia_cod_delay",
+      "question": "What delay clauses apply after GIA when COD has already passed?",
+      "project_key": "P::B::E291",
+      "searched": true,
+      "shape": "standard",
+      "compose_mode": "gpt-4.1",
+      "compliance": "not_determined",
+      "expected": [
+        "bpm015-r33::7.3",
+        "bpm015-r33::7.7"
+      ],
+      "hit": [
+        "bpm015-r33::7.3",
+        "bpm015-r33::7.7"
+      ],
+      "miss": [],
+      "hit_rate": 1.0,
+      "n_retrieved": 12,
+      "top_ids": [
+        "bpm015-r33::7.7",
+        "bpm015-r33::7.3",
+        "bpm015-r33::6.2.9",
+        "bpm015-r33::6.2.7",
+        "bpm015-r33::4.2",
+        "bpm015-r33::7"
+      ],
+      "invented_cites": [],
+      "error_code": "packet_too_large",
+      "has_compliance_line": true,
+      "mentions_ic": true,
+      "mentions_miso": true,
+      "n_sentences": 22,
+      "timing_ms": {
+        "write": 4092,
+        "code_postcheck": 3,
+        "plan": 968
+      },
+      "plan_reason": "The user is asking for applicable BPM-015 delay clauses after GIA execution and missed COD, which requires retrieval of specific BPM-015 units not already held.",
+      "plan_source": "gpt-4.1",
+      "excerpt": "# Interconnection procedure note ## 1. Risk results - CatBoost P(quit 12m): 0.07. This is a ranking score, not a BPM-015 trigger or a withdrawal verdict. - Platinum 2 delayed MW (system-wide, not this IR): 25,299.4 MW delayed \u226512 months as of 2023-12-31. This is system crowding, not this project's Commercial Operation Date (COD). - The GIA-matched delayed-MW"
+    },
+    {
+      "name": "d2_deposit",
+      "question": "What is the DPP Study Funding Deposit D2?",
+      "project_key": "P::J2460",
+      "searched": true,
+      "shape": "standard",
+      "compose_mode": "gpt-4.1",
+      "compliance": "not_determined",
+      "expected": [
+        "bpm015-r33::4.2.4.5"
+      ],
+      "hit": [
+        "bpm015-r33::4.2.4.5"
+      ],
+      "miss": [],
+      "hit_rate": 1.0,
+      "n_retrieved": 12,
+      "top_ids": [
+        "bpm015-r33::4.2.4.5",
+        "bpm015-r33::4.2.4.6",
+        "bpm015-r33::6.2.11",
+        "bpm015-r33::3.1.1",
+        "bpm015-r33::4.2.4",
+        "bpm015-r33::4.3"
+      ],
+      "invented_cites": [],
+      "error_code": "packet_too_large",
+      "has_compliance_line": true,
+      "mentions_ic": true,
+      "mentions_miso": true,
+      "n_sentences": 8,
+      "timing_ms": {
+        "write": 2464,
+        "code_postcheck": 1,
+        "plan": 888
+      },
+      "plan_reason": "The user is asking for a definition and explanation of the DPP Study Funding Deposit D2, which is a new BPM topic not present in held_units or history.",
+      "plan_source": "gpt-4.1",
+      "excerpt": "# Interconnection procedure note ## Situation You asked what the DPP Study Funding Deposit D2 is. This restates BPM-015 r33 and is not a legal opinion. ## Workflow The Interconnection Customer (IC) must pay the DPP Study Funding Deposit (D2) before entering the Definitive Planning Phase (DPP). The amount of the D2 deposit depends on the project\u2019s MW size, as"
+    }
+  ]
+}

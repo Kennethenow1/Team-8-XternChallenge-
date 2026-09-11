@@ -42,11 +42,15 @@ Right: `- The Interconnection Customer shall notify MISO within five (5) Busines
 - Citations list: `- BPM-015 r33 §5.4.6 - Interconnection Study Restudy (pages 56-56)`
 - Optional PDF line: `- Source PDF: docs/miso_policy/pdfs/01_bpm-015_r33_generator_interconnection_clean.pdf`
 
-Do not invent FERC or Attachment X URLs. If a unit cites Section 3.6 of the GIP and Attachment X is not in the packet, say the GIP is the tariff and is not in this packet. Put that under Gaps.
+Do not invent FERC or Attachment X URLs. If a unit cites Section 3.6 of the GIP and Attachment X is not in the packet, say the GIP is the tariff and is not in this packet. Put that under Gaps. Do not infer that deemed withdrawal of an IR under BPM-015 r33 §5.4.6 terminates an already-executed GIA, or that §7.3 stops applying. Those tariff effects are not in this packet.
+
+## Combined analyses
+
+Users often paste a paragraph that asks for two tracks at once (risk card plus BPM, restudy versus D2, restudy versus post-GIA delay). Keep the tracks in separate numbered headings. Do not turn a Platinum 3 flag, p(quit), or delayed-MW pile into a BPM duty. Answer every named track. Pronouns and "the last note" refer to history.
 
 ## Mermaid
 
-Include mermaid only if the question asks for sequence, phase, or who-does-what, or if `requirements.need` contains `diagram`. Do not decorate a citation-only answer.
+For `standard`, `long`, and `diagram` notes, include a compact mermaid flowchart that conceptualizes the current ask (who acts, then the clock or deposit). Include mermaid if the question asks for sequence, phase, or who-does-what, or if `requirements.need` contains `diagram`. Do not decorate a short follow-up or a citation-only answer.
 
 - `flowchart TD` or `flowchart LR` only.
 - Node IDs camelCase, no spaces (`misoNotice`, `icDecision`).

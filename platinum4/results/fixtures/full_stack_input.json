@@ -1,0 +1,30 @@
+{
+  "schema_version": "full_stack.v1",
+  "split": "val",
+  "project_key": "P::B::E291",
+  "scenario": "restudy",
+  "dataset": "platinum3/results/sample_cards.json",
+  "requirements": {
+    "audience": "analyst",
+    "dialect": "auto",
+    "need": ["workflow", "stakeholders", "citations", "do_not_claim"],
+    "max_units": 12
+  },
+  "conversation": [
+    {
+      "id": "t1_scoreboard",
+      "need": ["workflow", "citations", "do_not_claim"],
+      "question": "Here is the full gold stack for this IR. Risk results are context only. Track 1: restate the CatBoost 12-month quit probability (gold freeze / trial-149, not a withdrawal verdict) and the Platinum 3 restudy-scenario delta as a sensitivity, not a causal law. Track 2: restate the Platinum 2 delayed-MW pile now / 3-month / 12-month Holt figures as system crowding, and say why the GIA-matched delayed-MW slice must not be treated as the full GIA list. Then list which Platinum 3 risks have a BPM-015 index versus stubs (developer serial quit, FEMA, IRA). Do not quote months of future COD slip. Do not treat CatBoost or the pile as a BPM duty."
+    },
+    {
+      "id": "t2_restudy_bpm",
+      "need": ["workflow", "citations", "do_not_claim"],
+      "question": "Keep those CatBoost and pile numbers as context. The Platinum 3 restudy overlay put restudy_on_record on this same IR. I need the BPM-015 r33 restudy path if MISO notices a restudy because a peer in the DPP cycle withdrew before all GIAs/FCAs/MPFCAs were executed or filed unexecuted: who notices, who funds the restudy from remaining or additional deposit, and the Interconnection Customer deadline. Do not treat the CatBoost delta as that deadline. Do not invent a serial-quit clause."
+    },
+    {
+      "id": "t3_both_true",
+      "need": ["workflow", "citations", "do_not_claim"],
+      "question": "Combine two analyses for this IA-executed IR. Track A is the Platinum 2 crowded pile from the last note. Track B is the restudy funding clock you just walked. Can both be true at once without collapsing crowding into a BPM restudy trigger? Say whether the CatBoost quit score or the serial-quit flag rewrites the five-Business-Day clock or the remaining/additional deposit. Stubs stay under Gaps. If the GIP is not in the packet, keep Attachment X there and do not write it as a retrieved rule."
+    }
+  ]
+}

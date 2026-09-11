@@ -1,0 +1,260 @@
+{
+  "schema_version": "session.v1",
+  "turns": [
+    {
+      "question": "The Platinum 3 card for this interconnection request is IA Executed, the planned Commercial Operation Date has already passed, and a peer IR in the same DPP cycle has withdrawn.\n\nWalk through all of the following in one note. Use only current BPM-015 r33. If you need Attachment X / the GIP, the GI process-flow diagram, or a superseded r32 clause, put that under Gaps and do not invent it.\n\n1. Restudy: If MISO determines restudy is required because that peer withdrew before all GIAs/FCAs/MPFCAs for the cycle were executed or filed unexecuted, who notices, who funds the restudy, and what is the Interconnection Customer deadline to proceed or withdraw.\n2. Post-GIA delay: Now that the GIA is executed and COD has already passed, which IC delay and commercial-operation clauses apply. Do not quote months of future COD slip.\n3. Alternate path: If instead the IC were still at Decision Point II, what happens to DPP milestone deposits (M3/M4) and the DPP Study Funding Deposit D2 on withdrawal.\n4. Stub risks: Does developer serial quit, county FEMA hazard, or IRA energy-community status change any BPM-015 duty. If there is no clause, say so.\n5. Include a procedure map of who acts after the withdrawal restudy notice.\n\nCite each rule inline. Tariff controls if it conflicts with the BPM.",
+      "response_shape": "diagram",
+      "unit_ids": [
+        "bpm015-r33::5.4.6",
+        "bpm015-r33::6.2.7",
+        "bpm015-r33::6.2.8",
+        "bpm015-r33::7.7",
+        "bpm015-r33::6.2.11",
+        "bpm015-r33::5.3.3",
+        "bpm015-r33::4.2.4.5",
+        "bpm015-r33::7.3",
+        "bpm015-r33::4.2.4.6",
+        "bpm015-r33::4.2",
+        "bpm015-r33::5.2.3",
+        "bpm015-r33::7.1"
+      ],
+      "cites": [
+        "BPM-015 r33 §5.4.6",
+        "BPM-015 r33 §6.2.7",
+        "BPM-015 r33 §6.2.8",
+        "BPM-015 r33 §7.7",
+        "BPM-015 r33 §6.2.11",
+        "BPM-015 r33 §5.3.3",
+        "BPM-015 r33 §4.2.4.5",
+        "BPM-015 r33 §7.3",
+        "BPM-015 r33 §4.2.4.6",
+        "BPM-015 r33 §4.2",
+        "BPM-015 r33 §5.2.3",
+        "BPM-015 r33 §7.1"
+      ],
+      "topics": [
+        "restudy",
+        "delay_of_study",
+        "withdrawal",
+        "cost_allocation",
+        "gia_negotiation",
+        "decision_point",
+        "commercial_operation",
+        "deposit_refund"
+      ],
+      "excerpt": "# Interconnection procedure note ## 1. Restudy after Peer Withdrawal If MISO determines that a restudy of an Interconnection Study is required because an interconnection request (IR) withdraws or is deemed withdrawn before all Generator Interconnection Agreements (GIAs), Facilities Construction Agreements (FCAs), and/or Multi-Party Facilities Construction Agreements (MPFCAs) for the DPP cycle have been executed or filed unexecuted with FERC, MISO shall provide notice of a res",
+      "need_search": true
+    },
+    {
+      "question": "From that last note: if the IC misses the restudy notice window, is the IR deemed withdrawn under the GIP, and does the post-GIA IC-delay clause in section 7.3 still apply to this same project because COD has already passed? Answer from units already in the thread if they cover it; search only if a needed clause is missing. Keep it shorter than the full walkthrough.",
+      "response_shape": "long",
+      "unit_ids": [
+        "bpm015-r33::5.4.6",
+        "bpm015-r33::7.3"
+      ],
+      "cites": [
+        "BPM-015 r33 §5.4.6",
+        "BPM-015 r33 §7.3"
+      ],
+      "topics": [
+        "restudy",
+        "delay_of_study",
+        "withdrawal",
+        "cost_allocation",
+        "gia_negotiation"
+      ],
+      "excerpt": "# Interconnection procedure note ## 1. Deemed Withdrawal of the Interconnection Request If the Interconnection Customer (IC) fails to respond to MISO’s restudy notice within five (5) Business Days, MISO shall deem the interconnection request (IR) withdrawn (BPM-015 r33 §5.4.6). The BPM states that failure to notify MISO to proceed with the restudy is treated as withdrawal of the IR. The BPM references the GIP for the process but does not provide the GIP text in this packet. #",
+      "need_search": false
+    }
+  ],
+  "held": [
+    {
+      "unit_id": "bpm015-r33::5.4.6",
+      "cite": "BPM-015 r33 §5.4.6",
+      "title": "Interconnection Study Restudy",
+      "topics": [
+        "restudy",
+        "delay_of_study",
+        "withdrawal",
+        "cost_allocation",
+        "gia_negotiation"
+      ],
+      "risk_code": [
+        "restudy_friction",
+        "abandonment"
+      ],
+      "milestones": []
+    },
+    {
+      "unit_id": "bpm015-r33::6.2.7",
+      "cite": "BPM-015 r33 §6.2.7",
+      "title": "Submittal of IA for Appendix Review",
+      "topics": [
+        "gia_negotiation",
+        "decision_point",
+        "delay_of_study",
+        "commercial_operation"
+      ],
+      "risk_code": [
+        "gia_execution"
+      ],
+      "milestones": []
+    },
+    {
+      "unit_id": "bpm015-r33::6.2.8",
+      "cite": "BPM-015 r33 §6.2.8",
+      "title": "Submittal of GIA/FCA for Execution / Filing Unexecuted",
+      "topics": [
+        "gia_negotiation"
+      ],
+      "risk_code": [
+        "gia_execution"
+      ],
+      "milestones": []
+    },
+    {
+      "unit_id": "bpm015-r33::7.7",
+      "cite": "BPM-015 r33 §7.7",
+      "title": "Commercial Operation",
+      "topics": [
+        "commercial_operation",
+        "deposit_refund",
+        "gia_negotiation"
+      ],
+      "risk_code": [
+        "cod_already_slipped",
+        "gia_execution"
+      ],
+      "milestones": []
+    },
+    {
+      "unit_id": "bpm015-r33::6.2.11",
+      "cite": "BPM-015 r33 §6.2.11",
+      "title": "Refunds of Definitive Planning Phase Milestones (M2, M3, M4)",
+      "topics": [
+        "withdrawal",
+        "deposit_refund",
+        "decision_point",
+        "cost_allocation"
+      ],
+      "risk_code": [
+        "abandonment"
+      ],
+      "milestones": [
+        "M2",
+        "M3",
+        "M4"
+      ]
+    },
+    {
+      "unit_id": "bpm015-r33::5.3.3",
+      "cite": "BPM-015 r33 §5.3.3",
+      "title": "Interconnection Customer Decision Point II",
+      "topics": [
+        "decision_point",
+        "withdrawal"
+      ],
+      "risk_code": [
+        "abandonment"
+      ],
+      "milestones": [
+        "M4"
+      ]
+    },
+    {
+      "unit_id": "bpm015-r33::4.2.4.5",
+      "cite": "BPM-015 r33 §4.2.4.5",
+      "title": "DPP Study Funding Deposit (D2)",
+      "topics": [
+        "deposit_refund",
+        "withdrawal"
+      ],
+      "risk_code": [
+        "cost_pressure"
+      ],
+      "milestones": [
+        "D2"
+      ]
+    },
+    {
+      "unit_id": "bpm015-r33::7.3",
+      "cite": "BPM-015 r33 §7.3",
+      "title": "Interconnection Customer delays",
+      "topics": [
+        "delay_of_study",
+        "cost_allocation",
+        "gia_negotiation"
+      ],
+      "risk_code": [
+        "cod_already_slipped",
+        "gia_execution"
+      ],
+      "milestones": []
+    },
+    {
+      "unit_id": "bpm015-r33::4.2.4.6",
+      "cite": "BPM-015 r33 §4.2.4.6",
+      "title": "Refunds of Study Deposits",
+      "topics": [
+        "withdrawal",
+        "deposit_refund",
+        "restudy",
+        "decision_point"
+      ],
+      "risk_code": [
+        "abandonment"
+      ],
+      "milestones": [
+        "M2",
+        "D2",
+        "M3",
+        "M4"
+      ]
+    },
+    {
+      "unit_id": "bpm015-r33::4.2",
+      "cite": "BPM-015 r33 §4.2",
+      "title": "Initial Screening",
+      "topics": [
+        "commercial_operation"
+      ],
+      "risk_code": [
+        "cod_already_slipped"
+      ],
+      "milestones": []
+    },
+    {
+      "unit_id": "bpm015-r33::5.2.3",
+      "cite": "BPM-015 r33 §5.2.3",
+      "title": "Interconnection Customer Decision Point I",
+      "topics": [
+        "decision_point",
+        "withdrawal",
+        "deposit_refund"
+      ],
+      "risk_code": [
+        "abandonment"
+      ],
+      "milestones": [
+        "M3",
+        "M2"
+      ]
+    },
+    {
+      "unit_id": "bpm015-r33::7.1",
+      "cite": "BPM-015 r33 §7.1",
+      "title": "Suspension",
+      "topics": [
+        "delay_of_study",
+        "restudy",
+        "deposit_refund",
+        "cost_allocation",
+        "gia_negotiation"
+      ],
+      "risk_code": [
+        "gia_execution"
+      ],
+      "milestones": []
+    }
+  ]
+}

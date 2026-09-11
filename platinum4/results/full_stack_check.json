@@ -1,0 +1,47 @@
+{
+  "turns": [
+    {
+      "turn": 1,
+      "id": "t1_scoreboard",
+      "searched": true,
+      "shape": "long",
+      "ids": [
+        "bpm015-r33::5.4.6",
+        "bpm015-r33::6.2.11",
+        "bpm015-r33::4.2.4.6",
+        "bpm015-r33::3.1.1",
+        "bpm015-r33::5.2.5",
+        "bpm015-r33::4.3",
+        "bpm015-r33::5.3.5",
+        "bpm015-r33::5.3.3",
+        "bpm015-r33::5.2.3",
+        "bpm015-r33::6.6.5",
+        "bpm015-r33::6.7.1",
+        "bpm015-r33::7.1"
+      ],
+      "invented_cites": []
+    },
+    {
+      "turn": 2,
+      "id": "t2_restudy_bpm",
+      "searched": false,
+      "shape": "long",
+      "ids": [
+        "bpm015-r33::5.4.6",
+        "bpm015-r33::4.2.4.6"
+      ],
+      "invented_cites": []
+    },
+    {
+      "turn": 3,
+      "id": "t3_both_true",
+      "searched": false,
+      "shape": "long",
+      "ids": [
+        "bpm015-r33::5.4.6",
+        "bpm015-r33::4.2.4.6"
+      ],
+      "invented_cites": []
+    }
+  ]
+}

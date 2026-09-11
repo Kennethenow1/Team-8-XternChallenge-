@@ -42,11 +42,11 @@
         "deposit_refund",
         "decision_point"
       ],
-      "excerpt": "# Interconnection procedure note ## Situation You asked who funds a restudy if a peer Interconnection Request (IR) withdraws. This restates BPM-015 r33 and is not a legal opinion. ## Workflow If MISO (the Transmission Provider) determines that a restudy is required due to the withdrawal of a peer IR before all Generator Interconnection Agreements (GIAs) are executed or filed unexecuted, MISO shall provide notice of the restudy, including a good faith estimate of the cost to p",
+      "excerpt": "# Interconnection procedure note ## Situation You asked who funds a restudy if a peer Interconnection Request (IR) withdraws. This restates BPM-015 r33 and is not a legal opinion. ## Workflow If MISO (the Transmission Provider) determines that a restudy is required due to a peer IR withdrawal before all Generator Interconnection Agreements (GIAs) are executed or filed, MISO shall provide notice of the restudy, including a good faith estimate of the cost to perform the restudy",
       "need_search": true
     },
     {
-      "question": "Who pays for that?",
+      "question": "Who pays for that, and how many Business Days does the IC have to answer?",
       "response_shape": "short",
       "unit_ids": [
         "bpm015-r33::5.4.6",
@@ -86,7 +86,7 @@
         "deposit_refund",
         "decision_point"
       ],
-      "excerpt": "The Interconnection Customer (IC) is responsible for funding the cost of a restudy if MISO determines that a restudy is required due to a peer interconnection request (IR) withdrawal. MISO will provide the IC with a notice that includes a good faith estimate of the restudy cost, and the IC must decide whether to proceed and fund the restudy or withdraw its IR (BPM-015 r33 §5.4.6). ## Citations - BPM-015 r33 §5.4.6 - Interconnection Study Restudy (pages 56-56) ## Must not clai",
+      "excerpt": "MISO (the Transmission Provider) will provide a good faith estimate of the cost to perform the Interconnection Study restudy, and the Interconnection Customer (IC) is responsible for funding the restudy as noticed. The IC must notify MISO within five (5) Business Days whether it wishes to proceed with the restudy or withdraw its interconnection request (IR) (BPM-015 r33 §5.4.6). ## Citations - BPM-015 r33 §5.4.6 - Interconnection Study Restudy (pages 56-56) ## Must not claim ",
       "need_search": false
     }
   ],

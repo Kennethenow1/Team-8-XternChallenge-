@@ -5,7 +5,8 @@ procedure units. Does not unseal 2024 test. Chat model is gpt-4.1 only.
 """
 
 from src.modeling.platinum4.compose import PINNED_MODEL, compose, plan_query
-from src.modeling.platinum4.pipeline import run_turn
+from src.modeling.platinum4.gold_stack import attach_gold_stack, load_full_stack_input
+from src.modeling.platinum4.pipeline import run_turn, run_thread
 from src.modeling.platinum4.retrieve import retrieve_for_card, write_sample_packets
 from src.modeling.platinum4.search import retrieve_for_query
 
@@ -16,5 +17,7 @@ __all__ = [
     "retrieve_for_card",
     "retrieve_for_query",
     "run_turn",
+    "run_thread",
     "write_sample_packets",
+    "load_full_stack_input",
 ]

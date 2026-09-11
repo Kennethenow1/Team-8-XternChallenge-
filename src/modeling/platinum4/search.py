@@ -43,7 +43,39 @@ QUERY_SCHEMA = "query.v1"
 SECTION_RE = re.compile(r"(?:§|section)\s*(\d+(?:\.\d+){0,3})", re.I)
 BARE_SECTION_RE = re.compile(r"\b(\d+\.\d+(?:\.\d+){0,2})\b")
 STUDY_METHOD_RE = re.compile(r"\bstudy method\b|\bmethodology\b|\bpss/?e\b|\bhow does miso study\b", re.I)
-SEQUENCE_RE = re.compile(r"\bsequence\b|\bwho does what\b|\bphase map\b|\bprocedure map\b|\bflowchart\b", re.I)
+GIP_RE = re.compile(r"\bGIP\b|\bAttachment X\b|Section 3\.6 of the GIP", re.I)
+DELAY_CLAUSE_RE = re.compile(
+    r"\b7\.3\b|\b7\.7\b|cod delay|commercial operation|"
+    r"milestone amendment|ic delay|post-?gia delay",
+    re.I,
+)
+CARD_AS_CONTEXT_RE = re.compile(
+    r"risk context only|read the card as risk|"
+    r"what those flags do and do not|"
+    r"do not treat p\(quit\)|do not treat .{0,80} as a BPM duty",
+    re.I,
+)
+SEQUENCE_RE = re.compile(
+    r"\b(procedure map|who does what|flowchart|mermaid|sequence of steps)\b",
+    re.I,
+)
+
+TOPIC_SEEDS: dict[str, list[str]] = {
+    "restudy": ["5.4.6"],
+    "decision_point": ["5.3.3", "5.2.3"],
+    "deposit_refund": ["4.2.4.5", "4.2.4.6", "6.2.11"],
+    "commercial_operation": ["7.3", "7.7"],
+    "gia_negotiation": ["6.2.7", "6.2.8"],
+    "site_control": ["5.1.2"],
+    "scoping": ["3.1.1", "4.3"],
+    "withdrawal": ["5.2.5", "5.3.5"],
+}
+MILESTONE_SEEDS: dict[str, list[str]] = {
+    "D2": ["4.2.4.5"],
+    "M4": ["5.3.3"],
+    "M3": ["5.3.3", "6.2.11"],
+    "M2": ["5.2.3"],
+}
 
 
 def _now_ms() -> float:
@@ -356,28 +388,87 @@ def _apply_family_cap(
     by_id: dict[str, dict[str, Any]],
     seed_ids: set[str],
     max_units: int,
+    locked: set[str] | None = None,
 ) -> list[dict[str, Any]]:
+    locked = locked or set()
     picked: list[dict[str, Any]] = []
     family_n: dict[str, int] = {}
     seen: set[str] = set()
-    for h in ranked:
+
+    def _add(h: dict[str, Any], *, ignore_cap: bool) -> bool:
         uid = h["unit_id"]
         if uid in seen:
-            continue
+            return False
         u = by_id.get(uid)
         if not u:
-            continue
+            return False
         num = str((u.get("source") or {}).get("bpm_section") or "")
         fam = _section_family(num)
-        cap = 3 if uid in seed_ids else 2
-        if family_n.get(fam, 0) >= cap:
-            continue
+        cap = 4 if uid in locked else (3 if uid in seed_ids else 2)
+        if not ignore_cap and family_n.get(fam, 0) >= cap:
+            return False
         seen.add(uid)
         family_n[fam] = family_n.get(fam, 0) + 1
         picked.append(h)
+        return True
+
+    by_rank = {h["unit_id"]: h for h in ranked}
+    for uid in locked:
+        h = by_rank.get(uid) or {"unit_id": uid, "score": 9.0, "reason": "required_seed"}
+        _add(h, ignore_cap=True)
+        if len(picked) >= max_units:
+            return picked
+    for h in ranked:
         if len(picked) >= max_units:
             break
+        _add(h, ignore_cap=False)
     return picked
+
+
+def required_unit_ids(question: str, lex: dict[str, list[str]], units: list[dict[str, Any]]) -> list[str]:
+    """Exact seed clauses the question named. Locked through family cap."""
+    q = (question or "").lower()
+    secs: list[str] = []
+    if re.search(r"decision point ii|\bdp[\s-]?ii\b|\bdecision point 2\b", question or "", re.I):
+        secs.extend(["5.3.3"])
+    elif "decision_point" in (lex.get("topic") or []):
+        secs.extend(["5.2.3", "5.3.3"])
+    for topic in lex.get("topic") or []:
+        if topic == "decision_point":
+            continue
+        if topic == "gia_negotiation" and not re.search(
+            r"gia execution|filed unexecuted|appendix review|negotiate the gia",
+            question or "",
+            re.I,
+        ):
+            continue
+        if topic == "commercial_operation" and not DELAY_CLAUSE_RE.search(question or ""):
+            continue
+        if topic == "deposit_refund" and not re.search(
+            r"\bD2\b|study funding|refund", question or "", re.I
+        ):
+            continue
+        if topic == "withdrawal" and "restud" in q:
+            continue
+        secs.extend(TOPIC_SEEDS.get(topic) or [])
+    for m in lex.get("milestone") or []:
+        secs.extend(MILESTONE_SEEDS.get(m) or [])
+    if DELAY_CLAUSE_RE.search(question or ""):
+        secs.extend(["7.3", "7.7"])
+    if "restud" in q:
+        secs.extend(["5.4.6"])
+    if re.search(r"\bD2\b|study funding", question or "", re.I):
+        secs.extend(["4.2.4.5"])
+    if re.search(r"\bM3\b|\bM4\b|milestone deposit", question or "", re.I):
+        secs.extend(["6.2.11"])
+    if re.search(r"\bsuspension\b", question or "", re.I):
+        secs.extend(["7.1"])
+    if re.search(r"\bsite control\b", question or "", re.I):
+        secs.extend(["5.1.2"])
+    ids: list[str] = []
+    for sec in list(dict.fromkeys(secs)):
+        ids.extend(_match_seed(units, sec))
+    return list(dict.fromkeys(ids))
 
 
 def retrieve_for_query(query: dict[str, Any] | None, *, units: list[dict[str, Any]] | None = None) -> dict[str, Any]:
@@ -406,10 +497,16 @@ def retrieve_for_query(query: dict[str, Any] | None, *, units: list[dict[str, An
     gaps: list[str] = []
 
     lex_tags = alg_lexicon(question) if question else {}
-    card_phases = gi_phases_for_card(card) if card else []
+    if GIP_RE.search(question or ""):
+        gaps.append("The GIP (Attachment X) is the tariff and is not in this packet.")
+
+    card_as_context = bool(CARD_AS_CONTEXT_RE.search(question or ""))
+    card_phases = gi_phases_for_card(card) if card and not card_as_context else []
     card_risks = risk_codes_for_card(card) if card else []
-    card_topics = _flag_topics(card) if card else []
+    card_topics = _flag_topics(card) if card and not card_as_context else []
     live_card_risks = [r for r in card_risks if r not in STUB_RISKS]
+    if card_as_context:
+        live_card_risks = []
     stub_asked = [r for r in (card_risks + (lex_tags.get("risk_code") or [])) if r in STUB_RISKS]
     merged_tags = merge_tag_sets(
         lex_tags,
@@ -423,10 +520,12 @@ def retrieve_for_query(query: dict[str, Any] | None, *, units: list[dict[str, An
     seed_risks = [r for r in seed_risks if r not in STUB_RISKS]
     study_q = bool(STUDY_METHOD_RE.search(question))
     prefer_workflow = not study_q
+    required_ids = required_unit_ids(question, lex_tags, units)
     max_units = int(req.get("max_units") or MAX_UNITS)
+    max_units = max(max_units, min(16, len(required_ids) + 2))
 
     t0 = _now_ms()
-    catalog_hits = alg_catalog_route(units, card, maps)
+    catalog_hits = [] if card_as_context else alg_catalog_route(units, card, maps)
     algorithms.append(_alg_row("alg_catalog_route", catalog_hits, t0))
 
     t0 = _now_ms()
@@ -444,7 +543,7 @@ def retrieve_for_query(query: dict[str, Any] | None, *, units: list[dict[str, An
     t0 = _now_ms()
     seed_hits = alg_seed_lookup(units, seed_risks)
     algorithms.append(_alg_row("alg_seed_lookup", seed_hits, t0))
-    seed_ids = {h["unit_id"] for h in seed_hits}
+    seed_ids = {h["unit_id"] for h in seed_hits} | set(required_ids)
 
     t0 = _now_ms()
     inv_hits, inv_mode = alg_inverted_filter(units, maps, merged_tags)
@@ -475,8 +574,11 @@ def retrieve_for_query(query: dict[str, Any] | None, *, units: list[dict[str, An
         seed_ids,
         prefer_workflow=prefer_workflow,
         restudy="restudy" in (merged_tags.get("topic") or []),
-        cod="cod_already_slipped" in (merged_tags.get("risk_code") or [])
-        or "commercial_operation" in (merged_tags.get("topic") or []),
+        cod=(not card_as_context)
+        and (
+            "cod_already_slipped" in (merged_tags.get("risk_code") or [])
+            or "commercial_operation" in (merged_tags.get("topic") or [])
+        ),
     )
     algorithms.append(_alg_row("alg_fusion", fused, t0))
 
@@ -556,15 +658,17 @@ def retrieve_for_query(query: dict[str, Any] | None, *, units: list[dict[str, An
     else:
         directives.append(_directive("DIR_AUDIENCE_ACTOR", True, f"audience={audience}; no ic filter"))
 
-    picked_hits = _apply_family_cap(filtered, by_id, seed_ids, max_units)
-    directives.append(_directive("DIR_FAMILY_CAP", True, "max 2 units per section family, 3 if seed"))
+    picked_hits = _apply_family_cap(filtered, by_id, seed_ids, max_units, locked=set(required_ids))
+    directives.append(_directive("DIR_FAMILY_CAP", True, "max 2 units per section family, 3 if seed; required seeds locked"))
 
-    # Coverage pass.
+    # Coverage pass: fill missing lexicon facets; do not evict required seeds.
     t0 = _now_ms()
     coverage_added: list[str] = []
     kept_ids = {h["unit_id"] for h in picked_hits}
     needed_topics = list(lex_tags.get("topic") or [])
     needed_risks = [r for r in (lex_tags.get("risk_code") or []) if r not in STUB_RISKS]
+    if not re.search(r"\bcontour\b|\bgrouping\b|\bnetwork congestion\b", question or "", re.I):
+        needed_risks = [r for r in needed_risks if r != "system_congestion"]
     miss_topics = []
     for topic in needed_topics:
         if not any(topic in ((by_id.get(h["unit_id"]) or {}).get("tags") or {}).get("topic") or [] for h in picked_hits):
@@ -587,9 +691,11 @@ def retrieve_for_query(query: dict[str, Any] | None, *, units: list[dict[str, An
             kept_ids.add(h["unit_id"])
             coverage_added.append(h["unit_id"])
             break
-        if len(picked_hits) >= max_units:
+        if len(picked_hits) >= max_units + 4:
             break
-    picked_hits = _apply_family_cap(picked_hits, by_id, seed_ids, max_units)
+    picked_hits = _apply_family_cap(
+        picked_hits, by_id, seed_ids, max_units, locked=set(required_ids) | set(coverage_added)
+    )
     algorithms.append(_alg_row("alg_coverage_pass", extra_bm, t0))
     algorithms[-1]["coverage_repair"] = coverage_added
 
@@ -670,6 +776,11 @@ def packet_from_unit_ids(
     picked = [by_id[uid] for uid in unit_ids if uid in by_id]
     phases = gi_phases_for_card(card) if card else []
     risks = risk_codes_for_card(card) if card else []
+    gaps: list[str] = []
+    if GIP_RE.search(str(q.get("question") or "")):
+        gaps.append("The GIP (Attachment X) is the tariff and is not in this packet.")
+    if not picked:
+        gaps.append("No held procedure unit matched this follow-up.")
     extra = {
         "query": {
             "schema_version": QUERY_SCHEMA,
@@ -677,7 +788,7 @@ def packet_from_unit_ids(
             "requirements": q.get("requirements"),
             "has_card": bool(card),
         },
-        "gaps": [] if picked else ["No held procedure unit matched this follow-up."],
+        "gaps": gaps,
         "search_trace": {
             "algorithms": [
                 {

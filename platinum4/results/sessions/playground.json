@@ -1,0 +1,311 @@
+{
+  "schema_version": "session.v1",
+  "turns": [
+    {
+      "question": "Does the CatBoost quit score change who funds a restudy after a peer withdrawal?",
+      "response_shape": "standard",
+      "unit_ids": [
+        "bpm015-r33::5.4.6",
+        "bpm015-r33::7.3",
+        "bpm015-r33::7.7",
+        "bpm015-r33::4.2.4.6",
+        "bpm015-r33::7.1",
+        "bpm015-r33::4.2",
+        "bpm015-r33::5.2.5",
+        "bpm015-r33::5.3.5",
+        "bpm015-r33::6.2.9",
+        "bpm015-r33::6.2.7",
+        "bpm015-r33::6.2.8",
+        "bpm015-r33::3.1.1"
+      ],
+      "cites": [
+        "BPM-015 r33 §5.4.6",
+        "BPM-015 r33 §7.3",
+        "BPM-015 r33 §7.7",
+        "BPM-015 r33 §4.2.4.6",
+        "BPM-015 r33 §7.1",
+        "BPM-015 r33 §4.2",
+        "BPM-015 r33 §5.2.5",
+        "BPM-015 r33 §5.3.5",
+        "BPM-015 r33 §6.2.9",
+        "BPM-015 r33 §6.2.7",
+        "BPM-015 r33 §6.2.8",
+        "BPM-015 r33 §3.1.1"
+      ],
+      "topics": [
+        "restudy",
+        "delay_of_study",
+        "withdrawal",
+        "cost_allocation",
+        "gia_negotiation",
+        "commercial_operation",
+        "deposit_refund",
+        "decision_point",
+        "scoping"
+      ],
+      "excerpt": "# Interconnection procedure note ## Risk results - CatBoost P(quit 12m) for this Interconnection Request (IR) is 0.07. This is a ranking score and not a BPM-015 trigger or a withdrawal verdict. - Platinum 2 delayed MW is 25,299.4 MW (system-wide EIA planned delayed MW, not this IR's Commercial Operation Date). - Scenario delta is a sensitivity, not a causal law. Flags and risk codes do not create BPM duties (see how_to_use). ## Situation You asked whether the CatBoost quit sc",
+      "need_search": true
+    },
+    {
+      "question": "Who pays for that, and how many Business Days does the IC have?",
+      "response_shape": "short",
+      "unit_ids": [
+        "bpm015-r33::5.4.6",
+        "bpm015-r33::4.2.4.6"
+      ],
+      "cites": [
+        "BPM-015 r33 §5.4.6",
+        "BPM-015 r33 §4.2.4.6"
+      ],
+      "topics": [
+        "restudy",
+        "delay_of_study",
+        "withdrawal",
+        "cost_allocation",
+        "gia_negotiation",
+        "deposit_refund",
+        "decision_point"
+      ],
+      "excerpt": "The Interconnection Customer (IC) is responsible for funding the Interconnection Study restudy, using any remaining study deposit or by providing an additional deposit as specified in the restudy notice from MISO (BPM-015 r33 §5.4.6). The IC must notify MISO within five (5) Business Days whether it wishes to proceed with the restudy or withdraw its interconnection request (IR) (BPM-015 r33 §5.4.6). ## Citations - BPM-015 r33 §5.4.6 - Interconnection Study Restudy (pages 56-56",
+      "need_search": false
+    },
+    {
+      "question": "Does the CatBoost quit score change who funds a restudy after a peer withdrawal?",
+      "response_shape": "short",
+      "unit_ids": [
+        "bpm015-r33::5.4.6",
+        "bpm015-r33::4.2.4.6"
+      ],
+      "cites": [
+        "BPM-015 r33 §5.4.6",
+        "BPM-015 r33 §4.2.4.6"
+      ],
+      "topics": [
+        "restudy",
+        "delay_of_study",
+        "withdrawal",
+        "cost_allocation",
+        "gia_negotiation",
+        "deposit_refund",
+        "decision_point"
+      ],
+      "excerpt": "The CatBoost quit score does not change who funds a restudy after a peer withdrawal. The Interconnection Customer (IC) is responsible for funding the Interconnection Study restudy, using any remaining study deposit or by providing an additional deposit as specified in the restudy notice from MISO (BPM-015 r33 §5.4.6). The CatBoost score is a ranking tool and does not create or modify BPM-015 duties. ## Citations - BPM-015 r33 §5.4.6 - Interconnection Study Restudy (pages 56-5",
+      "need_search": false
+    },
+    {
+      "question": "Who pays for that, and how many Business Days does the IC have?",
+      "response_shape": "short",
+      "unit_ids": [
+        "bpm015-r33::5.4.6",
+        "bpm015-r33::4.2.4.6"
+      ],
+      "cites": [
+        "BPM-015 r33 §5.4.6",
+        "BPM-015 r33 §4.2.4.6"
+      ],
+      "topics": [
+        "restudy",
+        "delay_of_study",
+        "withdrawal",
+        "cost_allocation",
+        "gia_negotiation",
+        "deposit_refund",
+        "decision_point"
+      ],
+      "excerpt": "The Interconnection Customer (IC) is responsible for funding the Interconnection Study restudy, using any remaining study deposit or by providing an additional deposit as specified in the restudy notice from MISO (BPM-015 r33 §5.4.6). The IC must notify MISO within five (5) Business Days whether it wishes to proceed with the restudy or withdraw its interconnection request (IR) (BPM-015 r33 §5.4.6). ## Citations - BPM-015 r33 §5.4.6 - Interconnection Study Restudy (pages 56-56",
+      "need_search": false
+    }
+  ],
+  "held": [
+    {
+      "unit_id": "bpm015-r33::5.4.6",
+      "cite": "BPM-015 r33 §5.4.6",
+      "title": "Interconnection Study Restudy",
+      "topics": [
+        "restudy",
+        "delay_of_study",
+        "withdrawal",
+        "cost_allocation",
+        "gia_negotiation"
+      ],
+      "risk_code": [
+        "restudy_friction",
+        "abandonment"
+      ],
+      "milestones": []
+    },
+    {
+      "unit_id": "bpm015-r33::7.3",
+      "cite": "BPM-015 r33 §7.3",
+      "title": "Interconnection Customer delays",
+      "topics": [
+        "delay_of_study",
+        "cost_allocation",
+        "gia_negotiation"
+      ],
+      "risk_code": [
+        "cod_already_slipped",
+        "gia_execution"
+      ],
+      "milestones": []
+    },
+    {
+      "unit_id": "bpm015-r33::7.7",
+      "cite": "BPM-015 r33 §7.7",
+      "title": "Commercial Operation",
+      "topics": [
+        "commercial_operation",
+        "deposit_refund",
+        "gia_negotiation"
+      ],
+      "risk_code": [
+        "cod_already_slipped",
+        "gia_execution"
+      ],
+      "milestones": []
+    },
+    {
+      "unit_id": "bpm015-r33::4.2.4.6",
+      "cite": "BPM-015 r33 §4.2.4.6",
+      "title": "Refunds of Study Deposits",
+      "topics": [
+        "withdrawal",
+        "deposit_refund",
+        "restudy",
+        "decision_point"
+      ],
+      "risk_code": [
+        "abandonment"
+      ],
+      "milestones": [
+        "M2",
+        "D2",
+        "M3",
+        "M4"
+      ]
+    },
+    {
+      "unit_id": "bpm015-r33::7.1",
+      "cite": "BPM-015 r33 §7.1",
+      "title": "Suspension",
+      "topics": [
+        "delay_of_study",
+        "restudy",
+        "deposit_refund",
+        "cost_allocation",
+        "gia_negotiation"
+      ],
+      "risk_code": [
+        "gia_execution"
+      ],
+      "milestones": []
+    },
+    {
+      "unit_id": "bpm015-r33::4.2",
+      "cite": "BPM-015 r33 §4.2",
+      "title": "Initial Screening",
+      "topics": [
+        "commercial_operation"
+      ],
+      "risk_code": [
+        "cod_already_slipped"
+      ],
+      "milestones": []
+    },
+    {
+      "unit_id": "bpm015-r33::5.2.5",
+      "cite": "BPM-015 r33 §5.2.5",
+      "title": "Withdrawal from DPP Phase I",
+      "topics": [
+        "withdrawal",
+        "deposit_refund",
+        "decision_point"
+      ],
+      "risk_code": [
+        "abandonment"
+      ],
+      "milestones": [
+        "M2",
+        "M3"
+      ]
+    },
+    {
+      "unit_id": "bpm015-r33::5.3.5",
+      "cite": "BPM-015 r33 §5.3.5",
+      "title": "Withdrawal from DPP Phase II",
+      "topics": [
+        "withdrawal",
+        "deposit_refund",
+        "decision_point"
+      ],
+      "risk_code": [
+        "abandonment"
+      ],
+      "milestones": [
+        "M3",
+        "M4"
+      ]
+    },
+    {
+      "unit_id": "bpm015-r33::6.2.9",
+      "cite": "BPM-015 r33 §6.2.9",
+      "title": "Provisional Generator Interconnection Agreement",
+      "topics": [
+        "gia_negotiation",
+        "decision_point",
+        "delay_of_study",
+        "cost_allocation"
+      ],
+      "risk_code": [
+        "gia_execution"
+      ],
+      "milestones": [
+        "M1",
+        "M2",
+        "M3",
+        "M4",
+        "D1",
+        "D2"
+      ]
+    },
+    {
+      "unit_id": "bpm015-r33::6.2.7",
+      "cite": "BPM-015 r33 §6.2.7",
+      "title": "Submittal of IA for Appendix Review",
+      "topics": [
+        "gia_negotiation",
+        "decision_point",
+        "delay_of_study",
+        "commercial_operation"
+      ],
+      "risk_code": [
+        "gia_execution"
+      ],
+      "milestones": []
+    },
+    {
+      "unit_id": "bpm015-r33::6.2.8",
+      "cite": "BPM-015 r33 §6.2.8",
+      "title": "Submittal of GIA/FCA for Execution / Filing Unexecuted",
+      "topics": [
+        "gia_negotiation"
+      ],
+      "risk_code": [
+        "gia_execution"
+      ],
+      "milestones": []
+    },
+    {
+      "unit_id": "bpm015-r33::3.1.1",
+      "cite": "BPM-015 r33 §3.1.1",
+      "title": "Contour Map",
+      "topics": [
+        "scoping"
+      ],
+      "risk_code": [
+        "system_congestion"
+      ],
+      "milestones": []
+    }
+  ]
+}

@@ -9,6 +9,7 @@ Not a fifth prediction contest. Not months of COD slip. Not a FERC compliance sc
 | Slot | Source | Honest use |
 |------|--------|------------|
 | `card` | Platinum 3 (2023 val samples) | Project, phase, flags, risks |
+| `gold_stack` | CatBoost P(quit) + Platinum 2 pile + Platinum 3 scenario | Numbers as context, not BPM duties |
 | `query` | Free text + requirements | Audience, dialect, `need` (optional `diagram`) |
 | `retrieved[]` | Hybrid search, cap 8–12 | Clauses that govern delay / restudy / withdrawal / GIA |
 | `search_trace` | Named algorithms + directives | Provenance: where the bot looked |
@@ -16,6 +17,8 @@ Not a fifth prediction contest. Not months of COD slip. Not a FERC compliance sc
 | `gaps` | Planner | Stub risks, coverage misses, zero hits |
 | `compliance` | Always `not_determined` | We do not score a COD slip as compliant |
 | `do_not_claim` | Copied from the risk card | Same bans as Platinum 3 |
+
+Quit probability is **CatBoost** (`catboost_tuned` / trial-149). Not Electrum. Not Platinum 1 delay-months. The pile is Platinum 2 Holt on EIA delayed MW. Scenario deltas stay sensitivities.
 
 Three risks have **no BPM clause**: `developer_serial_quit`, `hazard_exposure`, `policy_incentive`. Those stay stub playbooks. Do not invent a MISO rule.
 
@@ -34,4 +37,6 @@ The planner is a short gpt-4.1 JSON call: does history already have the clause, 
 
 `python scripts/build_miso_policy_index.py` writes the catalog, graph, maps, and `platinum4/results/sample_bot_packets.json`.
 
-`python scripts/run_platinum4_answer.py` writes `platinum4/results/answers/<slug>.md` and `.json`. Open `01_bot_packets.ipynb` for catalog shelves, the ontology table, search_trace, and the composed note. **Do not send `val_card_audit.parquet` (y_true) to ChatGPT.**
+`python scripts/run_platinum4_answer.py` writes `platinum4/results/answers/<slug>.md` and `.json`.
+
+Open `02_full_stack_playground.ipynb` to read the saved CatBoost-stack notes and type your own follow-ups. `python scripts/run_platinum4_full_stack.py` writes `platinum4/results/answers/full_stack_conversation.md`. Open `01_bot_packets.ipynb` for catalog shelves, the ontology table, search_trace, and the composed note. `python scripts/serve_platinum4_ui.py` serves a briefing UI at `http://127.0.0.1:8765/` (note + mermaid on the left, chat on the right). **Do not send `val_card_audit.parquet` (y_true) to ChatGPT.**

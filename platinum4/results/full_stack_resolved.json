@@ -1,0 +1,97 @@
+{
+  "schema_version": "full_stack.v1",
+  "split": "val",
+  "project_key": "P::B::E291",
+  "scenario": "restudy",
+  "gold_stack": {
+    "project": {
+      "project_key": "P::B::E291",
+      "observation_date": "2023-12-31",
+      "capacity_mw": 27.0,
+      "study_phase": "IA Executed",
+      "technology_primary": "hydro",
+      "state_code": "TX",
+      "poi_name": "Rich 138 kV substation"
+    },
+    "catboost": {
+      "label": "CatBoost (gold freeze catboost_tuned / trial-149)",
+      "p_quit_12m": 0.07,
+      "p_quit_under_scenario": 0.055,
+      "delta_p_quit": -0.0145,
+      "honest_use": "12-month quit probability from the gold CatBoost freeze (trial-149). Use for ranking. Do not treat as a BPM duty or a months-of-slip forecast."
+    },
+    "platinum2": {
+      "delayed_mw_now": 25299.4,
+      "delayed_mw_h3": 27748.5,
+      "delayed_mw_h12": 37044.3,
+      "gia_delayed_mw_now": 0.0,
+      "pile_percentile_pit": 1.0,
+      "engine": "holt_damped",
+      "honest_use": "EIA planned delayed MW (delay \u226512m vs first seen). 3m/12m are Holt from history \u2264 as-of, not 2024 actuals. System stock, not this IR's commercial operation date."
+    },
+    "platinum3": {
+      "scenario": "restudy",
+      "scenario_note": "If one additional restudy were on the record.",
+      "flags": {
+        "high_quit_risk": false,
+        "medium_quit_risk": true,
+        "is_gia": true,
+        "cod_already_slipped": true,
+        "developer_serial": true,
+        "restudy_on_record": true,
+        "hazard_high": false,
+        "upgrade_cost_high": false,
+        "pile_crowded": true,
+        "energy_community": false
+      },
+      "risks_bpm": [
+        {
+          "code": "system_congestion",
+          "severity": "high"
+        },
+        {
+          "code": "cod_already_slipped",
+          "severity": "high"
+        },
+        {
+          "code": "abandonment",
+          "severity": "medium"
+        },
+        {
+          "code": "gia_execution",
+          "severity": "medium"
+        },
+        {
+          "code": "restudy_friction",
+          "severity": "medium"
+        }
+      ],
+      "risks_stub": [
+        "developer_serial_quit"
+      ]
+    },
+    "how_to_use": [
+      "CatBoost P(quit 12m) is a ranking score, not a BPM trigger and not a withdrawal verdict.",
+      "Platinum 2 delayed MW is system crowding (EIA planned pile + Holt). It is not this plant's COD.",
+      "The GIA-matched delayed-MW slice is a thin overlay. Do not treat it as the full GIA pile.",
+      "Platinum 3 scenario delta is a sensitivity (if this state were on the row), not a causal law.",
+      "Flags are current as-of facts. They do not create BPM duties by themselves.",
+      "Only retrieved BPM-015 r33 units may be cited as procedure. Stubs stay under Gaps.",
+      "Do not quote months of future COD slip. Platinum 1 delay-months CatBoost is not an input."
+    ]
+  },
+  "conversation": [
+    {
+      "id": "t1_scoreboard",
+      "question": "Here is the full gold stack for this IR. Risk results are context only. Track 1: restate the CatBoost 12-month quit probability (gold freeze / trial-149, not a withdrawal verdict) and the Platinum 3 restudy-scenario delta as a sensitivity, not a causal law. Track 2: restate the Platinum 2 delayed-MW pile now / 3-month / 12-month Holt figures as system crowding, and say why the GIA-matched delayed-MW slice must not be treated as the full GIA list. Then list which Platinum 3 risks have a BPM-015 index versus stubs (developer serial quit, FEMA, IRA). Do not quote months of future COD slip. Do not treat CatBoost or the pile as a BPM duty."
+    },
+    {
+      "id": "t2_restudy_bpm",
+      "question": "Keep those CatBoost and pile numbers as context. The Platinum 3 restudy overlay put restudy_on_record on this same IR. I need the BPM-015 r33 restudy path if MISO notices a restudy because a peer in the DPP cycle withdrew before all GIAs/FCAs/MPFCAs were executed or filed unexecuted: who notices, who funds the restudy from remaining or additional deposit, and the Interconnection Customer deadline. Do not treat the CatBoost delta as that deadline. Do not invent a serial-quit clause."
+    },
+    {
+      "id": "t3_both_true",
+      "question": "Combine two analyses for this IA-executed IR. Track A is the Platinum 2 crowded pile from the last note. Track B is the restudy funding clock you just walked. Can both be true at once without collapsing crowding into a BPM restudy trigger? Say whether the CatBoost quit score or the serial-quit flag rewrites the five-Business-Day clock or the remaining/additional deposit. Stubs stay under Gaps. If the GIP is not in the packet, keep Attachment X there and do not write it as a retrieved rule."
+    }
+  ]
+}

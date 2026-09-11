@@ -16,6 +16,7 @@ from src.modeling.platinum4.policy_index import (
     STUB_RISKS,
 )
 from src.modeling.platinum3.schema import DO_NOT_CLAIM
+from src.modeling.platinum4.gold_stack import gold_stack_from_card
 
 BOT_SCHEMA = "bot.v1"
 MAX_UNITS = 12
@@ -219,6 +220,10 @@ def assemble_bot_packet(
         "retrieved": [_slim(u) for u in picked],
         "do_not_claim": list(card.get("do_not_claim") or DO_NOT_CLAIM),
     }
+    extra = dict(extra or {})
+    stack = extra.pop("gold_stack", None) or gold_stack_from_card(card)
+    if stack:
+        packet["gold_stack"] = stack
     if extra:
         packet.update(extra)
     return packet

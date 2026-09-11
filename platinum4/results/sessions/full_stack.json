@@ -1,0 +1,282 @@
+{
+  "schema_version": "session.v1",
+  "turns": [
+    {
+      "question": "Here is the full gold stack for this IR. Risk results are context only. Track 1: restate the CatBoost 12-month quit probability (gold freeze / trial-149, not a withdrawal verdict) and the Platinum 3 restudy-scenario delta as a sensitivity, not a causal law. Track 2: restate the Platinum 2 delayed-MW pile now / 3-month / 12-month Holt figures as system crowding, and say why the GIA-matched delayed-MW slice must not be treated as the full GIA list. Then list which Platinum 3 risks have a BPM-015 index versus stubs (developer serial quit, FEMA, IRA). Do not quote months of future COD slip. Do not treat CatBoost or the pile as a BPM duty.",
+      "response_shape": "long",
+      "unit_ids": [
+        "bpm015-r33::5.4.6",
+        "bpm015-r33::6.2.11",
+        "bpm015-r33::4.2.4.6",
+        "bpm015-r33::3.1.1",
+        "bpm015-r33::5.2.5",
+        "bpm015-r33::4.3",
+        "bpm015-r33::5.3.5",
+        "bpm015-r33::5.3.3",
+        "bpm015-r33::5.2.3",
+        "bpm015-r33::6.6.5",
+        "bpm015-r33::6.7.1",
+        "bpm015-r33::7.1"
+      ],
+      "cites": [
+        "BPM-015 r33 §5.4.6",
+        "BPM-015 r33 §6.2.11",
+        "BPM-015 r33 §4.2.4.6",
+        "BPM-015 r33 §3.1.1",
+        "BPM-015 r33 §5.2.5",
+        "BPM-015 r33 §4.3",
+        "BPM-015 r33 §5.3.5",
+        "BPM-015 r33 §5.3.3",
+        "BPM-015 r33 §5.2.3",
+        "BPM-015 r33 §6.6.5",
+        "BPM-015 r33 §6.7.1",
+        "BPM-015 r33 §7.1"
+      ],
+      "topics": [
+        "restudy",
+        "delay_of_study",
+        "withdrawal",
+        "cost_allocation",
+        "gia_negotiation",
+        "deposit_refund",
+        "decision_point",
+        "scoping",
+        "deliverability"
+      ],
+      "excerpt": "# Interconnection procedure note ## 1. Risk Results Track The CatBoost model estimates a 12-month quit probability of 0.07 for this Interconnection Request (IR), based on the gold freeze (trial-149). This is a ranking score and is not a withdrawal verdict or a BPM-015 duty. Under the Platinum 3 restudy scenario, the model sensitivity shows a delta of -0.0145, meaning the quit probability would decrease if one additional restudy were on the record. This scenario delta is a sen",
+      "need_search": true
+    },
+    {
+      "question": "Keep those CatBoost and pile numbers as context. The Platinum 3 restudy overlay put restudy_on_record on this same IR. I need the BPM-015 r33 restudy path if MISO notices a restudy because a peer in the DPP cycle withdrew before all GIAs/FCAs/MPFCAs were executed or filed unexecuted: who notices, who funds the restudy from remaining or additional deposit, and the Interconnection Customer deadline. Do not treat the CatBoost delta as that deadline. Do not invent a serial-quit clause.",
+      "response_shape": "long",
+      "unit_ids": [
+        "bpm015-r33::5.4.6",
+        "bpm015-r33::4.2.4.6"
+      ],
+      "cites": [
+        "BPM-015 r33 §5.4.6",
+        "BPM-015 r33 §4.2.4.6"
+      ],
+      "topics": [
+        "restudy",
+        "delay_of_study",
+        "withdrawal",
+        "cost_allocation",
+        "gia_negotiation",
+        "deposit_refund",
+        "decision_point"
+      ],
+      "excerpt": "# Interconnection procedure note ## Situation This inquiry concerns the BPM-015 r33 restudy process when MISO determines that a restudy is required because a peer interconnection request (IR) in the same Definitive Planning Phase (DPP) cycle has withdrawn before all Generator Interconnection Agreements (GIAs), Facilities Construction Agreements (FCAs), and/or Multi-Party Facilities Construction Agreements (MPFCAs) for that cycle have been executed or filed unexecuted with FER",
+      "need_search": false
+    },
+    {
+      "question": "Combine two analyses for this IA-executed IR. Track A is the Platinum 2 crowded pile from the last note. Track B is the restudy funding clock you just walked. Can both be true at once without collapsing crowding into a BPM restudy trigger? Say whether the CatBoost quit score or the serial-quit flag rewrites the five-Business-Day clock or the remaining/additional deposit. Stubs stay under Gaps. If the GIP is not in the packet, keep Attachment X there and do not write it as a retrieved rule.",
+      "response_shape": "long",
+      "unit_ids": [
+        "bpm015-r33::5.4.6",
+        "bpm015-r33::4.2.4.6"
+      ],
+      "cites": [
+        "BPM-015 r33 §5.4.6",
+        "BPM-015 r33 §4.2.4.6"
+      ],
+      "topics": [
+        "restudy",
+        "delay_of_study",
+        "withdrawal",
+        "cost_allocation",
+        "gia_negotiation",
+        "deposit_refund",
+        "decision_point"
+      ],
+      "excerpt": "# Interconnection procedure note ## 1. Platinum 2 Crowded Pile (System Crowding) Track The Platinum 2 delayed-MW pile for this Interconnection Request (IR) is 25,299.4 MW as of the observation date, with Holt projections of 27,748.5 MW at three months and 37,044.3 MW at twelve months. This figure represents system-wide EIA planned delayed MW (delay ≥12 months versus first seen), not the commercial operation date (COD) for this IR. The GIA-matched delayed-MW slice is 0.0 MW fo",
+      "need_search": false
+    }
+  ],
+  "held": [
+    {
+      "unit_id": "bpm015-r33::5.4.6",
+      "cite": "BPM-015 r33 §5.4.6",
+      "title": "Interconnection Study Restudy",
+      "topics": [
+        "restudy",
+        "delay_of_study",
+        "withdrawal",
+        "cost_allocation",
+        "gia_negotiation"
+      ],
+      "risk_code": [
+        "restudy_friction",
+        "abandonment"
+      ],
+      "milestones": []
+    },
+    {
+      "unit_id": "bpm015-r33::6.2.11",
+      "cite": "BPM-015 r33 §6.2.11",
+      "title": "Refunds of Definitive Planning Phase Milestones (M2, M3, M4)",
+      "topics": [
+        "withdrawal",
+        "deposit_refund",
+        "decision_point",
+        "cost_allocation"
+      ],
+      "risk_code": [
+        "abandonment"
+      ],
+      "milestones": [
+        "M2",
+        "M3",
+        "M4"
+      ]
+    },
+    {
+      "unit_id": "bpm015-r33::4.2.4.6",
+      "cite": "BPM-015 r33 §4.2.4.6",
+      "title": "Refunds of Study Deposits",
+      "topics": [
+        "withdrawal",
+        "deposit_refund",
+        "restudy",
+        "decision_point"
+      ],
+      "risk_code": [
+        "abandonment"
+      ],
+      "milestones": [
+        "M2",
+        "D2",
+        "M3",
+        "M4"
+      ]
+    },
+    {
+      "unit_id": "bpm015-r33::3.1.1",
+      "cite": "BPM-015 r33 §3.1.1",
+      "title": "Contour Map",
+      "topics": [
+        "scoping"
+      ],
+      "risk_code": [
+        "system_congestion"
+      ],
+      "milestones": []
+    },
+    {
+      "unit_id": "bpm015-r33::5.2.5",
+      "cite": "BPM-015 r33 §5.2.5",
+      "title": "Withdrawal from DPP Phase I",
+      "topics": [
+        "withdrawal",
+        "deposit_refund",
+        "decision_point"
+      ],
+      "risk_code": [
+        "abandonment"
+      ],
+      "milestones": [
+        "M2",
+        "M3"
+      ]
+    },
+    {
+      "unit_id": "bpm015-r33::4.3",
+      "cite": "BPM-015 r33 §4.3",
+      "title": "Determination of Project Linkages and Potential Grouping",
+      "topics": [
+        "cost_allocation"
+      ],
+      "risk_code": [
+        "system_congestion"
+      ],
+      "milestones": []
+    },
+    {
+      "unit_id": "bpm015-r33::5.3.5",
+      "cite": "BPM-015 r33 §5.3.5",
+      "title": "Withdrawal from DPP Phase II",
+      "topics": [
+        "withdrawal",
+        "deposit_refund",
+        "decision_point"
+      ],
+      "risk_code": [
+        "abandonment"
+      ],
+      "milestones": [
+        "M3",
+        "M4"
+      ]
+    },
+    {
+      "unit_id": "bpm015-r33::5.3.3",
+      "cite": "BPM-015 r33 §5.3.3",
+      "title": "Interconnection Customer Decision Point II",
+      "topics": [
+        "decision_point",
+        "withdrawal"
+      ],
+      "risk_code": [
+        "abandonment"
+      ],
+      "milestones": [
+        "M4"
+      ]
+    },
+    {
+      "unit_id": "bpm015-r33::5.2.3",
+      "cite": "BPM-015 r33 §5.2.3",
+      "title": "Interconnection Customer Decision Point I",
+      "topics": [
+        "decision_point",
+        "withdrawal",
+        "deposit_refund"
+      ],
+      "risk_code": [
+        "abandonment"
+      ],
+      "milestones": [
+        "M3",
+        "M2"
+      ]
+    },
+    {
+      "unit_id": "bpm015-r33::6.6.5",
+      "cite": "BPM-015 r33 §6.6.5",
+      "title": "Exit from Annual ERIS and Annual Interim Deliverability Studies",
+      "topics": [
+        "delay_of_study",
+        "deliverability",
+        "gia_negotiation"
+      ],
+      "risk_code": [],
+      "milestones": []
+    },
+    {
+      "unit_id": "bpm015-r33::6.7.1",
+      "cite": "BPM-015 r33 §6.7.1",
+      "title": "Generating Facility Modification Process",
+      "topics": [
+        "gia_negotiation"
+      ],
+      "risk_code": [],
+      "milestones": []
+    },
+    {
+      "unit_id": "bpm015-r33::7.1",
+      "cite": "BPM-015 r33 §7.1",
+      "title": "Suspension",
+      "topics": [
+        "delay_of_study",
+        "restudy",
+        "deposit_refund",
+        "cost_allocation",
+        "gia_negotiation"
+      ],
+      "risk_code": [
+        "gia_execution"
+      ],
+      "milestones": []
+    }
+  ]
+}

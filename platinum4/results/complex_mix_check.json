@@ -1,0 +1,97 @@
+{
+  "rows": [
+    {
+      "name": "complex_mix",
+      "searched": true,
+      "shape": "diagram",
+      "compose_mode": "gpt-4.1",
+      "compliance": "not_determined",
+      "n_retrieved": 12,
+      "ids": [
+        "bpm015-r33::5.4.6",
+        "bpm015-r33::6.2.7",
+        "bpm015-r33::6.2.8",
+        "bpm015-r33::7.7",
+        "bpm015-r33::6.2.11",
+        "bpm015-r33::5.3.3",
+        "bpm015-r33::4.2.4.5",
+        "bpm015-r33::7.3",
+        "bpm015-r33::4.2.4.6",
+        "bpm015-r33::4.2",
+        "bpm015-r33::5.2.3",
+        "bpm015-r33::7.1"
+      ],
+      "families": [
+        "5.4",
+        "6.2",
+        "7.7",
+        "5.3",
+        "4.2",
+        "7.3",
+        "5.2",
+        "7.1"
+      ],
+      "hits": {
+        "restudy": "bpm015-r33::5.4.6",
+        "dp2": "bpm015-r33::5.3.3",
+        "d2": "bpm015-r33::4.2.4.5",
+        "cod_delay": "bpm015-r33::7.3",
+        "cod": "bpm015-r33::7.7",
+        "milestone_refund": "bpm015-r33::6.2.11"
+      },
+      "miss": [],
+      "has_mermaid": true,
+      "gip_gap": true,
+      "stub_honest": true,
+      "no_r32": true,
+      "invented_cites": [],
+      "plan_reason": "The user requests a comprehensive walkthrough of multiple BPM-015 r33 procedures, including a procedure map, and none of the required units are already held.",
+      "plan_shape": "diagram",
+      "want_diagram": true,
+      "timing_ms": {
+        "plan": 1176,
+        "write": 5907,
+        "code_postcheck": 5
+      }
+    },
+    {
+      "name": "followup_gip_and_73",
+      "searched": false,
+      "shape": "long",
+      "compose_mode": "gpt-4.1",
+      "compliance": "not_determined",
+      "n_retrieved": 2,
+      "ids": [
+        "bpm015-r33::5.4.6",
+        "bpm015-r33::7.3"
+      ],
+      "families": [
+        "5.4",
+        "7.3"
+      ],
+      "hits": {
+        "restudy": "bpm015-r33::5.4.6",
+        "cod_delay": "bpm015-r33::7.3"
+      },
+      "miss": [
+        "dp2",
+        "d2",
+        "cod",
+        "milestone_refund"
+      ],
+      "has_mermaid": false,
+      "gip_gap": true,
+      "stub_honest": false,
+      "no_r32": true,
+      "invented_cites": [],
+      "plan_reason": "The held units already cover restudy notice, withdrawal, and post-GIA IC delay clauses; a short summary is appropriate for this follow-up.",
+      "plan_shape": "long",
+      "want_diagram": false,
+      "timing_ms": {
+        "plan": 1753,
+        "write": 2473,
+        "code_postcheck": 1
+      }
+    }
+  ]
+}

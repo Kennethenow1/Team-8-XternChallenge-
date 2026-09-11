@@ -100,6 +100,7 @@ def append_turn(
                 "title": u.get("title"),
                 "topics": list(tags.get("topic") or []),
                 "risk_code": list(tags.get("risk_code") or []),
+                "milestones": list(tags.get("milestone") or []),
             }
     excerpt = " ".join((markdown or "").split())[:EXCERPT]
     turn = {
